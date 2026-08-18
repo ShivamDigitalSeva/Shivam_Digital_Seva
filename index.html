@@ -1,90 +1,126 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Digital Seva</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f4f7fb;color:#14213d}
+header{background:linear-gradient(135deg,#061b5c,#123fa3);color:white;text-align:center;padding:24px 14px}
+header h1{font-size:36px;margin:5px 0;font-weight:800}
+header p{font-size:18px;margin:8px 0}
+.badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.badges span{background:white;color:#09276d;border-radius:20px;padding:8px 14px;font-weight:bold}
+.notice{background:#071d66;color:#fff;text-align:center;padding:12px;font-size:18px;font-weight:bold}
+.container{max-width:1100px;margin:auto;padding:16px}
+.about{background:white;border-radius:18px;padding:18px;box-shadow:0 3px 12px #0001;margin-bottom:18px}
+.about h2{text-align:center;margin-top:0}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.service{display:block;text-decoration:none;background:#fff;border:2px solid #dbe3f5;border-radius:14px;padding:15px;box-shadow:0 2px 8px #0001;transition:.15s}
+.service:hover{transform:translateY(-2px);box-shadow:0 5px 14px #0002}
+.num{display:inline-flex;width:34px;height:34px;border-radius:50%;background:#0b2c8a;color:white;align-items:center;justify-content:center;font-weight:bold;margin-right:8px}
+.service b{color:#0a2370;font-size:17px}
+.service small{display:block;color:#555;margin:7px 0 0 43px;line-height:1.45}
+.contact{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.contact a{display:block;text-decoration:none;color:white;border-radius:14px;padding:16px;font-weight:bold;font-size:18px;text-align:center}
+.call{background:#087f3f}.wa{background:#168f48}.addr{background:#172b75}
+.footer{margin-top:20px;background:#071d66;color:#fff;text-align:center;padding:16px;font-weight:bold}
+.note{font-size:13px;color:#555;margin-top:12px;text-align:center}
+</style>
+</head>
+<body>
 
-  <title>Shivam Digital Seva</title>
+<header>
+  <div>आपकी सुविधा, हमारा प्रयास</div>
+  <h1>Shivam Digital Seva</h1>
+  <p>सभी प्रकार की ऑनलाइन सेवाएं एक ही स्थान पर</p>
+  <div class="badges">
+    <span>⚡ तेज सेवा</span><span>✓ विश्वसनीय जानकारी</span><span>🔒 सुरक्षित जानकारी</span>
+  </div>
+</header>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
 
-    body {
-      background: #f4f7fb;
-      color: #222;
-      line-height: 1.6;
-    }
+<main class="container">
+<section class="about">
+<h2>👤 शिवम डिजिटल सेवा के बारे में</h2>
+<p>Shivam Digital Seva में शिक्षा, छात्रवृत्ति, प्रमाण पत्र और विभिन्न ऑनलाइन सेवाओं से संबंधित उपयोगी जानकारी और आधिकारिक लिंक उपलब्ध कराए जाते हैं। किसी सेवा पर क्लिक करने पर संबंधित आधिकारिक वेबसाइट खुलेगी।</p>
+</section>
 
-    header {
-      background: linear-gradient(135deg, #0759c7, #0b86e8);
-      color: white;
-      padding: 25px 15px;
-      text-align: center;
-    }
+<h2>🌿 हमारी प्रमुख सेवाएं</h2>
+<div class="services">
 
-    header h1 {
-      font-size: 28px;
-      margin-bottom: 5px;
-    }
+<a class="service" href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener"><span class="num">1</span><b>Aadhaar सेवाएं</b><small>डाउनलोड, अपडेट, PVC कार्ड आदि</small></a>
 
-    header p {
-      font-size: 15px;
-    }
+<a class="service" href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener"><span class="num">2</span><b>Aadhaar DBT / Bank Seeding</b><small>Aadhaar संबंधी आधिकारिक सेवाएं</small></a>
 
-    nav {
-      background: white;
-      padding: 12px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+<a class="service" href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener"><span class="num">3</span><b>PAN Card</b><small>आयकर विभाग का आधिकारिक पोर्टल</small></a>
 
-    nav a {
-      text-decoration: none;
-      color: #0759c7;
-      font-weight: bold;
-      margin: 0 8px;
-      font-size: 14px;
-    }
+<a class="service" href="https://voters.eci.gov.in/" target="_blank" rel="noopener"><span class="num">4</span><b>Voter ID (EPIC)</b><small>नया आवेदन, सुधार, स्टेटस और e-EPIC</small></a>
 
-    .hero {
-      margin: 20px auto;
-      max-width: 1000px;
-      background: white;
-      padding: 30px 20px;
-      text-align: center;
-      border-radius: 15px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    }
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">5</span><b>आय प्रमाण-पत्र</b><small>बिहार RTPS से ऑनलाइन आवेदन</small></a>
 
-    .hero h2 {
-      color: #0759c7;
-      margin-bottom: 10px;
-      font-size: 25px;
-    }
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">6</span><b>जाति प्रमाण-पत्र</b><small>बिहार RTPS से ऑनलाइन आवेदन</small></a>
 
-    .hero p {
-      color: #555;
-    }
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">7</span><b>निवास प्रमाण-पत्र</b><small>बिहार RTPS से ऑनलाइन आवेदन</small></a>
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 10px 15px 30px;
-    }
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">8</span><b>EWS प्रमाण-पत्र</b><small>बिहार RTPS से ऑनलाइन आवेदन</small></a>
 
-    .section-title {
-      text-align: center;
-      color: #0759c7;
-      margin: 25px 0 15px;
-      font-size: 24px;
-    }
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">9</span><b>जन्म प्रमाण-पत्र</b><small>बिहार RTPS / संबंधित आधिकारिक सेवा</small></a>
 
-    .cards
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">10</span><b>मृत्यु प्रमाण-पत्र</b><small>बिहार RTPS / संबंधित आधिकारिक सेवा</small></a>
+
+<a class="service" href="https://abha.abdm.gov.in/" target="_blank" rel="noopener"><span class="num">11</span><b>ABHA Card</b><small>Ayushman Bharat Health Account</small></a>
+
+<a class="service" href="https://beneficiary.nha.gov.in/" target="_blank" rel="noopener"><span class="num">12</span><b>Ayushman Card</b><small>आयुष्मान भारत का आधिकारिक पोर्टल</small></a>
+
+<a class="service" href="https://www.digilocker.gov.in/" target="_blank" rel="noopener"><span class="num">13</span><b>DigiLocker</b><small>डिजिटल दस्तावेज सुरक्षित रखें</small></a>
+
+<a class="service" href="https://scholarships.gov.in/" target="_blank" rel="noopener"><span class="num">14</span><b>छात्रवृत्ति (Scholarship)</b><small>NSP का आधिकारिक पोर्टल</small></a>
+
+<a class="service" href="https://www.passportindia.gov.in/" target="_blank" rel="noopener"><span class="num">15</span><b>पासपोर्ट</b><small>पासपोर्ट सेवा का आधिकारिक पोर्टल</small></a>
+
+<a class="service" href="https://parivahan.gov.in/" target="_blank" rel="noopener"><span class="num">16</span><b>ड्राइविंग लाइसेंस</b><small>आवेदन, नवीनीकरण, स्टेटस आदि</small></a>
+
+<a class="service" href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener"><span class="num">17</span><b>लर्निंग लाइसेंस (LL)</b><small>सारथी परिवहन पोर्टल</small></a>
+
+<a class="service" href="https://parivahan.gov.in/" target="_blank" rel="noopener"><span class="num">18</span><b>वाहन सेवाएं</b><small>RC, नाम ट्रांसफर, एड्रेस चेंज आदि</small></a>
+
+<a class="service" href="https://ihmcl.co.in/" target="_blank" rel="noopener"><span class="num">19</span><b>FASTag</b><small>रीचार्ज और संबंधित जानकारी</small></a>
+
+<a class="service" href="https://nbpdcl.co.in/" target="_blank" rel="noopener"><span class="num">20</span><b>बिजली बिल भुगतान</b><small>North Bihar Power Distribution Company</small></a>
+
+<a class="service" href="https://cx.indianoil.in/" target="_blank" rel="noopener"><span class="num">21</span><b>गैस सिलेंडर / बुकिंग</b><small>Indane की आधिकारिक सेवा</small></a>
+
+<a class="service" href="https://phedbihar.gov.in/" target="_blank" rel="noopener"><span class="num">22</span><b>पानी बिल / PHED</b><small>बिहार PHED की आधिकारिक वेबसाइट</small></a>
+
+<a class="service" href="https://www.myvi.in/" target="_blank" rel="noopener"><span class="num">23</span><b>मोबाइल रिचार्ज</b><small>Vi की आधिकारिक वेबसाइट</small></a>
+
+<a class="service" href="https://www.jio.com/" target="_blank" rel="noopener"><span class="num">24</span><b>ब्रॉडबैंड / इंटरनेट</b><small>Jio की आधिकारिक वेबसाइट</small></a>
+
+<a class="service" href="https://www.rbi.org.in/" target="_blank" rel="noopener"><span class="num">25</span><b>बैंकिंग जानकारी</b><small>RBI की आधिकारिक वेबसाइट</small></a>
+
+<a class="service" href="https://www.jansuraksha.gov.in/" target="_blank" rel="noopener"><span class="num">26</span><b>बीमा योजनाएं</b><small>PMSBY, PMJJBY आदि की जानकारी</small></a>
+
+<a class="service" href="https://www.epfindia.gov.in/" target="_blank" rel="noopener"><span class="num">27</span><b>EPFO सेवाएं</b><small>UAN, पासबुक और क्लेम स्टेटस</small></a>
+
+<a class="service" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener"><span class="num">28</span><b>अन्य सामान्य सेवाएं</b><small>फॉर्म, आवेदन और स्टेटस आदि</small></a>
+
+<a class="service" href="https://apaar.education.gov.in/" target="_blank" rel="noopener"><span class="num">29</span><b>APAAR ID</b><small>One Nation One Student ID</small></a>
+
+<a class="service" href="https://www.ebharatgas.com/" target="_blank" rel="noopener"><span class="num">30</span><b>Bharatgas</b><small>गैस बुकिंग और संबंधित आधिकारिक सेवाएं</small></a>
+
+</div>
+
+<div class="contact">
+<a class="call" href="tel:9508051176">📞 Mobile Number<br>9508051176</a>
+<a class="wa" href="https://wa.me/917667187142" target="_blank" rel="noopener">💬 WhatsApp<br>7667187142</a>
+<a class="addr" href="https://www.google.com/maps/search/?api=1&query=Senuaria%2C%20Bihar" target="_blank" rel="noopener">📍 पता<br>Senuaria</a>
+</div>
+
+<p class="note">नोट: सरकारी सेवाओं के लिए हमेशा आधिकारिक वेबसाइट पर ही अपनी जानकारी/दस्तावेज दर्ज करें।</p>
+</main>
+
+<div class="footer">★ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ★</div>
+</body>
+</html>
