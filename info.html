@@ -89,319 +89,288 @@ h2{color:#0b2c9b}
 </div>
 
 <script>
-const services = {
+const params = new URLSearchParams(window.location.search);
 
-"aadhaar":{
-title:"🪪 Aadhaar सेवाएं",
-details:"आधार कार्ड भारत का महत्वपूर्ण पहचान पत्र है। इससे आधार डाउनलोड, अपडेट और अन्य ऑनलाइन सेवाएं की जा सकती हैं। आवश्यक दस्तावेज सेवा के अनुसार अलग हो सकते हैं।",
-link:"https://myaadhaar.uidai.gov.in/"
+const title = params.get('title') || 'सेवा की जानकारी';
+const description = params.get('description') || 'इस सेवा से संबंधित जानकारी।';
+const link = params.get('link') || 'index.html';
+
+document.getElementById('title').innerText = title;
+document.getElementById('description').innerText = description;
+document.getElementById('officialLink').href = link;
+
+const serviceInfo = {
+"Aadhaar सेवाएं":{
+importance:"Aadhaar भारत में एक महत्वपूर्ण पहचान दस्तावेज है।",
+uses:["पहचान प्रमाण के लिए","e-Aadhaar डाउनलोड के लिए","Aadhaar जानकारी अपडेट करने के लिए"],
+documents:["Aadhaar Number","रजिस्टर्ड मोबाइल नंबर","सेवा के अनुसार आवश्यक दस्तावेज"]
 },
 
-"dbt":{
-title:"🏦 Aadhaar DBT / Bank Seeding",
-details:"इस सेवा में आधार को बैंक खाते से जोड़ने और DBT से संबंधित जानकारी प्राप्त की जा सकती है। सरकारी लाभ सीधे बैंक खाते में आने के लिए सही बैंक-आधार लिंक होना आवश्यक हो सकता है।",
-link:"https://myaadhaar.uidai.gov.in/"
+"Aadhaar DBT / Bank Seeding":{
+importance:"इसका उपयोग सरकारी लाभ और DBT को बैंक खाते से जोड़ने के लिए किया जाता है।",
+uses:["सरकारी सब्सिडी प्राप्त करने के लिए","DBT स्थिति की जानकारी के लिए"],
+documents:["Aadhaar Card","बैंक खाता विवरण","मोबाइल नंबर"]
 },
 
-"pan":{
-title:"💳 PAN Card",
-details:"PAN Card आयकर और कई वित्तीय कार्यों के लिए महत्वपूर्ण है। नया PAN बनाने, सुधार करने और PAN से संबंधित सेवाओं के लिए आवेदन किया जा सकता है।",
-link:"https://www.incometax.gov.in/"
+"PAN Card":{
+importance:"PAN वित्तीय और आयकर संबंधी कार्यों के लिए महत्वपूर्ण पहचान संख्या है।",
+uses:["आयकर कार्यों के लिए","बैंकिंग और वित्तीय कार्यों के लिए","PAN संबंधित सेवाओं के लिए"],
+documents:["पहचान प्रमाण","जन्म तिथि प्रमाण","फोटो","मोबाइल नंबर"]
 },
 
-"voter":{
-title:"🗳️ Voter ID",
-details:"Voter ID चुनाव में मतदान के लिए महत्वपूर्ण पहचान पत्र है। नया आवेदन, सुधार, नाम खोज और आवेदन की स्थिति देखी जा सकती है।",
-link:"https://voters.eci.gov.in/"
+"Voter ID (EPIC)":{
+importance:"मतदाता पहचान पत्र मतदान और पहचान के लिए महत्वपूर्ण है।",
+uses:["मतदाता पंजीकरण","मतदाता जानकारी सुधार","मतदान संबंधी सेवाएं"],
+documents:["पहचान प्रमाण","पता प्रमाण","फोटो","मोबाइल नंबर"]
 },
 
-"income":{
-title:"📜 आय प्रमाण-पत्र",
-details:"आय प्रमाण-पत्र किसी व्यक्ति या परिवार की आय से संबंधित सरकारी प्रमाण-पत्र है। बिहार में संबंधित RTPS सेवा के माध्यम से आवेदन किया जा सकता है।",
-link:"https://serviceonline.bihar.gov.in/"
+"आय प्रमाण-पत्र":{
+importance:"आय प्रमाण-पत्र छात्रवृत्ति और विभिन्न सरकारी योजनाओं में उपयोगी होता है।",
+uses:["Scholarship आवेदन","सरकारी योजनाओं में","आर्थिक आय प्रमाण के लिए"],
+documents:["पहचान प्रमाण","निवास संबंधी दस्तावेज","आय संबंधी विवरण"]
 },
 
-"caste":{
-title:"👥 जाति प्रमाण-पत्र",
-details:"जाति प्रमाण-पत्र सरकारी योजनाओं, छात्रवृत्ति और अन्य आवश्यक कार्यों में उपयोगी हो सकता है। आवेदन के लिए संबंधित दस्तावेज और पात्रता आवश्यक होती है।",
-link:"https://serviceonline.bihar.gov.in/"
+"जाति प्रमाण-पत्र":{
+importance:"जाति प्रमाण-पत्र आरक्षण और संबंधित योजनाओं में उपयोगी हो सकता है।",
+uses:["Scholarship","आरक्षण संबंधी कार्य","सरकारी योजनाएं"],
+documents:["Aadhaar Card","निवास प्रमाण","परिवार या अन्य संबंधित प्रमाण"]
 },
 
-"residence":{
-title:"🏠 निवास प्रमाण-पत्र",
-details:"निवास प्रमाण-पत्र किसी व्यक्ति के निवास स्थान का सरकारी प्रमाण-पत्र है। बिहार RTPS पोर्टल से संबंधित आवेदन किया जा सकता है।",
-link:"https://serviceonline.bihar.gov.in/"
+"निवास प्रमाण-पत्र":{
+importance:"निवास प्रमाण-पत्र किसी स्थान पर निवास का आधिकारिक प्रमाण है।",
+uses:["सरकारी आवेदन","शैक्षणिक कार्य","पता प्रमाण"],
+documents:["Aadhaar Card","पहचान प्रमाण","पते से संबंधित दस्तावेज"]
 },
 
-"ews":{
-title:"📄 EWS प्रमाण-पत्र",
-details:"EWS प्रमाण-पत्र आर्थिक रूप से कमजोर वर्ग के पात्र व्यक्तियों के लिए आवश्यक सरकारी प्रमाण-पत्र है। आवेदन से पहले पात्रता की शर्तें अवश्य जांचें।",
-link:"https://serviceonline.bihar.gov.in/"
+"EWS प्रमाण-पत्र":{
+importance:"EWS प्रमाण-पत्र आर्थिक रूप से कमजोर वर्ग के पात्र व्यक्तियों के लिए उपयोगी है।",
+uses:["शिक्षा में आवेदन","नौकरी आवेदन","आरक्षण संबंधी पात्रता"],
+documents:["आय प्रमाण-पत्र","पहचान प्रमाण","निवास प्रमाण"]
 },
 
-"birth":{
-title:"👶 जन्म प्रमाण-पत्र",
-details:"जन्म प्रमाण-पत्र जन्म से संबंधित महत्वपूर्ण सरकारी दस्तावेज है। उपलब्ध स्थानीय या सरकारी पोर्टल के अनुसार आवेदन किया जा सकता है।",
-link:"https://serviceonline.bihar.gov.in/"
+"ABHA Card":{
+importance:"ABHA ID स्वास्थ्य रिकॉर्ड को डिजिटल रूप से जोड़ने में सहायक है।",
+uses:["डिजिटल स्वास्थ्य रिकॉर्ड","स्वास्थ्य सेवाएं","हेल्थ आईडी"],
+documents:["Aadhaar या अन्य पहचान","मोबाइल नंबर"]
 },
 
-"death":{
-title:"📜 मृत्यु प्रमाण-पत्र",
-details:"मृत्यु प्रमाण-पत्र किसी व्यक्ति की मृत्यु का आधिकारिक सरकारी रिकॉर्ड है। संबंधित स्थानीय विभाग या उपलब्ध सरकारी पोर्टल से प्रक्रिया की जा सकती है।",
-link:"https://serviceonline.bihar.gov.in/"
+"Ayushman Card":{
+importance:"Ayushman Card पात्र लाभार्थियों को स्वास्थ्य योजना से संबंधित सेवाओं में उपयोगी हो सकता है।",
+uses:["पात्रता जांच","स्वास्थ्य योजना जानकारी","कार्ड संबंधी सेवाएं"],
+documents:["Aadhaar Card","राशन कार्ड या अन्य पात्रता दस्तावेज"]
 },
 
-"abha":{
-title:"💙 ABHA Card",
-details:"ABHA Number डिजिटल स्वास्थ्य सेवाओं से संबंधित एक पहचान संख्या है। इससे स्वास्थ्य रिकॉर्ड को डिजिटल रूप से जोड़ने की सुविधा मिल सकती है।",
-link:"https://abha.abdm.gov.in/"
+"DigiLocker":{
+importance:"DigiLocker डिजिटल दस्तावेज सुरक्षित रूप से रखने और साझा करने में उपयोगी है।",
+uses:["डिजिटल दस्तावेज","मार्कशीट डाउनलोड","पहचान दस्तावेज"],
+documents:["मोबाइल नंबर","Aadhaar या आवश्यक पहचान विवरण"]
 },
 
-"ayushman":{
-title:"🏥 Ayushman Card",
-details:"Ayushman Bharat योजना पात्र परिवारों को स्वास्थ्य सेवाओं से संबंधित लाभ प्रदान कर सकती है। पात्रता और उपलब्ध अस्पतालों की जानकारी आधिकारिक पोर्टल पर देखें।",
-link:"https://pmjay.gov.in/"
+"छात्रवृत्ति (Scholarship)":{
+importance:"छात्रवृत्ति पात्र विद्यार्थियों को शिक्षा संबंधी आर्थिक सहायता प्रदान कर सकती है।",
+uses:["Scholarship आवेदन","Application Status","Renewal"],
+documents:["Aadhaar Card","Bank Passbook","आय प्रमाण-पत्र","जाति प्रमाण-पत्र यदि आवश्यक हो","शैक्षणिक दस्तावेज"]
 },
 
-"digilocker":{
-title:"☁️ DigiLocker",
-details:"DigiLocker भारत सरकार की डिजिटल दस्तावेज सेवा है। इसमें कुछ सरकारी दस्तावेजों को डिजिटल रूप से प्राप्त और सुरक्षित रखा जा सकता है।",
-link:"https://www.digilocker.gov.in/"
+"Passport":{
+importance:"पासपोर्ट विदेश यात्रा के लिए महत्वपूर्ण यात्रा दस्तावेज है।",
+uses:["नया पासपोर्ट आवेदन","पासपोर्ट नवीनीकरण","Application Status"],
+documents:["पहचान प्रमाण","पता प्रमाण","जन्म तिथि प्रमाण","अन्य आवश्यक दस्तावेज"]
 },
 
-"scholarship":{
-title:"🎓 Scholarship",
-details:"छात्रवृत्ति छात्रों को शिक्षा के लिए आर्थिक सहायता प्रदान कर सकती है। आवेदन से पहले पात्रता, अंतिम तिथि और आवश्यक दस्तावेज जांचें।",
-link:"https://scholarships.gov.in/"
+"Driving Licence":{
+importance:"Driving Licence कानूनी रूप से वाहन चलाने के लिए आवश्यक दस्तावेज है।",
+uses:["DL आवेदन","Renewal","Status","Licence सेवाएं"],
+documents:["पहचान प्रमाण","पता प्रमाण","फोटो","सेवा के अनुसार अन्य दस्तावेज"]
 },
 
-"passport":{
-title:"🛂 Passport",
-details:"पासपोर्ट विदेश यात्रा के लिए महत्वपूर्ण दस्तावेज है। नया पासपोर्ट, नवीनीकरण और अन्य पासपोर्ट सेवाओं के लिए आधिकारिक पोर्टल का उपयोग करें।",
-link:"https://www.passportindia.gov.in/"
+"Learning Licence":{
+importance:"Learning Licence वाहन चलाना सीखने के लिए प्रारंभिक लाइसेंस है।",
+uses:["LL आवेदन","Test संबंधित जानकारी","LL Status"],
+documents:["पहचान प्रमाण","पता प्रमाण","आवश्यक फोटो"]
 },
 
-"driving":{
-title:"🪪 Driving Licence",
-details:"Driving Licence वाहन चलाने के लिए आवश्यक कानूनी दस्तावेज है। आवेदन, नवीनीकरण और स्टेटस जैसी सेवाएं आधिकारिक पोर्टल पर उपलब्ध हैं।",
-link:"https://parivahan.gov.in/"
+"वाहन संबंधित सेवाएं":{
+importance:"वाहन सेवाओं में RC, वाहन विवरण और अन्य परिवहन संबंधी कार्य शामिल हैं।",
+uses:["RC सेवाएं","वाहन जानकारी","Transfer संबंधी सेवाएं"],
+documents:["RC","वाहन संबंधी दस्तावेज","पहचान प्रमाण"]
 },
 
-"learning":{
-title:"🚦 Learning Licence",
-details:"Learning Licence वाहन चलाना सीखने के लिए जारी किया जाने वाला प्रारंभिक लाइसेंस है। आवेदन से पहले पात्रता और नियम जांचें।",
-link:"https://parivahan.gov.in/"
+"FASTag":{
+importance:"FASTag टोल प्लाजा पर डिजिटल भुगतान के लिए उपयोगी है।",
+uses:["टोल भुगतान","FASTag जानकारी","वाहन संबंधित सेवाएं"],
+documents:["वाहन RC","वाहन नंबर","पहचान विवरण"]
 },
 
-"vehicle":{
-title:"🚗 वाहन संबंधित सेवाएं",
-details:"वाहन सेवाओं में RC, वाहन जानकारी और अन्य संबंधित सेवाएं शामिल हो सकती हैं। सही जानकारी के लिए आधिकारिक पोर्टल का उपयोग करें।",
-link:"https://parivahan.gov.in/"
+"बिजली बिल भुगतान":{
+importance:"बिजली बिल की जानकारी और भुगतान के लिए उपयोगी सेवा।",
+uses:["बिल देखना","बिजली बिल भुगतान","भुगतान रसीद"],
+documents:["Consumer Number","मोबाइल नंबर"]
 },
 
-"fastag":{
-title:"🏷️ FASTag",
-details:"FASTag राष्ट्रीय राजमार्गों के टोल भुगतान से संबंधित इलेक्ट्रॉनिक टैग है। इससे टोल भुगतान को अधिक सुविधाजनक बनाया जा सकता है।",
-link:"https://ihmcl.co.in/fastag-user/"
+"गैस सिलेंडर एवं बुकिंग":{
+importance:"LPG गैस सिलेंडर बुकिंग और संबंधित सेवाओं के लिए।",
+uses:["Cylinder Booking","Booking Status","LPG सेवाएं"],
+documents:["Consumer Number","रजिस्टर्ड मोबाइल नंबर"]
 },
 
-"bijli":{
-title:"💡 बिजली बिल भुगतान",
-details:"बिजली बिल का भुगतान संबंधित बिजली कंपनी या उपलब्ध भुगतान सेवा के माध्यम से किया जा सकता है। भुगतान से पहले उपभोक्ता नंबर जांचें।",
-link:"https://www.bharatbillpay.com/"
+"मोबाइल रिचार्ज":{
+importance:"मोबाइल नंबर पर Talktime और Data Pack रिचार्ज करने के लिए।",
+uses:["Data Recharge","Validity Recharge","Mobile Services"],
+documents:["मोबाइल नंबर","ऑनलाइन भुगतान माध्यम"]
 },
 
-"gas":{
-title:"🔥 गैस सिलेंडर एवं बुकिंग",
-details:"LPG गैस से संबंधित सेवाओं में सिलेंडर बुकिंग और अन्य जानकारी शामिल हो सकती है। अपने गैस प्रदाता की आधिकारिक सेवा का उपयोग करें।",
-link:"https://www.mylpg.in/"
+"PMS Scholarship":{
+importance:"बिहार पोस्ट मैट्रिक छात्रवृत्ति पात्र विद्यार्थियों के लिए महत्वपूर्ण है।",
+uses:["नया आवेदन","स्थिति देखना","Renewal"],
+documents:["Aadhaar Card","Bank Passbook","जाति प्रमाण-पत्र","आय प्रमाण-पत्र","निवास प्रमाण-पत्र","शैक्षणिक दस्तावेज"]
 },
 
-"water":{
-title:"🚰 पानी बिल भुगतान",
-details:"पानी का बिल संबंधित विभाग या उपलब्ध भुगतान सेवा के माध्यम से जमा किया जा सकता है। भुगतान से पहले बिल विवरण जांचें।",
-link:"https://www.bharatbillpay.com/"
+"APAAR ID":{
+importance:"APAAR ID विद्यार्थियों की शिक्षा संबंधी डिजिटल पहचान से जुड़ी है।",
+uses:["Student ID","Academic Records","Education Services"],
+documents:["Aadhaar","स्कूल/कॉलेज विवरण","मोबाइल नंबर"]
 },
 
-"recharge":{
-title:"📱 मोबाइल रिचार्ज",
-details:"मोबाइल नंबर को सक्रिय रखने और डेटा या कॉल सेवा प्राप्त करने के लिए रिचार्ज किया जाता है। सही मोबाइल नंबर और योजना जांचकर भुगतान करें।",
-link:"https://www.jio.com/"
+"e-Shram":{
+importance:"e-Shram असंगठित क्षेत्र के श्रमिकों के लिए डिजिटल पंजीकरण से संबंधित सेवा है।",
+uses:["श्रमिक पंजीकरण","e-Shram सेवाएं","सरकारी योजनाओं की जानकारी"],
+documents:["Aadhaar Card","मोबाइल नंबर","Bank Account Details"]
 },
 
-"broadband":{
-title:"📶 Broadband / Internet Bill",
-details:"ब्रॉडबैंड और इंटरनेट बिल का भुगतान संबंधित सेवा प्रदाता या उपलब्ध भुगतान प्लेटफॉर्म से किया जा सकता है।",
-link:"https://www.bharatbillpay.com/"
+"Ration Card (Smart PDS)":{
+importance:"राशन कार्ड खाद्य और सार्वजनिक वितरण प्रणाली की सेवाओं के लिए उपयोगी है।",
+uses:["राशन कार्ड जानकारी","राशन संबंधी विवरण","पात्रता जानकारी"],
+documents:["राशन कार्ड नंबर","परिवार संबंधित विवरण"]
 },
 
-"banking":{
-title:"🏦 बैंकिंग सेवाएं",
-details:"बैंकिंग और डाक बैंकिंग से संबंधित सेवाओं के लिए आधिकारिक संस्थान की वेबसाइट का उपयोग करें। किसी भी संवेदनशील जानकारी को अनजान व्यक्ति से साझा न करें।",
-link:"https://www.indiapost.gov.in/"
+"Labour Card":{
+importance:"श्रमिक कार्ड श्रमिकों से संबंधित सरकारी सेवाओं में उपयोगी हो सकता है।",
+uses:["श्रमिक पंजीकरण","Labour Services","योजना जानकारी"],
+documents:["Aadhaar Card","मोबाइल नंबर","श्रमिक संबंधी जानकारी"]
 },
 
-"insurance":{
-title:"🛡️ बीमा योजनाएं",
-details:"सरकारी बीमा योजनाओं में PMSBY और PMJJBY जैसी योजनाओं की जानकारी शामिल हो सकती है। आवेदन से पहले पात्रता और नियम पढ़ें।",
-link:"https://www.jansuraksha.gov.in/"
+"Medhasoft":{
+importance:"Medhasoft बिहार के विद्यार्थियों की कुछ छात्रवृत्ति और प्रोत्साहन योजनाओं से संबंधित पोर्टल है।",
+uses:["Student Services","Scholarship Information","Payment Status"],
+documents:["Student Details","Bank Details","शैक्षणिक जानकारी"]
 },
 
-"epfo":{
-title:"⚙️ EPFO सेवाएं",
-details:"EPFO कर्मचारियों के भविष्य निधि खाते से संबंधित सेवाएं प्रदान करता है। UAN, पासबुक और अन्य सेवाओं के लिए आधिकारिक पोर्टल का उपयोग करें।",
-link:"https://www.epfindia.gov.in/"
+"New Bijli Connection":{
+importance:"नया घरेलू या अन्य बिजली कनेक्शन आवेदन करने के लिए उपयोगी।",
+uses:["New Connection Apply","Application Status","Electricity Services"],
+documents:["पहचान प्रमाण","पता प्रमाण","मोबाइल नंबर","आवश्यकता अनुसार अन्य दस्तावेज"]
 },
 
-"general":{
-title:"📝 अन्य सामान्य सेवाएं",
-details:"भारत सरकार की विभिन्न ऑनलाइन सेवाओं और सरकारी जानकारी के लिए राष्ट्रीय पोर्टल का उपयोग किया जा सकता है।",
-link:"https://www.india.gov.in/"
+"PM Kisan":{
+importance:"PM Kisan पात्र किसानों के लिए केंद्र सरकार की किसान सहायता योजना है।",
+uses:["Beneficiary Status","Registration","KYC संबंधित सेवाएं"],
+documents:["Aadhaar Card","Bank Details","Land Details","मोबाइल नंबर"]
 },
 
-"pms":{
-title:"🎓 PMS Scholarship",
-details:"बिहार पोस्ट मैट्रिक छात्रवृत्ति पात्र विद्यार्थियों के लिए महत्वपूर्ण हो सकती है। आवेदन से पहले श्रेणी, दस्तावेज और पात्रता जांचें।",
-link:"https://pmsonline.bihar.gov.in/"
+"UMANG":{
+importance:"UMANG अनेक सरकारी सेवाओं को एक डिजिटल प्लेटफॉर्म पर उपलब्ध कराता है।",
+uses:["सरकारी सेवाएं","Application Services","Information Services"],
+documents:["सेवा के अनुसार अलग-अलग दस्तावेज"]
 },
 
-"apaar":{
-title:"🎒 APAAR ID",
-details:"APAAR ID छात्र की शैक्षणिक पहचान से संबंधित डिजिटल पहचान है। सही जानकारी के लिए आधिकारिक शिक्षा पोर्टल देखें।",
-link:"https://apaar.education.gov.in/"
+"India Post":{
+importance:"India Post डाक और विभिन्न पोस्टल सेवाओं से संबंधित आधिकारिक सेवा है।",
+uses:["Postal Services","Tracking","अन्य पोस्टल जानकारी"],
+documents:["सेवा के अनुसार आवश्यक जानकारी"]
 },
 
-"eshram":{
-title:"👷 e-Shram",
-details:"e-Shram असंगठित क्षेत्र के श्रमिकों के लिए बनाया गया पोर्टल है। पंजीकरण से पहले पात्रता और आवश्यक जानकारी जांचें।",
-link:"https://www.eshram.gov.in/"
+"Parivahan":{
+importance:"Parivahan वाहन और Driving Licence संबंधी सेवाओं का आधिकारिक पोर्टल है।",
+uses:["DL Services","Vehicle Services","RC Services"],
+documents:["सेवा के अनुसार आवश्यक दस्तावेज"]
 },
 
-"ration":{
-title:"🍚 Ration Card",
-details:"राशन कार्ड खाद्य और सार्वजनिक वितरण प्रणाली से संबंधित महत्वपूर्ण दस्तावेज है। बिहार में संबंधित राशन कार्ड सेवाओं के लिए आधिकारिक पोर्टल देखें।",
-link:"https://epds.bihar.gov.in/SearchByRCID.aspx"
+"National Career Service":{
+importance:"NCS नौकरी, रोजगार और Career से संबंधित सेवाओं के लिए उपयोगी है।",
+uses:["Job Search","Employment Services","Career Information"],
+documents:["मोबाइल नंबर","शैक्षणिक विवरण","Profile Details"]
 },
 
-"labour":{
-title:"👷 Labour Card",
-details:"श्रमिकों से संबंधित कार्ड और योजनाओं के लिए संबंधित विभाग की पात्रता तथा दस्तावेज आवश्यक हो सकते हैं।",
-link:"https://serviceonline.bihar.gov.in/"
+"New Gas Connection":{
+importance:"नया LPG गैस कनेक्शन प्राप्त करने से संबंधित सेवा।",
+uses:["New Connection","LPG Services","Consumer Information"],
+documents:["पहचान प्रमाण","पता प्रमाण","मोबाइल नंबर"]
 },
 
-"medhasoft":{
-title:"🎓 Medhasoft",
-details:"Medhasoft बिहार के छात्रों से संबंधित छात्रवृत्ति और मेधा सेवाओं का पोर्टल है। आवेदन से पहले सही कक्षा और पात्रता जांचें।",
-link:"https://medhasoft.bihar.gov.in/"
+"myScheme":{
+importance:"myScheme विभिन्न सरकारी योजनाओं की जानकारी खोजने में सहायक है।",
+uses:["योजनाएं खोजें","पात्रता जांचें","सरकारी जानकारी"],
+documents:["योजना के अनुसार आवश्यक दस्तावेज"]
 },
 
-"newbijli":{
-title:"💡 New Bijli Connection",
-details:"नया बिजली कनेक्शन लेने के लिए आवेदन, दस्तावेज और संबंधित नियम आवश्यक हो सकते हैं। आधिकारिक बिजली कंपनी के पोर्टल से आवेदन करें।",
-link:"https://nbpdcl.co.in/frmLTHTNewConnection.aspx"
+"PM Awas Yojana":{
+importance:"PM Awas Yojana पात्र लाभार्थियों के आवास संबंधी सरकारी योजना है।",
+uses:["योजना जानकारी","पात्रता जानकारी","आवेदन संबंधी जानकारी"],
+documents:["पहचान प्रमाण","आय/पात्रता संबंधी दस्तावेज"]
 },
 
-"pmkisan":{
-title:"🌾 PM Kisan",
-details:"प्रधानमंत्री किसान सम्मान निधि पात्र किसानों के लिए सरकारी योजना है। लाभार्थी स्थिति और अन्य जानकारी आधिकारिक पोर्टल पर जांचें।",
-link:"https://pmkisan.gov.in/"
+"PM Fasal Bima Yojana":{
+importance:"यह योजना किसानों की फसल को बीमा सुरक्षा प्रदान करने से संबंधित है।",
+uses:["फसल बीमा जानकारी","पात्रता","आवेदन"],
+documents:["किसान जानकारी","भूमि/फसल विवरण","Aadhaar"]
 },
 
-"umang":{
-title:"📱 UMANG",
-details:"UMANG एक सरकारी ऐप और पोर्टल है जिसमें कई सरकारी सेवाएं एक स्थान पर उपलब्ध कराई जाती हैं।",
-link:"https://web.umang.gov.in/"
+"Kisan Suvidha":{
+importance:"किसानों के लिए विभिन्न डिजिटल जानकारी और सेवाएं।",
+uses:["कृषि जानकारी","मौसम जानकारी","किसान सेवाएं"],
+documents:["सेवा के अनुसार आवश्यक विवरण"]
 },
 
-"indiapost":{
-title:"📮 India Post",
-details:"India Post डाक, स्पीड पोस्ट, बैंकिंग और अन्य पोस्टल सेवाएं प्रदान करता है।",
-link:"https://www.indiapost.gov.in/"
+"CPGRAMS":{
+importance:"CPGRAMS सरकारी विभागों से संबंधित शिकायत दर्ज करने का पोर्टल है।",
+uses:["शिकायत दर्ज करना","शिकायत Status","सरकारी विभाग से संपर्क"],
+documents:["मोबाइल नंबर","ईमेल","शिकायत से संबंधित विवरण"]
 },
 
-"parivahan":{
-title:"🚗 Parivahan",
-details:"Parivahan पोर्टल वाहन, Driving Licence और परिवहन विभाग से संबंधित कई ऑनलाइन सेवाएं प्रदान करता है।",
-link:"https://parivahan.gov.in/"
+"Jan Dhan Yojana":{
+importance:"प्रधानमंत्री जन धन योजना बैंकिंग सुविधाओं से जुड़ी सरकारी योजना है।",
+uses:["योजना जानकारी","बैंकिंग समावेशन","खाता संबंधी जानकारी"],
+documents:["पहचान प्रमाण","Aadhaar","अन्य बैंक द्वारा मांगे गए दस्तावेज"]
 },
 
-"ncs":{
-title:"💼 National Career Service",
-details:"National Career Service रोजगार, नौकरी खोज और करियर से संबंधित सरकारी पोर्टल है।",
-link:"https://www.ncs.gov.in/"
+"RTI Online":{
+importance:"RTI Online के माध्यम से संबंधित सरकारी संस्थाओं से सूचना का अधिकार आवेदन किया जा सकता है।",
+uses:["RTI आवेदन","RTI Status","सूचना संबंधी सेवाएं"],
+documents:["आवेदनकर्ता विवरण","RTI आवेदन से संबंधित जानकारी"]
 },
 
-"newgas":{
-title:"🔥 New Gas Connection",
-details:"नया LPG गैस कनेक्शन लेने के लिए पहचान और पते से संबंधित दस्तावेज आवश्यक हो सकते हैं। आधिकारिक गैस कंपनी से प्रक्रिया करें।",
-link:"https://www.hindustanpetroleum.com/hp-gas"
-},
-
-"myscheme":{
-title:"📋 myScheme",
-details:"myScheme पोर्टल पर विभिन्न सरकारी योजनाओं की जानकारी और पात्रता खोजी जा सकती है।",
-link:"https://www.myscheme.gov.in/"
-},
-
-"india":{
-title:"🇮🇳 India.gov.in",
-details:"India.gov.in भारत सरकार का राष्ट्रीय पोर्टल है, जहाँ विभिन्न सरकारी विभागों और सेवाओं की जानकारी उपलब्ध है।",
-link:"https://www.india.gov.in/"
-},
-
-"pmay":{
-title:"🏠 PM Awas Yojana",
-details:"प्रधानमंत्री आवास योजना आवास से संबंधित सरकारी योजना है। पात्रता और आवेदन की जानकारी आधिकारिक पोर्टल पर देखें।",
-link:"https://pmaymis.gov.in/"
-},
-
-"pmfby":{
-title:"🌾 PM Fasal Bima Yojana",
-details:"प्रधानमंत्री फसल बीमा योजना किसानों की फसल से संबंधित बीमा योजना है। पात्रता और नियम आधिकारिक वेबसाइट पर जांचें।",
-link:"https://pmfby.gov.in/"
-},
-
-"kisan":{
-title:"🧑‍🌾 Kisan Suvidha",
-details:"Kisan Suvidha किसानों के लिए उपयोगी सरकारी जानकारी और ऑनलाइन सेवाओं से संबंधित पोर्टल है।",
-link:"https://kisansuvidha.gov.in/"
-},
-
-"cpgrams":{
-title:"📢 CPGRAMS",
-details:"CPGRAMS के माध्यम से नागरिक संबंधित सरकारी विभागों को ऑनलाइन शिकायत दर्ज कर सकते हैं।",
-link:"https://pgportal.gov.in/"
-},
-
-"jandhan":{
-title:"🏦 Jan Dhan Yojana",
-details:"प्रधानमंत्री जन धन योजना बैंकिंग सुविधाओं को आम नागरिकों तक पहुँचाने से संबंधित सरकारी योजना है।",
-link:"https://pmjdy.gov.in/"
-},
-
-"rti":{
-title:"📝 RTI Online",
-details:"RTI Online के माध्यम से पात्र मामलों में सूचना का अधिकार अधिनियम के अंतर्गत ऑनलाइन आवेदन किया जा सकता है।",
-link:"https://rtionline.gov.in/"
-},
-
-"rtps":{
-title:"📜 Bihar RTPS",
-details:"Bihar RTPS पोर्टल पर आय, जाति, निवास और अन्य कई प्रमाण-पत्रों के लिए ऑनलाइन आवेदन की सुविधा उपलब्ध है।",
-link:"https://serviceonline.bihar.gov.in/"
+"Bihar RTPS":{
+importance:"Bihar RTPS के माध्यम से कई प्रमाण-पत्र और सरकारी सेवाओं के लिए आवेदन किया जा सकता है।",
+uses:["जाति प्रमाण-पत्र","आय प्रमाण-पत्र","निवास प्रमाण-पत्र","अन्य सेवाएं"],
+documents:["सेवा के अनुसार आवश्यक प्रमाण-पत्र"]
 }
-
 };
 
-const params=new URLSearchParams(window.location.search);
-const service=params.get("service");
+const info = serviceInfo[title] || {
+importance: title+" से संबंधित आधिकारिक सेवा और जानकारी के लिए नीचे दिए गए Official Website बटन का उपयोग करें।",
+uses:["संबंधित ऑनलाइन सेवा","आधिकारिक जानकारी","स्थिति या आवेदन संबंधी कार्य"],
+documents:["सेवा के अनुसार आवश्यक दस्तावेज","पहचान प्रमाण","मोबाइल नंबर"]
+};
 
-if(services[service]){
-document.getElementById("title").innerText=services[service].title;
-document.getElementById("details").innerText=services[service].details;
-document.getElementById("officialLink").href=services[service].link;
-}
-</script>
+document.getElementById('importance').innerText = info.importance;
+
+const uses = document.getElementById('uses');
+uses.innerHTML = "";
+info.uses.forEach(text => {
+  const li = document.createElement('li');
+  li.innerText = text;
+  uses.appendChild(li);
+});
+
+const documents = document.getElementById('documents');
+documents.innerHTML = "";
+info.documents.forEach(text => {
+  const li = document.createElement('li');
+  li.innerText = text;
+  documents.appendChild(li);
+});
+</script> 
 
 </body>
 </html>
