@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>सेवा की जानकारी | Shivam Digital Seva</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#080e1b;
+  color:#f1f5f9;
+}
+
+header{
+  background:#101a2e;
+  border-bottom:1px solid #29426f;
+  padding:18px 15px;
+  text-align:center;
+}
+
+.logo{
+  width:85px;
+  height:85px;
+  object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  padding:4px;
+  box-shadow:0 0 18px #315ad688;
+}
+
+header h1{
+  margin:10px 0 0;
+  font-size:28px;
+}
+
+header p{
+  color:#aeb9cc;
+  margin:6px 0 0;
+}
+
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:18px 14px 40px;
+}
+
+.back{
+  display:inline-block;
+  color:#fff;
+  background:#172238;
+  border:1px solid #35558f;
+  padding:12px 18px;
+  border-radius:12px;
+  margin-bottom:18px;
+}
+
+.info-card{
+  background:#172238;
+  border:1px solid #29426f;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 8px 25px #0005;
+}
+
+h2{
+  margin:0 0 10px;
+  font-size:27px;
+}
+
+.line{
+  height:4px;
+  width:70px;
+  background:#4169e1;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.box{
+  background:#10192b;
+  border:1px solid #29426f;
+  border-radius:15px;
+  padding:16px;
+  margin-top:14px;
+}
+
+.box h3{
+  margin:0 0 10px;
+  color:#8fa9ff;
+}
+
+.box p,.box li{
+  color:#c2cbda;
+  line-height:1.7;
+}
+
+ul{
+  padding-left:22px;
+}
+
+.apply-btn{
+  display:block;
+  text-align:center;
+  background:linear-gradient(135deg,#2347bb,#4169e1);
+  color:white;
+  padding:18px;
+  border-radius:16px;
+  margin-top:22px;
+  font-size:19px;
+  font-weight:bold;
+  box-shadow:0 5px 18px #2347bb66;
+}
+
+.note{
+  text-align:center;
+  color:#9daac0;
+  font-size:13px;
+  margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva">
+  <h1>Shivam Digital Seva</h1>
+  <p>आपकी सुविधा, हमारा प्रयास</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">← वापस जाएँ</a>
+
+<div class="info-card">
+
+<h2 id="title">सेवा की जानकारी</h2>
+<div class="line"></div>
+
+<div class="box">
+<h3>📌 यह सेवा क्या है?</h3>
+<p id="description"></p>
+</div>
+
+<div class="box">
+<h3>⭐ इस सेवा का महत्व</h3>
+<p id="importance"></p>
+</div>
+
+<div class="box">
+<h3>💼 इसका उपयोग कहाँ होता है?</h3>
+<ul id="uses"></ul>
+</div>
+
+<div class="box">
+<h3>📄 आवश्यक दस्तावेज</h3>
+<ul id="documents"></ul>
+</div>
+
+<div class="box">
+<h3>⚠️ महत्वपूर्ण बातें</h3>
+<ul>
+<li>सही और आधिकारिक जानकारी का ही उपयोग करें।</li>
+<li>आवेदन से पहले सभी विवरण ध्यान से जाँचें।</li>
+<li>आवश्यक दस्तावेज और पात्रता संबंधित विभाग के नियमों के अनुसार हो सकती है।</li>
+<li>OTP, पासवर्ड और व्यक्तिगत जानकारी किसी अनजान व्यक्ति को न दें।</li>
+</ul>
+</div>
+
+<a id="officialLink" class="apply-btn" href="#" target="_blank">
+🌐 Official Website पर जाएँ / Apply करें
+</a>
+
+<p class="note">
+लिंक संबंधित आधिकारिक पोर्टल पर खुलेगा।
+</p>
+
+</div>
+</div>
+
+<script>
+const params=new URLSearchParams(window.location.search);
+
+const title=params.get('title') || 'सेवा की जानकारी';
+const description=params.get('description') || 'इस ऑनलाइन सेवा से संबंधित जानकारी।';
+const link=params.get('link') || 'index.html';
+
+document.getElementById('title').innerText=title;
+document.getElementById('description').innerText=description;
+document.getElementById('officialLink').href=link;
+
+/* सभी सेवाओं के लिए सामान्य जानकारी */
+document.getElementById('importance').innerText=
+title+' महत्वपूर्ण सेवा है। इसका उपयोग संबंधित सरकारी, डिजिटल या ऑनलाइन कार्यों के लिए किया जाता है। आवेदन और उपयोग से पहले आधिकारिक नियम एवं पात्रता अवश्य देखें।';
+
+/* उपयोग */
+const uses=document.getElementById('uses');
+
+[
+  'संबंधित ऑनलाइन आवेदन और सेवाओं के लिए',
+  'सरकारी या डिजिटल कार्यों के लिए',
+  'स्थिति, जानकारी या आवश्यक विवरण देखने के लिए',
+  'आधिकारिक पोर्टल के माध्यम से सेवा प्राप्त करने के लिए'
+].forEach(text=>{
+  const li=document.createElement('li');
+  li.innerText=text;
+  uses.appendChild(li);
+});
+
+/* दस्तावेज */
+const documents=document.getElementById('documents');
+
+[
+  'आवश्यक पहचान या संबंधित दस्तावेज',
+  'मोबाइल नंबर',
+  'सेवा के अनुसार आवश्यक प्रमाण-पत्र',
+  'कुछ मामलों में Aadhaar या अन्य पहचान विवरण'
+].forEach(text=>{
+  const li=document.createElement('li');
+  li.innerText=text;
+  documents.appendChild(li);
+});
+</script>
+
+</body>
+</html>
