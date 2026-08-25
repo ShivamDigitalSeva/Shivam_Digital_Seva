@@ -632,41 +632,39 @@ a{text-decoration:none}
   </div>  
 </footer> 
   <script>
-const searchInput=document.getElementById('serviceSearch');
-const cards=document.querySelectorAll('.grid .card');
-const noResult=document.getElementById('noResult');
+const searchInput = document.getElementById('serviceSearch');
+const cards = document.querySelectorAll('.grid .card');
+const noResult = document.getElementById('noResult');
 
-searchInput.addEventListener('input',function(){
-  const q=this.value.trim().toLowerCase();
-  let n=0;
+/* Search */
+searchInput.addEventListener('input', function () {
+  const q = this.value.trim().toLowerCase();
+  let n = 0;
 
-  cards.forEach(c=>{
-    const m=c.textContent.toLowerCase().includes(q);
-    c.style.display=m?'flex':'none';
-    if(m)n++;
+  cards.forEach(card => {
+    const match = card.textContent.toLowerCase().includes(q);
+    card.style.display = match ? 'flex' : 'none';
+    if (match) n++;
   });
 
-  noResult.style.display=q&&n===0?'block':'none';
+  noResult.style.display = q && n === 0 ? 'block' : 'none';
 });
 
-/* सभी 50 सेवाओं को जानकारी वाले पेज पर भेजें */
-cards.forEach(card=>{
-  card.addEventListener('click',function(e){
+/* सभी सेवाओं को जानकारी वाले पेज पर भेजें */
+cards.forEach(card => {
+  card.addEventListener('click', function(e) {
     e.preventDefault();
 
-    const title=this.querySelector('h3')?.innerText || 'Digital Seva';
-    const description=this.querySelector('p')?.innerText || '';
-    const link=this.href;
+    const title = this.querySelector('h3').innerText;
+    const description = this.querySelector('p').innerText;
+    const link = this.href;
 
-    const url=
-      'info.html?title='+encodeURIComponent(title)+
-      '&description='+encodeURIComponent(description)+
-      '&link='+encodeURIComponent(link);
-
-    window.location.href=url;
+    window.location.href =
+      'info.html?title=' + encodeURIComponent(title) +
+      '&description=' + encodeURIComponent(description) +
+      '&link=' + encodeURIComponent(link);
   });
 });
-</script>
-
+  </script>
 </body>  
   </html>  
