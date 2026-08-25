@@ -7,76 +7,41 @@
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  background:#f4f7fb;
-  color:#172554;
-}
-.top{
-  background:linear-gradient(135deg,#06145c,#123db5);
-  color:#fff;
-  text-align:center;
-  padding:20px 12px;
-}
-.top h1{margin:0;font-size:28px}
-.top p{margin:8px 0 0}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#080e1b;color:#fff}
+header{background:linear-gradient(135deg,#07101f,#173a9e);text-align:center;padding:20px 12px}
+.logo{width:80px;height:80px;border-radius:50%;background:#fff;padding:4px;object-fit:contain}
+header h1{margin:8px 0;font-size:28px}
+header p{margin:0;color:#d7e1ff}
 
-.box{
-  max-width:800px;
-  margin:20px auto;
-  background:#fff;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:0 5px 20px #0002;
-}
-h2{color:#0b2c9b}
+.container{max-width:800px;margin:auto;padding:18px 14px 35px}
+.back{display:inline-block;background:#172238;color:#fff;border:1px solid #35558f;padding:11px 16px;border-radius:10px;margin-bottom:16px}
 
-.info{
-  background:#f4f7fb;
-  border-left:5px solid #123db5;
-  padding:15px;
-  border-radius:10px;
-  line-height:1.7;
-  margin-top:14px;
-}
-.info h3{
-  margin:0 0 8px;
-  color:#0b2c9b;
-}
-.info p,.info li{line-height:1.7}
+.card{background:#172238;border:1px solid #29426f;border-radius:18px;padding:20px}
+.card h2{margin-top:0;color:#fff;font-size:27px}
 
-.btn{
-  display:block;
-  background:#0b2c9b;
-  color:#fff;
-  text-align:center;
-  padding:16px;
-  border-radius:12px;
-  margin-top:20px;
-  font-size:18px;
-  font-weight:bold;
-  text-decoration:none;
-}
-.back{
-  display:block;
-  text-align:center;
-  margin-top:18px;
-  color:#123db5;
-  font-weight:bold;
-  text-decoration:none;
-}
+.info{background:#10192b;border:1px solid #29426f;border-radius:14px;padding:15px;margin-top:14px}
+.info h3{margin:0 0 8px;color:#8fa9ff}
+.info p,.info li{color:#d3dbea;line-height:1.7}
+ul{padding-left:22px;margin-bottom:0}
+
+.apply{display:block;text-align:center;background:linear-gradient(135deg,#2347bb,#4169e1);color:#fff;padding:16px;border-radius:14px;margin-top:20px;font-size:18px;font-weight:bold}
+.note{text-align:center;color:#aeb9cc;font-size:13px;margin-top:15px}
 </style>
 </head>
 
 <body>
 
-<header class="top">
-  <h1>Shivam Digital Seva</h1>
-  <p>सेवा की पूरी जानकारी</p>
+<header>
+<img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva Logo">
+<h1>Shivam Digital Seva</h1>
+<p>आपकी सुविधा, हमारा प्रयास</p>
 </header>
 
-<div class="box">
+<div class="container">
+
+<a class="back" href="index.html">← वापस जाएँ</a>
+
+<div class="card">
 
 <h2 id="title">सेवा की जानकारी</h2>
 
@@ -91,7 +56,7 @@ h2{color:#0b2c9b}
 </div>
 
 <div class="info">
-<h3>💼 इसका उपयोग कहाँ होता है?</h3>
+<h3>💼 इसका उपयोग</h3>
 <ul id="uses"></ul>
 </div>
 
@@ -103,360 +68,400 @@ h2{color:#0b2c9b}
 <div class="info">
 <h3>⚠️ महत्वपूर्ण बातें</h3>
 <ul>
-<li>हमेशा सही और आधिकारिक जानकारी का उपयोग करें।</li>
-<li>आवेदन करने से पहले सभी विवरण ध्यान से जाँचें।</li>
-<li>OTP और पासवर्ड किसी अनजान व्यक्ति को न दें।</li>
-<li>दस्तावेज और पात्रता सेवा के अनुसार बदल सकते हैं।</li>
+<li>हमेशा आधिकारिक वेबसाइट पर सही जानकारी भरें।</li>
+<li>OTP और पासवर्ड किसी को न दें।</li>
+<li>आवेदन करने से पहले सभी विवरण जाँचें।</li>
+<li>दस्तावेज और पात्रता संबंधित विभाग के नियमों के अनुसार बदल सकते हैं।</li>
 </ul>
 </div>
 
-<a id="officialLink" class="btn" target="_blank">
+<a id="officialLink" class="apply" href="#" target="_blank">
 🌐 Official Website पर जाएँ / Apply करें
 </a>
 
-<a href="index.html" class="back">
-⬅️ सभी सेवाओं पर वापस जाएँ
-</a>
+<p class="note">यह लिंक संबंधित आधिकारिक पोर्टल पर खुलेगा।</p>
 
+</div>
 </div>
 
 <script>
-const params=new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 
-const title=params.get("title") || "सेवा की जानकारी";
-const description=params.get("description") || "इस सेवा से संबंधित ऑनलाइन जानकारी।";
-const link=params.get("link") || "index.html";
+const title = params.get("title") || "सेवा की जानकारी";
+const link = params.get("link") || "index.html";
 
-document.getElementById("title").innerText=title;
-document.getElementById("description").innerText=description;
-document.getElementById("officialLink").href=link;
+document.getElementById("title").innerText = title;
+document.getElementById("officialLink").href = link;
 
-const D=["Aadhaar या पहचान प्रमाण","मोबाइल नंबर","सेवा के अनुसार आवश्यक दस्तावेज"];
-
-const serviceData={
+const serviceData = {
 
 "Aadhaar सेवाएं":{
+description:"Aadhaar कार्ड डाउनलोड, अपडेट और अन्य Aadhaar संबंधी सेवाओं के लिए यह सेवा उपयोगी है।",
 importance:"Aadhaar भारत में एक महत्वपूर्ण पहचान दस्तावेज है।",
-uses:["Aadhaar डाउनलोड करना","जानकारी अपडेट करना","Aadhaar संबंधी ऑनलाइन सेवाएं"],
+uses:["Aadhaar डाउनलोड","Aadhaar जानकारी अपडेट","Aadhaar से जुड़ी ऑनलाइन सेवाएं"],
 documents:["Aadhaar Number","Registered Mobile Number","सेवा के अनुसार प्रमाण-पत्र"]
 },
 
 "Aadhaar DBT / Bank Seeding":{
-importance:"Aadhaar और बैंक खाते से संबंधित DBT सेवाओं के लिए उपयोगी है।",
-uses:["DBT जानकारी","Bank Seeding संबंधी जानकारी","सरकारी लाभ"],
+description:"Aadhaar और बैंक खाते से जुड़ी DBT एवं बैंक सीडिंग संबंधी जानकारी के लिए उपयोगी है।",
+importance:"सरकारी लाभ की राशि संबंधित नियमों के अनुसार सही खाते में प्राप्त करने में सहायता मिलती है।",
+uses:["DBT जानकारी","Bank Seeding जानकारी","सरकारी लाभ की स्थिति"],
 documents:["Aadhaar Card","Bank Account Details","मोबाइल नंबर"]
 },
 
 "PAN Card":{
-importance:"PAN Card आयकर और कई वित्तीय कार्यों के लिए महत्वपूर्ण दस्तावेज है।",
-uses:["Income Tax कार्य","बैंकिंग और वित्तीय कार्य","PAN संबंधित सेवाएं"],
-documents:["Aadhaar Card","मोबाइल नंबर","आवश्यकतानुसार फोटो"]
+description:"PAN Card आयकर विभाग द्वारा जारी एक महत्वपूर्ण वित्तीय पहचान दस्तावेज है।",
+importance:"Income Tax और कई वित्तीय कार्यों में PAN की आवश्यकता हो सकती है।",
+uses:["नया PAN आवेदन","PAN संबंधित जानकारी","वित्तीय और कर संबंधी कार्य"],
+documents:["Aadhaar Card","मोबाइल नंबर","फोटो/अन्य आवश्यक जानकारी"]
 },
 
 "Voter ID (EPIC)":{
-importance:"Voter ID मतदान और मतदाता पहचान से संबंधित महत्वपूर्ण दस्तावेज है।",
-uses:["नया मतदाता पंजीकरण","सुधार","मतदाता सूची जांच"],
+description:"Voter ID मतदाता पहचान और मतदान से संबंधित दस्तावेज है।",
+importance:"पात्र नागरिकों के लिए मतदान प्रक्रिया में उपयोगी है।",
+uses:["नया मतदाता पंजीकरण","मतदाता विवरण सुधार","मतदाता सूची जांच"],
 documents:["पहचान प्रमाण","पता प्रमाण","फोटो","मोबाइल नंबर"]
 },
 
 "आय प्रमाण-पत्र":{
-importance:"आय प्रमाण-पत्र व्यक्ति या परिवार की आय प्रमाणित करने के लिए उपयोगी है।",
+description:"यह व्यक्ति या परिवार की आय संबंधी जानकारी प्रमाणित करने के लिए उपयोगी दस्तावेज है।",
+importance:"Scholarship और कई सरकारी कार्यों में इसकी आवश्यकता हो सकती है।",
 uses:["Scholarship","सरकारी योजनाएं","शैक्षणिक कार्य"],
 documents:["Aadhaar Card","आय संबंधी जानकारी","मोबाइल नंबर"]
 },
 
 "जाति प्रमाण-पत्र":{
-importance:"जाति प्रमाण-पत्र आरक्षण और संबंधित सरकारी कार्यों में उपयोगी हो सकता है।",
+description:"जाति प्रमाण-पत्र संबंधित सरकारी श्रेणी और पहचान से जुड़ा दस्तावेज है।",
+importance:"आरक्षण, scholarship और अन्य पात्र सेवाओं में उपयोगी हो सकता है।",
 uses:["Scholarship","आरक्षण","सरकारी योजनाएं"],
-documents:["Aadhaar Card","निवास प्रमाण","आवश्यकतानुसार अन्य दस्तावेज"]
+documents:["Aadhaar Card","निवास संबंधी प्रमाण","अन्य आवश्यक दस्तावेज"]
 },
 
 "निवास प्रमाण-पत्र":{
-importance:"यह किसी व्यक्ति के निवास स्थान का आधिकारिक प्रमाण है।",
-uses:["सरकारी आवेदन","Scholarship","अन्य दस्तावेज आवेदन"],
+description:"यह व्यक्ति के निवास स्थान से संबंधित आधिकारिक प्रमाण-पत्र है।",
+importance:"कई सरकारी और शैक्षणिक आवेदनों में उपयोगी है।",
+uses:["सरकारी आवेदन","Scholarship","अन्य प्रमाण-पत्र आवेदन"],
 documents:["Aadhaar Card","Address Proof","मोबाइल नंबर"]
 },
 
 "EWS प्रमाण-पत्र":{
-importance:"EWS प्रमाण-पत्र आर्थिक रूप से कमजोर वर्ग के पात्र व्यक्तियों के लिए उपयोगी हो सकता है।",
+description:"EWS प्रमाण-पत्र आर्थिक रूप से कमजोर वर्ग के पात्र व्यक्तियों के लिए संबंधित दस्तावेज है।",
+importance:"पात्रता होने पर शिक्षा और नौकरी से जुड़े आरक्षण कार्यों में उपयोगी हो सकता है।",
 uses:["शिक्षा","नौकरी आवेदन","आरक्षण संबंधी कार्य"],
 documents:["Aadhaar Card","आय विवरण","संपत्ति संबंधी जानकारी"]
 },
 
 "जन्म प्रमाण-पत्र":{
-importance:"जन्म प्रमाण-पत्र जन्म की तारीख और अन्य विवरण प्रमाणित करता है।",
+description:"जन्म प्रमाण-पत्र जन्म की तारीख और अन्य जन्म संबंधी विवरण का आधिकारिक रिकॉर्ड है।",
+importance:"School admission और अन्य पहचान संबंधी कार्यों में उपयोगी है।",
 uses:["School Admission","पहचान संबंधी कार्य","सरकारी आवेदन"],
-documents:["जन्म संबंधी जानकारी","माता-पिता की जानकारी","सेवा के अनुसार प्रमाण"]
+documents:["जन्म संबंधी जानकारी","माता-पिता की जानकारी","आवश्यक प्रमाण"]
 },
 
 "मृत्यु प्रमाण-पत्र":{
-importance:"मृत्यु प्रमाण-पत्र किसी व्यक्ति की मृत्यु का आधिकारिक रिकॉर्ड है।",
-uses:["सरकारी रिकॉर्ड","बीमा संबंधी कार्य","अन्य कानूनी कार्य"],
-documents:["मृत्यु संबंधी जानकारी","पहचान संबंधी दस्तावेज","सेवा के अनुसार प्रमाण"]
+description:"मृत्यु प्रमाण-पत्र मृत्यु संबंधी आधिकारिक रिकॉर्ड है।",
+importance:"कई सरकारी और कानूनी कार्यों में उपयोगी हो सकता है।",
+uses:["सरकारी रिकॉर्ड","बीमा संबंधी कार्य","अन्य आवश्यक कार्य"],
+documents:["मृत्यु संबंधी जानकारी","पहचान दस्तावेज","आवश्यक प्रमाण"]
 },
 
 "ABHA Card":{
-importance:"ABHA डिजिटल स्वास्थ्य रिकॉर्ड और स्वास्थ्य सेवाओं से संबंधित है।",
+description:"ABHA डिजिटल स्वास्थ्य पहचान और स्वास्थ्य रिकॉर्ड से संबंधित सेवा है।",
+importance:"डिजिटल स्वास्थ्य सेवाओं में उपयोगी है।",
 uses:["Digital Health Record","Health Services","Medical Information"],
 documents:["Aadhaar Card","मोबाइल नंबर"]
 },
 
 "Ayushman Card":{
-importance:"पात्र परिवारों को योजना के अनुसार स्वास्थ्य संबंधी लाभ मिल सकते हैं।",
-uses:["पात्रता जांच","कार्ड संबंधी जानकारी","अस्पताल जानकारी"],
+description:"यह पात्र परिवारों के लिए स्वास्थ्य योजना संबंधी सेवा है।",
+importance:"पात्रता के अनुसार स्वास्थ्य सेवाओं में लाभ मिल सकता है।",
+uses:["पात्रता जांच","कार्ड जानकारी","अस्पताल जानकारी"],
 documents:["Aadhaar Card","परिवार की जानकारी","मोबाइल नंबर"]
 },
 
 "DigiLocker":{
-importance:"DigiLocker डिजिटल दस्तावेज सुरक्षित रूप से प्राप्त और साझा करने के लिए उपयोगी है।",
+description:"DigiLocker डिजिटल दस्तावेज प्राप्त और साझा करने की सरकारी सेवा है।",
+importance:"डिजिटल दस्तावेज सुरक्षित रूप से रखने में उपयोगी है।",
 uses:["Document Download","Digital Documents","Document Sharing"],
-documents:["मोबाइल नंबर","Aadhaar या आवश्यक जानकारी"]
+documents:["मोबाइल नंबर","Aadhaar/आवश्यक जानकारी"]
 },
 
 "छात्रवृत्ति (Scholarship)":{
+description:"यह विद्यार्थियों की scholarship आवेदन और जानकारी से संबंधित सेवा है।",
 importance:"पात्र विद्यार्थियों को शिक्षा के लिए आर्थिक सहायता मिल सकती है।",
 uses:["Scholarship Apply","Application Status","Renewal"],
 documents:["Aadhaar Card","Bank Details","Income Certificate","Academic Documents"]
 },
 
 "Passport":{
-importance:"विदेश यात्रा के लिए Passport महत्वपूर्ण यात्रा दस्तावेज है।",
+description:"Passport विदेश यात्रा के लिए महत्वपूर्ण यात्रा दस्तावेज है।",
+importance:"अंतरराष्ट्रीय यात्रा में आवश्यक हो सकता है।",
 uses:["नया Passport","Renewal","Status Check"],
 documents:["Address Proof","Date of Birth Proof","आवश्यक पहचान दस्तावेज"]
 },
 
 "Driving Licence":{
-importance:"Driving Licence कानूनी रूप से वाहन चलाने से संबंधित महत्वपूर्ण दस्तावेज है।",
+description:"Driving Licence वाहन चलाने से संबंधित आधिकारिक दस्तावेज है।",
+importance:"कानूनी रूप से वाहन चलाने के लिए आवश्यक हो सकता है।",
 uses:["नया DL","Renewal","DL Status"],
 documents:["Age Proof","Address Proof","अन्य आवश्यक दस्तावेज"]
 },
 
 "Learning Licence":{
-importance:"Learning Licence वाहन चलाने की लाइसेंस प्रक्रिया का एक चरण है।",
+description:"Learning Licence ड्राइविंग लाइसेंस प्रक्रिया का प्रारंभिक चरण है।",
+importance:"स्थायी Driving Licence प्रक्रिया से पहले आवश्यक हो सकता है।",
 uses:["LL Apply","LL Status","DL प्रक्रिया"],
 documents:["Age Proof","Address Proof","अन्य आवश्यक दस्तावेज"]
 },
 
 "वाहन संबंधित सेवाएं":{
-importance:"वाहन की RC और अन्य परिवहन सेवाओं से संबंधित है।",
+description:"यह वाहन, RC और अन्य परिवहन सेवाओं से संबंधित है।",
+importance:"वाहन की जानकारी और संबंधित सेवाओं के लिए उपयोगी है।",
 uses:["RC जानकारी","वाहन सेवाएं","स्थिति जांच"],
 documents:["Vehicle Number","RC Details","सेवा के अनुसार दस्तावेज"]
 },
 
 "FASTag":{
-importance:"FASTag टोल भुगतान और संबंधित सेवाओं के लिए उपयोगी है।",
-uses:["FASTag जानकारी","टोल संबंधी सेवाएं","स्थिति जांच"],
-documents:["Vehicle Details","मोबाइल नंबर","सेवा के अनुसार दस्तावेज"]
+description:"FASTag टोल भुगतान और वाहन संबंधी सेवा है।",
+importance:"टोल भुगतान प्रक्रिया में उपयोगी है।",
+uses:["FASTag जानकारी","टोल सेवाएं","स्थिति जांच"],
+documents:["Vehicle Details","मोबाइल नंबर"]
 },
 
 "बिजली बिल भुगतान":{
-importance:"बिजली बिल की जानकारी और भुगतान के लिए उपयोगी है।",
+description:"बिजली बिल की जानकारी और भुगतान संबंधी सेवा है।",
+importance:"बिजली बिल देखने और भुगतान में उपयोगी है।",
 uses:["Bill Check","Bill Payment","Payment History"],
 documents:["Consumer Number","मोबाइल नंबर"]
 },
 
 "गैस सिलेंडर एवं बुकिंग":{
-importance:"LPG गैस सिलेंडर बुकिंग और संबंधित सेवाओं के लिए उपयोगी है।",
+description:"LPG गैस सिलेंडर और बुकिंग संबंधी सेवा है।",
+importance:"गैस बुकिंग और कनेक्शन जानकारी में उपयोगी है।",
 uses:["Gas Booking","Connection Information","LPG Services"],
 documents:["Consumer Number","Registered Mobile Number"]
 },
 
 "पानी बिल भुगतान":{
-importance:"पानी के बिल की जानकारी और भुगतान के लिए उपयोगी है।",
+description:"पानी के बिल की जानकारी और भुगतान संबंधी सेवा है।",
+importance:"बिल भुगतान और संबंधित जानकारी में उपयोगी है।",
 uses:["Bill Check","Bill Payment","Payment Information"],
 documents:["Consumer Number","मोबाइल नंबर"]
 },
 
 "मोबाइल रिचार्ज":{
-importance:"मोबाइल नंबर के रिचार्ज और संबंधित सेवाओं के लिए उपयोगी है।",
+description:"मोबाइल नंबर रिचार्ज और प्लान जानकारी से संबंधित सेवा है।",
+importance:"मोबाइल सेवा जारी रखने के लिए उपयोगी है।",
 uses:["Mobile Recharge","Plan Information","Validity Check"],
 documents:["मोबाइल नंबर","Payment Method"]
 },
 
 "ब्रॉडबैंड / इंटरनेट बिल":{
-importance:"इंटरनेट या ब्रॉडबैंड बिल से संबंधित सेवा है।",
+description:"इंटरनेट और ब्रॉडबैंड बिल संबंधी सेवा है।",
+importance:"इंटरनेट बिल और प्लान की जानकारी के लिए उपयोगी है।",
 uses:["Bill Payment","Plan Information","Account Services"],
 documents:["Customer ID","मोबाइल नंबर"]
 },
 
 "बैंकिंग सेवाएं":{
-importance:"बैंकिंग और डाक संबंधी विभिन्न सेवाओं की जानकारी के लिए उपयोगी है।",
+description:"बैंकिंग और वित्तीय सेवाओं से संबंधित जानकारी उपलब्ध कराता है।",
+importance:"वित्तीय कार्यों और सेवा जानकारी के लिए उपयोगी है।",
 uses:["Account Information","Banking Services","Financial Information"],
 documents:["सेवा के अनुसार आवश्यक दस्तावेज"]
 },
 
 "बीमा योजनाएं":{
-importance:"सरकारी बीमा योजनाओं की जानकारी के लिए उपयोगी है।",
+description:"विभिन्न सरकारी बीमा योजनाओं से संबंधित जानकारी है।",
+importance:"पात्र व्यक्तियों के लिए बीमा योजना की जानकारी उपयोगी हो सकती है।",
 uses:["Scheme Information","Eligibility","Policy Details"],
 documents:["Aadhaar Card","Bank Details","सेवा के अनुसार दस्तावेज"]
 },
 
 "EPFO सेवाएं":{
-importance:"EPF और कर्मचारी भविष्य निधि की सेवाओं से संबंधित है।",
+description:"EPF और कर्मचारी भविष्य निधि से संबंधित सेवा है।",
+importance:"कर्मचारियों के PF खाते की जानकारी में उपयोगी है।",
 uses:["UAN Services","Passbook","EPF Information"],
-documents:["UAN Number","मोबाइल नंबर","सेवा के अनुसार जानकारी"]
-},
-
-"अन्य सामान्य सेवाएं":{
-importance:"विभिन्न सामान्य सरकारी और डिजिटल सेवाओं की जानकारी के लिए उपयोगी है।",
-uses:["सरकारी जानकारी","Online Services","Digital Services"],
-documents:D
+documents:["UAN Number","मोबाइल नंबर"]
 },
 
 "PMS Scholarship":{
-importance:"Post Matric Scholarship पात्र विद्यार्थियों को शिक्षा के लिए आर्थिक सहायता से संबंधित है।",
+description:"Post Matric Scholarship विद्यार्थियों की शिक्षा सहायता से संबंधित सेवा है।",
+importance:"पात्र विद्यार्थियों को आर्थिक सहायता मिल सकती है।",
 uses:["Online Apply","Application Status","Renewal"],
 documents:["Aadhaar Card","Income Certificate","Caste Certificate","Bank Passbook"]
 },
 
 "APAAR ID":{
-importance:"APAAR ID विद्यार्थियों की शैक्षणिक पहचान और रिकॉर्ड से संबंधित है।",
+description:"APAAR ID विद्यार्थियों की शैक्षणिक पहचान से संबंधित है।",
+importance:"शैक्षणिक रिकॉर्ड और शिक्षा सेवाओं में उपयोगी है।",
 uses:["Student Identity","Academic Records","Education Services"],
 documents:["Student Details","School Details","आवश्यक जानकारी"]
 },
 
 "e-Shram":{
-importance:"e-Shram असंगठित क्षेत्र के श्रमिकों के पंजीकरण से संबंधित है।",
-uses:["Worker Registration","श्रमिक जानकारी","योजना संबंधी जानकारी"],
+description:"e-Shram असंगठित क्षेत्र के श्रमिकों के पंजीकरण से संबंधित सेवा है।",
+importance:"श्रमिकों को संबंधित योजनाओं की जानकारी में सहायता मिल सकती है।",
+uses:["Worker Registration","श्रमिक जानकारी","योजना जानकारी"],
 documents:["Aadhaar Card","Bank Account","मोबाइल नंबर"]
 },
 
 "Ration Card (Smart PDS)":{
-importance:"राशन कार्ड खाद्य और सार्वजनिक वितरण प्रणाली की सेवाओं से संबंधित है।",
+description:"राशन कार्ड और सार्वजनिक वितरण प्रणाली से संबंधित सेवा है।",
+importance:"खाद्य वितरण और परिवार की राशन जानकारी के लिए उपयोगी है।",
 uses:["Ration Card Status","राशन कार्ड जानकारी","परिवार की जानकारी"],
-documents:["Aadhaar Card","परिवार की जानकारी","सेवा के अनुसार दस्तावेज"]
+documents:["Aadhaar Card","परिवार की जानकारी"]
 },
 
 "Labour Card":{
-importance:"Labour Card श्रमिकों की संबंधित योजनाओं और सेवाओं से जुड़ा हो सकता है।",
+description:"श्रमिक कार्ड संबंधित श्रमिक सेवाओं की जानकारी के लिए उपयोगी है।",
+importance:"पात्र श्रमिकों को संबंधित योजनाओं से जोड़ने में सहायता हो सकती है।",
 uses:["Worker Registration","Labour Services","Status"],
 documents:["Aadhaar Card","Bank Details","Worker Details"]
 },
 
 "Medhasoft":{
-importance:"Medhasoft बिहार के विद्यार्थियों की छात्रवृत्ति और प्रोत्साहन सेवाओं से संबंधित है।",
-uses:["Scholarship Information","Student Benefits","Status"],
+description:"Medhasoft बिहार के विद्यार्थियों की छात्रवृत्ति और प्रोत्साहन सेवाओं से संबंधित है।",
+importance:"विद्यार्थी लाभ और आवेदन की जानकारी के लिए उपयोगी है।",
+uses:["Scholarship Information","Student Benefits","Application Status"],
 documents:["Student Details","Bank Details","Academic Documents"]
 },
 
 "New Bijli Connection":{
-importance:"नया बिजली कनेक्शन लेने के लिए ऑनलाइन आवेदन संबंधी जानकारी है।",
+description:"नया बिजली कनेक्शन आवेदन संबंधी सेवा है।",
+importance:"नया बिजली कनेक्शन लेने की प्रक्रिया में उपयोगी है।",
 uses:["New Connection","Application Status","Electricity Services"],
 documents:["Aadhaar Card","Address Proof","मोबाइल नंबर"]
 },
 
 "PM Kisan":{
-importance:"PM-KISAN पात्र किसानों को योजना के अनुसार सहायता से संबंधित है।",
+description:"PM-KISAN पात्र किसानों के लिए योजना संबंधी सेवा है।",
+importance:"किसानों को योजना की जानकारी और पात्रता जांचने में उपयोगी है।",
 uses:["Beneficiary Status","Registration","eKYC"],
 documents:["Aadhaar Card","Bank Account","Land Details","मोबाइल नंबर"]
 },
 
 "UMANG":{
-importance:"UMANG एक ही स्थान पर कई सरकारी डिजिटल सेवाएं उपलब्ध कराता है।",
+description:"UMANG अनेक सरकारी डिजिटल सेवाओं को एक स्थान पर उपलब्ध कराता है।",
+importance:"विभिन्न सरकारी सेवाओं तक आसान पहुँच में उपयोगी है।",
 uses:["Government Services","Online Applications","Status Check"],
 documents:["सेवा के अनुसार आवश्यक जानकारी"]
 },
 
 "India Post":{
-importance:"India Post डाक और संबंधित सेवाओं से जुड़ी जानकारी उपलब्ध कराता है।",
+description:"India Post डाक और अन्य संबंधित सेवाओं की जानकारी से संबंधित है।",
+importance:"डाक और सेवा जानकारी के लिए उपयोगी है।",
 uses:["Postal Services","Tracking","Service Information"],
 documents:["सेवा के अनुसार आवश्यक दस्तावेज"]
 },
 
 "Parivahan":{
-importance:"Parivahan वाहन और Driving Licence संबंधी सेवाओं के लिए उपयोगी है।",
+description:"Parivahan वाहन और Driving Licence सेवाओं से संबंधित है।",
+importance:"वाहन और लाइसेंस संबंधी ऑनलाइन सेवाओं में उपयोगी है।",
 uses:["Vehicle Services","Driving Licence","RC Information"],
 documents:["Vehicle Details","Licence Details","सेवा के अनुसार दस्तावेज"]
 },
 
 "National Career Service":{
-importance:"नौकरी, रोजगार और करियर से संबंधित सेवाओं के लिए उपयोगी है।",
+description:"यह नौकरी और रोजगार से संबंधित सरकारी सेवा है।",
+importance:"नौकरी और करियर जानकारी के लिए उपयोगी है।",
 uses:["Job Search","Career Information","Employment Services"],
-documents:["मोबाइल नंबर","शैक्षणिक विवरण","आवश्यक जानकारी"]
+documents:["मोबाइल नंबर","शैक्षणिक विवरण"]
 },
 
 "New Gas Connection":{
-importance:"नया LPG गैस कनेक्शन लेने की जानकारी के लिए उपयोगी है।",
+description:"नया LPG गैस कनेक्शन लेने से संबंधित जानकारी है।",
+importance:"नया गैस कनेक्शन आवेदन करने में उपयोगी है।",
 uses:["New Connection","Gas Booking","LPG Services"],
 documents:["Identity Proof","Address Proof","मोबाइल नंबर"]
 },
 
 "myScheme":{
-importance:"myScheme विभिन्न सरकारी योजनाओं को खोजने और समझने के लिए उपयोगी है।",
+description:"myScheme सरकारी योजनाओं को खोजने की सेवा है।",
+importance:"पात्रता के अनुसार सरकारी योजनाएं खोजने में उपयोगी है।",
 uses:["Scheme Search","Eligibility Check","Government Benefits"],
 documents:["योजना के अनुसार दस्तावेज"]
 },
 
 "India.gov.in":{
-importance:"यह भारत सरकार के राष्ट्रीय पोर्टल की जानकारी से संबंधित है।",
+description:"यह भारत सरकार के राष्ट्रीय पोर्टल से संबंधित है।",
+importance:"सरकारी जानकारी और सेवाओं के लिए उपयोगी है।",
 uses:["Government Information","Online Services","Scheme Information"],
 documents:["सेवा के अनुसार आवश्यक जानकारी"]
 },
 
 "PM Awas Yojana":{
-importance:"पात्र लाभार्थियों के लिए आवास योजना से संबंधित जानकारी है।",
+description:"प्रधानमंत्री आवास योजना से संबंधित जानकारी है।",
+importance:"पात्र लाभार्थियों को आवास योजना की जानकारी मिल सकती है।",
 uses:["Scheme Information","Application Status","Eligibility"],
 documents:["Aadhaar Card","परिवार की जानकारी","योजना के अनुसार दस्तावेज"]
 },
 
 "PM Fasal Bima Yojana":{
-importance:"यह किसानों की फसल बीमा योजना से संबंधित जानकारी है।",
+description:"प्रधानमंत्री फसल बीमा योजना किसानों के लिए बीमा संबंधी सेवा है।",
+importance:"फसल जोखिम के संबंध में योजना की जानकारी उपयोगी है।",
 uses:["Crop Insurance","Policy Information","Application"],
 documents:["Aadhaar Card","Land Details","Bank Details"]
 },
 
 "Kisan Suvidha":{
-importance:"किसानों के लिए उपयोगी कृषि और सरकारी सेवाओं की जानकारी से संबंधित है।",
+description:"किसानों के लिए कृषि और सरकारी सेवाओं की जानकारी है।",
+importance:"कृषि संबंधी जानकारी और सेवाओं के लिए उपयोगी है।",
 uses:["Kisan Services","Agriculture Information","Government Services"],
 documents:["सेवा के अनुसार आवश्यक जानकारी"]
 },
 
 "CPGRAMS":{
-importance:"सरकारी विभागों से संबंधित शिकायत ऑनलाइन दर्ज करने के लिए उपयोगी है।",
+description:"सरकारी विभागों से संबंधित शिकायत ऑनलाइन दर्ज करने की सेवा है।",
+importance:"शिकायत दर्ज करने और उसकी स्थिति देखने में उपयोगी है।",
 uses:["Online Complaint","Complaint Status","Grievance Redressal"],
 documents:["मोबाइल नंबर","शिकायत का विवरण","संबंधित प्रमाण"]
 },
 
 "Jan Dhan Yojana":{
-importance:"प्रधानमंत्री जन धन योजना बैंकिंग और वित्तीय समावेशन से संबंधित है।",
+description:"प्रधानमंत्री जन धन योजना बैंकिंग और वित्तीय समावेशन से संबंधित है।",
+importance:"बैंकिंग सुविधाओं की जानकारी के लिए उपयोगी है।",
 uses:["Banking Information","Financial Inclusion","Scheme Benefits"],
 documents:["Aadhaar Card","मोबाइल नंबर","अन्य KYC दस्तावेज"]
 },
 
 "RTI Online":{
-importance:"सरकारी विभागों से सूचना मांगने के लिए RTI ऑनलाइन सेवा उपयोगी है।",
+description:"सरकारी विभागों से सूचना मांगने की ऑनलाइन सेवा है।",
+importance:"नागरिकों को RTI के माध्यम से सूचना मांगने में सहायता करती है।",
 uses:["RTI Application","Application Status","Information Request"],
 documents:["आवेदक की जानकारी","मोबाइल नंबर","आवश्यक जानकारी"]
 },
 
 "Bihar RTPS":{
-importance:"बिहार RTPS आय, जाति, निवास और अन्य प्रमाण-पत्र सेवाओं के लिए उपयोगी है।",
+description:"बिहार RTPS आय, जाति, निवास और अन्य प्रमाण-पत्र सेवाओं से संबंधित है।",
+importance:"बिहार के नागरिकों को विभिन्न प्रमाण-पत्र सेवाओं की जानकारी के लिए उपयोगी है।",
 uses:["Income Certificate","Caste Certificate","Residence Certificate","अन्य प्रमाण-पत्र"],
 documents:["Aadhaar Card","मोबाइल नंबर","सेवा के अनुसार दस्तावेज"]
 }
 
 };
 
-const data=serviceData[title] || {
-importance:title+" से संबंधित महत्वपूर्ण ऑनलाइन सेवा है। आवेदन से पहले आधिकारिक नियम और पात्रता अवश्य देखें।",
+const data = serviceData[title] || {
+description: title + " से संबंधित ऑनलाइन सेवा की जानकारी यहाँ उपलब्ध है।",
+importance: title + " एक महत्वपूर्ण ऑनलाइन सेवा है। आवेदन से पहले आधिकारिक नियम और पात्रता जाँचें।",
 uses:["संबंधित ऑनलाइन सेवा","आवेदन या जानकारी प्राप्त करना","स्थिति और विवरण देखना"],
-documents:D
+documents:["Aadhaar या पहचान प्रमाण","मोबाइल नंबर","सेवा के अनुसार आवश्यक दस्तावेज"]
 };
 
-document.getElementById("importance").innerText=data.importance;
+document.getElementById("description").innerText = data.description;
+document.getElementById("importance").innerText = data.importance;
 
-const uses=document.getElementById("uses");
+const uses = document.getElementById("uses");
 data.uses.forEach(item=>{
-const li=document.createElement("li");
-li.innerText=item;
-uses.appendChild(li);
+  const li=document.createElement("li");
+  li.innerText=item;
+  uses.appendChild(li);
 });
 
-const documents=document.getElementById("documents");
+const documents = document.getElementById("documents");
 data.documents.forEach(item=>{
-const li=document.createElement("li");
-li.innerText=item;
-documents.appendChild(li);
+  const li=document.createElement("li");
+  li.innerText=item;
+  documents.appendChild(li);
 });
 </script>
 
