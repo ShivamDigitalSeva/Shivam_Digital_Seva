@@ -636,9 +636,19 @@ searchInput.addEventListener('input', function () {
 
   noResult.style.display = q && n === 0 ? 'block' : 'none';
 });
+    /* सिर्फ 4 प्रमाण-पत्र सीधे खोलें */
+const directServices = [
+  'जाति प्रमाण-पत्र',
+  'आय प्रमाण-पत्र',
+  'निवास प्रमाण-पत्र',
+  'EWS प्रमाण-पत्र'
+];
 
 /* सभी सेवाओं को जानकारी वाले पेज पर भेजें */
 cards.forEach(card => {
+    if (directServices.includes(card.querySelector('h3').innerText.trim())) {
+    return;
+}
   card.addEventListener('click', function(e) {
     e.preventDefault();
 
