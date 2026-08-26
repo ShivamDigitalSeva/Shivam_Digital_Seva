@@ -682,5 +682,109 @@ cards.forEach(card => {
   });
 });
   </script>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import {
+  getFirestore, doc, getDoc, setDoc, deleteDoc,
+  onSnapshot, serverTimestamp, query, collection
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+  authDomain: "shivam-digital-seva.firebaseapp.com",
+  projectId: "shivam-digital-seva",
+  storageBucket: "shivam-digital-seva.firebasestorage.app",
+  messagingSenderId: "142024656312",
+  appId: "1:142024656312:web:ef0e26c1daacc62f21bb4d"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+/* Search */
+const searchInput = document.getElementById('serviceSearch');
+const cards = document.querySelectorAll('.grid .card');
+const noResult = document.getElementById('noResult');
+
+searchInput.addEventListener('input', function () {
+  const q = this.value.trim().toLowerCase();
+  let n = 0;
+
+  cards.forEach(card => {
+    const match = card.textContent.toLowerCase().includes(q);
+    card.style.display = match ? 'flex' : 'none';
+    if (match) n++;
+  });
+
+  noResult.style.display = q && n === 0 ? 'block' : 'none';
+});
+
+/* 4 प्रमाण-पत्र सीधे RTPS पर जाएँ */
+const directServices = [
+  'जाति प्रमाण-पत्र',
+  'आय प्रमाण-पत्र',
+  'निवास प्रमाण-पत्र',
+  'EWS प्रमाण-पत्र'
+];
+
+cards.forEach(card => {
+  if (directServices.includes(card.querySelector('h3').innerText.trim())) {
+    return;
+  }
+
+  card.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const title = this.querySelector('h3').innerText;
+    const description = this.querySelector('p').innerText;
+    const link = this.href;
+
+    window.location.href =
+      'info.html?title=' + encodeURIComponent(title) +
+      '&description=' + encodeURIComponent(description) +
+      '&link=' + encodeURIComponent(link);
+  });
+});
+
+/* Firebase Follow System */
+const followBtn = document.getElementById('followBtn');
+const followersEl = document.getElementById('followers');
+
+onSnapshot(query(collection(db, "followers")), snapshot => {
+  followersEl.innerText = snapshot.size;
+});
+
+signInAnonymously(auth).catch(error => {
+  console.error(error);
+  followersEl.innerText = "0";
+});
+
+onAuthStateChanged(auth, async user => {
+  if (!user) return;
+
+  const followerRef = doc(db, "followers", user.uid);
+  const followerDoc = await getDoc(followerRef);
+
+  if (followerDoc.exists()) {
+    followBtn.innerText = "✅ Follow किया";
+  }
+
+  followBtn.addEventListener('click', async () => {
+    const currentDoc = await getDoc(followerRef);
+
+    if (currentDoc.exists()) {
+      await deleteDoc(followerRef);
+      followBtn.innerText = "❤️ Follow करें";
+    } else {
+      await setDoc(followerRef, {
+        followedAt: serverTimestamp()
+      });
+      followBtn.innerText = "✅ Follow किया";
+    }
+  });
+});
+  </script>
 </body>  
   </html>  
