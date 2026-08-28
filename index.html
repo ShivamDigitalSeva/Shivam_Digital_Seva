@@ -1050,167 +1050,68 @@
 
 
     /* ================= LOGIN ================= */
+       /* VERIFY OTP */
 
-    const phoneInput =
-      document.getElementById(
-        "phoneNumber"
-      );
+verifyOtpBtn.addEventListener(
+  "click",
 
-    const otpInput =
-      document.getElementById(
-        "otpCode"
-      );
+  async function(){
 
-    const sendOtpBtn =
-      document.getElementById(
-        "sendOtpBtn"
-      );
+    const otp = otpInput.value.trim();
 
-    const verifyOtpBtn =
-      document.getElementById(
-        "verifyOtpBtn"
-      );
+    if(!confirmationResult){
 
-    const loginStatus =
-      document.getElementById(
-        "loginStatus"
-      );
+      loginStatus.innerText =
+        "❌ पहले OTP भेजें";
 
-    const loginGate =
-      document.getElementById(
-        "loginGate"
-      );
+      return;
+    }
 
+    if(!/^[0-9]{6}$/.test(otp)){
 
-    let confirmationResult;
+      loginStatus.innerText =
+        "❌ 6 अंकों का OTP डालें";
 
+      return;
+    }
 
-    /* 24 HOURS CHECK */
+    try{
 
-    const loginTime =
-      localStorage.getItem(
-        "shivamLoginTime"
-      );
+      loginStatus.innerText =
+        "⏳ Login हो रहा है...";
 
+      await confirmationResult.confirm(otp);
 
-    if(loginTime){
-
-      const difference =
+      localStorage.setItem(
+        "shivamLoginTime",
         Date.now()
-        -
-        Number(loginTime);
+      );
 
-      const oneDay =
-        24
-        * 60
-        * 60
-        * 1000;
+      loginStatus.innerText =
+        "✅ Login सफल!";
 
+      setTimeout(function(){
 
-      if(
-        difference < oneDay
-      ){
+        loginGate.style.display = "none";
 
-        loginGate.style.display =
-          "none";
+      }, 500);
 
-      }
+    } catch(error){
 
-      else{
+      console.error(error);
 
-        localStorage.removeItem(
-          "shivamLoginTime"
-        );
-
-      }
+      loginStatus.innerText =
+        "❌ OTP गलत है या OTP की समय-सीमा समाप्त हो गई";
 
     }
 
+  }
+);
 
-    /* reCAPTCHA */
+</script>
 
-    window.recaptchaVerifier =
-      new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {
-          size:"normal"
-        }
-      );
+</body>
+</html>
 
-
-    /* SEND OTP */
-
-    sendOtpBtn.addEventListener(
-      "click",
-
-      async function(){
-
-        const number =
-          phoneInput.value.trim();
-
-
-        if(
-          !/^[6-9][0-9]{9}$/
-          .test(number)
-        ){
-
-          loginStatus.innerText =
-            "❌ सही 10 अंकों का मोबाइल नंबर डालें";
-
-          return;
-
-        }
-
-
-        try{
-
-          loginStatus.innerText =
-            "⏳ OTP भेजा जा रहा है...";
-
-
-          confirmationResult =
-            await signInWithPhoneNumber(
-
-              auth,
-
-              "+91" + number,
-
-              window.recaptchaVerifier
-
-            );
-
-
-          loginStatus.innerText =
-            "📩 OTP भेज दिया गया";
-
-
-        }
-
-        catch(error){
-
-          console.error(error);
-
-          loginStatus.innerText =
-            "❌ OTP नहीं भेजा जा सका";
-
-        }
-
-      }
-    );
-
-
-    /* VERIFY OTP */
-
-    verifyOtpBtn.addEventListener(
-      "click",
-
-      async function(){
-
-        const otp =
-          otpInput.value.trim();
-
-
-        if(!confirmationResult){
-
-          loginStat
+      
+        
