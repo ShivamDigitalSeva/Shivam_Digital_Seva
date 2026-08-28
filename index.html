@@ -1,901 +1,1216 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivam Digital Seva</title>
 
-<title>Shivam Digital Seva</title>
+  <meta name="description"
+    content="Shivam Digital Seva - सभी प्रकार की ऑनलाइन सेवाएं एक ही स्थान पर">
 
-<link rel="icon" type="image/png" href="favicon.png">
+  <style>
 
-<meta name="description" content="Shivam Digital Seva - सभी प्रकार की ऑनलाइन सेवाएं एक ही स्थान पर">
+    *{
+      box-sizing:border-box;
+    }
 
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+    }
 
-body{
-  margin:0;
-  font-family:Georgia,"Noto Sans Devanagari",Arial,sans-serif;
-  background:#080e1b;
-  color:#f4f7ff;
-}
+    body{
+      margin:0;
+      font-family:Arial,"Noto Sans Devanagari",sans-serif;
+      background:#080e1b;
+      color:#fff;
+    }
 
-a{text-decoration:none}
+    a{
+      text-decoration:none;
+    }
 
-.top{
-  background:linear-gradient(135deg,#07101f,#111d35);
-  color:#fff;
-  padding:22px 15px;
-  border-bottom:1px solid #243c78;
-  text-align:center;
-}
+    /* ================= LOGIN ================= */
 
-.logo-wrap{
-  text-align:center;
-  margin-bottom:12px;
-}
+    #loginGate{
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      background:#080e1b;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
 
-.logo{
-  width:105px;
-  height:105px;
-  object-fit:contain;
-  border-radius:50%;
-  background:#fff;
-  padding:4px;
-  box-shadow:0 0 22px #3f66ff88;
-}
+    #loginBox{
+      width:100%;
+      max-width:400px;
+      background:#fff;
+      color:#111;
+      padding:25px 20px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 10px 30px #000;
+    }
 
-.top h1{
-  font-size:42px;
-  margin:0;
-  font-weight:900;
-  letter-spacing:.5px;
-  text-shadow:0 2px 12px #000;
-}
+    #loginBox h2{
+      color:#123db5;
+      margin-top:0;
+    }
 
-.top h1 span{
-  color:#ffffff;
-}
+    #loginBox input{
+      width:100%;
+      padding:14px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      font-size:16px;
+      margin:8px 0;
+    }
 
-.top h2{
-  margin:8px 0 0;
-  font-size:19px;
-  color:#dbe5ff;
-}
+    #loginBox button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:10px;
+      background:#123db5;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      margin-top:8px;
+      cursor:pointer;
+    }
 
-.top p{
-  margin:8px 0 0;
-  font-size:15px;
-  color:#9eacc6;
-}
+    #recaptcha-container{
+      margin:10px 0;
+    }
 
-.wrap{
-  max-width:1100px;
-  margin:auto;
-  padding:18px 14px;
-}
+    #loginStatus{
+      color:#123db5;
+      font-weight:bold;
+    }
 
-.notice{
-  background:#111a2c;
-  border:1px solid #29426f;
-  border-radius:18px;
-  padding:15px;
-  text-align:center;
-  margin:0 0 16px;
-  box-shadow:0 5px 20px #0005;
-}
+    /* ================= HEADER ================= */
 
-.notice b{
-  font-size:19px;
-}
+    .top{
+      background:linear-gradient(135deg,#07101f,#111d35);
+      padding:22px 15px;
+      text-align:center;
+      border-bottom:1px solid #243c78;
+    }
 
-.small{
-  font-size:13px;
-  color:#9daac0;
-  text-align:center;
-  margin:8px 0;
-}
+    .logo{
+      width:100px;
+      height:100px;
+      object-fit:contain;
+      background:white;
+      border-radius:50%;
+      padding:4px;
+    }
 
-/* Search */
-.search-box{
-  background:#121c30;
-  border:2px solid #315ad6;
-  border-radius:18px;
-  padding:8px 16px;
-  margin:0 0 18px;
-  box-shadow:0 0 18px #315ad633;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+    .top h1{
+      margin:10px 0 5px;
+      font-size:30px;
+    }
 
-.search-box span{
-  font-size:25px;
-}
+    .top h2{
+      font-size:16px;
+      color:#dbe5ff;
+      margin:8px 0;
+    }
 
-.search-box input{
-  width:100%;
-  border:0;
-  outline:0;
-  font-size:16px;
-  padding:12px 4px;
-  color:#fff;
-  background:transparent;
-}
+    .top p{
+      color:#9eacc6;
+    }
 
-.search-box input::placeholder{
-  color:#98a4ba;
-}
+    /* ================= MAIN ================= */
 
-/* Digital Seva Box */
-.digital-seva-box{
-  background:#121c30;
-  border:1px solid #29426f;
-  border-radius:20px;
-  padding:20px;
-  margin:18px 0;
-  text-align:center;
-  box-shadow:0 6px 22px #0004;
-}
+    .wrap{
+      max-width:1100px;
+      margin:auto;
+      padding:18px 14px;
+    }
 
-.digital-seva-box h2{
-  color:#fff;
-  margin:0 0 10px;
-}
+    .notice{
+      background:#111a2c;
+      border:1px solid #29426f;
+      border-radius:18px;
+      padding:15px;
+      text-align:center;
+    }
 
-.digital-seva-box p{
-  color:#b8c3d8;
-  margin:8px 0;
-  font-size:16px;
-}
+    .small{
+      color:#aeb9cc;
+      font-size:13px;
+    }
 
-.contact-buttons{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  margin-top:15px;
-  flex-wrap:wrap;
-}
+    /* ================= SEARCH ================= */
 
-.contact-buttons a{
-  background:linear-gradient(135deg,#1f3e9f,#365de0);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:12px;
-  font-weight:bold;
-  box-shadow:0 3px 12px #0005;
-}
+    .search-box{
+      background:#121c30;
+      border:2px solid #315ad6;
+      border-radius:18px;
+      padding:8px 15px;
+      margin:18px 0;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
 
-/* Section Title */
-.section-title{
-  color:#fff;
-  background:transparent;
-  text-align:left;
-  border-radius:0;
-  padding:8px 0 10px;
-  margin:22px 0 15px;
-  font-size:26px;
-  border-bottom:2px solid #2c4675;
-  position:relative;
-}
+    .search-box input{
+      width:100%;
+      background:transparent;
+      color:white;
+      border:none;
+      outline:none;
+      padding:10px;
+      font-size:16px;
+    }
 
-.section-title:after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-2px;
-  width:60px;
-  height:4px;
-  background:#4d72ff;
-  border-radius:10px;
-}
+    /* ================= DIGITAL SEVA ================= */
 
-/* 50 Services */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:13px;
-}
+    .digital-seva-box{
+      background:#fff;
+      color:#111;
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+      margin:18px 0;
+    }
 
-.card{
-  background:#172238;
-  border:1px solid #2a416e;
-  border-radius:16px;
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:7px;
-  min-height:135px;
-  box-shadow:0 7px 20px #0004;
-  transition:.2s;
-  color:#fff;
-}
+    .digital-seva-box h2{
+      color:#09236e;
+    }
 
-.card:hover{
-  transform:translateY(-3px);
-  border-color:#5278ff;
-  box-shadow:0 8px 25px #243d9a44;
-}
+    .contact-buttons{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
 
-.num{
-  min-width:40px;
-  height:40px;
-  border-radius:11px;
-  background:#1d3264;
-  border:1px solid #3e62c9;
-  color:#87a2ff;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  font-size:14px;
-}
+    .contact-buttons a{
+      background:#092c9b;
+      color:#fff;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:bold;
+    }
 
-.icon{
-  font-size:30px;
-}
+    /* ================= TITLES ================= */
 
-.card h3{
-  margin:2px 0;
-  font-size:18px;
-  color:#fff;
-}
+    .section-title{
+      border-bottom:2px solid #2c4675;
+      padding-bottom:10px;
+      margin-top:25px;
+    }
 
-.card p{
-  margin:0;
-  color:#aeb9cc;
-  font-size:13px;
-  line-height:1.4;
-}
-/* Contact */
-.contact{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:18px 0;
-}
+    /* ================= CARDS ================= */
 
-.contact a{
-  padding:16px;
-  border-radius:15px;
-  color:#fff;
-  text-align:center;
-  font-weight:800;
-  font-size:16px;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
 
-.phone{background:linear-gradient(135deg,#176d4c,#13945e)}
-.wa{background:linear-gradient(135deg,#137d42,#1aad58)}
-.address{background:linear-gradient(135deg,#193f8f,#315bc5)}
+    .card{
+      background:#172238;
+      color:#fff;
+      border:1px solid #2a416e;
+      border-radius:16px;
+      padding:14px;
+      min-height:135px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
 
-.footer{
-  background:#060b15;
-  color:#c9d4ea;
-  text-align:center;
-  padding:25px 18px;
-  margin-top:25px;
-  font-weight:700;
-  border-top:1px solid #20335a;
-}
+    .card:hover{
+      border-color:#5278ff;
+    }
 
-.footer a{
-  background:#172238 !important;
-  color:#fff !important;
-  border:1px solid #29426f;
-  border-radius:12px !important;
-}
-/* Mobile */
-@media(max-width:520px){
-  .top h1{font-size:29px}
-  .top h2{font-size:16px}
+    .icon{
+      font-size:30px;
+    }
 
-  .logo{
-    width:90px;
-    height:90px;
-  }
+    .card h3{
+      margin:0;
+      font-size:17px;
+    }
 
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
+    .card p{
+      color:#aeb9cc;
+      font-size:13px;
+      margin:0;
+    }
 
-  .card{
-    min-height:135px;
-    padding:12px;
-  }
+    .no-result{
+      display:none;
+      text-align:center;
+      padding:20px;
+      margin-top:15px;
+      background:#121c30;
+      border-radius:15px;
+    }
 
-  .contact{
-    grid-template-columns:1fr;
-  }
+    /* ================= FOLLOW ================= */
 
-  .section-title{
-    font-size:25px;
-  }
-}
-.no-result{
-  display:none;
-  text-align:center;
-  background:#121c30;
-  border:1px solid #29426f;
-  border-radius:16px;
-  padding:18px;
-  color:#cbd5e1;
-  margin-top:14px;
-}
+    #followBtn{
+      background:#123db5;
+      color:#fff;
+      border:none;
+      padding:14px 25px;
+      border-radius:12px;
+      font-size:18px;
+      font-weight:bold;
+    }
 
-</style>
+    /* ================= CONTACT ================= */
 
-</head>  
-<body>  <header class="top">  
-  <div class="logo-wrap"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva Logo"></div>  
-  <h1>Shivam <span>Digital</span> Seva</h1>  
-  <h2>सभी प्रकार की ऑनलाइन सेवाएं एक ही स्थान पर</h2>  
-  <p>आपकी सुविधा, हमारा प्रयास</p>  
-</header>  <main class="wrap">  
-  <div class="notice">  
-    <b>🌐 सभी सेवाओं के लिए नीचे दिए गए बटन पर क्लिक करें</b>  
-    <div class="small">लिंक संबंधित आधिकारिक/सेवा पोर्टल पर खुलेंगे।</div>  
-  </div>    <div class="search-box"><span>🔍</span><input id="serviceSearch" type="search" placeholder="सेवा खोजें... जैसे Aadhaar, PAN, जाति, Scholarship" autocomplete="off"></div>  <section class="digital-seva-box">  
-  <h2>💼 Digital Seva</h2>  
-  <p>  
-    इन सभी ऑनलाइन सेवाओं की सुविधा हमारे यहाँ उपलब्ध है।  
-  </p>  
-  <p>  
-    किसी भी सेवा को बनवाने या आवेदन करने के लिए संपर्क करें।  
-  </p>    <div class="contact-buttons">  
-    <a href="tel:+919508051176">📞 9508051176</a>  
-    <a href="https://wa.me/917667187142" target="_blank">  
-      💬 7667187142  
-    </a>  
-  </div>  
-</section>  <style>  
-.digital-seva-box {  
-  background: #ffffff;  
-  border: 2px solid #d7e0f5;  
-  border-radius: 18px;  
-  padding: 18px;  
-  margin: 18px 0;  
-  text-align: center;  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);  
-}  
-  
-.digital-seva-box h2 {  
-  color: #09236e;  
-  margin: 0 0 10px;  
-}  
-  
-.digital-seva-box p {  
-  color: #333;  
-  margin: 7px 0;  
-  font-size: 16px;  
-}  
-  
-.contact-buttons {  
-  display: flex;  
-  justify-content: center;  
-  gap: 10px;  
-  margin-top: 14px;  
-  flex-wrap: wrap;  
-}  
-  
-.contact-buttons a {  
-  background: #092c9b;  
-  color: white;  
-  padding: 10px 16px;  
-  border-radius: 10px;  
-  font-weight: bold;  
-  text-decoration: none;  
-}  
-  
-.contact-buttons a:hover {  
-  background: #06145c;  
-}  
-</style>    <h2 class="section-title">🌿 हमारी प्रमुख सेवाएं 🌿</h2>    <div class="grid">  
-    <a class="card" href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener">  
-      <div class="icon">🪪</div><div><h3>Aadhaar सेवाएं</h3><p>डाउनलोड, अपडेट, PVC कार्ड आदि</p></div>  
-    </a>  
-    <a class="card" href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener">  
-      <div class="icon">🏦</div><div><h3>Aadhaar DBT / Bank Seeding</h3><p>आधार-बैंक संबंधित सेवाएं</p></div>  
-    </a>  
-    <a class="card" href="https://www.incometax.gov.in/" target="_blank" rel="noopener">  
-      <div class="icon">💳</div><div><h3>PAN Card</h3><p>नया PAN और PAN सेवाएं</p></div>  
-    </a>  
-    <a class="card" href="https://voters.eci.gov.in/" target="_blank" rel="noopener">  
-      <div class="icon">🗳️</div><div><h3>Voter ID (EPIC)</h3><p>आवेदन, सुधार, स्टेटस</p></div>  
-    </a> 
-  <!-- आय प्रमाण-पत्र -->
-<a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">
+    .contact{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .contact a{
+      padding:16px;
+      border-radius:15px;
+      color:#fff;
+      text-align:center;
+      font-weight:bold;
+    }
+
+    .phone{
+      background:#176d4c;
+    }
+
+    .wa{
+      background:#137d42;
+    }
+
+    .address{
+      background:#193f8f;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer{
+      background:#060b15;
+      text-align:center;
+      padding:25px 15px;
+      margin-top:25px;
+    }
+
+    .footer a{
+      color:white;
+      margin:8px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:520px){
+
+      .top h1{
+        font-size:27px;
+      }
+
+      .contact{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <!-- ================= LOGIN ================= -->
+
+  <div id="loginGate">
+
+    <div id="loginBox">
+
+      <h2>🔐 पहले Login करें</h2>
+
+      <input
+        type="tel"
+        id="phoneNumber"
+        placeholder="10 अंकों का मोबाइल नंबर">
+
+      <div id="recaptcha-container"></div>
+
+      <button id="sendOtpBtn">
+        📱 OTP भेजें
+      </button>
+
+      <input
+        type="number"
+        id="otpCode"
+        placeholder="6 अंकों का OTP">
+
+      <button id="verifyOtpBtn">
+        ✅ Login करें
+      </button>
+
+      <p id="loginStatus"></p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="top">
+
+    <img
+      class="logo"
+      src="logo_optimized.jpg"
+      alt="Shivam Digital Seva Logo">
+
+    <h1>Shivam Digital Seva</h1>
+
+    <h2>
+      सभी प्रकार की ऑनलाइन सेवाएं एक ही स्थान पर
+    </h2>
+
+    <p>आपकी सुविधा, हमारा प्रयास</p>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="wrap">
+
+    <div class="notice">
+
+      <b>
+        🌐 सभी सेवाओं के लिए नीचे दिए गए बटन पर क्लिक करें
+      </b>
+
+      <p class="small">
+        लिंक संबंधित आधिकारिक/सेवा पोर्टल पर खुलेंगे।
+      </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+      🔍
+
+      <input
+        id="serviceSearch"
+        type="search"
+        placeholder="सेवा खोजें...">
+
+    </div>
+
+
+    <!-- DIGITAL SEVA -->
+
+    <section class="digital-seva-box">
+
+      <h2>💼 Digital Seva</h2>
+
+      <p>
+        इन सभी ऑनलाइन सेवाओं की सुविधा हमारे यहाँ उपलब्ध है।
+      </p>
+
+      <p>
+        किसी भी सेवा के लिए संपर्क करें।
+      </p>
+
+      <div class="contact-buttons">
+
+        <a href="tel:+919508051176">
+          📞 9508051176
+        </a>
+
+        <a
+          href="https://wa.me/917667187142"
+          target="_blank">
+
+          💬 WhatsApp
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <h2 class="section-title">
+      🌿 हमारी प्रमुख सेवाएं 🌿
+    </h2>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <div class="grid">
+
+
+      <a class="card"
+        href="https://myaadhaar.uidai.gov.in/"
+        target="_blank">
+
+        <div class="icon">🪪</div>
+
+        <div>
+          <h3>Aadhaar सेवाएं</h3>
+          <p>डाउनलोड, अपडेट और अन्य सेवाएं</p>
+        </div>
+
+      </a>
+
+
+      <a class="card"
+        href="https://www.incometax.gov.in/"
+        target="_blank">
+
+        <div class="icon">💳</div>
+
+        <div>
+          <h3>PAN Card</h3>
+          <p>PAN संबंधित सेवाएं</p>
+        </div>
+
+      </a>
+
+
+      <a class="card"
+        href="https://voters.eci.gov.in/"
+        target="_blank">
+
+        <div class="icon">🗳️</div>
+
+        <div>
+          <h3>Voter ID</h3>
+          <p>आवेदन और स्टेटस</p>
+        </div>
+
+      </a>
+
+
+      <!-- RTPS -->
+      <!-- आय प्रमाण-पत्र -->
+<a class="card"
+   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4640002&state=10&tempId=747"
+   target="_blank"
+   rel="noopener">
   <div class="icon">📜</div>
-  <div><h3>आय प्रमाण-पत्र</h3><p>बिहार RTPS पोर्टल पर आवेदन करें</p></div>
+  <div>
+    <h3>आय प्रमाण-पत्र</h3>
+    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
+  </div>
 </a>
+
 <!-- जाति प्रमाण-पत्र -->
-<a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">
+<a class="card"
+   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4650002&state=10&tempId=748"
+   target="_blank"
+   rel="noopener">
   <div class="icon">👥</div>
-  <div><h3>जाति प्रमाण-पत्र</h3><p>बिहार RTPS पोर्टल पर आवेदन करें</p></div>
+  <div>
+    <h3>जाति प्रमाण-पत्र</h3>
+    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
+  </div>
 </a>
+
 <!-- निवास प्रमाण-पत्र -->
-<a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">
+<a class="card"
+   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4630002&state=10&tempId=751"
+   target="_blank"
+   rel="noopener">
   <div class="icon">🏠</div>
-  <div><h3>निवास प्रमाण-पत्र</h3><p>बिहार RTPS पोर्टल पर आवेदन करें</p></div>
+  <div>
+    <h3>निवास प्रमाण-पत्र</h3>
+    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
+  </div>
 </a>
+
 <!-- EWS प्रमाण-पत्र -->
-<a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">
+<a class="card"
+   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=10430002&state=10&tempId=3498"
+   target="_blank"
+   rel="noopener">
   <div class="icon">📄</div>
-  <div><h3>EWS प्रमाण-पत्र</h3><p>बिहार RTPS पोर्टल पर आवेदन करें</p></div>
+  <div>
+    <h3>EWS प्रमाण-पत्र</h3>
+    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
+  </div>
 </a>
-  <a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">  
-      <div class="icon">👶</div><div><h3>जन्म प्रमाण-पत्र</h3><p>उपलब्ध पोर्टल के अनुसार आवेदन</p></div>  
-    </a>  
-    <a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">  
-      <div class="icon">📜</div><div><h3>मृत्यु प्रमाण-पत्र</h3><p>उपलब्ध पोर्टल के अनुसार आवेदन</p></div>  
-    </a>  <a class="card" href="https://abha.abdm.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">💙</div><div><h3>ABHA Card</h3><p>Ayushman Bharat Health Account</p></div>  
-</a>  
-<a class="card" href="https://pmjay.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🏥</div><div><h3>Ayushman Card</h3><p>PM-JAY की आधिकारिक जानकारी</p></div>  
-</a>  
-<a class="card" href="https://www.digilocker.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">☁️</div><div><h3>DigiLocker</h3><p>डिजिटल दस्तावेज सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://scholarships.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🎓</div><div><h3>छात्रवृत्ति (Scholarship)</h3><p>NSP छात्रवृत्ति पोर्टल</p></div>  
-</a>  
-<a class="card" href="https://www.passportindia.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🛂</div><div><h3>Passport</h3><p>पासपोर्ट सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://parivahan.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🪪</div><div><h3>Driving Licence</h3><p>DL आवेदन, नवीनीकरण, स्टेटस</p></div>  
-</a>  
-<a class="card" href="https://parivahan.gov.in/" target="_blank" rel="noopener">  
- <div class="icon">🚦</div><div><h3>Learning Licence</h3><p>LL संबंधित सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://parivahan.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🚗</div><div><h3>वाहन संबंधित सेवाएं</h3><p>RC, ट्रांसफर, पता/नाम संबंधी सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://ihmcl.co.in/fastag-user/" target="_blank" rel="noopener">  
-  <div class="icon">🏷️</div><div><h3>FASTag</h3><p>FASTag जानकारी और सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://www.bharatbillpay.com/" target="_blank" rel="noopener">  
-  <div class="icon">💡</div><div><h3>बिजली बिल भुगतान</h3><p>बिल भुगतान सेवा</p></div>  
-</a>  
+      <a class="card"
+        href="https://www.digilocker.gov.in/"
+        target="_blank">
 
-<a class="card" href="https://www.mylpg.in/" target="_blank" rel="noopener">  
- <div class="icon">🔥</div><div><h3>गैस सिलेंडर एवं बुकिंग</h3><p>LPG संबंधित सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://www.bharatbillpay.com/" target="_blank" rel="noopener">  
-  <div class="icon">🚰</div><div><h3>पानी बिल भुगतान</h3><p>जहाँ BBPS सेवा उपलब्ध हो</p></div>  
-</a>  
-<a class="card" href="https://www.jio.com/" target="_blank" rel="noopener">  
-  <div class="icon">📱</div><div><h3>मोबाइल रिचार्ज</h3><p>मोबाइल सेवा पोर्टल</p></div>  
-</a>  
-<a class="card" href="https://www.bharatbillpay.com/" target="_blank" rel="noopener">  
-  <div class="icon">📶</div><div><h3>ब्रॉडबैंड / इंटरनेट बिल</h3><p>BBPS उपलब्धता के अनुसार</p></div>  
-</a>  
-<a class="card" href="https://www.indiapost.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🏦</div><div><h3>बैंकिंग सेवाएं</h3><p>इंडिया पोस्ट की आधिकारिक सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://www.jansuraksha.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🛡️</div><div><h3>बीमा योजनाएं</h3><p>PMSBY, PMJJBY आदि की जानकारी</p></div>  
-</a>  
-<a class="card" href="https://www.epfindia.gov.in/" target="_blank" rel="noopener">  
- <div class="icon">⚙️</div><div><h3>EPFO सेवाएं</h3><p>UAN, पासबुक आदि</p></div>  
-</a>  
-<a class="card" href="https://www.india.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">📝</div><div><h3>अन्य सामान्य सेवाएं</h3><p>सरकारी जानकारी और ऑनलाइन सेवाएं</p></div>  
-</a>  
-<a class="card" href="https://pmsonline.bihar.gov.in/" target="_blank" rel="noopener">  
- <div class="icon">🎓</div><div><h3>PMS Scholarship</h3><p>बिहार पोस्ट मैट्रिक छात्रवृत्ति</p></div>  
-</a>  
-<a class="card" href="https://apaar.education.gov.in/" target="_blank" rel="noopener">  
- <div class="icon">🎒</div><div><h3>APAAR ID</h3><p>One Nation One Student ID</p></div>  
-</a>  
-<a class="card" href="https://www.eshram.gov.in/" target="_blank" rel="noopener">
-  
-  <div class="icon">👷</div>  
-  <div>  
-    <h3>e-Shram</h3>  
-    <p>e-Shram Card एवं श्रमिक सेवाएं</p>  
-  </div>  
-</a>  <a class="card" href="https://epds.bihar.gov.in/SearchByRCID.aspx" target="_blank" rel="noopener">    
-  <div class="icon">🍚</div>  
-  <div>  
-    <h3>Ration Card (Smart PDS)</h3>  
-    <p>राशन कार्ड संबंधित सेवाएं</p>  
-  </div>  
-</a>  <a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">👷</div>  
-  <div>  
-    <h3>Labour Card</h3>  
-    <p>श्रमिक कार्ड संबंधित सेवाएं</p>  
-  </div>  
-</a>  <a class="card" href="https://medhasoft.bihar.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">🎓</div>  
-  <div>  
-    <h3>Medhasoft</h3>  
-    <p>छात्रवृत्ति एवं मेधा सेवाएं</p>  
-  </div>  
-</a>  <a class="card" href="https://nbpdcl.co.in/frmLTHTNewConnection.aspx" target="_blank" rel="noopener">    
-  <div class="icon">💡</div>  
-  <div>  
-    <h3>New Bijli Connection</h3>  
-    <p>नया बिजली कनेक्शन</p>  
-  </div>  
-</a>  
-    <a class="card" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">  
- <div class="icon">🌾</div>  
-  <div><h3>PM Kisan</h3><p>किसान सम्मान निधि</p></div>  
-</a>  <a class="card" href="https://web.umang.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">📱</div>  
-  <div><h3>UMANG</h3><p>सरकारी ऑनलाइन सेवाएं</p></div>  
-</a>  <a class="card" href="https://www.indiapost.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">📮</div>  
-  <div><h3>India Post</h3><p>डाक एवं पोस्टल सेवाएं</p></div>  
-</a>  <a class="card" href="https://parivahan.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">🚗</div>  
-  <div><h3>Parivahan</h3><p>वाहन एवं Driving Licence सेवाएं</p></div>  
-</a>  <a class="card" href="https://www.ncs.gov.in/" target="_blank" rel="noopener">  
-  <div class="icon">💼</div>  
-  <div><h3>National Career Service</h3><p>नौकरी एवं रोजगार सेवाएं</p></div>  
-</a>  <a class="card" href="https://www.hindustanpetroleum.com/hp-gas" target="_blank" rel="noopener">  
-  <div class="icon">🔥</div>  
-  <div><h3>New Gas Connection</h3><p>नया LPG गैस कनेक्शन</p></div>  
-</a>  
-    <a class="card" href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">📋</div>  
-  <div>  
-    <h3>myScheme</h3>  
-    <p>सरकारी योजनाएं खोजें</p>  
-  </div>  
-</a>  <a class="card" href="https://www.india.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">🇮🇳</div>  
-  <div>  
-    <h3>India.gov.in</h3>  
-    <p>भारत सरकार का राष्ट्रीय पोर्टल</p>  
-  </div>  
-</a>  
-    <a class="card" href="https://pmaymis.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">🏠</div>  
-  <div>  
-    <h3>PM Awas Yojana</h3>  
-    <p>प्रधानमंत्री आवास योजना</p>  
-  </div>  
-</a>  <a class="card" href="https://pmfby.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">🌾</div>  
-  <div>  
-    <h3>PM Fasal Bima Yojana</h3>  
-    <p>प्रधानमंत्री फसल बीमा योजना</p>  
-  </div>  
-</a>  <a class="card" href="https://kisansuvidha.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">🧑‍🌾</div>  
-  <div>  
-    <h3>Kisan Suvidha</h3>  
-    <p>किसानों के लिए ऑनलाइन सेवाएं</p>  
-  </div>  
-</a>  <a class="card" href="https://pgportal.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">📢</div>  
-  <div>  
-    <h3>CPGRAMS</h3>  
-    <p>सरकारी शिकायत दर्ज करें</p>  
-  </div>  
-</a>  <a class="card" href="https://pmjdy.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">🏦</div>  
-  <div>  
-    <h3>Jan Dhan Yojana</h3>  
-    <p>प्रधानमंत्री जन धन योजना</p>  
-  </div>  
-</a>  <a class="card" href="https://rtionline.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">📝</div>  
-  <div>  
-    <h3>RTI Online</h3>  
-    <p>ऑनलाइन RTI आवेदन</p>  
-  </div>  
-</a>  
-    <a class="card" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">    
-  <div class="icon">📜</div>  
-  <div>  
-    <h3>Bihar RTPS</h3>  
-    <p>आय, जाति, निवास एवं अन्य प्रमाण-पत्र</p>  
-  </div>  
-    </a>  
-  </div>  
-</a>  
-    </div>  
-  </div>  
-  <div id="noResult" class="no-result">😕 कोई सेवा नहीं मिली। दूसरा नाम लिखकर खोजें।</div>  </div>
+        <div class="icon">☁️</div>
 
-  </div>  
-  <div id="noResult" class="no-result">😕 कोई सेवा नहीं मिली। दूसरा नाम लिखकर खोजें।</div>    <h2 class="section-title">📞 संपर्क करें</h2>  
-  <div class="contact">  
-    <a class="phone" href="tel:+919508051176">📞 Mobile<br>9508051176</a>  
-    <a class="wa" href="https://wa.me/917667187142" target="_blank" rel="noopener">💬 WhatsApp<br>7667187142</a>  
-    <a class="address" href="https://www.google.com/maps/search/?api=1&query=Senuaria,Bihar" target="_blank" rel="noopener">📍 पता<br>Senuaria</a>  
-  </div>    <p class="small">नोट: कुछ सेवाओं के लिए संबंधित विभाग की पात्रता, शुल्क और दस्तावेज लागू हो सकते हैं।</p>  
-<h2 class="section-title">❤️ हमें Follow करें</h2>
+        <div>
+          <h3>DigiLocker</h3>
+          <p>डिजिटल दस्तावेज सेवाएं</p>
+        </div>
 
-<div style="text-align:center;margin:20px 0;">
-  <button id="followBtn" style="padding:14px 25px;border:none;border-radius:12px;font-size:18px;font-weight:bold;cursor:pointer;">
-    ❤️ Follow करें
-  </button>
+      </a>
 
-  <p style="font-size:18px;font-weight:bold;">
-    Followers: <span id="followers">लोड हो रहा है...</span>
-  </p>
-</div>
-  <h2 class="section-title">🔐 लॉगिन करें</h2>
 
-<div style="text-align:center;margin:20px 0;">
-  <input type="tel" id="phoneNumber"
-    placeholder="10 अंकों का मोबाइल नंबर"
-    style="padding:12px;width:80%;">
+      <a class="card"
+        href="https://scholarships.gov.in/"
+        target="_blank">
 
-  <div id="recaptcha-container" style="margin:10px 0;"></div>
+        <div class="icon">🎓</div>
 
-  <button id="sendOtpBtn">📱 OTP भेजें</button>
+        <div>
+          <h3>Scholarship</h3>
+          <p>NSP छात्रवृत्ति पोर्टल</p>
+        </div>
 
-  <br><br>
+      </a>
 
-  <input type="number" id="otpCode"
-    placeholder="6 अंकों का OTP"
-    style="padding:12px;width:80%;">
 
-  <button id="verifyOtpBtn">✅ Login करें</button>
+      <a class="card"
+        href="https://www.passportindia.gov.in/"
+        target="_blank">
 
-  <p id="loginStatus"></p>
-</div>
-</main>  <footer class="footer">  
-  ⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐  
-  <div style="margin-top:15px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">  
-  <a href="about.html" style="background:#fff;color:#123db5;padding:10px 14px;border-radius:10px;font-weight:bold;">  
-    👤 About Us  
-  </a>    <a href="privacy-policy.html" style="background:#fff;color:#123db5;padding:10px 14px;border-radius:10px;font-weight:bold;">  
-    🔒 Privacy Policy  
-  </a>    <a href="contact.html" style="background:#fff;color:#123db5;padding:10px 14px;border-radius:10px;font-weight:bold;">  
-    📞 Contact Us  
-  </a>    <a href="disclaimer.html" style="background:#fff;color:#123db5;padding:10px 14px;border-radius:10px;font-weight:bold;">  
-    ⚠️ Disclaimer  
-  </a>  
-  </div>  
-</footer> 
-  <script>
-const searchInput = document.getElementById('serviceSearch');
-const cards = document.querySelectorAll('.grid .card');
-const noResult = document.getElementById('noResult');
+        <div class="icon">🛂</div>
 
-/* Search */
-searchInput.addEventListener('input', function () {
-  const q = this.value.trim().toLowerCase();
-  let n = 0;
+        <div>
+          <h3>Passport</h3>
+          <p>पासपोर्ट सेवाएं</p>
+        </div>
 
-  cards.forEach(card => {
-    const match = card.textContent.toLowerCase().includes(q);
-    card.style.display = match ? 'flex' : 'none';
-    if (match) n++;
-  });
+      </a>
 
-  noResult.style.display = q && n === 0 ? 'block' : 'none';
-});
-    /* सिर्फ 4 प्रमाण-पत्र सीधे खोलें */
-const directServices = [
-  'जाति प्रमाण-पत्र',
-  'आय प्रमाण-पत्र',
-  'निवास प्रमाण-पत्र',
-  'EWS प्रमाण-पत्र'
-];
 
-/* सभी सेवाओं को जानकारी वाले पेज पर भेजें */
-cards.forEach(card => {
-    if (directServices.includes(card.querySelector('h3').innerText.trim())) {
-    return;
-}
-  card.addEventListener('click', function(e) {
-    e.preventDefault();
+      <a class="card"
+        href="https://parivahan.gov.in/"
+        target="_blank">
 
-    const title = this.querySelector('h3').innerText;
-    const description = this.querySelector('p').innerText;
-    const link = this.href;
+        <div class="icon">🚗</div>
 
-    window.location.href =
-      'info.html?title=' + encodeURIComponent(title) +
-      '&description=' + encodeURIComponent(description) +
-      '&link=' + encodeURIComponent(link);
-  });
-});
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-import {
-  getAuth,
-  signInAnonymously,
-  onAuthStateChanged,
-  RecaptchaVerifier,
-  signInWithPhoneNumber
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+        <div>
+          <h3>Driving Licence</h3>
+          <p>DL और वाहन सेवाएं</p>
+        </div>
 
-import {
-  getFirestore, doc, getDoc, setDoc, deleteDoc,
-  onSnapshot, serverTimestamp, query, collection
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+      </a>
 
-/* Firebase */
-const firebaseConfig = {
-  apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
-  authDomain: "shivam-digital-seva.firebaseapp.com",
-  projectId: "shivam-digital-seva",
-  storageBucket: "shivam-digital-seva.firebasestorage.app",
-  messagingSenderId: "142024656312",
-  appId: "1:142024656312:web:ef0e26c1daacc62f21bb4d"
-};
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+      <a class="card"
+        href="https://pmkisan.gov.in/"
+        target="_blank">
 
-/* ================= SEARCH ================= */
-const searchInput = document.getElementById("serviceSearch");
-const cards = document.querySelectorAll(".grid .card");
-const noResult = document.getElementById("noResult");
+        <div class="icon">🌾</div>
 
-if (searchInput && noResult) {
-  searchInput.addEventListener("input", function () {
-    const q = this.value.trim().toLowerCase();
-    let n = 0;
+        <div>
+          <h3>PM Kisan</h3>
+          <p>किसान सम्मान निधि</p>
+        </div>
 
-    cards.forEach(card => {
-      const match = card.textContent.toLowerCase().includes(q);
-      card.style.display = match ? "flex" : "none";
-      if (match) n++;
-    });
+      </a>
 
-    noResult.style.display = q && n === 0 ? "block" : "none";
-  });
-}
 
-/* =========== 4 प्रमाण-पत्र सीधे RTPS =========== */
-const directServices = [
-  "जाति प्रमाण-पत्र",
-  "आय प्रमाण-पत्र",
-  "निवास प्रमाण-पत्र",
-  "EWS प्रमाण-पत्र"
-];
+      <a class="card"
+        href="https://www.eshram.gov.in/"
+        target="_blank">
 
-cards.forEach(card => {
-  const h3 = card.querySelector("h3");
-  if (!h3) return;
+        <div class="icon">👷</div>
 
-  if (directServices.includes(h3.innerText.trim())) {
-    return;
-  }
+        <div>
+          <h3>e-Shram</h3>
+          <p>श्रमिक कार्ड सेवाएं</p>
+        </div>
 
-  card.addEventListener("click", function (e) {
-    e.preventDefault();
+      </a>
 
-    const title = this.querySelector("h3")?.innerText || "";
-    const description = this.querySelector("p")?.innerText || "";
-    const link = this.href;
 
-    window.location.href =
-      "info.html?title=" + encodeURIComponent(title) +
-      "&description=" + encodeURIComponent(description) +
-      "&link=" + encodeURIComponent(link);
-  });
-});
+      <a class="card"
+        href="https://pmsonline.bihar.gov.in/"
+        target="_blank">
 
-/* =========== FIREBASE FOLLOW =========== */
-const followBtn = document.getElementById("followBtn");
-const followersEl = document.getElementById("followers");
+        <div class="icon">🎓</div>
 
-if (followersEl) {
-  onSnapshot(collection(db, "followers"), snapshot => {
-    followersEl.innerText = snapshot.size;
-  });
-}
+        <div>
+          <h3>PMS Scholarship</h3>
+          <p>बिहार पोस्ट मैट्रिक छात्रवृत्ति</p>
+        </div>
 
-/* =========== OTP LOGIN =========== */
-const phoneInput = document.getElementById("phoneNumber");
-const otpInput = document.getElementById("otpCode");
-const sendOtpBtn = document.getElementById("sendOtpBtn");
-const verifyOtpBtn = document.getElementById("verifyOtpBtn");
-const loginStatus = document.getElementById("loginStatus");
+      </a>
 
-let confirmationResult;
 
-/* reCAPTCHA */
-if (phoneInput && sendOtpBtn) {
-  window.recaptchaVerifier = new RecaptchaVerifier(
-    auth,
-    "recaptcha-container",
-    {
-      size: "normal"
+      <a class="card"
+        href="https://www.myscheme.gov.in/"
+        target="_blank">
+
+        <div class="icon">📋</div>
+
+        <div>
+          <h3>myScheme</h3>
+          <p>सरकारी योजनाएं खोजें</p>
+        </div>
+
+      </a>
+
+
+      <a class="card"
+        href="https://www.indiapost.gov.in/"
+        target="_blank">
+
+        <div class="icon">📮</div>
+
+        <div>
+          <h3>India Post</h3>
+          <p>डाक एवं पोस्टल सेवाएं</p>
+        </div>
+
+      </a>
+
+
+      <a class="card"
+        href="https://www.ncs.gov.in/"
+        target="_blank">
+
+        <div class="icon">💼</div>
+
+        <div>
+          <h3>National Career Service</h3>
+          <p>नौकरी और रोजगार</p>
+        </div>
+
+      </a>
+
+
+      <a class="card"
+        href="https://nbpdcl.co.in/frmLTHTNewConnection.aspx"
+        target="_blank">
+
+        <div class="icon">💡</div>
+
+        <div>
+          <h3>New Bijli Connection</h3>
+          <p>नया बिजली कनेक्शन</p>
+        </div>
+
+      </a>
+
+
+    </div>
+
+
+    <div
+      id="noResult"
+      class="no-result">
+
+      😕 कोई सेवा नहीं मिली।
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <h2 class="section-title">
+      📞 संपर्क करें
+    </h2>
+
+    <div class="contact">
+
+      <a class="phone"
+        href="tel:+919508051176">
+
+        📞 Mobile<br>
+        9508051176
+
+      </a>
+
+
+      <a class="wa"
+        href="https://wa.me/917667187142"
+        target="_blank">
+
+        💬 WhatsApp<br>
+        7667187142
+
+      </a>
+
+
+      <a class="address"
+        href="https://www.google.com/maps/search/?api=1&query=Senuaria,Bihar"
+        target="_blank">
+
+        📍 पता<br>
+        Senuaria
+
+      </a>
+
+    </div>
+
+
+    <!-- FOLLOW -->
+
+    <h2 class="section-title">
+      ❤️ हमें Follow करें
+    </h2>
+
+
+    <div style="text-align:center">
+
+      <button id="followBtn">
+        ❤️ Follow करें
+      </button>
+
+      <p style="font-size:18px;font-weight:bold">
+
+        Followers:
+        <span id="followers">
+          0
+        </span>
+
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    ⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐
+
+    <p>
+
+      <a href="about.html">
+        👤 About Us
+      </a>
+
+      <a href="privacy-policy.html">
+        🔒 Privacy Policy
+      </a>
+
+      <a href="contact.html">
+        📞 Contact
+      </a>
+
+      <a href="disclaimer.html">
+        ⚠️ Disclaimer
+      </a>
+
+    </p>
+
+  </footer>
+
+
+  <!-- ================= FIREBASE ================= -->
+
+  <script type="module">
+
+    import {
+      initializeApp
     }
-  );
+    from
+    "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
-  sendOtpBtn.addEventListener("click", async () => {
-    const number = phoneInput.value.trim();
 
-    if (!/^[6-9][0-9]{9}$/.test(number)) {
-      loginStatus.innerText = "❌ सही 10 अंकों का भारतीय मोबाइल नंबर डालें";
-      return;
+    import {
+      getAuth,
+      signInAnonymously,
+      RecaptchaVerifier,
+      signInWithPhoneNumber,
+      onAuthStateChanged
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+    import {
+      getFirestore,
+      collection,
+      doc,
+      getDoc,
+      setDoc,
+      deleteDoc,
+      onSnapshot,
+      serverTimestamp
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+    /* FIREBASE CONFIG */
+
+    const firebaseConfig = {
+
+      apiKey:
+      "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+
+      authDomain:
+      "shivam-digital-seva.firebaseapp.com",
+
+      projectId:
+      "shivam-digital-seva",
+
+      storageBucket:
+      "shivam-digital-seva.firebasestorage.app",
+
+      messagingSenderId:
+      "142024656312",
+
+      appId:
+      "1:142024656312:web:ef0e26c1daacc62f21bb4d"
+
+    };
+
+
+    const app =
+      initializeApp(firebaseConfig);
+
+    const auth =
+      getAuth(app);
+
+    const db =
+      getFirestore(app);
+
+
+    /* ================= SEARCH ================= */
+
+    const searchInput =
+      document.getElementById(
+        "serviceSearch"
+      );
+
+    const cards =
+      document.querySelectorAll(
+        ".grid .card"
+      );
+
+    const noResult =
+      document.getElementById(
+        "noResult"
+      );
+
+
+    searchInput.addEventListener(
+      "input",
+      function(){
+
+        const q =
+          this.value
+          .trim()
+          .toLowerCase();
+
+        let n = 0;
+
+        cards.forEach(
+          card => {
+
+            const match =
+              card.textContent
+              .toLowerCase()
+              .includes(q);
+
+            card.style.display =
+              match
+              ? "flex"
+              : "none";
+
+            if(match) n++;
+
+          }
+        );
+
+        noResult.style.display =
+          q && n === 0
+          ? "block"
+          : "none";
+
+      }
+    );
+
+
+    /* ================= FOLLOW ================= */
+
+    const followBtn =
+      document.getElementById(
+        "followBtn"
+      );
+
+    const followersEl =
+      document.getElementById(
+        "followers"
+      );
+
+
+    /* Followers count */
+
+    onSnapshot(
+      collection(db,"followers"),
+
+      snapshot => {
+
+        followersEl.innerText =
+          snapshot.size;
+
+      }
+
+    );
+
+
+    /* Anonymous login for Follow */
+
+    signInAnonymously(auth)
+    .catch(
+      error => {
+
+        console.error(error);
+
+      }
+    );
+
+
+    onAuthStateChanged(
+      auth,
+
+      async user => {
+
+        if(!user) return;
+
+        const followerRef =
+          doc(
+            db,
+            "followers",
+            user.uid
+          );
+
+
+        const followerDoc =
+          await getDoc(
+            followerRef
+          );
+
+
+        if(
+          followerDoc.exists()
+        ){
+
+          followBtn.innerText =
+            "✅ Follow किया";
+
+        }
+
+
+        followBtn.onclick =
+        async function(){
+
+          const currentDoc =
+            await getDoc(
+              followerRef
+            );
+
+
+          if(
+            currentDoc.exists()
+          ){
+
+            await deleteDoc(
+              followerRef
+            );
+
+            followBtn.innerText =
+              "❤️ Follow करें";
+
+          }
+
+          else{
+
+            await setDoc(
+              followerRef,
+              {
+                followedAt:
+                serverTimestamp()
+              }
+            );
+
+            followBtn.innerText =
+              "✅ Follow किया";
+
+          }
+
+        };
+
+      }
+    );
+
+
+    /* ================= LOGIN ================= */
+
+    const phoneInput =
+      document.getElementById(
+        "phoneNumber"
+      );
+
+    const otpInput =
+      document.getElementById(
+        "otpCode"
+      );
+
+    const sendOtpBtn =
+      document.getElementById(
+        "sendOtpBtn"
+      );
+
+    const verifyOtpBtn =
+      document.getElementById(
+        "verifyOtpBtn"
+      );
+
+    const loginStatus =
+      document.getElementById(
+        "loginStatus"
+      );
+
+    const loginGate =
+      document.getElementById(
+        "loginGate"
+      );
+
+
+    let confirmationResult;
+
+
+    /* 24 HOURS CHECK */
+
+    const loginTime =
+      localStorage.getItem(
+        "shivamLoginTime"
+      );
+
+
+    if(loginTime){
+
+      const difference =
+        Date.now()
+        -
+        Number(loginTime);
+
+      const oneDay =
+        24
+        * 60
+        * 60
+        * 1000;
+
+
+      if(
+        difference < oneDay
+      ){
+
+        loginGate.style.display =
+          "none";
+
+      }
+
+      else{
+
+        localStorage.removeItem(
+          "shivamLoginTime"
+        );
+
+      }
+
     }
 
-    try {
-      loginStatus.innerText = "OTP भेजा जा रहा है...";
 
-      confirmationResult = await signInWithPhoneNumber(
+    /* reCAPTCHA */
+
+    window.recaptchaVerifier =
+      new RecaptchaVerifier(
         auth,
-        "+91" + number,
-        window.recaptchaVerifier
+        "recaptcha-container",
+        {
+          size:"normal"
+        }
       );
 
-      loginStatus.innerText = "📩 OTP भेज दिया गया";
-    } catch (error) {
-      console.error(error);
-      loginStatus.innerText = "❌ OTP नहीं भेजा जा सका";
-    }
-  });
 
-  verifyOtpBtn.addEventListener("click", async () => {
-    const otp = otpInput.value.trim();
+    /* SEND OTP */
 
-    if (!confirmationResult) {
-      loginStatus.innerText = "पहले OTP भेजें";
-      return;
-    }
+    sendOtpBtn.addEventListener(
+      "click",
 
-    if (otp.length !== 6) {
-      loginStatus.innerText = "❌ सही 6 अंकों का OTP डालें";
-      return;
-    }
+      async function(){
 
-    try {
-      loginStatus.innerText = "Login हो रहा है...";
+        const number =
+          phoneInput.value.trim();
 
-      await confirmationResult.confirm(otp);
 
-      localStorage.setItem(
-        "shivamLoginTime",
-        Date.now().toString()
-      );
+        if(
+          !/^[6-9][0-9]{9}$/
+          .test(number)
+        ){
 
-      loginStatus.innerText = "✅ Login सफल! 24 घंटे तक Login रहेगा";
+          loginStatus.innerText =
+            "❌ सही 10 अंकों का मोबाइल नंबर डालें";
 
-    } catch (error) {
-      console.error(error);
-      loginStatus.innerText = "❌ OTP गलत है";
-    }
-  });
-}
+          return;
 
-/* Firebase Anonymous Login + Follow */
-signInAnonymously(auth).catch(error => {
-  console.error(error);
-  if (followersEl) followersEl.innerText = "0";
-});
+        }
 
-onAuthStateChanged(auth, async user => {
-  if (!user || !followBtn) return;
 
-  const followerRef = doc(db, "followers", user.uid);
-  const followerDoc = await getDoc(followerRef);
+        try{
 
-  if (followerDoc.exists()) {
-    followBtn.innerText = "✅ Follow किया";
-  }
+          loginStatus.innerText =
+            "⏳ OTP भेजा जा रहा है...";
 
-  followBtn.onclick = async () => {
-    const currentDoc = await getDoc(followerRef);
 
-    if (currentDoc.exists()) {
-      await deleteDoc(followerRef);
-      followBtn.innerText = "❤️ Follow करें";
-    } else {
-      await setDoc(followerRef, {
-        followedAt: serverTimestamp()
-      });
-      followBtn.innerText = "✅ Follow किया";
-    }
-  };
-}
-</script>
-</body>
-</html>
+          confirmationResult =
+            await signInWithPhoneNumber(
+
+              auth,
+
+              "+91" + number,
+
+              window.recaptchaVerifier
+
+            );
+
+
+          loginStatus.innerText =
+            "📩 OTP भेज दिया गया";
+
+
+        }
+
+        catch(error){
+
+          console.error(error);
+
+          loginStatus.innerText =
+            "❌ OTP नहीं भेजा जा सका";
+
+        }
+
+      }
+    );
+
+
+    /* VERIFY OTP */
+
+    verifyOtpBtn.addEventListener(
+      "click",
+
+      async function(){
+
+        const otp =
+          otpInput.value.trim();
+
+
+        if(!confirmationResult){
+
+          loginStat
