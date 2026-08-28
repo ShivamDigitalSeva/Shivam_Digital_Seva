@@ -809,309 +809,234 @@
 
 
   <!-- ================= FIREBASE ================= -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
-  <script type="module">
+import {
+  getAuth,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
-    import {
-      initializeApp
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+  authDomain: "shivam-digital-seva.firebaseapp.com",
+  projectId: "shivam-digital-seva",
+  storageBucket: "shivam-digital-seva.firebasestorage.app",
+  messagingSenderId: "142024656312",
+  appId: "1:142024656312:web:ef0e26c1daacc62f21bb4d"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const phoneInput = document.getElementById("phoneNumber");
+const otpInput = document.getElementById("otpCode");
+const sendOtpBtn = document.getElementById("sendOtpBtn");
+const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+const loginStatus = document.getElementById("loginStatus");
+
+let confirmationResult = null;
+
+
+/* =========================
+   24 घंटे Login Check
+========================= */
+
+const loginTime = localStorage.getItem("shivamLoginTime");
+
+if (
+  loginTime &&
+  Date.now() - Number(loginTime) < 24 * 60 * 60 * 1000
+) {
+  document.getElementById("loginGate").style.display = "none";
+}
+
+
+/* =========================
+   reCAPTCHA
+========================= */
+
+let recaptchaVerifier;
+
+try {
+
+  recaptchaVerifier = new RecaptchaVerifier(
+    auth,
+    "recaptcha-container",
+    {
+      size: "normal"
     }
-    from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+  );
+
+  recaptchaVerifier.render();
+
+} catch(error) {
+
+  console.error(error);
+
+  if(loginStatus){
+    loginStatus.innerText =
+      "❌ reCAPTCHA शुरू नहीं हो पाया।";
+  }
+}
 
 
-    import {
-      getAuth,
-      signInAnonymously,
-      RecaptchaVerifier,
-      signInWithPhoneNumber,
-      onAuthStateChanged
-    }
-    from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+/* =========================
+   OTP भेजें
+========================= */
+
+sendOtpBtn.addEventListener("click", async function(){
+
+  const number = phoneInput.value.trim();
+
+  if(!/^[6-9][0-9]{9}$/.test(number)){
+
+    loginStatus.innerText =
+      "❌ सही 10 अंकों का मोबाइल नंबर डालें।";
+
+    return;
+  }
 
 
-    import {
-      getFirestore,
-      collection,
-      doc,
-      getDoc,
-      setDoc,
-      deleteDoc,
-      onSnapshot,
-      serverTimestamp
-    }
-    from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+  sendOtpBtn.disabled = true;
+
+  loginStatus.innerText =
+    "⏳ OTP भेजा जा रहा है...";
 
 
-    /* FIREBASE CONFIG */
+  try {
 
-    const firebaseConfig = {
-
-      apiKey:
-      "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
-
-      authDomain:
-      "shivam-digital-seva.firebaseapp.com",
-
-      projectId:
-      "shivam-digital-seva",
-
-      storageBucket:
-      "shivam-digital-seva.firebasestorage.app",
-
-      messagingSenderId:
-      "142024656312",
-
-      appId:
-      "1:142024656312:web:ef0e26c1daacc62f21bb4d"
-
-    };
-
-
-    const app =
-      initializeApp(firebaseConfig);
-
-    const auth =
-      getAuth(app);
-
-    const db =
-      getFirestore(app);
-
-
-    /* ================= SEARCH ================= */
-
-    const searchInput =
-      document.getElementById(
-        "serviceSearch"
-      );
-
-    const cards =
-      document.querySelectorAll(
-        ".grid .card"
-      );
-
-    const noResult =
-      document.getElementById(
-        "noResult"
-      );
-
-
-    searchInput.addEventListener(
-      "input",
-      function(){
-
-        const q =
-          this.value
-          .trim()
-          .toLowerCase();
-
-        let n = 0;
-
-        cards.forEach(
-          card => {
-
-            const match =
-              card.textContent
-              .toLowerCase()
-              .includes(q);
-
-            card.style.display =
-              match
-              ? "flex"
-              : "none";
-
-            if(match) n++;
-
-          }
-        );
-
-        noResult.style.display =
-          q && n === 0
-          ? "block"
-          : "none";
-
-      }
-    );
-
-
-    /* ================= FOLLOW ================= */
-
-    const followBtn =
-      document.getElementById(
-        "followBtn"
-      );
-
-    const followersEl =
-      document.getElementById(
-        "followers"
+    confirmationResult =
+      await signInWithPhoneNumber(
+        auth,
+        "+91" + number,
+        recaptchaVerifier
       );
 
 
-    /* Followers count */
+    loginStatus.innerText =
+      "✅ OTP आपके मोबाइल पर भेज दिया गया।";
 
-    onSnapshot(
-      collection(db,"followers"),
+  }
 
-      snapshot => {
+  catch(error){
 
-        followersEl.innerText =
-          snapshot.size;
+    console.error(error);
 
-      }
+    loginStatus.innerText =
+      "❌ OTP नहीं भेजा गया। Firebase Settings और नंबर जाँचें।";
 
-    );
-
-
-    /* Anonymous login for Follow */
-
-    signInAnonymously(auth)
-    .catch(
-      error => {
-
-        console.error(error);
-
-      }
-    );
+    sendOtpBtn.disabled = false;
 
 
-    onAuthStateChanged(
-      auth,
-
-      async user => {
-
-        if(!user) return;
-
-        const followerRef =
-          doc(
-            db,
-            "followers",
-            user.uid
-          );
-
-
-        const followerDoc =
-          await getDoc(
-            followerRef
-          );
-
-
-        if(
-          followerDoc.exists()
-        ){
-
-          followBtn.innerText =
-            "✅ Follow किया";
-
-        }
-
-
-        followBtn.onclick =
-        async function(){
-
-          const currentDoc =
-            await getDoc(
-              followerRef
-            );
-
-
-          if(
-            currentDoc.exists()
-          ){
-
-            await deleteDoc(
-              followerRef
-            );
-
-            followBtn.innerText =
-              "❤️ Follow करें";
-
-          }
-
-          else{
-
-            await setDoc(
-              followerRef,
-              {
-                followedAt:
-                serverTimestamp()
-              }
-            );
-
-            followBtn.innerText =
-              "✅ Follow किया";
-
-          }
-
-        };
-
-      }
-    );
-
-
-    /* ================= LOGIN ================= */
-       /* VERIFY OTP */
-
-verifyOtpBtn.addEventListener(
-  "click",
-
-  async function(){
-
-    const otp = otpInput.value.trim();
-
-    if(!confirmationResult){
-
-      loginStatus.innerText =
-        "❌ पहले OTP भेजें";
-
-      return;
-    }
-
-    if(!/^[0-9]{6}$/.test(otp)){
-
-      loginStatus.innerText =
-        "❌ 6 अंकों का OTP डालें";
-
-      return;
-    }
+    /* reCAPTCHA दोबारा बनाना */
 
     try{
 
-      loginStatus.innerText =
-        "⏳ Login हो रहा है...";
+      recaptchaVerifier.clear();
 
-      await confirmationResult.confirm(otp);
+      recaptchaVerifier =
+        new RecaptchaVerifier(
+          auth,
+          "recaptcha-container",
+          {
+            size:"normal"
+          }
+        );
 
-      localStorage.setItem(
-        "shivamLoginTime",
-        Date.now()
-      );
+      recaptchaVerifier.render();
 
-      loginStatus.innerText =
-        "✅ Login सफल!";
+    }catch(e){
 
-      setTimeout(function(){
-
-        loginGate.style.display = "none";
-
-      }, 500);
-
-    } catch(error){
-
-      console.error(error);
-
-      loginStatus.innerText =
-        "❌ OTP गलत है या OTP की समय-सीमा समाप्त हो गई";
+      console.error(e);
 
     }
 
   }
-);
 
+});
+
+
+/* =========================
+   OTP Verify
+========================= */
+
+verifyOtpBtn.addEventListener("click", async function(){
+
+  const otp = otpInput.value.trim();
+
+
+  if(!confirmationResult){
+
+    loginStatus.innerText =
+      "❌ पहले OTP भेजें।";
+
+    return;
+  }
+
+
+  if(!/^[0-9]{6}$/.test(otp)){
+
+    loginStatus.innerText =
+      "❌ 6 अंकों का OTP डालें।";
+
+    return;
+  }
+
+
+  verifyOtpBtn.disabled = true;
+
+  loginStatus.innerText =
+    "⏳ Login हो रहा है...";
+
+
+  try{
+
+    await confirmationResult.confirm(otp);
+
+
+    /* Login time save */
+
+    localStorage.setItem(
+      "shivamLoginTime",
+      Date.now().toString()
+    );
+
+
+    loginStatus.innerText =
+      "✅ Login सफल!";
+
+
+    setTimeout(function(){
+
+      document.getElementById("loginGate").style.display =
+        "none";
+
+    },1000);
+
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    loginStatus.innerText =
+      "❌ OTP गलत या expire हो गया है।";
+
+    verifyOtpBtn.disabled = false;
+
+  }
+
+});
 </script>
-
-</body>
+  </body>
 </html>
+  
 
-      
-        
+          
+
+  
