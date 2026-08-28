@@ -926,8 +926,8 @@ sendOtpBtn.addEventListener("click", async function(){
 
     console.error(error);
 
-    loginStatus.innerText =
-      "❌ OTP नहीं भेजा गया। Firebase Settings और नंबर जाँचें।";
+ loginStatus.innerText =
+  "❌ Error: " + error.code;
 
     sendOtpBtn.disabled = false;
 
