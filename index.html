@@ -702,15 +702,22 @@ cards.forEach(card => {
       '&link=' + encodeURIComponent(link);
   });
 });
-  </script>
-  <script type="module">
+<script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import {
+  getAuth,
+  signInAnonymously,
+  onAuthStateChanged,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
 import {
   getFirestore, doc, getDoc, setDoc, deleteDoc,
   onSnapshot, serverTimestamp, query, collection
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
+/* Firebase */
 const firebaseConfig = {
   apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
   authDomain: "shivam-digital-seva.firebaseapp.com",
@@ -724,66 +731,149 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-/* Search */
-const searchInput = document.getElementById('serviceSearch');
-const cards = document.querySelectorAll('.grid .card');
-const noResult = document.getElementById('noResult');
+/* ================= SEARCH ================= */
+const searchInput = document.getElementById("serviceSearch");
+const cards = document.querySelectorAll(".grid .card");
+const noResult = document.getElementById("noResult");
 
-searchInput.addEventListener('input', function () {
-  const q = this.value.trim().toLowerCase();
-  let n = 0;
+if (searchInput && noResult) {
+  searchInput.addEventListener("input", function () {
+    const q = this.value.trim().toLowerCase();
+    let n = 0;
 
-  cards.forEach(card => {
-    const match = card.textContent.toLowerCase().includes(q);
-    card.style.display = match ? 'flex' : 'none';
-    if (match) n++;
+    cards.forEach(card => {
+      const match = card.textContent.toLowerCase().includes(q);
+      card.style.display = match ? "flex" : "none";
+      if (match) n++;
+    });
+
+    noResult.style.display = q && n === 0 ? "block" : "none";
   });
+}
 
-  noResult.style.display = q && n === 0 ? 'block' : 'none';
-});
-
-/* 4 प्रमाण-पत्र सीधे RTPS पर जाएँ */
+/* =========== 4 प्रमाण-पत्र सीधे RTPS =========== */
 const directServices = [
-  'जाति प्रमाण-पत्र',
-  'आय प्रमाण-पत्र',
-  'निवास प्रमाण-पत्र',
-  'EWS प्रमाण-पत्र'
+  "जाति प्रमाण-पत्र",
+  "आय प्रमाण-पत्र",
+  "निवास प्रमाण-पत्र",
+  "EWS प्रमाण-पत्र"
 ];
 
 cards.forEach(card => {
-  if (directServices.includes(card.querySelector('h3').innerText.trim())) {
+  const h3 = card.querySelector("h3");
+  if (!h3) return;
+
+  if (directServices.includes(h3.innerText.trim())) {
     return;
   }
 
-  card.addEventListener('click', function(e) {
+  card.addEventListener("click", function (e) {
     e.preventDefault();
 
-    const title = this.querySelector('h3').innerText;
-    const description = this.querySelector('p').innerText;
+    const title = this.querySelector("h3")?.innerText || "";
+    const description = this.querySelector("p")?.innerText || "";
     const link = this.href;
 
     window.location.href =
-      'info.html?title=' + encodeURIComponent(title) +
-      '&description=' + encodeURIComponent(description) +
-      '&link=' + encodeURIComponent(link);
+      "info.html?title=" + encodeURIComponent(title) +
+      "&description=" + encodeURIComponent(description) +
+      "&link=" + encodeURIComponent(link);
   });
 });
 
-/* Firebase Follow System */
-const followBtn = document.getElementById('followBtn');
-const followersEl = document.getElementById('followers');
+/* =========== FIREBASE FOLLOW =========== */
+const followBtn = document.getElementById("followBtn");
+const followersEl = document.getElementById("followers");
 
-onSnapshot(query(collection(db, "followers")), snapshot => {
-  followersEl.innerText = snapshot.size;
-});
+if (followersEl) {
+  onSnapshot(collection(db, "followers"), snapshot => {
+    followersEl.innerText = snapshot.size;
+  });
+}
 
+/* =========== OTP LOGIN =========== */
+const phoneInput = document.getElementById("phoneNumber");
+const otpInput = document.getElementById("otpCode");
+const sendOtpBtn = document.getElementById("sendOtpBtn");
+const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+const loginStatus = document.getElementById("loginStatus");
+
+let confirmationResult;
+
+/* reCAPTCHA */
+if (phoneInput && sendOtpBtn) {
+  window.recaptchaVerifier = new RecaptchaVerifier(
+    auth,
+    "recaptcha-container",
+    {
+      size: "normal"
+    }
+  );
+
+  sendOtpBtn.addEventListener("click", async () => {
+    const number = phoneInput.value.trim();
+
+    if (!/^[6-9][0-9]{9}$/.test(number)) {
+      loginStatus.innerText = "❌ सही 10 अंकों का भारतीय मोबाइल नंबर डालें";
+      return;
+    }
+
+    try {
+      loginStatus.innerText = "OTP भेजा जा रहा है...";
+
+      confirmationResult = await signInWithPhoneNumber(
+        auth,
+        "+91" + number,
+        window.recaptchaVerifier
+      );
+
+      loginStatus.innerText = "📩 OTP भेज दिया गया";
+    } catch (error) {
+      console.error(error);
+      loginStatus.innerText = "❌ OTP नहीं भेजा जा सका";
+    }
+  });
+
+  verifyOtpBtn.addEventListener("click", async () => {
+    const otp = otpInput.value.trim();
+
+    if (!confirmationResult) {
+      loginStatus.innerText = "पहले OTP भेजें";
+      return;
+    }
+
+    if (otp.length !== 6) {
+      loginStatus.innerText = "❌ सही 6 अंकों का OTP डालें";
+      return;
+    }
+
+    try {
+      loginStatus.innerText = "Login हो रहा है...";
+
+      await confirmationResult.confirm(otp);
+
+      localStorage.setItem(
+        "shivamLoginTime",
+        Date.now().toString()
+      );
+
+      loginStatus.innerText = "✅ Login सफल! 24 घंटे तक Login रहेगा";
+
+    } catch (error) {
+      console.error(error);
+      loginStatus.innerText = "❌ OTP गलत है";
+    }
+  });
+}
+
+/* Firebase Anonymous Login + Follow */
 signInAnonymously(auth).catch(error => {
   console.error(error);
-  followersEl.innerText = "0";
+  if (followersEl) followersEl.innerText = "0";
 });
 
 onAuthStateChanged(auth, async user => {
-  if (!user) return;
+  if (!user || !followBtn) return;
 
   const followerRef = doc(db, "followers", user.uid);
   const followerDoc = await getDoc(followerRef);
@@ -792,7 +882,7 @@ onAuthStateChanged(auth, async user => {
     followBtn.innerText = "✅ Follow किया";
   }
 
-  followBtn.addEventListener('click', async () => {
+  followBtn.onclick = async () => {
     const currentDoc = await getDoc(followerRef);
 
     if (currentDoc.exists()) {
@@ -804,8 +894,8 @@ onAuthStateChanged(auth, async user => {
       });
       followBtn.innerText = "✅ Follow किया";
     }
-  });
-});
-  </script>
-</body>  
-  </html>  
+  };
+}
+</script>
+</body>
+</html>
