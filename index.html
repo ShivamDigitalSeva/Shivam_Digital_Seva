@@ -46,67 +46,6 @@
     a{
       text-decoration:none;
     }
-
-    /* ================= LOGIN ================= */
-
-    #loginGate{
-      position:fixed;
-      inset:0;
-      z-index:99999;
-      background:#080e1b;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-
-    #loginBox{
-      width:100%;
-      max-width:400px;
-      background:#fff;
-      color:#111;
-      padding:25px 20px;
-      border-radius:20px;
-      text-align:center;
-      box-shadow:0 10px 30px #000;
-    }
-
-    #loginBox h2{
-      color:#123db5;
-      margin-top:0;
-    }
-
-    #loginBox input{
-      width:100%;
-      padding:14px;
-      border:1px solid #ccc;
-      border-radius:10px;
-      font-size:16px;
-      margin:8px 0;
-    }
-
-    #loginBox button{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:10px;
-      background:#123db5;
-      color:white;
-      font-size:16px;
-      font-weight:bold;
-      margin-top:8px;
-      cursor:pointer;
-    }
-
-    #recaptcha-container{
-      margin:10px 0;
-    }
-
-    #loginStatus{
-      color:#123db5;
-      font-weight:bold;
-    }
-
     /* ================= HEADER ================= */
 
     .top{
@@ -342,42 +281,6 @@
 </head>
 
 <body>
-
-
-  <!-- ================= LOGIN ================= -->
-
-  <div id="loginGate">
-
-    <div id="loginBox">
-
-      <h2>🔐 पहले Login करें</h2>
-
-      <input
-        type="tel"
-        id="phoneNumber"
-        placeholder="10 अंकों का मोबाइल नंबर">
-
-      <div id="recaptcha-container"></div>
-
-      <button id="sendOtpBtn">
-        📱 OTP भेजें
-      </button>
-
-      <input
-        type="number"
-        id="otpCode"
-        placeholder="6 अंकों का OTP">
-
-      <button id="verifyOtpBtn">
-        ✅ Login करें
-      </button>
-
-      <p id="loginStatus"></p>
-
-    </div>
-
-  </div>
-
 
   <!-- ================= HEADER ================= -->
 <header class="top">
@@ -817,232 +720,25 @@
 
     </p>
 
+  </main>
+
+  <footer class="footer">
+
+    ⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐
+
+    <p>
+
+      <a href="about.html">👤 About Us</a>
+
+      <a href="privacy-policy.html">🔒 Privacy Policy</a>
+
+      <a href="contact.html">📞 Contact</a>
+
+      <a href="disclaimer.html">⚠️ Disclaimer</a>
+
+    </p>
+
   </footer>
 
-
-  <!-- ================= FIREBASE PHONE OTP ================= -->
-<script type="module">
-
-import { initializeApp } 
-from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-
-import {
-  getAuth,
-  RecaptchaVerifier,
-  signInWithPhoneNumber
-} 
-from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-
-
-/* ================= FIREBASE CONFIG ================= */
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBxeMoKDSz4BEHtSwCPmrYFJonDiLIEAv8",
-  authDomain: "shivam-digital-seva-22df3.firebaseapp.com",
-  projectId: "shivam-digital-seva-22df3",
-  storageBucket: "shivam-digital-seva-22df3.firebasestorage.app",
-  messagingSenderId: "907210764396",
-  appId: "1:907210764396:web:91733d216a18270c5f6849",
-  measurementId: "G-FFRNLG816K"
-};
-
-/* ================= INITIALIZE ================= */
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-/* ================= ELEMENTS ================= */
-
-const phoneInput = document.getElementById("phoneNumber");
-const otpInput = document.getElementById("otpCode");
-
-const sendOtpBtn = document.getElementById("sendOtpBtn");
-const verifyOtpBtn = document.getElementById("verifyOtpBtn");
-
-const loginStatus = document.getElementById("loginStatus");
-
-let confirmationResult = null;
-let recaptchaVerifier = null;
-
-
-/* ================= LOGIN CHECK ================= */
-
-const loginTime = localStorage.getItem("shivamLoginTime");
-
-if (
-  loginTime &&
-  Date.now() - Number(loginTime) < 24 * 60 * 60 * 1000
-) {
-
-  document.getElementById("loginGate").style.display = "none";
-
-}
-
-
-/* ================= RECAPTCHA ================= */
-
-function setupRecaptcha() {
-async function setupRecaptcha() {
-
-  try {
-
-    if (recaptchaVerifier) {
-      recaptchaVerifier.clear();
-    }
-
-    recaptchaVerifier = new RecaptchaVerifier(
-      auth,
-      "recaptcha-container",
-      {
-        size: "normal"
-      }
-    );
-
-    await recaptchaVerifier.render();
-
-  } catch (error) {
-
-    console.error(error);
-
-    loginStatus.innerText =
-      "❌ reCAPTCHA शुरू नहीं हो पाया।";
-
-  }
-
-}
-  }
-
-}
-
-
-/* ================= START RECAPTCHA ================= */
-
-setupRecaptcha();
-
-
-/* ================= SEND OTP ================= */
-
-sendOtpBtn.addEventListener("click", async () => {
-
-  const number = phoneInput.value.trim();
-
-  if (!/^[6-9][0-9]{9}$/.test(number)) {
-
-    loginStatus.innerText =
-      "❌ सही 10 अंकों का मोबाइल नंबर डालें।";
-
-    return;
-  }
-
-
-  sendOtpBtn.disabled = true;
-
-  loginStatus.innerText =
-    "⏳ OTP भेजा जा रहा है...";
-
-
-  try {
-
-    confirmationResult =
-      await signInWithPhoneNumber(
-        auth,
-        "+91" + number,
-        recaptchaVerifier
-      );
-
-
-    loginStatus.innerText =
-      "✅ OTP आपके मोबाइल पर भेज दिया गया।";
-
-  }
-
-  catch (error) {
-
-    console.error("OTP ERROR:", error);
-
-    loginStatus.innerText =
-      "❌ OTP नहीं भेजा गया: " + error.code;
-
-    sendOtpBtn.disabled = false;
-
-    setupRecaptcha();
-
-  }
-
-});
-
-
-/* ================= VERIFY OTP ================= */
-
-verifyOtpBtn.addEventListener("click", async () => {
-
-  const otp = otpInput.value.trim();
-
-
-  if (!confirmationResult) {
-
-    loginStatus.innerText =
-      "❌ पहले OTP भेजें।";
-
-    return;
-  }
-
-
-  if (!/^[0-9]{6}$/.test(otp)) {
-
-    loginStatus.innerText =
-      "❌ 6 अंकों का OTP डालें।";
-
-    return;
-  }
-
-
-  verifyOtpBtn.disabled = true;
-
-  loginStatus.innerText =
-    "⏳ Login हो रहा है...";
-
-
-  try {
-
-    await confirmationResult.confirm(otp);
-
-
-    localStorage.setItem(
-      "shivamLoginTime",
-      Date.now().toString()
-    );
-
-
-    loginStatus.innerText =
-      "✅ Login सफल!";
-
-
-    setTimeout(() => {
-
-      document.getElementById("loginGate").style.display =
-        "none";
-
-    }, 700);
-
-
-  }
-
-  catch (error) {
-
-    console.error("VERIFY ERROR:", error);
-
-    loginStatus.innerText =
-      "❌ OTP गलत या expire हो गया है।";
-
-    verifyOtpBtn.disabled = false;
-
-  }
-
-});
-
-</script>
-  </body>
+</body>
 </html>
-  
