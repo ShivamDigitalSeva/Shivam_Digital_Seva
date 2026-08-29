@@ -1,744 +1,1135 @@
 <!DOCTYPE html>
 <html lang="hi">
-  <head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Digital Seva | Bihar Online Digital Services</title>
 
-  <title>Shivam Digital Seva | Bihar Online Digital Services</title>
+<meta name="description" content="Shivam Digital Seva पर बिहार की ऑनलाइन डिजिटल सेवाओं के उपयोगी लिंक। जाति, आय, निवास, EWS, Aadhaar, PAN, Voter, Scholarship, किसान और अन्य सेवाएं।">
 
-  <meta name="description"
-    content="Shivam Digital Seva - बिहार में ऑनलाइन डिजिटल सेवाओं के लिए आसान प्लेटफॉर्म। जाति प्रमाण-पत्र, आय प्रमाण-पत्र, निवास प्रमाण-पत्र, EWS, Aadhaar, PAN, Scholarship और अन्य सेवाओं के उपयोगी लिंक।">
+<meta name="robots" content="index, follow">
 
-  <meta name="robots" content="index, follow">
+<link rel="canonical"
+href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
 
-  <link rel="canonical"
-    href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
+<style>
+*{
+  box-sizing:border-box;
+}
 
-  <meta property="og:title"
-    content="Shivam Digital Seva | Bihar Online Digital Services">
+html{
+  scroll-behavior:smooth;
+}
 
-  <meta property="og:description"
-    content="बिहार की ऑनलाइन डिजिटल सेवाओं के उपयोगी लिंक एक ही स्थान पर।">
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#07101f;
+  color:#fff;
+}
 
-  <meta property="og:url"
-    content="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
+a{
+  text-decoration:none;
+}
 
-  <meta property="og:type" content="website">
+.top{
+  text-align:center;
+  padding:25px 15px;
+  background:linear-gradient(135deg,#061329,#123477);
+  border-bottom:2px solid #315bd1;
+}
 
-  <style>
+.logo{
+  width:100px;
+  height:100px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:50%;
+  padding:4px;
+}
 
-    *{
-      box-sizing:border-box;
-    }
+.top h1{
+  margin:12px 0 6px;
+  font-size:30px;
+}
 
-    html{
-      scroll-behavior:smooth;
-    }
+.top h2{
+  margin:5px 0;
+  font-size:17px;
+}
 
-    body{
-      margin:0;
-      font-family:Arial,"Noto Sans Devanagari",sans-serif;
-      background:#080e1b;
-      color:#fff;
-    }
+.top p{
+  color:#d8e2f5;
+}
 
-    a{
-      text-decoration:none;
-    }
-    /* ================= HEADER ================= */
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 14px;
+}
 
-    .top{
-      background:linear-gradient(135deg,#07101f,#111d35);
-      padding:22px 15px;
-      text-align:center;
-      border-bottom:1px solid #243c78;
-    }
+.notice{
+  background:#111d33;
+  border:1px solid #315080;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
 
-    .logo{
-      width:100px;
-      height:100px;
-      object-fit:contain;
-      background:white;
-      border-radius:50%;
-      padding:4px;
-    }
+.search-box{
+  margin:18px 0;
+  padding:5px 15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#121f36;
+  border:2px solid #3764dc;
+  border-radius:18px;
+}
 
-    .top h1{
-      margin:10px 0 5px;
-      font-size:30px;
-    }
+.search-box input{
+  width:100%;
+  padding:13px;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff;
+  font-size:16px;
+}
 
-    .top h2{
-      font-size:16px;
-      color:#dbe5ff;
-      margin:8px 0;
-    }
+.digital{
+  background:#fff;
+  color:#111;
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  margin:18px 0;
+}
 
-    .top p{
-      color:#9eacc6;
-    }
+.digital h2{
+  color:#092d86;
+}
 
-    /* ================= MAIN ================= */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
 
-    .wrap{
-      max-width:1100px;
-      margin:auto;
-      padding:18px 14px;
-    }
+.buttons a{
+  padding:12px 18px;
+  border-radius:10px;
+  color:#fff;
+  background:#123db5;
+  font-weight:bold;
+}
 
-    .notice{
-      background:#111a2c;
-      border:1px solid #29426f;
-      border-radius:18px;
-      padding:15px;
-      text-align:center;
-    }
+.section-title{
+  margin-top:28px;
+  padding-bottom:10px;
+  border-bottom:2px solid #315080;
+}
 
-    .small{
-      color:#aeb9cc;
-      font-size:13px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
 
-    /* ================= SEARCH ================= */
+.card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:16px;
+  min-height:135px;
+  border-radius:16px;
+  border:1px solid #2c4670;
+  background:#15233a;
+  color:#fff;
+  transition:.2s;
+}
 
-    .search-box{
-      background:#121c30;
-      border:2px solid #315ad6;
-      border-radius:18px;
-      padding:8px 15px;
-      margin:18px 0;
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
+.card:hover{
+  transform:translateY(-2px);
+  border-color:#5c80ed;
+}
 
-    .search-box input{
-      width:100%;
-      background:transparent;
-      color:white;
-      border:none;
-      outline:none;
-      padding:10px;
-      font-size:16px;
-    }
+.icon{
+  font-size:30px;
+}
 
-    /* ================= DIGITAL SEVA ================= */
+.card h3{
+  margin:0;
+  font-size:17px;
+}
 
-    .digital-seva-box{
-      background:#fff;
-      color:#111;
-      border-radius:18px;
-      padding:18px;
-      text-align:center;
-      margin:18px 0;
-    }
+.card p{
+  margin:0;
+  color:#b8c4d8;
+  font-size:13px;
+}
 
-    .digital-seva-box h2{
-      color:#09236e;
-    }
+.info{
+  display:none;
+  margin-top:10px;
+  padding:14px;
+  background:#0d1729;
+  border:1px solid #3c5d91;
+  border-radius:12px;
+  line-height:1.6;
+}
 
-    .contact-buttons{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+.info button{
+  margin-top:8px;
+  padding:10px 15px;
+  border:0;
+  border-radius:8px;
+  background:#2455cf;
+  color:white;
+  font-weight:bold;
+}
 
-    .contact-buttons a{
-      background:#092c9b;
-      color:#fff;
-      padding:12px 18px;
-      border-radius:10px;
-      font-weight:bold;
-    }
+.no-result{
+  display:none;
+  text-align:center;
+  padding:20px;
+  background:#121f36;
+  border-radius:15px;
+}
 
-    /* ================= TITLES ================= */
+.contact{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
 
-    .section-title{
-      border-bottom:2px solid #2c4675;
-      padding-bottom:10px;
-      margin-top:25px;
-    }
+.contact a{
+  padding:18px;
+  border-radius:15px;
+  color:#fff;
+  text-align:center;
+  font-weight:bold;
+}
 
-    /* ================= CARDS ================= */
+.phone{
+  background:#176d4c;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
+.wa{
+  background:#137d42;
+}
 
-    .card{
-      background:#172238;
-      color:#fff;
-      border:1px solid #2a416e;
-      border-radius:16px;
-      padding:14px;
-      min-height:135px;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
+.address{
+  background:#193f8f;
+}
 
-    .card:hover{
-      border-color:#5278ff;
-    }
+.footer{
+  margin-top:30px;
+  padding:25px 15px;
+  text-align:center;
+  background:#040912;
+}
 
-    .icon{
-      font-size:30px;
-    }
+.footer a{
+  color:#fff;
+  margin:7px;
+}
 
-    .card h3{
-      margin:0;
-      font-size:17px;
-    }
+@media(max-width:600px){
 
-    .card p{
-      color:#aeb9cc;
-      font-size:13px;
-      margin:0;
-    }
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-    .no-result{
-      display:none;
-      text-align:center;
-      padding:20px;
-      margin-top:15px;
-      background:#121c30;
-      border-radius:15px;
-    }
+  .contact{
+    grid-template-columns:1fr;
+  }
 
-    /* ================= FOLLOW ================= */
+  .top h1{
+    font-size:27px;
+  }
 
-    #followBtn{
-      background:#123db5;
-      color:#fff;
-      border:none;
-      padding:14px 25px;
-      border-radius:12px;
-      font-size:18px;
-      font-weight:bold;
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-    }
-
-    .contact a{
-      padding:16px;
-      border-radius:15px;
-      color:#fff;
-      text-align:center;
-      font-weight:bold;
-    }
-
-    .phone{
-      background:#176d4c;
-    }
-
-    .wa{
-      background:#137d42;
-    }
-
-    .address{
-      background:#193f8f;
-    }
-
-    /* ================= FOOTER ================= */
-
-    .footer{
-      background:#060b15;
-      text-align:center;
-      padding:25px 15px;
-      margin-top:25px;
-    }
-
-    .footer a{
-      color:white;
-      margin:8px;
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media(max-width:520px){
-
-      .top h1{
-        font-size:27px;
-      }
-
-      .contact{
-        grid-template-columns:1fr;
-      }
-
-    }
-
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
 <header class="top">
 
-  <img
-    class="logo"
-    src="logo_optimized.jpg"
-    alt="Shivam Digital Seva Logo">
+<img
+class="logo"
+src="logo_optimized.jpg"
+alt="Shivam Digital Seva Logo">
 
-  <h1>Shivam Digital Seva</h1>
+<h1>Shivam Digital Seva</h1>
 
-  <h2>
-    बिहार की ऑनलाइन डिजिटल सेवाएं एक ही स्थान पर
-  </h2>
+<h2>बिहार की ऑनलाइन डिजिटल सेवाएं एक ही स्थान पर</h2>
 
-  <p>
-    RTPS, जाति, आय, निवास, EWS, Aadhaar, PAN और Scholarship सेवाओं के उपयोगी लिंक
-  </p>
+<p>
+RTPS, Aadhaar, PAN, Scholarship और अन्य सेवाओं के उपयोगी लिंक
+</p>
 
 </header>
- 
-  <!-- ================= MAIN ================= -->
-
-  <main class="wrap">
-
-    <div class="notice">
-
-      <b>
-        🌐 सभी सेवाओं के लिए नीचे दिए गए बटन पर क्लिक करें
-      </b>
-
-      <p class="small">
-        लिंक संबंधित आधिकारिक/सेवा पोर्टल पर खुलेंगे।
-      </p>
-
-    </div>
 
 
-    <!-- SEARCH -->
+<main class="wrap">
 
-    <div class="search-box">
-
-      🔍
-
-      <input
-        id="serviceSearch"
-        type="search"
-        placeholder="सेवा खोजें...">
-
-    </div>
+<div class="notice">
+<b>🌐 Shivam Digital Seva में आपका स्वागत है</b>
+<p>
+बिहार की विभिन्न ऑनलाइन सरकारी सेवाओं के उपयोगी लिंक एक ही स्थान पर।
+</p>
+</div>
 
 
-    <!-- DIGITAL SEVA -->
+<!-- SEARCH -->
 
-    <section class="digital-seva-box">
+<div class="search-box">
 
-      <h2>💼 Digital Seva</h2>
+<span>🔍</span>
 
-      <p>
-        इन सभी ऑनलाइन सेवाओं की सुविधा हमारे यहाँ उपलब्ध है।
-      </p>
+<input
+id="search"
+type="search"
+placeholder="सेवा खोजें...">
 
-      <p>
-        किसी भी सेवा के लिए संपर्क करें।
-      </p>
-
-      <div class="contact-buttons">
-
-        <a href="tel:+919508051176">
-          📞 9508051176
-        </a>
-
-        <a
-          href="https://wa.me/917667187142"
-          target="_blank">
-
-          💬 WhatsApp
-
-        </a>
-
-      </div>
-
-    </section>
-    <h2 class="section-title">
-  🌿 Shivam Digital Seva की प्रमुख ऑनलाइन सेवाएं 🌿
-    </h2>
-    <!-- ================= SERVICES ================= -->
-
-    <div class="grid">
+</div>
 
 
-      <a class="card"
-        href="https://myaadhaar.uidai.gov.in/"
-        target="_blank">
+<!-- DIGITAL SEVA -->
 
-        <div class="icon">🪪</div>
+<section class="digital">
 
-        <div>
-          <h3>Aadhaar सेवाएं</h3>
-          <p>डाउनलोड, अपडेट और अन्य सेवाएं</p>
-        </div>
+<h2>💼 Digital Seva</h2>
 
-      </a>
+<p>
+ऑनलाइन सेवाओं की जानकारी और उपयोगी लिंक यहाँ उपलब्ध हैं।
+</p>
 
+<div class="buttons">
 
-      <a class="card"
-        href="https://www.incometax.gov.in/"
-        target="_blank">
-
-        <div class="icon">💳</div>
-
-        <div>
-          <h3>PAN Card</h3>
-          <p>PAN संबंधित सेवाएं</p>
-        </div>
-
-      </a>
-
-
-      <a class="card"
-        href="https://voters.eci.gov.in/"
-        target="_blank">
-
-        <div class="icon">🗳️</div>
-
-        <div>
-          <h3>Voter ID</h3>
-          <p>आवेदन और स्टेटस</p>
-        </div>
-
-      </a>
-
-
-      <!-- RTPS -->
-      <!-- आय प्रमाण-पत्र -->
-<a class="card"
-   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4640002&state=10&tempId=747"
-   target="_blank"
-   rel="noopener">
-  <div class="icon">📜</div>
-  <div>
-    <h3>आय प्रमाण-पत्र</h3>
-    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
-  </div>
+<a href="tel:+919508051176">
+📞 9508051176
 </a>
 
-<!-- जाति प्रमाण-पत्र -->
-<a class="card"
-   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4650002&state=10&tempId=748"
-   target="_blank"
-   rel="noopener">
-  <div class="icon">👥</div>
-  <div>
-    <h3>जाति प्रमाण-पत्र</h3>
-    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
-  </div>
+<a href="https://wa.me/917667187142" target="_blank">
+💬 WhatsApp
 </a>
 
-<!-- निवास प्रमाण-पत्र -->
-<a class="card"
-   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4630002&state=10&tempId=751"
-   target="_blank"
-   rel="noopener">
-  <div class="icon">🏠</div>
-  <div>
-    <h3>निवास प्रमाण-पत्र</h3>
-    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
-  </div>
+</div>
+
+</section>
+
+
+<h2 class="section-title">
+🌿 बिहार RTPS प्रमाण-पत्र सेवाएं
+</h2>
+
+<p>
+जाति, आय, निवास और EWS प्रमाण-पत्र के लिए कार्ड पर क्लिक करें।
+पहले आवश्यक जानकारी दिखाई जाएगी।
+</p>
+
+
+<div class="grid">
+
+
+<!-- 1 आय -->
+
+<div class="card service">
+
+<div class="icon">💰</div>
+
+<h3>आय प्रमाण-पत्र</h3>
+
+<p>बिहार RTPS से आय प्रमाण-पत्र</p>
+
+<div class="info">
+
+<b>मोबाइल से तरीका:</b><br>
+1. RTPS सेवा खोलें।<br>
+2. सामान्य प्रशासन विभाग चुनें।<br>
+3. आय प्रमाण-पत्र चुनें।<br>
+4. अपनी जानकारी भरें।<br>
+5. जरूरी दस्तावेज अपलोड करें।<br>
+6. Submit करके आवेदन नंबर सुरक्षित रखें।
+
+<br>
+
+<button onclick="window.open('https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4640002&state=10&tempId=747','_blank')">
+आवेदन करें
+</button>
+
+</div>
+</div>
+
+
+<!-- 2 जाति -->
+
+<div class="card service">
+
+<div class="icon">👥</div>
+
+<h3>जाति प्रमाण-पत्र</h3>
+
+<p>बिहार RTPS से जाति प्रमाण-पत्र</p>
+
+<div class="info">
+
+<b>मोबाइल से तरीका:</b><br>
+1. RTPS सेवा खोलें।<br>
+2. सामान्य प्रशासन विभाग चुनें।<br>
+3. जाति प्रमाण-पत्र चुनें।<br>
+4. नाम, पिता का नाम, पता आदि भरें।<br>
+5. जरूरी दस्तावेज अपलोड करें।<br>
+6. Submit करके आवेदन नंबर सुरक्षित रखें।
+
+<br>
+
+<button onclick="window.open('https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4650002&state=10&tempId=748','_blank')">
+आवेदन करें
+</button>
+
+</div>
+</div>
+
+
+<!-- 3 निवास -->
+
+<div class="card service">
+
+<div class="icon">🏠</div>
+
+<h3>निवास प्रमाण-पत्र</h3>
+
+<p>बिहार RTPS से निवास प्रमाण-पत्र</p>
+
+<div class="info">
+
+<b>मोबाइल से तरीका:</b><br>
+1. RTPS सेवा खोलें।<br>
+2. निवास प्रमाण-पत्र चुनें।<br>
+3. आवेदन की जानकारी भरें।<br>
+4. जरूरी दस्तावेज अपलोड करें।<br>
+5. Submit करके आवेदन नंबर सुरक्षित रखें।
+
+<br>
+
+<button onclick="window.open('https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=4630002&state=10&tempId=751','_blank')">
+आवेदन करें
+</button>
+
+</div>
+</div>
+
+
+<!-- 4 EWS -->
+
+<div class="card service">
+
+<div class="icon">📄</div>
+
+<h3>EWS प्रमाण-पत्र</h3>
+
+<p>बिहार में EWS प्रमाण-पत्र</p>
+
+<div class="info">
+
+<b>मोबाइल से तरीका:</b><br>
+1. RTPS पोर्टल खोलें।<br>
+2. EWS प्रमाण-पत्र सेवा चुनें।<br>
+3. आवेदन की जानकारी भरें।<br>
+4. जरूरी दस्तावेज अपलोड करें।<br>
+5. Submit करके आवेदन नंबर सुरक्षित रखें।
+
+<br>
+
+<button onclick="window.open('https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=10430002&state=10&tempId=3498','_blank')">
+आवेदन करें
+</button>
+
+</div>
+</div>
+
+
+<!-- 5 -->
+
+<a class="card service"
+href="https://myaadhaar.uidai.gov.in/" target="_blank">
+
+<div class="icon">🪪</div>
+<h3>Aadhaar सेवाएं</h3>
+<p>आधार डाउनलोड और अन्य सेवाएं</p>
+
 </a>
 
-<!-- EWS प्रमाण-पत्र -->
-<a class="card"
-   href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?backButtonUrl=viewAllServiceList.html&serviceId=10430002&state=10&tempId=3498"
-   target="_blank"
-   rel="noopener">
-  <div class="icon">📄</div>
-  <div>
-    <h3>EWS प्रमाण-पत्र</h3>
-    <p>बिहार RTPS पोर्टल पर आवेदन करने की जानकारी</p>
-  </div>
+
+<!-- 6 -->
+
+<a class="card service"
+href="https://www.incometax.gov.in/" target="_blank">
+
+<div class="icon">💳</div>
+<h3>PAN Card</h3>
+<p>PAN से संबंधित सेवाएं</p>
+
 </a>
-      <a class="card"
-        href="https://www.digilocker.gov.in/"
-        target="_blank">
 
-        <div class="icon">☁️</div>
 
-        <div>
-          <h3>DigiLocker</h3>
-          <p>डिजिटल दस्तावेज सेवाएं</p>
-        </div>
+<!-- 7 -->
 
-      </a>
+<a class="card service"
+href="https://voters.eci.gov.in/" target="_blank">
 
+<div class="icon">🗳️</div>
+<h3>Voter ID</h3>
+<p>मतदाता सेवा और आवेदन</p>
 
-      <a class="card"
-        href="https://scholarships.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">🎓</div>
 
-        <div>
-          <h3>Scholarship</h3>
-          <p>NSP छात्रवृत्ति पोर्टल</p>
-        </div>
+<!-- 8 -->
 
-      </a>
+<a class="card service"
+href="https://www.digilocker.gov.in/" target="_blank">
 
+<div class="icon">☁️</div>
+<h3>DigiLocker</h3>
+<p>डिजिटल दस्तावेज</p>
 
-      <a class="card"
-        href="https://www.passportindia.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">🛂</div>
 
-        <div>
-          <h3>Passport</h3>
-          <p>पासपोर्ट सेवाएं</p>
-        </div>
+<!-- 9 -->
 
-      </a>
+<a class="card service"
+href="https://scholarships.gov.in/" target="_blank">
 
+<div class="icon">🎓</div>
+<h3>NSP Scholarship</h3>
+<p>राष्ट्रीय छात्रवृत्ति पोर्टल</p>
 
-      <a class="card"
-        href="https://parivahan.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">🚗</div>
 
-        <div>
-          <h3>Driving Licence</h3>
-          <p>DL और वाहन सेवाएं</p>
-        </div>
+<!-- 10 -->
 
-      </a>
+<a class="card service"
+href="https://pmsonline.bihar.gov.in/" target="_blank">
 
+<div class="icon">🎓</div>
+<h3>Bihar PMS</h3>
+<p>पोस्ट मैट्रिक छात्रवृत्ति</p>
 
-      <a class="card"
-        href="https://pmkisan.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">🌾</div>
 
-        <div>
-          <h3>PM Kisan</h3>
-          <p>किसान सम्मान निधि</p>
-        </div>
+<!-- 11 -->
 
-      </a>
+<a class="card service"
+href="https://www.passportindia.gov.in/" target="_blank">
 
+<div class="icon">🛂</div>
+<h3>Passport</h3>
+<p>पासपोर्ट सेवाएं</p>
 
-      <a class="card"
-        href="https://www.eshram.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">👷</div>
 
-        <div>
-          <h3>e-Shram</h3>
-          <p>श्रमिक कार्ड सेवाएं</p>
-        </div>
+<!-- 12 -->
 
-      </a>
+<a class="card service"
+href="https://parivahan.gov.in/" target="_blank">
 
+<div class="icon">🚗</div>
+<h3>Driving Licence</h3>
+<p>DL और वाहन सेवाएं</p>
 
-      <a class="card"
-        href="https://pmsonline.bihar.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">🎓</div>
 
-        <div>
-          <h3>PMS Scholarship</h3>
-          <p>बिहार पोस्ट मैट्रिक छात्रवृत्ति</p>
-        </div>
+<!-- 13 -->
 
-      </a>
+<a class="card service"
+href="https://pmkisan.gov.in/" target="_blank">
 
+<div class="icon">🌾</div>
+<h3>PM Kisan</h3>
+<p>किसान सम्मान निधि</p>
 
-      <a class="card"
-        href="https://www.myscheme.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">📋</div>
 
-        <div>
-          <h3>myScheme</h3>
-          <p>सरकारी योजनाएं खोजें</p>
-        </div>
+<!-- 14 -->
 
-      </a>
+<a class="card service"
+href="https://www.eshram.gov.in/" target="_blank">
 
+<div class="icon">👷</div>
+<h3>e-Shram</h3>
+<p>श्रमिक कार्ड सेवाएं</p>
 
-      <a class="card"
-        href="https://www.indiapost.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">📮</div>
 
-        <div>
-          <h3>India Post</h3>
-          <p>डाक एवं पोस्टल सेवाएं</p>
-        </div>
+<!-- 15 -->
 
-      </a>
+<a class="card service"
+href="https://www.myscheme.gov.in/" target="_blank">
 
+<div class="icon">📋</div>
+<h3>myScheme</h3>
+<p>सरकारी योजनाएं खोजें</p>
 
-      <a class="card"
-        href="https://www.ncs.gov.in/"
-        target="_blank">
+</a>
 
-        <div class="icon">💼</div>
 
-        <div>
-          <h3>National Career Service</h3>
-          <p>नौकरी और रोजगार</p>
-        </div>
+<!-- 16 -->
 
-      </a>
+<a class="card service"
+href="https://www.indiapost.gov.in/" target="_blank">
 
+<div class="icon">📮</div>
+<h3>India Post</h3>
+<p>डाक सेवाएं</p>
 
-      <a class="card"
-        href="https://nbpdcl.co.in/frmLTHTNewConnection.aspx"
-        target="_blank">
+</a>
 
-        <div class="icon">💡</div>
 
-        <div>
-          <h3>New Bijli Connection</h3>
-          <p>नया बिजली कनेक्शन</p>
-        </div>
+<!-- 17 -->
 
-      </a>
+<a class="card service"
+href="https://www.ncs.gov.in/" target="_blank">
 
+<div class="icon">💼</div>
+<h3>National Career Service</h3>
+<p>रोजगार और नौकरी</p>
 
-    </div>
+</a>
 
 
-    <div
-      id="noResult"
-      class="no-result">
+<!-- 18 -->
 
-      😕 कोई सेवा नहीं मिली।
+<a class="card service"
+href="https://nbpdcl.co.in/" target="_blank">
 
-    </div>
+<div class="icon">💡</div>
+<h3>Bijli सेवा</h3>
+<p>बिजली से संबंधित सेवाएं</p>
 
+</a>
 
-    <!-- CONTACT -->
 
-    <h2 class="section-title">
-      📞 संपर्क करें
-    </h2>
+<!-- 19 -->
 
-    <div class="contact">
+<a class="card service"
+href="https://www.uidai.gov.in/" target="_blank">
 
-      <a class="phone"
-        href="tel:+919508051176">
+<div class="icon">🆔</div>
+<h3>UIDAI</h3>
+<p>आधार की आधिकारिक वेबसाइट</p>
 
-        📞 Mobile<br>
-        9508051176
+</a>
 
-      </a>
 
+<!-- 20 -->
 
-      <a class="wa"
-        href="https://wa.me/917667187142"
-        target="_blank">
+<a class="card service"
+href="https://www.eci.gov.in/" target="_blank">
 
-        💬 WhatsApp<br>
-        7667187142
+<div class="icon">🏛️</div>
+<h3>Election Commission</h3>
+<p>निर्वाचन संबंधी सेवाएं</p>
 
-      </a>
+</a>
 
 
-      <a class="address"
-        href="https://www.google.com/maps/search/?api=1&query=Senuaria,Bihar"
-        target="_blank">
+<!-- 21 -->
 
-        📍 पता<br>
-        Senuaria
+<a class="card service"
+href="https://www.irctc.co.in/" target="_blank">
 
-      </a>
+<div class="icon">🚆</div>
+<h3>IRCTC</h3>
+<p>रेल टिकट सेवाएं</p>
 
-    </div>
+</a>
 
 
-    <!-- FOLLOW -->
+<!-- 22 -->
 
-    <h2 class="section-title">
-      ❤️ हमें Follow करें
-    </h2>
+<a class="card service"
+href="https://www.rrbapply.gov.in/" target="_blank">
 
+<div class="icon">🚆</div>
+<h3>Railway Recruitment</h3>
+<p>रेलवे भर्ती जानकारी</p>
 
-    <div style="text-align:center">
+</a>
 
-      <button id="followBtn">
-        ❤️ Follow करें
-      </button>
 
-      <p style="font-size:18px;font-weight:bold">
+<!-- 23 -->
 
-        Followers:
-        <span id="followers">
-          0
-        </span>
+<a class="card service"
+href="https://www.upsc.gov.in/" target="_blank">
 
-      </p>
+<div class="icon">📚</div>
+<h3>UPSC</h3>
+<p>संघ लोक सेवा आयोग</p>
 
-    </div>
+</a>
 
-  </main>
 
+<!-- 24 -->
 
-  <!-- FOOTER -->
+<a class="card service"
+href="https://www.bpsc.bih.nic.in/" target="_blank">
 
-  <footer class="footer">
+<div class="icon">📚</div>
+<h3>BPSC</h3>
+<p>बिहार लोक सेवा आयोग</p>
 
-    ⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐
+</a>
 
-    <p>
 
-      <a href="about.html">
-        👤 About Us
-      </a>
+<!-- 25 -->
 
-      <a href="privacy-policy.html">
-        🔒 Privacy Policy
-      </a>
+<a class="card service"
+href="https://www.csbc.bih.nic.in/" target="_blank">
 
-      <a href="contact.html">
-        📞 Contact
-      </a>
+<div class="icon">👮</div>
+<h3>CSBC Bihar</h3>
+<p>पुलिस भर्ती जानकारी</p>
 
-      <a href="disclaimer.html">
-        ⚠️ Disclaimer
-      </a>
+</a>
 
-    </p>
 
-  </main>
+<!-- 26 -->
 
-  <footer class="footer">
+<a class="card service"
+href="https://ssc.gov.in/" target="_blank">
 
-    ⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐
+<div class="icon">📝</div>
+<h3>SSC</h3>
+<p>Staff Selection Commission</p>
 
-    <p>
+</a>
 
-      <a href="about.html">👤 About Us</a>
 
-      <a href="privacy-policy.html">🔒 Privacy Policy</a>
+<!-- 27 -->
 
-      <a href="contact.html">📞 Contact</a>
+<a class="card service"
+href="https://www.nta.ac.in/" target="_blank">
 
-      <a href="disclaimer.html">⚠️ Disclaimer</a>
+<div class="icon">🎓</div>
+<h3>NTA</h3>
+<p>परीक्षा संबंधी सेवाएं</p>
 
-    </p>
+</a>
 
-  </footer>
+
+<!-- 28 -->
+
+<a class="card service"
+href="https://www.abc.gov.in/" target="_blank">
+
+<div class="icon">🎓</div>
+<h3>Academic Bank</h3>
+<p>शैक्षणिक रिकॉर्ड</p>
+
+</a>
+
+
+<!-- 29 -->
+
+<a class="card service"
+href="https://www.cowin.gov.in/" target="_blank">
+
+<div class="icon">💉</div>
+<h3>CoWIN</h3>
+<p>स्वास्थ्य संबंधी पोर्टल</p>
+
+</a>
+
+
+<!-- 30 -->
+
+<a class="card service"
+href="https://www.mygov.in/" target="_blank">
+
+<div class="icon">🇮🇳</div>
+<h3>MyGov</h3>
+<p>भारत सरकार का पोर्टल</p>
+
+</a>
+
+
+<!-- 31 -->
+
+<a class="card service"
+href="https://www.india.gov.in/" target="_blank">
+
+<div class="icon">🇮🇳</div>
+<h3>India.gov.in</h3>
+<p>भारत सरकार की जानकारी</p>
+
+</a>
+
+
+<!-- 32 -->
+
+<a class="card service"
+href="https://services.india.gov.in/" target="_blank">
+
+<div class="icon">🏛️</div>
+<h3>National Services Portal</h3>
+<p>सरकारी सेवाएं</p>
+
+</a>
+
+
+<!-- 33 -->
+
+<a class="card service"
+href="https://www.vidyalakshmi.co.in/" target="_blank">
+
+<div class="icon">🎓</div>
+<h3>Vidya Lakshmi</h3>
+<p>शिक्षा ऋण जानकारी</p>
+
+</a>
+
+
+<!-- 34 -->
+
+<a class="card service"
+href="https://pmaymis.gov.in/" target="_blank">
+
+<div class="icon">🏠</div>
+<h3>PMAY</h3>
+<p>प्रधानमंत्री आवास योजना</p>
+
+</a>
+
+
+<!-- 35 -->
+
+<a class="card service"
+href="https://pmfby.gov.in/" target="_blank">
+
+<div class="icon">🌾</div>
+<h3>PM Fasal Bima</h3>
+<p>फसल बीमा योजना</p>
+
+</a>
+
+
+<!-- 36 -->
+
+<a class="card service"
+href="https://www.kaushalbharat.gov.in/" target="_blank">
+
+<div class="icon">🛠️</div>
+<h3>Skill India</h3>
+<p>कौशल विकास सेवाएं</p>
+
+</a>
+
+
+<!-- 37 -->
+
+<a class="card service"
+href="https://www.digilocker.gov.in/" target="_blank">
+
+<div class="icon">📂</div>
+<h3>Digital Documents</h3>
+<p>डिजिटल दस्तावेज</p>
+
+</a>
+
+
+<!-- 38 -->
+
+<a class="card service"
+href="https://www.epfindia.gov.in/" target="_blank">
+
+<div class="icon">💼</div>
+<h3>EPFO</h3>
+<p>PF संबंधी सेवाएं</p>
+
+</a>
+
+
+<!-- 39 -->
+
+<a class="card service"
+href="https://www.esic.gov.in/" target="_blank">
+
+<div class="icon">🏥</div>
+<h3>ESIC</h3>
+<p>कर्मचारी स्वास्थ्य सेवाएं</p>
+
+</a>
+
+
+<!-- 40 -->
+
+<a class="card service"
+href="https://www.licindia.in/" target="_blank">
+
+<div class="icon">🛡️</div>
+<h3>LIC</h3>
+<p>बीमा सेवाएं</p>
+
+</a>
+
+
+<!-- 41 -->
+
+<a class="card service"
+href="https://www.jansuraksha.gov.in/" target="_blank">
+
+<div class="icon">🛡️</div>
+<h3>Jan Suraksha</h3>
+<p>सामाजिक सुरक्षा योजनाएं</p>
+
+</a>
+
+
+<!-- 42 -->
+
+<a class="card service"
+href="https://www.nvsp.in/" target="_blank">
+
+<div class="icon">🗳️</div>
+<h3>Voter Services</h3>
+<p>मतदाता सेवाएं</p>
+
+</a>
+
+
+<!-- 43 -->
+
+<a class="card service"
+href="https://www.igrsup.gov.in/" target="_blank">
+
+<div class="icon">🏠</div>
+<h3>Property Services</h3>
+<p>संपत्ति संबंधी सेवाएं</p>
+
+</a>
+
+
+<!-- 44 -->
+
+<a class="card service"
+href="https://www.gst.gov.in/" target="_blank">
+
+<div class="icon">💼</div>
+<h3>GST</h3>
+<p>GST सेवाएं</p>
+
+</a>
+
+
+<!-- 45 -->
+
+<a class="card service"
+href="https://www.mca.gov.in/" target="_blank">
+
+<div class="icon">🏢</div>
+<h3>MCA</h3>
+<p>कंपनी संबंधी सेवाएं</p>
+
+</a>
+
+
+<!-- 46 -->
+
+<a class="card service"
+href="https://www.incometax.gov.in/" target="_blank">
+
+<div class="icon">💰</div>
+<h3>Income Tax</h3>
+<p>आयकर सेवाएं</p>
+
+</a>
+
+
+<!-- 47 -->
+
+<a class="card service"
+href="https://www.mahresult.nic.in/" target="_blank">
+
+<div class="icon">📊</div>
+<h3>Exam Results</h3>
+<p>परीक्षा परिणाम</p>
+
+</a>
+
+
+<!-- 48 -->
+
+<a class="card service"
+href="https://results.gov.in/" target="_blank">
+
+<div class="icon">📊</div>
+<h3>Results Portal</h3>
+<p>सरकारी परीक्षा परिणाम</p>
+
+</a>
+
+
+<!-- 49 -->
+
+<a class="card service"
+href="https://www.ncs.gov.in/" target="_blank">
+
+<div class="icon">👨‍💼</div>
+<h3>Job Search</h3>
+<p>नौकरी खोजें</p>
+
+</a>
+
+
+<!-- 50 -->
+
+<a class="card service"
+href="https://www.ugc.gov.in/" target="_blank">
+
+<div class="icon">🎓</div>
+<h3>UGC</h3>
+<p>उच्च शिक्षा संबंधी जानकारी</p>
+
+</a>
+
+</div>
+
+
+<div id="noResult" class="no-result">
+😕 कोई सेवा नहीं मिली।
+</div>
+
+
+<!-- CONTACT -->
+
+<h2 class="section-title">
+📞 संपर्क करें
+</h2>
+
+<div class="contact">
+
+<a class="phone" href="tel:+919508051176">
+📞 Mobile<br>
+9508051176
+</a>
+
+<a class="wa"
+href="https://wa.me/917667187142"
+target="_blank">
+💬 WhatsApp<br>
+7667187142
+</a>
+
+<a class="address"
+href="https://www.google.com/maps/search/?api=1&query=Senuaria,Bihar"
+target="_blank">
+📍 पता<br>
+Senuaria, Bihar
+</a>
+
+</div>
+
+</main>
+
+
+<footer class="footer">
+
+⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐
+
+<p>
+
+<a href="about.html">👤 About Us</a>
+
+<a href="privacy-policy.html">🔒 Privacy Policy</a>
+
+<a href="contact.html">📞 Contact</a>
+
+<a href="disclaimer.html">⚠️ Disclaimer</a>
+
+</p>
+
+</footer>
+
+
+<script>
+/* SEARCH */
+
+const search = document.getElementById("search");
+const services = document.querySelectorAll(".service");
+const noResult = document.getElementById("noResult");
+
+search.addEventListener("input", function(){
+
+  const value = this.value.toLowerCase().trim();
+
+  let found = 0;
+
+  services.forEach(function(card){
+
+    const text = card.innerText.toLowerCase();
+
+    if(text.includes(value)){
+
+      card.style.display = "";
+
+      found++;
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+  noResult.style.display =
+    found === 0 ? "block" : "none";
+
+});
+
+
+/* RTPS INFORMATION */
+
+document.querySelectorAll(".card").forEach(function(card){
+
+  const info = card.querySelector(".info");
+
+  if(info){
+
+    card.addEventListener("click",function(event){
+
+      if(event.target.tagName === "BUTTON"){
+        return;
+      }
+
+      event.preventDefault();
+
+      info.style.display =
+        info.style.display === "block"
+        ? "none"
+        : "block";
+
+    });
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
