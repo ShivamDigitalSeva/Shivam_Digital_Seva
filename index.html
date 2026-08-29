@@ -883,6 +883,7 @@ if (
 /* ================= RECAPTCHA ================= */
 
 function setupRecaptcha() {
+async function setupRecaptcha() {
 
   try {
 
@@ -898,17 +899,18 @@ function setupRecaptcha() {
       }
     );
 
-    recaptchaVerifier.render();
+    await recaptchaVerifier.render();
 
-  }
-
-  catch (error) {
+  } catch (error) {
 
     console.error(error);
 
     loginStatus.innerText =
       "❌ reCAPTCHA शुरू नहीं हो पाया।";
 
+  }
+
+}
   }
 
 }
