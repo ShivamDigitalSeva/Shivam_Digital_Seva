@@ -808,42 +808,54 @@
   </footer>
 
 
-  <!-- ================= FIREBASE ================= -->
+  <!-- ================= FIREBASE PHONE OTP ================= -->
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import { initializeApp } 
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
 import {
   getAuth,
   RecaptchaVerifier,
   signInWithPhoneNumber
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+} 
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
+
+/* ================= FIREBASE CONFIG ================= */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
-  authDomain: "shivam-digital-seva.firebaseapp.com",
-  projectId: "shivam-digital-seva",
-  storageBucket: "shivam-digital-seva.firebasestorage.app",
-  messagingSenderId: "142024656312",
-  appId: "1:142024656312:web:ef0e26c1daacc62f21bb4d"
+  apiKey: "AIzaSyBxeMoKDSz4BEHtSwCPmrYFJonDiLIEAv8",
+  authDomain: "shivam-digital-seva-22df3.firebaseapp.com",
+  projectId: "shivam-digital-seva-22df3",
+  storageBucket: "shivam-digital-seva-22df3.firebasestorage.app",
+  messagingSenderId: "907210764396",
+  appId: "1:907210764396:web:91733d216a18270c5f6849",
+  measurementId: "G-FFRNLG816K"
 };
 
+
+/* ================= INITIALIZE ================= */
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+
+/* ================= ELEMENTS ================= */
+
 const phoneInput = document.getElementById("phoneNumber");
 const otpInput = document.getElementById("otpCode");
+
 const sendOtpBtn = document.getElementById("sendOtpBtn");
 const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+
 const loginStatus = document.getElementById("loginStatus");
 
 let confirmationResult = null;
+let recaptchaVerifier = null;
 
 
-/* =========================
-   24 घंटे Login Check
-========================= */
+/* ================= LOGIN CHECK ================= */
 
 const loginTime = localStorage.getItem("shivamLoginTime");
 
@@ -851,48 +863,58 @@ if (
   loginTime &&
   Date.now() - Number(loginTime) < 24 * 60 * 60 * 1000
 ) {
+
   document.getElementById("loginGate").style.display = "none";
+
 }
 
 
-/* =========================
-   reCAPTCHA
-========================= */
+/* ================= RECAPTCHA ================= */
 
-let recaptchaVerifier;
+function setupRecaptcha() {
 
-try {
+  try {
 
-  recaptchaVerifier = new RecaptchaVerifier(
-    auth,
-    "recaptcha-container",
-    {
-      size: "normal"
+    if (recaptchaVerifier) {
+      recaptchaVerifier.clear();
     }
-  );
 
-  recaptchaVerifier.render();
+    recaptchaVerifier = new RecaptchaVerifier(
+      auth,
+      "recaptcha-container",
+      {
+        size: "normal"
+      }
+    );
 
-} catch(error) {
+    recaptchaVerifier.render();
 
-  console.error(error);
+  }
 
-  if(loginStatus){
+  catch (error) {
+
+    console.error(error);
+
     loginStatus.innerText =
       "❌ reCAPTCHA शुरू नहीं हो पाया।";
+
   }
+
 }
 
 
-/* =========================
-   OTP भेजें
-========================= */
+/* ================= START RECAPTCHA ================= */
 
-sendOtpBtn.addEventListener("click", async function(){
+setupRecaptcha();
+
+
+/* ================= SEND OTP ================= */
+
+sendOtpBtn.addEventListener("click", async () => {
 
   const number = phoneInput.value.trim();
 
-  if(!/^[6-9][0-9]{9}$/.test(number)){
+  if (!/^[6-9][0-9]{9}$/.test(number)) {
 
     loginStatus.innerText =
       "❌ सही 10 अंकों का मोबाइल नंबर डालें।";
@@ -922,54 +944,30 @@ sendOtpBtn.addEventListener("click", async function(){
 
   }
 
-  catch(error){
+  catch (error) {
 
-    console.error(error);
+    console.error("OTP ERROR:", error);
 
- loginStatus.innerText =
-  "❌ Error: " + error.code;
+    loginStatus.innerText =
+      "❌ OTP नहीं भेजा गया: " + error.code;
 
     sendOtpBtn.disabled = false;
 
-
-    /* reCAPTCHA दोबारा बनाना */
-
-    try{
-
-      recaptchaVerifier.clear();
-
-      recaptchaVerifier =
-        new RecaptchaVerifier(
-          auth,
-          "recaptcha-container",
-          {
-            size:"normal"
-          }
-        );
-
-      recaptchaVerifier.render();
-
-    }catch(e){
-
-      console.error(e);
-
-    }
+    setupRecaptcha();
 
   }
 
 });
 
 
-/* =========================
-   OTP Verify
-========================= */
+/* ================= VERIFY OTP ================= */
 
-verifyOtpBtn.addEventListener("click", async function(){
+verifyOtpBtn.addEventListener("click", async () => {
 
   const otp = otpInput.value.trim();
 
 
-  if(!confirmationResult){
+  if (!confirmationResult) {
 
     loginStatus.innerText =
       "❌ पहले OTP भेजें।";
@@ -978,7 +976,7 @@ verifyOtpBtn.addEventListener("click", async function(){
   }
 
 
-  if(!/^[0-9]{6}$/.test(otp)){
+  if (!/^[0-9]{6}$/.test(otp)) {
 
     loginStatus.innerText =
       "❌ 6 अंकों का OTP डालें।";
@@ -993,12 +991,10 @@ verifyOtpBtn.addEventListener("click", async function(){
     "⏳ Login हो रहा है...";
 
 
-  try{
+  try {
 
     await confirmationResult.confirm(otp);
 
-
-    /* Login time save */
 
     localStorage.setItem(
       "shivamLoginTime",
@@ -1010,19 +1006,19 @@ verifyOtpBtn.addEventListener("click", async function(){
       "✅ Login सफल!";
 
 
-    setTimeout(function(){
+    setTimeout(() => {
 
       document.getElementById("loginGate").style.display =
         "none";
 
-    },1000);
+    }, 700);
 
 
   }
 
-  catch(error){
+  catch (error) {
 
-    console.error(error);
+    console.error("VERIFY ERROR:", error);
 
     loginStatus.innerText =
       "❌ OTP गलत या expire हो गया है।";
@@ -1032,6 +1028,7 @@ verifyOtpBtn.addEventListener("click", async function(){
   }
 
 });
+
 </script>
   </body>
 </html>
