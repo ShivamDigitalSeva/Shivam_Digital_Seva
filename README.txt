@@ -1,1 +1,0 @@
-GitHub में इस ZIP की सभी files को repository के उसी स्तर पर upload करें जहाँ index.html है. service1.html से service50.html तक सभी files साथ रखें. logo_optimized.jpg अलग से उपलब्ध हो तो उसी folder में रखें.
