@@ -412,6 +412,60 @@ box-shadow:0 0 15px rgba(82,121,255,.25);
 
 </style>
 </head>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput = document.getElementById("serviceSearch");
+    const cards = document.querySelectorAll("#serviceGrid .card");
+    const noResult = document.getElementById("noResult");
+
+    if (!searchInput) {
+        return;
+    }
+
+    function searchServices() {
+
+        const query = searchInput.value
+            .trim()
+            .toLowerCase();
+
+        let found = 0;
+
+        cards.forEach(function (card) {
+
+            const text = card.textContent
+                .toLowerCase()
+                .replace(/\s+/g, " ");
+
+            if (query === "" || text.includes(query)) {
+
+                card.style.display = "";
+
+                found++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+        if (query !== "" && found === 0) {
+
+            noResult.style.display = "block";
+
+        } else {
+
+            noResult.style.display = "none";
+
+        }
+    }
+
+    searchInput.addEventListener("input", searchServices);
+
+});
+  </script>
 
 <body>
 
