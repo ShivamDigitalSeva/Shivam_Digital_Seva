@@ -1725,7 +1725,7 @@ async function followMe() {
 
     button.disabled = false;
 
-    alert("Follow करने में समस्या हुई। Firebase Settings जाँचें।");
+    alert("Firebase Error:\n" + error.code + "\n" + error.message);
 
   }
 }
