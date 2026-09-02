@@ -427,6 +427,23 @@ a{
   }
 }
 </style>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "यहाँ असली apiKey",
+  authDomain: "यहाँ असली authDomain",
+  projectId: "यहाँ असली projectId",
+  storageBucket: "यहाँ असली storageBucket",
+  messagingSenderId: "यहाँ असली messagingSenderId",
+  appId: "यहाँ असली appId"
+};
+
+firebase.initializeApp(firebaseConfig);
+</script>
 </head>
 
 <body>
