@@ -1601,6 +1601,7 @@ document.addEventListener("DOMContentLoaded", function(){
     );
 
 });
+</script>
 
 <!-- FOLLOW SECTION -->
 <div class="follow-box">
@@ -1618,6 +1619,51 @@ document.addEventListener("DOMContentLoaded", function(){
   </p>
 
 </div>
+
+<!-- FOLLOW SCRIPT -->
+<script>
+function followMe(){
+
+  let followed = localStorage.getItem("shivam_followed");
+
+  if(!followed){
+
+    localStorage.setItem("shivam_followed", "yes");
+
+    document.getElementById("followBtn").innerHTML =
+      "✅ Follow किया";
+
+    let count =
+      Number(localStorage.getItem("shivam_followers") || 0) + 1;
+
+    localStorage.setItem("shivam_followers", count);
+
+    document.getElementById("followers").innerText = count;
+
+  }else{
+
+    document.getElementById("followBtn").innerHTML =
+      "✅ पहले से Follow किया";
+
+  }
+}
+
+window.addEventListener("load", function(){
+
+  let count =
+    localStorage.getItem("shivam_followers") || 0;
+
+  document.getElementById("followers").innerText = count;
+
+  if(localStorage.getItem("shivam_followed")){
+
+    document.getElementById("followBtn").innerHTML =
+      "✅ Follow किया";
+
+  }
+
+});
+</script>
 
 </body>
 </html>
