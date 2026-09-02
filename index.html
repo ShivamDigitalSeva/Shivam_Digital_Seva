@@ -13,41 +13,6 @@ content="Shivam Digital Seva - सभी महत्वपूर्ण सर�
 
 <link rel="canonical"
 href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
-/* FOLLOW */
-.follow-box{
-  text-align:center;
-  background:#101a2e;
-  border:2px solid #294575;
-  border-radius:25px;
-  padding:30px 20px;
-  margin-top:35px;
-}
-
-.follow-box h2{
-  font-family:Georgia,serif;
-  font-size:28px;
-  margin:0 0 12px;
-}
-
-.follow-box p{
-  color:#aebbd0;
-  font-size:17px;
-}
-
-#followBtn{
-  border:0;
-  background:#315de0;
-  color:white;
-  padding:15px 30px;
-  border-radius:14px;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.followers-text{
-  margin-top:18px;
-}
 <style>
 *{
   box-sizing:border-box;
@@ -1471,23 +1436,6 @@ Senuaria
 </p>
 
 </main>
-  <!-- FOLLOW SECTION -->
-<section class="follow-box">
-
-  <h2>❤️ Shivam Digital Seva को Follow करें</h2>
-
-  <p>नई ऑनलाइन सेवाओं और अपडेट के लिए हमें Follow करें।</p>
-
-  <button id="followBtn" onclick="followMe()">
-    ❤️ Follow करें
-  </button>
-
-  <p class="followers-text">
-    Followers: <span id="followers">0</span>
-  </p>
-
-</section>
-
 
 <!-- ================= FOOTER ================= -->
 
@@ -1601,45 +1549,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-</script>
-function followMe(){
-
-  let followed = localStorage.getItem("shivam_followed");
-
-  if(!followed){
-
-    localStorage.setItem("shivam_followed","yes");
-
-    document.getElementById("followBtn").innerHTML =
-      "✅ Follow किया";
-
-    let count =
-      Number(localStorage.getItem("shivam_followers") || 0) + 1;
-
-    localStorage.setItem("shivam_followers",count);
-
-    document.getElementById("followers").innerText = count;
-
-  }else{
-
-    document.getElementById("followBtn").innerHTML =
-      "✅ पहले से Follow किया";
-  }
-}
-
-window.onload = function(){
-
-  let count =
-    localStorage.getItem("shivam_followers") || 0;
-
-  document.getElementById("followers").innerText = count;
-
-  if(localStorage.getItem("shivam_followed")){
-    document.getElementById("followBtn").innerHTML =
-      "✅ Follow किया";
-  }
-
-};
 </script>
 
 </body>
