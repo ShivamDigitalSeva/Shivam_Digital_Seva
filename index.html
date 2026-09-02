@@ -14,6 +14,43 @@ content="Shivam Digital Seva - सभी महत्वपूर्ण सर�
 <link rel="canonical"
 href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
 <style>
+    /* FOLLOW */
+.follow-box{
+  text-align:center;
+  background:#101a2e;
+  border:2px solid #294575;
+  border-radius:25px;
+  padding:30px 20px;
+  margin-top:35px;
+  margin-bottom:30px;
+}
+
+.follow-box h2{
+  font-family:Georgia,serif;
+  font-size:28px;
+  margin:0 0 12px;
+  color:#fff;
+}
+
+.follow-box p{
+  color:#aebbd0;
+  font-size:17px;
+}
+
+#followBtn{
+  border:0;
+  background:#315de0;
+  color:white;
+  padding:15px 30px;
+  border-radius:14px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.followers-text{
+  margin-top:18px;
+}
 *{
   box-sizing:border-box;
 }
@@ -1434,6 +1471,22 @@ Senuaria
 शुल्क और आवश्यक दस्तावेज लागू हो सकते हैं।
 
 </p>
+  <!-- FOLLOW SECTION -->
+<div class="follow-box">
+
+  <h2>❤️ Shivam Digital Seva को Follow करें</h2>
+
+  <p>नई सेवाओं और अपडेट के लिए हमें Follow करें।</p>
+
+  <button id="followBtn" onclick="followMe()">
+    ❤️ Follow करें
+  </button>
+
+  <p class="followers-text">
+    Followers: <span id="followers">0</span>
+  </p>
+
+</div>
 
 </main>
 
