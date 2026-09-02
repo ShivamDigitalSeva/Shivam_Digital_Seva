@@ -1605,48 +1605,133 @@ document.addEventListener("DOMContentLoaded", function(){
 
 <!-- FOLLOW SCRIPT -->
 <script>
-function followMe(){
+async function loadFollowers() {
 
-  let followed = localStorage.getItem("shivam_followed");
+  try {
 
-  if(!followed){
+    await firebase.auth().signInAnonymously();
 
-    localStorage.setItem("shivam_followed", "yes");
+    const db = firebase.firestore();
 
-    document.getElementById("followBtn").innerHTML =
-      "✅ Follow किया";
+    const ref = db
+      .collection("site")
+      .doc("followers");
 
-    let count =
-      Number(localStorage.getItem("shivam_followers") || 0) + 1;
+    const snap = await ref.get();
 
-    localStorage.setItem("shivam_followers", count);
+    if (snap.exists) {
 
-    document.getElementById("followers").innerText = count;
+      document.getElementById("followers").innerText =
+        snap.data().count || 0;
 
-  }else{
+    } else {
 
-    document.getElementById("followBtn").innerHTML =
-      "✅ पहले से Follow किया";
+      await ref.set({ count: 0 });
+
+      document.getElementById("followers").innerText = 0;
+
+    }
+
+  } catch (error) {
+
+    console.error("Follower Load Error:", error);
 
   }
 }
 
-window.addEventListener("load", function(){
 
-  let count =
-    localStorage.getItem("shivam_followers") || 0;
+async function followMe() {
 
-  document.getElementById("followers").innerText = count;
+  const button =
+    document.getElementById("followBtn");
 
-  if(localStorage.getItem("shivam_followed")){
+  try {
 
-    document.getElementById("followBtn").innerHTML =
-      "✅ Follow किया";
+    button.disabled = true;
+    button.innerHTML = "⏳ Loading...";
+
+    await firebase.auth().signInAnonymously();
+
+    const db = firebase.firestore();
+
+    const user =
+      firebase.auth().currentUser;
+
+    const followerRef = db
+      .collection("site")
+      .doc("followers")
+      .collection("users")
+      .doc(user.uid);
+
+    const countRef = db
+      .collection("site")
+      .doc("followers");
+
+    const followerSnap =
+      await followerRef.get();
+
+    if (followerSnap.exists) {
+
+      button.innerHTML = "✅ पहले से Follow किया";
+
+      button.disabled = false;
+
+      return;
+
+    }
+
+    await db.runTransaction(async (transaction) => {
+
+      const countSnap =
+        await transaction.get(countRef);
+
+      let count = 0;
+
+      if (countSnap.exists) {
+        count = countSnap.data().count || 0;
+      }
+
+      transaction.set(
+        countRef,
+        { count: count + 1 },
+        { merge: true }
+      );
+
+      transaction.set(
+        followerRef,
+        {
+          followed: true,
+          time: firebase.firestore.FieldValue.serverTimestamp()
+        }
+      );
+
+    });
+
+    const newSnap =
+      await countRef.get();
+
+    document.getElementById("followers").innerText =
+      newSnap.data().count;
+
+    button.innerHTML = "✅ Follow किया";
+
+    button.disabled = false;
+
+  } catch (error) {
+
+    console.error("Follow Error:", error);
+
+    button.innerHTML = "❤️ Follow करें";
+
+    button.disabled = false;
+
+    alert("Follow करने में समस्या हुई। Firebase Settings जाँचें।");
 
   }
+}
 
-});
+
+window.addEventListener("load", loadFollowers);
 </script>
-
 </body>
 </html>
