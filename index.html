@@ -845,21 +845,82 @@ alt="FASTag Logo">
 
 </a>
 
-<!-- 21 Electricity -->
-<a class="card"
-href="https://www.bsphcl.co.in/"
-target="_blank"
-rel="noopener"
-data-search="electricity बिजली bill बिजली कनेक्शन">
+<!--==============================
+     SSPMIS PENSION CARD
+================================ -->
 
-<img class="service-logo"
-src="logos/bsphcl.png"
-alt="Bihar Electricity Logo">
+<div class="card pension-card"
+     data-search="pension पेंशन आवेदन status स्थिति SSPMIS वृद्धजन विधवा दिव्यांग">
 
-<h3>बिजली बिल</h3>
-<p>बिहार बिजली सेवा</p>
+    <img class="service-logo"
+         src="logos/sspmis.png"
+         alt="SSPMIS Bihar Pension Logo">
 
-</a>
+    <h3>SSPMIS Pension</h3>
+
+    <p>बिहार सामाजिक सुरक्षा पेंशन सेवाएं</p>
+
+    <div class="pension-buttons">
+
+        <!-- Pension Apply -->
+        <a href="https://www.sspmis.bihar.gov.in/RegisterNewBeneficiary.action"
+           target="_blank"
+           rel="noopener"
+           class="pension-btn">
+            📝 पेंशन आवेदन
+        </a>
+
+        <!-- Pension Status -->
+        <a href="https://www.sspmis.bihar.gov.in/SearchOnlineBeneficiary"
+           target="_blank"
+           rel="noopener"
+           class="pension-btn">
+            🔎 पेंशन स्टेटस
+        </a>
+
+        <!-- SSPMIS Main Portal -->
+        <a href="https://www.sspmis.bihar.gov.in/"
+           target="_blank"
+           rel="noopener"
+           class="pension-btn">
+            🌐 SSPMIS Portal
+        </a>
+
+    </div>
+
+</div>
+
+
+<style>
+.pension-card {
+    text-align: center;
+}
+
+.pension-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.pension-btn {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    background: #f1f5ff;
+    color: #183153;
+    border: 1px solid #dce4f5;
+    transition: 0.25s;
+}
+
+.pension-btn:hover {
+    transform: translateY(-2px);
+    background: #e6edff;
+}
+</style>
 
 <!-- 22 LPG ONLY ONE -->
 <a class="card"
