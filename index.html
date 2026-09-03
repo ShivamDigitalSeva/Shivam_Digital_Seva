@@ -559,22 +559,79 @@ alt="NPCI Official Logo">
 
 </a>
 
-<!-- 03 PAN -->
-<a class="card"
-href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html"
-target="_blank"
-rel="noopener"
-data-search="pan card pan पैन protean nsdl">
+<!-- PAN CARD -->
 
-<img class="service-logo"
-src="logos/pan.png"
-alt="PAN Official Logo">
+<div class="card pan-card"
+     data-search="pan card पैन कार्ड आवेदन status स्थिति official">
 
-<h3>PAN Card</h3>
-<p>PAN से संबंधित ऑनलाइन सेवाएं</p>
+    <img class="service-logo"
+         src="logos/pan.png"
+         alt="PAN Card Logo">
 
-</a>
+    <h3>PAN Card</h3>
+    <p>पैन कार्ड की ऑनलाइन सेवाएं</p>
 
+    <div class="pan-buttons">
+
+        <!-- 1. PAN आवेदन -->
+        <a href="https://www.protean-tinpan.com/"
+           target="_blank"
+           rel="noopener"
+           class="pan-btn">
+            📝 PAN Card आवेदन
+        </a>
+
+        <!-- 2. PAN स्टेटस -->
+        <a href="https://tin.tin.nsdl.com/pantan/StatusTrack.html"
+           target="_blank"
+           rel="noopener"
+           class="pan-btn">
+            🔎 PAN आवेदन स्टेटस
+        </a>
+
+        <!-- 3. Official Link -->
+        <a href="https://www.incometax.gov.in/"
+           target="_blank"
+           rel="noopener"
+           class="pan-btn">
+            🏢 Official PAN Portal
+        </a>
+
+    </div>
+
+</div>
+
+
+<style>
+.pan-card {
+    text-align: center;
+}
+
+.pan-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.pan-btn {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    background: #eef5ff;
+    color: #174a7e;
+    border: 1px solid #cbdff5;
+    transition: 0.25s;
+}
+
+.pan-btn:hover {
+    transform: translateY(-2px);
+    background: #dfeeff;
+}
+</style>
 <!-- 04 ePAN -->
 <a class="card"
 href="https://www.incometax.gov.in/"
