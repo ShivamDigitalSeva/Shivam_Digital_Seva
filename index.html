@@ -649,21 +649,82 @@ data-search="epan e pan income tax पैन">
 
 </a>
 
-<!-- 05 Voter -->
-<a class="card"
-href="https://voters.eci.gov.in/"
-target="_blank"
-rel="noopener"
-data-search="voter voter id मतदाता election चुनाव">
+<!-- ==============================
+     VOTER CARD SERVICE
+================================ -->
 
-<img class="service-logo"
-src="logos/voter.png"
-alt="Election Commission Voter Logo">
+<div class="card voter-card"
+     data-search="voter card वोटर कार्ड voter id मतदाता पहचान पत्र आवेदन status स्टेटस election">
 
-<h3>Voter ID</h3>
-<p>मतदाता आवेदन और सुधार</p>
+    <img class="service-logo"
+         src="logos/voter.png"
+         alt="Voter ID Logo">
 
-</a>
+    <h3>Voter Card</h3>
+
+    <p>मतदाता पहचान पत्र की ऑनलाइन सेवाएं</p>
+
+    <div class="voter-buttons">
+
+        <!-- 1. Voter Card आवेदन -->
+        <a href="https://voters.eci.gov.in/"
+           target="_blank"
+           rel="noopener"
+           class="voter-btn">
+            📝 Voter Card आवेदन
+        </a>
+
+        <!-- 2. Voter Card Status / Search -->
+        <a href="https://voters.eci.gov.in/"
+           target="_blank"
+           rel="noopener"
+           class="voter-btn">
+            🔎 Voter Card स्टेटस
+        </a>
+
+        <!-- 3. Official Link -->
+        <a href="https://voters.eci.gov.in/"
+           target="_blank"
+           rel="noopener"
+           class="voter-btn">
+            🏢 Official Voter Portal
+        </a>
+
+    </div>
+
+</div>
+
+
+<style>
+.voter-card {
+    text-align: center;
+}
+
+.voter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.voter-btn {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    background: #f0f7ff;
+    color: #164a75;
+    border: 1px solid #c9dff2;
+    transition: 0.25s;
+}
+
+.voter-btn:hover {
+    transform: translateY(-2px);
+    background: #e1f0ff;
+}
+</style>
 
 <!-- 06 Income RTPS -->
 <a class="card"
