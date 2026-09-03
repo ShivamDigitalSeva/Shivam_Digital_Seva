@@ -726,22 +726,90 @@ data-search="epan e pan income tax पैन">
 }
 </style>
 
-<!-- 06 Income RTPS -->
-<a class="card"
-href="https://serviceonline.bihar.gov.in/"
-target="_blank"
-rel="noopener"
-data-search="income आय प्रमाण पत्र aay rtps">
+<!-- ==============================
+     INCOME CERTIFICATE CARD
+================================ -->
 
-<img class="service-logo"
-src="logos/rtps-income.png"
-alt="Bihar RTPS Income Certificate Logo">
+<div class="card income-card"
+     data-search="income certificate आय प्रमाण पत्र आवेदन अंचल अनुमंडल जिला RTPS Bihar">
 
-<h3>आय प्रमाण-पत्र</h3>
-<p>बिहार RTPS से आय प्रमाण-पत्र आवेदन</p>
+    <img class="service-logo"
+         src="logos/income.png"
+         alt="Income Certificate Logo">
 
-</a>
+    <h3>Income Certificate</h3>
 
+    <p>आय प्रमाण-पत्र ऑनलाइन सेवा</p>
+
+    <div class="income-buttons">
+
+        <!-- 1. अंचल स्तर -->
+        <a href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?serviceId=4640002&state=10&tempId=747"
+           target="_blank"
+           rel="noopener"
+           class="income-btn">
+            📝 अंचल स्तर पर आवेदन
+        </a>
+
+        <!-- 2. अनुमंडल स्तर -->
+        <a href="https://serviceonline.bihar.gov.in/renderApplicationForm.do?serviceId=8900005"
+           target="_blank"
+           rel="noopener"
+           class="income-btn">
+            📝 अनुमंडल स्तर पर आवेदन
+        </a>
+
+        <!-- 3. जिला स्तर -->
+        <a href="https://serviceonline.bihar.gov.in/viewServiceApplicationForm.do?serviceId=8950001&state=10&tempId=2965"
+           target="_blank"
+           rel="noopener"
+           class="income-btn">
+            📝 जिला स्तर पर आवेदन
+        </a>
+
+        <!-- 4. Official Portal -->
+        <a href="https://serviceonline.bihar.gov.in/"
+           target="_blank"
+           rel="noopener"
+           class="income-btn">
+            🏢 RTPS Official Portal
+        </a>
+
+    </div>
+
+</div>
+
+
+<style>
+.income-card {
+    text-align: center;
+}
+
+.income-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.income-btn {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    background: #eefbf3;
+    color: #176b3a;
+    border: 1px solid #c7e8d3;
+    transition: 0.25s;
+}
+
+.income-btn:hover {
+    transform: translateY(-2px);
+    background: #dff5e7;
+}
+</style>
 <!-- 07 Caste RTPS -->
 <a class="card"
 href="https://serviceonline.bihar.gov.in/"
