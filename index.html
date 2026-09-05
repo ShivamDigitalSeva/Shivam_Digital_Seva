@@ -725,95 +725,490 @@ data-search="epan e pan income tax पैन">
     background: #e1f0ff;
 }
 </style>
-    <script>
+<!-- ===============================
+     आय / जाति / निवास / EWS
+================================ -->
+
+<section class="certificate-section">
+
+  <h2 class="certificate-heading">
+    📄 प्रमाण-पत्र सेवाएँ
+  </h2>
+
+  <div class="certificate-grid">
+
+    <!-- आय प्रमाण-पत्र -->
+    <div class="certificate-card" onclick="openCertificate('income')">
+      <div class="certificate-logo">
+        <img id="incomeLogo"
+             src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
+             alt="आय प्रमाण-पत्र Logo">
+      </div>
+
+      <h3>आय प्रमाण-पत्र</h3>
+      <p>आय प्रमाण-पत्र ऑनलाइन सेवा</p>
+
+      <button onclick="event.stopPropagation(); openCertificate('income')">
+        जानकारी देखें
+      </button>
+    </div>
+
+
+    <!-- जाति प्रमाण-पत्र -->
+    <div class="certificate-card" onclick="openCertificate('caste')">
+      <div class="certificate-logo">
+        <img id="casteLogo"
+             src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+             alt="जाति प्रमाण-पत्र Logo">
+      </div>
+
+      <h3>जाति प्रमाण-पत्र</h3>
+      <p>जाति प्रमाण-पत्र ऑनलाइन सेवा</p>
+
+      <button onclick="event.stopPropagation(); openCertificate('caste')">
+        जानकारी देखें
+      </button>
+    </div>
+
+
+    <!-- निवास प्रमाण-पत्र -->
+    <div class="certificate-card" onclick="openCertificate('residence')">
+      <div class="certificate-logo">
+        <img id="residenceLogo"
+             src="https://cdn-icons-png.flaticon.com/512/69/69524.png"
+             alt="निवास प्रमाण-पत्र Logo">
+      </div>
+
+      <h3>निवास प्रमाण-पत्र</h3>
+      <p>निवास प्रमाण-पत्र ऑनलाइन सेवा</p>
+
+      <button onclick="event.stopPropagation(); openCertificate('residence')">
+        जानकारी देखें
+      </button>
+    </div>
+
+
+    <!-- EWS -->
+    <div class="certificate-card" onclick="openCertificate('ews')">
+      <div class="certificate-logo">
+        <img id="ewsLogo"
+             src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png"
+             alt="EWS Certificate Logo">
+      </div>
+
+      <h3>EWS प्रमाण-पत्र</h3>
+      <p>आर्थिक रूप से कमजोर वर्ग प्रमाण-पत्र</p>
+
+      <button onclick="event.stopPropagation(); openCertificate('ews')">
+        जानकारी देखें
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===============================
+     POPUP
+================================ -->
+
+<div id="certificatePopup" class="certificate-popup">
+
+  <div class="certificate-popup-box">
+
+    <button class="popup-close" onclick="closeCertificate()">
+      ×
+    </button>
+
+    <div id="certificateContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ===============================
+     CSS
+================================ -->
+
+<style>
+
+.certificate-section {
+  padding: 25px 15px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.certificate-heading {
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: 22px;
+  color: #ffffff;
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.certificate-card {
+  background: linear-gradient(145deg, #07152f, #102a58);
+  border: 1px solid #2456a6;
+  border-radius: 18px;
+  padding: 22px 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,.30);
+  cursor: pointer;
+  transition: .25s;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  border-color: #3d8cff;
+}
+
+.certificate-logo {
+  width: 90px;
+  height: 90px;
+  background: white;
+  border-radius: 14px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.certificate-logo img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+
+.certificate-card h3 {
+  margin: 8px 0;
+  font-size: 22px;
+}
+
+.certificate-card p {
+  color: #d7e4ff;
+  font-size: 15px;
+  margin-bottom: 17px;
+}
+
+.certificate-card button {
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  background: #1677ff;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.certificate-card button:hover {
+  background: #0b5ed7;
+}
+
+
+/* POPUP */
+
+.certificate-popup {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.certificate-popup-box {
+  max-width: 650px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
+  position: relative;
+  color: #222;
+  box-shadow: 0 15px 50px rgba(0,0,0,.4);
+}
+
+.popup-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #e53935;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.popup-title {
+  color: #0757b8;
+  margin-top: 5px;
+  padding-right: 40px;
+}
+
+.popup-content h4 {
+  color: #0757b8;
+  margin-bottom: 8px;
+}
+
+.popup-content ol {
+  padding-left: 22px;
+  line-height: 1.8;
+}
+
+.popup-content li {
+  margin-bottom: 5px;
+}
+
+.official-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 11px 20px;
+  border-radius: 25px;
+  background: #087f23;
+  color: white;
+  text-decoration: none;
+}
+
+@media(max-width:600px) {
+
+  .certificate-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .certificate-card {
+    padding: 15px 8px;
+  }
+
+  .certificate-logo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .certificate-logo img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .certificate-card h3 {
+    font-size: 17px;
+  }
+
+  .certificate-card p {
+    font-size: 12px;
+  }
+
+  .certificate-card button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .certificate-popup-box {
+    margin: 20px auto;
+    padding: 20px 15px;
+  }
+}
+
+</style>
+
+
+<!-- ===============================
+     JAVASCRIPT
+================================ -->
+
+<script>
+
 const certificateData = {
+
   income: {
     title: "💰 आय प्रमाण-पत्र",
     info: `
-      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
-      <ol>
-        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
-        <li>लोक सेवाएँ → सामान्य प्रशासन विभाग → आय प्रमाण-पत्र चुनें।</li>
-        <li>अपना नाम, पता और आवश्यक जानकारी भरें।</li>
-        <li>जरूरी दस्तावेज़ अपलोड करें।</li>
-        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
-        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
-      </ol>
+      <div class="popup-content">
+
+        <h4>📄 ऑनलाइन बनाने का तरीका</h4>
+
+        <ol>
+          <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+          <li>लोक सेवाएँ में संबंधित विभाग चुनें।</li>
+          <li>आय प्रमाण-पत्र की सेवा चुनें।</li>
+          <li>अपना नाम, पता और आवश्यक जानकारी भरें।</li>
+          <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+          <li>आवेदन जमा करें और Application/Reference Number सुरक्षित रखें।</li>
+          <li>आवेदन स्वीकृत होने के बाद प्रमाण-पत्र डाउनलोड करें।</li>
+        </ol>
+
+        <h4>📌 आवश्यक जानकारी</h4>
+        <p>
+          आवेदन करते समय अपना मोबाइल नंबर और दस्तावेज़ सही रखें।
+          अंतिम नियम और दस्तावेज़ संबंधित सरकारी पोर्टल पर जाँचें।
+        </p>
+
+        <a class="official-btn"
+           href="https://serviceonline.bihar.gov.in/"
+           target="_blank">
+          🌐 Official ServicePlus
+        </a>
+
+      </div>
     `
   },
+
 
   caste: {
     title: "📜 जाति प्रमाण-पत्र",
     info: `
-      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
-      <ol>
-        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
-        <li>लोक सेवाएँ → सामान्य प्रशासन विभाग → जाति प्रमाण-पत्र चुनें।</li>
-        <li>अपना नाम, पता, जाति और अन्य जानकारी भरें।</li>
-        <li>जरूरी दस्तावेज़ अपलोड करें।</li>
-        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
-        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
-      </ol>
+      <div class="popup-content">
+
+        <h4>📄 ऑनलाइन बनाने का तरीका</h4>
+
+        <ol>
+          <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+          <li>लोक सेवाएँ → सामान्य प्रशासन विभाग चुनें।</li>
+          <li>जाति प्रमाण-पत्र की सेवा चुनें।</li>
+          <li>अपना नाम, पता, जाति और अन्य जानकारी भरें।</li>
+          <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+          <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
+          <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन डाउनलोड करें।</li>
+        </ol>
+
+        <h4>📍 स्तर</h4>
+        <p>
+          उपलब्ध सेवा के अनुसार आवेदन का स्तर
+          अंचल, अनुमंडल या जिला हो सकता है।
+        </p>
+
+        <a class="official-btn"
+           href="https://serviceonline.bihar.gov.in/"
+           target="_blank">
+          🌐 Official ServicePlus
+        </a>
+
+      </div>
     `
   },
+
 
   residence: {
     title: "🏠 निवास प्रमाण-पत्र",
     info: `
-      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
-      <ol>
-        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
-        <li>लोक सेवाएँ → सामान्य प्रशासन विभाग → निवास प्रमाण-पत्र चुनें।</li>
-        <li>अपना नाम, पता और अन्य जानकारी भरें।</li>
-        <li>जरूरी दस्तावेज़ अपलोड करें।</li>
-        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
-        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
-      </ol>
+      <div class="popup-content">
+
+        <h4>📄 ऑनलाइन बनाने का तरीका</h4>
+
+        <ol>
+          <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+          <li>लोक सेवाएँ में संबंधित विभाग चुनें।</li>
+          <li>निवास प्रमाण-पत्र की सेवा चुनें।</li>
+          <li>अपना नाम, पता और आवश्यक जानकारी भरें।</li>
+          <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+          <li>आवेदन जमा करें।</li>
+          <li>Application/Reference Number सुरक्षित रखें।</li>
+          <li>आवेदन स्वीकृत होने के बाद प्रमाण-पत्र डाउनलोड करें।</li>
+        </ol>
+
+        <h4>📍 स्तर</h4>
+        <p>
+          सेवा के अनुसार आवेदन अंचल, अनुमंडल या जिला स्तर पर
+          उपलब्ध हो सकता है।
+        </p>
+
+        <a class="official-btn"
+           href="https://serviceonline.bihar.gov.in/"
+           target="_blank">
+          🌐 Official ServicePlus
+        </a>
+
+      </div>
     `
   },
 
+
   ews: {
-    title: "📑 EWS प्रमाण-पत्र",
+    title: "🟠 EWS प्रमाण-पत्र",
     info: `
-      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
-      <ol>
-        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
-        <li>EWS प्रमाण-पत्र की संबंधित सेवा चुनें।</li>
-        <li>अपनी सही व्यक्तिगत जानकारी भरें।</li>
-        <li>आवश्यक दस्तावेज़ अपलोड करें।</li>
-        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
-        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
-      </ol>
+      <div class="popup-content">
+
+        <h4>📄 ऑनलाइन बनाने का तरीका</h4>
+
+        <ol>
+          <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+          <li>लोक सेवाएँ में संबंधित विभाग चुनें।</li>
+          <li>EWS/आर्थिक रूप से कमजोर वर्ग से संबंधित सेवा खोजें।</li>
+          <li>आवेदन फॉर्म में अपनी सही जानकारी भरें।</li>
+          <li>आवश्यक दस्तावेज़ अपलोड करें।</li>
+          <li>फॉर्म को ध्यान से जाँचकर सबमिट करें।</li>
+          <li>Application/Reference Number सुरक्षित रखें।</li>
+          <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र डाउनलोड करें।</li>
+        </ol>
+
+        <h4>📌 महत्वपूर्ण</h4>
+        <p>
+          EWS की पात्रता और आवश्यक दस्तावेज़ समय-समय पर
+          सरकारी नियमों के अनुसार हो सकते हैं। आवेदन से पहले
+          आधिकारिक पोर्टल पर नवीनतम जानकारी जाँचें।
+        </p>
+
+        <a class="official-btn"
+           href="https://serviceonline.bihar.gov.in/"
+           target="_blank">
+          🌐 Official ServicePlus
+        </a>
+
+      </div>
     `
   }
+
 };
 
+
 function openCertificate(type) {
-  const data = certificateData[type];
 
-  document.getElementById("certificateTitle").innerHTML =
-    data.title;
+  const popup = document.getElementById("certificatePopup");
+  const content = document.getElementById("certificateContent");
 
-  document.getElementById("certificateInfo").innerHTML =
-    data.info;
+  content.innerHTML = `
+    <h2 class="popup-title">
+      ${certificateData[type].title}
+    </h2>
+    ${certificateData[type].info}
+  `;
 
-  document.getElementById("certificatePopup").style.display =
-    "block";
+  popup.style.display = "block";
+  document.body.style.overflow = "hidden";
 }
+
 
 function closeCertificate() {
-  document.getElementById("certificatePopup").style.display =
-    "none";
+
+  document.getElementById("certificatePopup").style.display = "none";
+  document.body.style.overflow = "auto";
+
 }
 
-function openRTPS() {
-  window.open(
-    "https://serviceonline.bihar.gov.in/",
-    "_blank"
-  );
-}
-    </script>
-    
+
+/* Popup के बाहर क्लिक करने पर बंद */
+
+document.getElementById("certificatePopup")
+.addEventListener("click", function(e) {
+
+  if(e.target === this) {
+    closeCertificate();
+  }
+
+});
+
+</script>
 <!-- 10 Birth -->
 <a class="card"
 href="https://dc.crsorgi.gov.in/crs/ReportEvent/ReportBirth"
