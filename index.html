@@ -725,6 +725,94 @@ data-search="epan e pan income tax पैन">
     background: #e1f0ff;
 }
 </style>
+    <script>
+const certificateData = {
+  income: {
+    title: "💰 आय प्रमाण-पत्र",
+    info: `
+      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
+      <ol>
+        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+        <li>लोक सेवाएँ → सामान्य प्रशासन विभाग → आय प्रमाण-पत्र चुनें।</li>
+        <li>अपना नाम, पता और आवश्यक जानकारी भरें।</li>
+        <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
+        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
+      </ol>
+    `
+  },
+
+  caste: {
+    title: "📜 जाति प्रमाण-पत्र",
+    info: `
+      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
+      <ol>
+        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+        <li>लोक सेवाएँ → सामान्य प्रशासन विभाग → जाति प्रमाण-पत्र चुनें।</li>
+        <li>अपना नाम, पता, जाति और अन्य जानकारी भरें।</li>
+        <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
+        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
+      </ol>
+    `
+  },
+
+  residence: {
+    title: "🏠 निवास प्रमाण-पत्र",
+    info: `
+      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
+      <ol>
+        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+        <li>लोक सेवाएँ → सामान्य प्रशासन विभाग → निवास प्रमाण-पत्र चुनें।</li>
+        <li>अपना नाम, पता और अन्य जानकारी भरें।</li>
+        <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
+        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
+      </ol>
+    `
+  },
+
+  ews: {
+    title: "📑 EWS प्रमाण-पत्र",
+    info: `
+      <h3>📄 ऑनलाइन बनाने का तरीका</h3>
+      <ol>
+        <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+        <li>EWS प्रमाण-पत्र की संबंधित सेवा चुनें।</li>
+        <li>अपनी सही व्यक्तिगत जानकारी भरें।</li>
+        <li>आवश्यक दस्तावेज़ अपलोड करें।</li>
+        <li>आवेदन जमा करने के बाद Application/Reference Number संभालकर रखें।</li>
+        <li>आवेदन स्वीकृत होने पर प्रमाण-पत्र ऑनलाइन प्राप्त करें।</li>
+      </ol>
+    `
+  }
+};
+
+function openCertificate(type) {
+  const data = certificateData[type];
+
+  document.getElementById("certificateTitle").innerHTML =
+    data.title;
+
+  document.getElementById("certificateInfo").innerHTML =
+    data.info;
+
+  document.getElementById("certificatePopup").style.display =
+    "block";
+}
+
+function closeCertificate() {
+  document.getElementById("certificatePopup").style.display =
+    "none";
+}
+
+function openRTPS() {
+  window.open(
+    "https://serviceonline.bihar.gov.in/",
+    "_blank"
+  );
+}
+    </script>
     
 <!-- 10 Birth -->
 <a class="card"
