@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Verify Card - Shivam Digital Seva</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f1f5f9;
+}
+
+header{
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+  );
+  color:white;
+  padding:25px;
+  text-align:center;
+}
+
+.container{
+  max-width:550px;
+  margin:30px auto;
+  padding:15px;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.verified{
+  color:#15803d;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.invalid{
+  color:#dc2626;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.row{
+  text-align:left;
+  padding:13px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.label{
+  color:#64748b;
+  font-size:13px;
+}
+
+.value{
+  font-weight:bold;
+  font-size:17px;
+}
+
+.notice{
+  margin-top:20px;
+  background:#fff7ed;
+  color:#9a3412;
+  padding:12px;
+  border-radius:8px;
+  font-size:12px;
+}
+
+button{
+  width:100%;
+  margin-top:20px;
+  padding:13px;
+  background:#2563eb;
+  color:white;
+  border:0;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Shivam Digital Seva</h1>
+
+<p>Card Verification</p>
+
+</header>
+
+
+<div class="container">
+
+<div class="box">
+
+<div id="result">
+
+⏳ Verification हो रही है...
+
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAV-IvDV7MvzkE_fB_xMnIoGt4HoPQOUogs",
+
+  authDomain:
+    "shivam-digital-seva.firebaseapp.com",
+
+  projectId:
+    "shivam-digital-seva",
+
+  storageBucket:
+    "shivam-digital-seva.firebasestorage.app",
+
+  messagingSenderId:
+    "142024656312",
+
+  appId:
+    "1:142024656312:web:ef0e26c1daacc62f21bb4d",
+
+  measurementId:
+    "G-45JZJSXRC7"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const db =
+  getFirestore(app);
+
+
+const result =
+  document.getElementById("result");
+
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const id =
+  params.get("id");
+
+
+async function verify(){
+
+  if(!id){
+
+    invalid(
+      "Invalid Verification Link"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const snap =
+      await getDoc(
+        doc(db,"cards",id)
+      );
+
+
+    if(!snap.exists()){
+
+      invalid(
+        "Card Not Found"
+      );
+
+      return;
+
+    }
+
+
+    const data =
+      snap.data();
+
+
+    if(data.status !== "ACTIVE"){
+
+      invalid(
+        "यह Card Active नहीं है।"
+      );
+
+      return;
+
+    }
+
+
+    result.innerHTML=`
+
+      <div class="verified">
+        ✅ CARD VERIFIED
+      </div>
+
+      <br>
+
+      <div class="row">
+
+        <div class="label">
+          नाम
+        </div>
+
+        <div class="value">
+          ${escapeHTML(data.name)}
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="label">
+          Card Number
+        </div>
+
+        <div class="value">
+          ${escapeHTML(data.cardNumber)}
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="label">
+          स्थान
+        </div>
+
+        <div class="value">
+          ${escapeHTML(data.place)}
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="label">
+          Status
+        </div>
+
+        <div class="value"
+             style="color:#15803d">
+
+          ACTIVE
+
+        </div>
+
+      </div>
+
+
+      <div class="notice">
+
+        यह Shivam Digital Seva का
+        Private Digital Service Card है।
+
+        यह Aadhaar, PAN, Voter ID या
+        किसी सरकारी पहचान-पत्र का विकल्प नहीं है।
+
+      </div>
+
+
+      <button
+        onclick="window.location.href='card.html?id=${encodeURIComponent(id)}'">
+
+        🪪 View Digital Card
+
+      </button>
+
+    `;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    invalid(
+      "Verification में समस्या हुई।"
+    );
+
+  }
+
+}
+
+
+function invalid(text){
+
+  result.innerHTML=`
+
+    <div class="invalid">
+      ❌ ${escapeHTML(text)}
+    </div>
+
+  `;
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+verify();
+
+</script>
+
+</body>
+
+</html>
