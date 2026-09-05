@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel - Shivam Digital Seva</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f1f5f9;
+  color:#111827;
+}
+
+header{
+  background:linear-gradient(135deg,#111827,#1e3a8a);
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+.container{
+  max-width:1000px;
+  margin:25px auto;
+  padding:15px;
+}
+
+.box{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  margin-top:8px;
+  font-size:16px;
+}
+
+button{
+  border:0;
+  border-radius:7px;
+  padding:10px 15px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.login-btn{
+  width:100%;
+  margin-top:15px;
+  background:#2563eb;
+}
+
+.logout{
+  background:#dc2626;
+}
+
+.approve{
+  background:#15803d;
+}
+
+.reject{
+  background:#dc2626;
+}
+
+.card-item{
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:15px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#fef3c7;
+  color:#92400e;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+#adminArea{
+  display:none;
+}
+
+.success{
+  color:#15803d;
+  font-weight:bold;
+}
+
+.error{
+  color:#dc2626;
+  font-weight:bold;
+}
+
+.empty{
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Shivam Digital Seva</h1>
+
+<p>Admin Card Management</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- LOGIN -->
+
+<div class="box" id="loginArea">
+
+<h2>🔐 Admin Login</h2>
+
+<input
+  type="email"
+  id="email"
+  placeholder="Admin Email"
+>
+
+<input
+  type="password"
+  id="password"
+  placeholder="Password"
+>
+
+<button class="login-btn"
+        id="loginBtn">
+
+Login
+
+</button>
+
+<p id="loginMessage"></p>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<div id="adminArea">
+
+<div class="box">
+
+<h2>Admin Dashboard</h2>
+
+<p>
+Logged in:
+<strong id="adminEmail"></strong>
+</p>
+
+<button class="logout"
+        id="logoutBtn">
+
+Logout
+
+</button>
+
+</div>
+
+
+<div class="box">
+
+<h2>📋 Pending Applications</h2>
+
+<div id="applications">
+
+Loading...
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  orderBy,
+  onSnapshot,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAV-IvDV7MvzkE_fB_xMnIoGt4HoPQOUogs",
+
+  authDomain:
+    "shivam-digital-seva.firebaseapp.com",
+
+  projectId:
+    "shivam-digital-seva",
+
+  storageBucket:
+    "shivam-digital-seva.firebasestorage.app",
+
+  messagingSenderId:
+    "142024656312",
+
+  appId:
+    "1:142024656312:web:ef0e26c1daacc62f21bb4d",
+
+  measurementId:
+    "G-45JZJSXRC7"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
+
+const db =
+  getFirestore(app);
+
+
+const loginArea =
+  document.getElementById("loginArea");
+
+const adminArea =
+  document.getElementById("adminArea");
+
+const loginMessage =
+  document.getElementById("loginMessage");
+
+
+/* LOGIN */
+
+document
+.getElementById("loginBtn")
+.addEventListener("click",async()=>{
+
+  const email =
+    document.getElementById("email")
+    .value.trim();
+
+  const password =
+    document.getElementById("password")
+    .value;
+
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    loginMessage.innerHTML =
+      "<span class='error'>" +
+      "❌ Email या Password गलत है।" +
+      "</span>";
+
+  }
+
+});
+
+
+/* LOGOUT */
+
+document
+.getElementById("logoutBtn")
+.addEventListener("click",()=>{
+
+  signOut(auth);
+
+});
+
+
+/* AUTH STATE */
+
+onAuthStateChanged(auth,async(user)=>{
+
+  if(!user){
+
+    loginArea.style.display="block";
+
+    adminArea.style.display="none";
+
+    return;
+
+  }
+
+
+  try{
+
+    /*
+      Check admin document
+    */
+
+    const adminRef =
+      doc(db,"admins",user.uid);
+
+    const adminSnap =
+      await getDoc(adminRef);
+
+
+    if(!adminSnap.exists()){
+
+      await signOut(auth);
+
+      loginMessage.innerHTML =
+        "<span class='error'>" +
+        "❌ यह Account Admin नहीं है।" +
+        "</span>";
+
+      return;
+    }
+
+
+    loginArea.style.display="none";
+
+    adminArea.style.display="block";
+
+    document.getElementById(
+      "adminEmail"
+    ).textContent=user.email;
+
+
+    loadApplications();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    await signOut(auth);
+
+  }
+
+});
+
+
+/* LOAD APPLICATIONS */
+
+function loadApplications(){
+
+  const applications =
+    document.getElementById("applications");
+
+
+  const q =
+    query(
+      collection(db,"applications"),
+      where("status","==","PENDING"),
+      orderBy("createdAt","desc")
+    );
+
+
+  onSnapshot(q,(snapshot)=>{
+
+    applications.innerHTML="";
+
+
+    if(snapshot.empty){
+
+      applications.innerHTML =
+        "<div class='empty'>" +
+        "🎉 अभी कोई Pending Application नहीं है।" +
+        "</div>";
+
+      return;
+    }
+
+
+    snapshot.forEach((snap)=>{
+
+      const data=snap.data();
+
+      const div=
+        document.createElement("div");
+
+      div.className="card-item";
+
+
+      div.innerHTML=`
+
+        <h3>${escapeHTML(data.name)}</h3>
+
+        <p>
+          <strong>Mobile:</strong>
+          ${escapeHTML(data.mobile)}
+        </p>
+
+        <p>
+          <strong>स्थान:</strong>
+          ${escapeHTML(data.place)}
+        </p>
+
+        <span class="status">
+          PENDING
+        </span>
+
+        <div class="actions">
+
+          <button
+            class="approve"
+            data-id="${snap.id}">
+            ✅ Approve
+          </button>
+
+          <button
+            class="reject"
+            data-id="${snap.id}">
+            ❌ Reject
+          </button>
+
+        </div>
+
+      `;
+
+
+      applications.appendChild(div);
+
+    });
+
+
+    document
+      .querySelectorAll(".approve")
+      .forEach(button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>approveApplication(
+            button.dataset.id
+          )
+        );
+
+      });
+
+
+    document
+      .querySelectorAll(".reject")
+      .forEach(button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>rejectApplication(
+            button.dataset.id
+          )
+        );
+
+      });
+
+  });
+
+}
+
+
+/* APPROVE */
+
+async function approveApplication(id){
+
+  try{
+
+    const applicationRef =
+      doc(db,"applications",id);
+
+    const snap =
+      await getDoc(applicationRef);
+
+
+    if(!snap.exists()){
+
+      alert("Application नहीं मिली।");
+
+      return;
+
+    }
+
+
+    const data=snap.data();
+
+
+    /*
+      Unique Card Number
+    */
+
+    const cardNumber =
+      await createUniqueCardNumber();
+
+
+    /*
+      Public card document
+    */
+
+    await setDoc(
+      doc(db,"cards",id),
+      {
+
+        name:data.name,
+
+        place:data.place,
+
+        cardNumber:cardNumber,
+
+        status:"ACTIVE",
+
+        issuedAt:serverTimestamp()
+
+      }
+    );
+
+
+    /*
+      Application update
+    */
+
+    await updateDoc(
+      applicationRef,
+      {
+
+        status:"APPROVED",
+
+        cardNumber:cardNumber,
+
+        approvedAt:serverTimestamp()
+
+      }
+    );
+
+
+    alert(
+      "✅ Card Approved!\n\n" +
+      "Card Number: " +
+      cardNumber
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ Approval में समस्या हुई।"
+    );
+
+  }
+
+}
+
+
+/* REJECT */
+
+async function rejectApplication(id){
+
+  const ok =
+    confirm(
+      "क्या आप इस Application को Reject करना चाहते हैं?"
+    );
+
+
+  if(!ok)return;
+
+
+  try{
+
+    await updateDoc(
+      doc(db,"applications",id),
+      {
+        status:"REJECTED",
+        rejectedAt:serverTimestamp()
+      }
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ Reject नहीं हुआ।"
+    );
+
+  }
+
+}
+
+
+/*
+  Card Number generator
+*/
+
+async function createUniqueCardNumber(){
+
+  const year =
+    new Date().getFullYear();
+
+
+  let number;
+
+
+  while(true){
+
+    const random =
+      Math.floor(
+        100000 +
+        Math.random()*900000
+      );
+
+
+    number =
+      `SDS-${year}-${random}`;
+
+
+    /*
+      Search cards manually by generated
+      number through query would be better
+      at scale. For this starter version,
+      random 6-digit collision is extremely low.
+    */
+
+    return number;
+
+  }
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+
+</html>
