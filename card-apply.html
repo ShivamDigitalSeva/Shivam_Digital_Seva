@@ -152,7 +152,7 @@ button:hover{
 
 </div>
 
-<script type="module">
+  <script type="module">
 
 import {
   initializeApp
@@ -172,13 +172,21 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAV-IvDV7MvzkE_fB_xMnIoGt4HoPQOUogs",
+
+  apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+
   authDomain: "shivam-digital-seva.firebaseapp.com",
+
   projectId: "shivam-digital-seva",
+
   storageBucket: "shivam-digital-seva.firebasestorage.app",
+
   messagingSenderId: "142024656312",
+
   appId: "1:142024656312:web:ef0e26c1daacc62f21bb4d",
+
   measurementId: "G-45JZJSXRC7"
+
 };
 
 
@@ -189,14 +197,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-/*
-  Anonymous login
-  इससे applicant को सुरक्षित Firebase UID मिलेगा।
-*/
-
-await signInAnonymously(auth);
-
-
 const applyBtn =
   document.getElementById("applyBtn");
 
@@ -204,22 +204,19 @@ const message =
   document.getElementById("message");
 
 
-applyBtn.addEventListener("click", async () => {
+applyBtn.addEventListener("click", async function () {
 
   const name =
-    document.getElementById("name")
-    .value.trim();
+    document.getElementById("name").value.trim();
 
   const mobile =
-    document.getElementById("mobile")
-    .value.trim();
+    document.getElementById("mobile").value.trim();
 
   const place =
-    document.getElementById("place")
-    .value.trim();
+    document.getElementById("place").value.trim();
 
 
-  if(!name || !mobile || !place){
+  if (!name || !mobile || !place) {
 
     message.innerHTML =
       "<span class='error'>कृपया सभी जानकारी भरें।</span>";
@@ -228,7 +225,7 @@ applyBtn.addEventListener("click", async () => {
   }
 
 
-  if(!/^[0-9]{10}$/.test(mobile)){
+  if (!/^[0-9]{10}$/.test(mobile)) {
 
     message.innerHTML =
       "<span class='error'>सही 10 अंकों का मोबाइल नंबर डालें।</span>";
@@ -243,23 +240,32 @@ applyBtn.addEventListener("click", async () => {
     "⏳ आवेदन भेजा जा रहा है...";
 
 
-  try{
+  try {
 
+    // Anonymous Firebase Login
+    const userCredential =
+      await signInAnonymously(auth);
+
+    const uid =
+      userCredential.user.uid;
+
+
+    // Firestore में Application
     await addDoc(
-      collection(db,"applications"),
+      collection(db, "applications"),
       {
 
-        name:name,
+        name: name,
 
-        mobile:mobile,
+        mobile: mobile,
 
-        place:place,
+        place: place,
 
-        applicantUid:auth.currentUser.uid,
+        applicantUid: uid,
 
-        status:"PENDING",
+        status: "PENDING",
 
-        createdAt:serverTimestamp()
+        createdAt: serverTimestamp()
 
       }
     );
@@ -267,30 +273,33 @@ applyBtn.addEventListener("click", async () => {
 
     message.innerHTML =
       "<span class='success'>" +
-      "✅ आपका आवेदन सफलतापूर्वक जमा हो गया है।" +
+      "✅ आवेदन सफलतापूर्वक जमा हो गया।" +
       "<br><br>" +
-      "Admin द्वारा Approval के बाद आपका Card Number बनाया जाएगा।" +
+      "आपका आवेदन अब Admin Approval के लिए भेज दिया गया है।" +
       "</span>";
 
 
-    document.getElementById("name").value="";
-    document.getElementById("mobile").value="";
-    document.getElementById("place").value="";
+    document.getElementById("name").value = "";
+
+    document.getElementById("mobile").value = "";
+
+    document.getElementById("place").value = "";
 
 
-  }catch(error){
+  } catch (error) {
 
-    console.error(error);
+    console.error("Firebase Error:", error);
 
     message.innerHTML =
       "<span class='error'>" +
-      "❌ आवेदन जमा नहीं हुआ। Firebase Settings/Rules जाँचें।" +
+      "❌ आवेदन जमा नहीं हुआ।<br>" +
+      error.message +
       "</span>";
 
   }
 
 
-  applyBtn.disabled=false;
+  applyBtn.disabled = false;
 
   applyBtn.innerText =
     "आवेदन जमा करें";
@@ -298,6 +307,5 @@ applyBtn.addEventListener("click", async () => {
 });
 
 </script>
-
 </body>
 </html>
