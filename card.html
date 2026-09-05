@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Shivam Digital Seva Card</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#e2e8f0;
+}
+
+.container{
+  max-width:550px;
+  margin:30px auto;
+  padding:15px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.top{
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+  );
+
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+.top h1{
+  margin:0;
+  font-size:25px;
+}
+
+.top p{
+  margin:7px 0 0;
+}
+
+.body{
+  padding:25px;
+}
+
+.row{
+  padding:13px;
+  margin-bottom:10px;
+  background:#f8fafc;
+  border-radius:9px;
+}
+
+.label{
+  color:#64748b;
+  font-size:13px;
+}
+
+.value{
+  font-size:17px;
+  font-weight:bold;
+}
+
+.active{
+  color:#15803d;
+}
+
+#qrcode{
+  text-align:center;
+  margin:25px 0;
+}
+
+.notice{
+  background:#fff7ed;
+  color:#9a3412;
+  padding:12px;
+  border-radius:8px;
+  font-size:12px;
+  text-align:center;
+}
+
+button{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:9px;
+  margin-top:18px;
+  background:#2563eb;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.error{
+  text-align:center;
+  color:#dc2626;
+  font-weight:bold;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+}
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  button{
+    display:none;
+  }
+
+  .container{
+    margin:0;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="loading">
+  Card loading...
+</div>
+
+<div id="cardArea"></div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAV-IvDV7MvzkE_fB_xMnIoGt4HoPQOUogs",
+
+  authDomain:
+    "shivam-digital-seva.firebaseapp.com",
+
+  projectId:
+    "shivam-digital-seva",
+
+  storageBucket:
+    "shivam-digital-seva.firebasestorage.app",
+
+  messagingSenderId:
+    "142024656312",
+
+  appId:
+    "1:142024656312:web:ef0e26c1daacc62f21bb4d",
+
+  measurementId:
+    "G-45JZJSXRC7"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const db =
+  getFirestore(app);
+
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const cardId =
+  params.get("id");
+
+
+const loading =
+  document.getElementById("loading");
+
+const cardArea =
+  document.getElementById("cardArea");
+
+
+async function loadCard(){
+
+  if(!cardId){
+
+    showError(
+      "Invalid Card Link"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const snap =
+      await getDoc(
+        doc(db,"cards",cardId)
+      );
+
+
+    if(!snap.exists()){
+
+      showError(
+        "Card नहीं मिला।"
+      );
+
+      return;
+
+    }
+
+
+    const data =
+      snap.data();
+
+
+    if(data.status !== "ACTIVE"){
+
+      showError(
+        "यह Card Active नहीं है।"
+      );
+
+      return;
+
+    }
+
+
+    loading.style.display="none";
+
+
+    cardArea.innerHTML=`
+
+      <div class="card">
+
+        <div class="top">
+
+          <h1>
+            SHIVAM DIGITAL SEVA
+          </h1>
+
+          <p>
+            DIGITAL SERVICE CARD
+          </p>
+
+        </div>
+
+
+        <div class="body">
+
+          <div class="row">
+
+            <div class="label">
+              नाम
+            </div>
+
+            <div class="value">
+              ${escapeHTML(data.name)}
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="label">
+              Card Number
+            </div>
+
+            <div class="value">
+              ${escapeHTML(data.cardNumber)}
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="label">
+              स्थान
+            </div>
+
+            <div class="value">
+              ${escapeHTML(data.place)}
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="label">
+              Status
+            </div>
+
+            <div class="value active">
+              ACTIVE
+            </div>
+
+          </div>
+
+
+          <div id="qrcode"></div>
+
+
+          <div class="notice">
+
+            PRIVATE DIGITAL SERVICE CARD<br>
+
+            यह Aadhaar, PAN, Voter ID या
+            सरकारी पहचान-पत्र नहीं है।
+
+          </div>
+
+
+          <button
+            onclick="window.print()">
+
+            🖨️ Print Card
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    const verifyUrl =
+      window.location.origin +
+      window.location.pathname.replace(
+        "card.html",
+        "verify.html"
+      ) +
+      "?id=" + cardId;
+
+
+    new QRCode(
+      document.getElementById("qrcode"),
+      {
+        text:verifyUrl,
+        width:160,
+        height:160
+      }
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "Card load करने में समस्या हुई।"
+    );
+
+  }
+
+}
+
+
+function showError(text){
+
+  loading.style.display="none";
+
+  cardArea.innerHTML=
+    `<div class="error">
+      ❌ ${text}
+    </div>`;
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+loadCard();
+
+</script>
+
+</body>
+
+</html>
