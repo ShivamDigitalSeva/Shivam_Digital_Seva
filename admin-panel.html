@@ -404,14 +404,11 @@ function loadApplications(){
   const applications =
     document.getElementById("applications");
 
-
   const q =
-    query(
-      collection(db,"applications"),
-      where("status","==","PENDING"),
-      orderBy("createdAt","desc")
-    );
-
+  query(
+    collection(db, "applications"),
+    where("status", "==", "PENDING")
+  );
 
   onSnapshot(q,(snapshot)=>{
 
