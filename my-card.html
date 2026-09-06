@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>My Card - Shivam Digital Seva</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#e2e8f0;
+  color:#111827;
+}
+
+header{
+  background:linear-gradient(
+    135deg,
+    #111827,
+    #1e40af
+  );
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+
+header h1{
+  margin:0;
+  font-size:26px;
+}
+
+header p{
+  margin:7px 0 0;
+}
+
+.container{
+  max-width:550px;
+  margin:30px auto;
+  padding:15px;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+h2{
+  margin-top:0;
+  text-align:center;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+input{
+  width:100%;
+  padding:13px;
+  margin-top:7px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  font-size:16px;
+  outline:none;
+}
+
+input:focus{
+  border-color:#2563eb;
+}
+
+button{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:9px;
+  margin-top:18px;
+  background:#2563eb;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:disabled{
+  opacity:.6;
+}
+
+.message{
+  margin-top:15px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.error{
+  color:#dc2626;
+}
+
+.success{
+  color:#15803d;
+}
+
+.card{
+  margin-top:25px;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.card-top{
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+  );
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+.card-top h2{
+  margin:0;
+  font-size:24px;
+}
+
+.card-top p{
+  margin:7px 0 0;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.row{
+  padding:13px;
+  margin-bottom:10px;
+  background:#f8fafc;
+  border-radius:9px;
+}
+
+.label{
+  color:#64748b;
+  font-size:13px;
+}
+
+.value{
+  font-size:17px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+.active{
+  color:#15803d;
+}
+
+.qr{
+  text-align:center;
+  margin:25px 0;
+}
+
+.notice{
+  background:#fff7ed;
+  color:#9a3412;
+  padding:12px;
+  border-radius:8px;
+  font-size:12px;
+  text-align:center;
+  line-height:1.5;
+}
+
+.card-button{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:#2563eb;
+  color:white;
+  padding:13px;
+  border-radius:9px;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.hidden{
+  display:none;
+}
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  header,
+  .search-box,
+  #message,
+  .card-button{
+    display:none !important;
+  }
+
+  .container{
+    margin:0;
+    padding:0;
+  }
+
+  .card{
+    box-shadow:none;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+  <h1>Shivam Digital Seva</h1>
+
+  <p>My Digital Service Card</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- SEARCH -->
+
+<div class="box search-box">
+
+  <h2>🪪 अपना Card देखें</h2>
+
+  <p style="text-align:center;color:#64748b;">
+    अपना Card Number डालें
+  </p>
+
+
+  <label for="cardNumber">
+    Card Number
+  </label>
+
+  <input
+    type="text"
+    id="cardNumber"
+    placeholder="जैसे SDS-2026-281997"
+    autocomplete="off"
+  >
+
+
+  <button id="searchBtn">
+    🔍 Card देखें
+  </button>
+
+
+  <div id="message"
+       class="message">
+  </div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div id="cardArea"></div>
+
+
+</div>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+
+  authDomain:
+    "shivam-digital-seva.firebaseapp.com",
+
+  projectId:
+    "shivam-digital-seva",
+
+  storageBucket:
+    "shivam-digital-seva.firebasestorage.app",
+
+  messagingSenderId:
+    "142024656312",
+
+  appId:
+    "1:142024656312:web:ef0e26c1daacc62f21bb4d",
+
+  measurementId:
+    "G-45JZJSXRC7"
+
+};
+
+
+const app =
+  initializeApp(firebaseConfig);
+
+const db =
+  getFirestore(app);
+
+
+/* ELEMENTS */
+
+const cardNumberInput =
+  document.getElementById("cardNumber");
+
+const searchBtn =
+  document.getElementById("searchBtn");
+
+const message =
+  document.getElementById("message");
+
+const cardArea =
+  document.getElementById("cardArea");
+
+
+/* SEARCH */
+
+searchBtn.addEventListener(
+  "click",
+  findCard
+);
+
+
+/* ENTER KEY */
+
+cardNumberInput.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Enter"){
+      findCard();
+    }
+
+  }
+);
+
+
+/* FIND CARD */
+
+async function findCard(){
+
+  const cardNumber =
+    cardNumberInput.value
+      .trim()
+      .toUpperCase();
+
+
+  cardArea.innerHTML = "";
+
+  message.textContent = "";
+
+
+  if(!cardNumber){
+
+    showMessage(
+      "कृपया Card Number डालें।",
+      "error"
+    );
+
+    return;
+  }
+
+
+  searchBtn.disabled = true;
+
+  searchBtn.textContent =
+    "🔄 Card खोजा जा रहा है...";
+
+
+  try{
+
+    const cardsRef =
+      collection(db,"cards");
+
+
+    const q =
+      query(
+        cardsRef,
+        where(
+          "cardNumber",
+          "==",
+          cardNumber
+        )
+      );
+
+
+    const snapshot =
+      await getDocs(q);
+
+
+    if(snapshot.empty){
+
+      showMessage(
+        "❌ यह Card Number नहीं मिला।",
+        "error"
+      );
+
+      return;
+    }
+
+
+    let cardData = null;
+
+    let cardId = null;
+
+
+    snapshot.forEach(
+      (docSnap)=>{
+
+        cardData =
+          docSnap.data();
+
+        cardId =
+          docSnap.id;
+
+      }
+    );
+
+
+    if(cardData.status !== "ACTIVE"){
+
+      showMessage(
+        "❌ यह Card अभी Active नहीं है।",
+        "error"
+      );
+
+      return;
+    }
+
+
+    showCard(
+      cardData,
+      cardId
+    );
+
+
+    showMessage(
+      "✅ Card मिल गया।",
+      "success"
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Card Search Error:",
+      error
+    );
+
+
+    showMessage(
+      "❌ Card खोजने में समस्या हुई।",
+      "error"
+    );
+
+  }finally{
+
+    searchBtn.disabled = false;
+
+    searchBtn.textContent =
+      "🔍 Card देखें";
+
+  }
+
+}
+
+
+/* SHOW CARD */
+
+function showCard(
+  data,
+  cardId
+){
+
+  const cardUrl =
+    window.location.origin +
+    window.location.pathname
+      .replace(
+        "my-card.html",
+        "card.html"
+      ) +
+    "?id=" +
+    encodeURIComponent(cardId);
+
+
+  cardArea.innerHTML = `
+
+    <div class="card">
+
+      <div class="card-top">
+
+        <h2>
+          SHIVAM DIGITAL SEVA
+        </h2>
+
+        <p>
+          DIGITAL SERVICE CARD
+        </p>
+
+      </div>
+
+
+      <div class="card-body">
+
+
+        <div class="row">
+
+          <div class="label">
+            नाम
+          </div>
+
+          <div class="value">
+            ${escapeHTML(data.name)}
+          </div>
+
+        </div>
+
+
+        <div class="row">
+
+          <div class="label">
+            Card Number
+          </div>
+
+          <div class="value">
+            ${escapeHTML(data.cardNumber)}
+          </div>
+
+        </div>
+
+
+        <div class="row">
+
+          <div class="label">
+            स्थान
+          </div>
+
+          <div class="value">
+            ${escapeHTML(data.place)}
+          </div>
+
+        </div>
+
+
+        <div class="row">
+
+          <div class="label">
+            Status
+          </div>
+
+          <div class="value active">
+            🟢 ACTIVE
+          </div>
+
+        </div>
+
+
+        <div class="qr">
+
+          <p>
+            QR Verification
+          </p>
+
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
+              getVerifyUrl(cardId)
+            )}"
+            width="180"
+            height="180"
+            alt="Card Verification QR"
+          >
+
+        </div>
+
+
+        <a
+          href="${cardUrl}"
+          target="_blank"
+          class="card-button"
+        >
+          🪪 Open Full Card
+        </a>
+
+
+        <button
+          onclick="window.print()"
+        >
+          🖨️ Print Card
+        </button>
+
+
+        <div class="notice">
+
+          यह Shivam Digital Seva का
+          Private Digital Service Card है।
+          यह Aadhaar, PAN, Voter ID या
+          किसी सरकारी पहचान-पत्र का विकल्प नहीं है।
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* VERIFY URL */
+
+function getVerifyUrl(cardId){
+
+  return (
+    window.location.origin +
+    window.location.pathname
+      .replace(
+        "my-card.html",
+        "verify.html"
+      ) +
+    "?id=" +
+    encodeURIComponent(cardId)
+  );
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(
+  text,
+  type
+){
+
+  message.textContent = text;
+
+  message.className =
+    "message " + type;
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+
+</html>
