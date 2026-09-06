@@ -331,13 +331,8 @@ async function loadCard(){
 
             <div class="value active">
               ACTIVE
-            </div>
-
           </div>
-
-
-          <div id="qrcode"></div>
-
+                  <div id="qrcode"></div>
 
           <div class="notice">
 
@@ -348,24 +343,20 @@ async function loadCard(){
 
           </div>
 
-
-          <button
-            onclick="window.print()">
-
+          <button onclick="window.print()">
             🖨️ Print Card
+          </button>
 
+          <button onclick="downloadCard()">
+            📥 Download Card
           </button>
 
         </div>
 
       </div>
 
-    `;
+    `;  
         
-<button onclick="downloadCard()">
-  📥 Download Card
-</button>
-
     const verifyUrl =
       window.location.origin +
       window.location.pathname.replace(
