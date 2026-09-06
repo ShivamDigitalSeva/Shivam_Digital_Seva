@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shivam Digital Seva Card Apply</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Card Apply - Shivam Digital Seva</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -19,92 +23,115 @@ body{
 }
 
 header{
-  background:linear-gradient(135deg,#2563eb,#1e40af);
+  background:linear-gradient(135deg,#111827,#1e40af);
   color:white;
-  padding:25px 15px;
   text-align:center;
+  padding:25px 15px;
+}
+
+header h1{
+  margin:0;
+}
+
+header p{
+  margin:7px 0 0;
 }
 
 .container{
-  max-width:650px;
+  max-width:550px;
   margin:25px auto;
   padding:15px;
 }
 
 .box{
   background:white;
-  padding:25px;
-  border-radius:16px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-h2{
-  margin-top:0;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
 label{
   display:block;
   margin-top:15px;
-  margin-bottom:6px;
   font-weight:bold;
 }
 
 input{
   width:100%;
   padding:13px;
-  border:1px solid #d1d5db;
-  border-radius:8px;
+  margin-top:7px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
   font-size:16px;
 }
 
 button{
   width:100%;
+  border:0;
   padding:14px;
   margin-top:20px;
-  border:0;
   border-radius:9px;
   background:#2563eb;
   color:white;
-  font-size:17px;
+  font-size:16px;
   font-weight:bold;
-  cursor:pointer;
 }
 
-button:hover{
-  background:#1d4ed8;
+button:disabled{
+  opacity:.6;
+}
+
+#result{
+  margin-top:20px;
+}
+
+.success{
+  background:#ecfdf5;
+  border:2px solid #16a34a;
+  color:#166534;
+  padding:18px;
+  border-radius:12px;
+}
+
+.error{
+  background:#fef2f2;
+  border:2px solid #dc2626;
+  color:#991b1b;
+  padding:18px;
+  border-radius:12px;
+}
+
+.app-id{
+  background:white;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  word-break:break-all;
+  font-weight:bold;
 }
 
 .notice{
   margin-top:15px;
   padding:12px;
-  border-radius:8px;
   background:#fff7ed;
   color:#9a3412;
-  font-size:13px;
+  border-radius:8px;
+  font-size:12px;
 }
 
-#message{
-  margin-top:15px;
-  text-align:center;
-  font-weight:bold;
-}
-
-.success{
-  color:#15803d;
-}
-
-.error{
-  color:#dc2626;
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Shivam Digital Seva</h1>
-  <p>Shivam Digital Seva Card</p>
+
+<h1>Shivam Digital Seva</h1>
+
+<p>Digital Service Card Apply</p>
+
 </header>
+
 
 <div class="container">
 
@@ -112,47 +139,74 @@ button:hover{
 
 <h2>🪪 Card के लिए आवेदन करें</h2>
 
-<label>पूरा नाम</label>
+<form id="applyForm">
+
+<label>
+नाम
+</label>
+
 <input
   type="text"
   id="name"
-  maxlength="80"
-  placeholder="अपना पूरा नाम"
+  placeholder="अपना नाम"
+  required
 >
 
-<label>मोबाइल नंबर</label>
+
+<label>
+मोबाइल नंबर
+</label>
+
 <input
   type="tel"
   id="mobile"
-  maxlength="10"
-  inputmode="numeric"
   placeholder="10 अंकों का मोबाइल नंबर"
+  maxlength="10"
+  required
 >
 
-<label>गाँव / शहर</label>
+
+<label>
+स्थान
+</label>
+
 <input
   type="text"
   id="place"
-  maxlength="100"
   placeholder="गाँव / शहर"
+  required
 >
 
-<div class="notice">
-  यह कार्ड Shivam Digital Seva का Private Digital Service Card है।
-  यह Aadhaar, PAN, Voter ID या किसी सरकारी पहचान-पत्र का विकल्प नहीं है।
-</div>
 
-<button id="applyBtn">
-  आवेदन जमा करें
+<button
+  type="submit"
+  id="submitBtn">
+
+  📝 आवेदन जमा करें
+
 </button>
 
-<div id="message"></div>
+</form>
+
+
+<div id="result"></div>
+
+
+<div class="notice">
+
+यह Shivam Digital Seva का
+Private Digital Service Card है।
+यह Aadhaar, PAN, Voter ID या
+किसी सरकारी पहचान-पत्र का विकल्प नहीं है।
 
 </div>
 
 </div>
 
-  <script type="module">
+</div>
+
+
+<script type="module">
 
 import {
   initializeApp
@@ -173,139 +227,250 @@ import {
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+  apiKey:
+    "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
 
-  authDomain: "shivam-digital-seva.firebaseapp.com",
+  authDomain:
+    "shivam-digital-seva.firebaseapp.com",
 
-  projectId: "shivam-digital-seva",
+  projectId:
+    "shivam-digital-seva",
 
-  storageBucket: "shivam-digital-seva.firebasestorage.app",
+  storageBucket:
+    "shivam-digital-seva.firebasestorage.app",
 
-  messagingSenderId: "142024656312",
+  messagingSenderId:
+    "142024656312",
 
-  appId: "1:142024656312:web:ef0e26c1daacc62f21bb4d",
+  appId:
+    "1:142024656312:web:ef0e26c1daacc62f21bb4d",
 
-  measurementId: "G-45JZJSXRC7"
+  measurementId:
+    "G-45JZJSXRC7"
 
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth =
+  getAuth(app);
 
-const db = getFirestore(app);
-
-
-const applyBtn =
-  document.getElementById("applyBtn");
-
-const message =
-  document.getElementById("message");
+const db =
+  getFirestore(app);
 
 
-applyBtn.addEventListener("click", async function () {
+const form =
+  document.getElementById("applyForm");
 
-  const name =
-    document.getElementById("name").value.trim();
+const submitBtn =
+  document.getElementById("submitBtn");
 
-  const mobile =
-    document.getElementById("mobile").value.trim();
-
-  const place =
-    document.getElementById("place").value.trim();
+const result =
+  document.getElementById("result");
 
 
-  if (!name || !mobile || !place) {
+async function ensureLogin(){
 
-    message.innerHTML =
-      "<span class='error'>कृपया सभी जानकारी भरें।</span>";
-
-    return;
+  if(auth.currentUser){
+    return auth.currentUser;
   }
 
+  const credential =
+    await signInAnonymously(auth);
 
-  if (!/^[0-9]{10}$/.test(mobile)) {
+  return credential.user;
+}
 
-    message.innerHTML =
-      "<span class='error'>सही 10 अंकों का मोबाइल नंबर डालें।</span>";
 
-    return;
+form.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+
+    const name =
+      document.getElementById("name")
+      .value.trim();
+
+    const mobile =
+      document.getElementById("mobile")
+      .value.trim();
+
+    const place =
+      document.getElementById("place")
+      .value.trim();
+
+
+    if(!name || !mobile || !place){
+
+      result.innerHTML = `
+        <div class="error">
+          ❌ सभी जानकारी भरें।
+        </div>
+      `;
+
+      return;
+    }
+
+
+    if(!/^[0-9]{10}$/.test(mobile)){
+
+      result.innerHTML = `
+        <div class="error">
+          ❌ सही 10 अंकों का Mobile Number डालें।
+        </div>
+      `;
+
+      return;
+    }
+
+
+    submitBtn.disabled = true;
+
+    submitBtn.textContent =
+      "⏳ आवेदन जमा हो रहा है...";
+
+
+    try{
+
+      const user =
+        await ensureLogin();
+
+
+      const applicationRef =
+        await addDoc(
+          collection(db,"applications"),
+          {
+
+            name:name,
+
+            mobile:mobile,
+
+            place:place,
+
+            applicantUid:user.uid,
+
+            status:"PENDING",
+
+            createdAt:serverTimestamp()
+
+          }
+        );
+
+
+      const applicationId =
+        applicationRef.id;
+
+
+      /*
+        Application ID को browser में
+        save कर रहे हैं ताकि user
+        बाद में My Card page पर आसानी
+        से इस्तेमाल कर सके।
+      */
+
+      localStorage.setItem(
+        "shivamApplicationId",
+        applicationId
+      );
+
+
+      result.innerHTML = `
+
+        <div class="success">
+
+          <h3>
+            ✅ आवेदन सफलतापूर्वक जमा हो गया
+          </h3>
+
+          <p>
+            आपका आवेदन Admin Approval के लिए भेज दिया गया है।
+          </p>
+
+          <p>
+            <strong>आपका Application ID:</strong>
+          </p>
+
+          <div class="app-id">
+            ${escapeHTML(applicationId)}
+          </div>
+
+          <p>
+            इस ID को सुरक्षित रखें।
+            Approval के बाद इसी से अपना Card देख सकते हैं।
+          </p>
+
+          <a
+            href="my-card.html"
+            style="
+              display:block;
+              text-align:center;
+              margin-top:15px;
+              padding:13px;
+              background:#2563eb;
+              color:white;
+              text-decoration:none;
+              border-radius:9px;
+              font-weight:bold;
+            "
+          >
+            🪪 My Card देखें
+          </a>
+
+        </div>
+
+      `;
+
+
+      form.reset();
+
+
+    }catch(error){
+
+      console.error(error);
+
+      result.innerHTML = `
+
+        <div class="error">
+
+          ❌ आवेदन जमा नहीं हुआ।
+
+          <br><br>
+
+          ${escapeHTML(error.message)}
+
+        </div>
+
+      `;
+
+    }finally{
+
+      submitBtn.disabled = false;
+
+      submitBtn.textContent =
+        "📝 आवेदन जमा करें";
+
+    }
+
   }
+);
 
 
-  applyBtn.disabled = true;
+function escapeHTML(value){
 
-  applyBtn.innerText =
-    "⏳ आवेदन भेजा जा रहा है...";
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-
-  try {
-
-    // Anonymous Firebase Login
-    const userCredential =
-      await signInAnonymously(auth);
-
-    const uid =
-      userCredential.user.uid;
-
-
-    // Firestore में Application
-    await addDoc(
-      collection(db, "applications"),
-      {
-
-        name: name,
-
-        mobile: mobile,
-
-        place: place,
-
-        applicantUid: uid,
-
-        status: "PENDING",
-
-        createdAt: serverTimestamp()
-
-      }
-    );
-
-
-    message.innerHTML =
-      "<span class='success'>" +
-      "✅ आवेदन सफलतापूर्वक जमा हो गया।" +
-      "<br><br>" +
-      "आपका आवेदन अब Admin Approval के लिए भेज दिया गया है।" +
-      "</span>";
-
-
-    document.getElementById("name").value = "";
-
-    document.getElementById("mobile").value = "";
-
-    document.getElementById("place").value = "";
-
-
-  } catch (error) {
-
-    console.error("Firebase Error:", error);
-
-    message.innerHTML =
-      "<span class='error'>" +
-      "❌ आवेदन जमा नहीं हुआ।<br>" +
-      error.message +
-      "</span>";
-
-  }
-
-
-  applyBtn.disabled = false;
-
-  applyBtn.innerText =
-    "आवेदन जमा करें";
-
-});
+}
 
 </script>
+
 </body>
 </html>
