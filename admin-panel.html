@@ -582,14 +582,47 @@ async function approveApplication(id){
       }
     );
 
+const cardUrl =
+  window.location.href
+    .replace("admin-panel.html", "card.html")
+    .split("?")[0] +
+  "?id=" + encodeURIComponent(id);
 
-    alert(
-      "✅ Card Approved!\n\n" +
-      "Card Number: " +
-      cardNumber
-    );
+document.getElementById("cardResult").innerHTML = `
 
+  <div class="card-item"
+       style="margin-top:15px;background:#ecfdf5;border:2px solid #16a34a;">
 
+    <h3 style="color:#15803d;">
+      ✅ Card Approved Successfully
+    </h3>
+
+    <p>
+      <strong>Card Number:</strong>
+      ${escapeHTML(cardNumber)}
+    </p>
+
+    <a href="${cardUrl}"
+       target="_blank"
+       style="
+         display:block;
+         text-align:center;
+         text-decoration:none;
+         background:#2563eb;
+         color:white;
+         padding:13px;
+         border-radius:9px;
+         font-weight:bold;
+         margin-top:15px;
+       ">
+
+      🪪 View Card
+
+    </a>
+
+  </div>
+
+`;
   }catch(error){
 
     console.error(error);
