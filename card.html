@@ -70,11 +70,13 @@ body{
 .label{
   color:#64748b;
   font-size:13px;
+  margin-bottom:4px;
 }
 
 .value{
   font-size:17px;
   font-weight:bold;
+  word-break:break-word;
 }
 
 .active{
@@ -86,6 +88,10 @@ body{
   margin:25px 0;
 }
 
+#qrcode img{
+  margin:auto;
+}
+
 .notice{
   background:#fff7ed;
   color:#9a3412;
@@ -93,6 +99,7 @@ body{
   border-radius:8px;
   font-size:12px;
   text-align:center;
+  line-height:1.5;
 }
 
 button{
@@ -100,11 +107,17 @@ button{
   border:0;
   padding:14px;
   border-radius:9px;
-  margin-top:18px;
+  margin-top:12px;
   background:#2563eb;
   color:white;
   font-weight:bold;
   font-size:16px;
+  cursor:pointer;
+}
+
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
 .error{
@@ -122,35 +135,47 @@ button{
     background:white;
   }
 
+  .container{
+    margin:0;
+    max-width:550px;
+  }
+
   button{
     display:none;
   }
 
-  .container{
-    margin:0;
+  .card{
+    box-shadow:none;
   }
 
 }
 
 </style>
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- Card Download -->
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+</script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div id="loading">
-  Card loading...
+  <div id="loading">
+    Card loading...
+  </div>
+
+  <div id="cardArea"></div>
+
 </div>
 
-<div id="cardArea"></div>
 
-</div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- QR Code -->
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
 
 
 <script type="module">
@@ -166,9 +191,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAV-IvDV7MvzkE_fB_xMnIoGt4HoPQOUogs",
+  apiKey:
+    "AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
 
   authDomain:
     "shivam-digital-seva.firebaseapp.com",
@@ -198,11 +228,14 @@ const db =
   getFirestore(app);
 
 
+/* =========================
+   CARD ID
+========================= */
+
 const params =
   new URLSearchParams(
     window.location.search
   );
-
 
 const cardId =
   params.get("id");
@@ -215,6 +248,10 @@ const cardArea =
   document.getElementById("cardArea");
 
 
+/* =========================
+   LOAD CARD
+========================= */
+
 async function loadCard(){
 
   if(!cardId){
@@ -224,7 +261,6 @@ async function loadCard(){
     );
 
     return;
-
   }
 
 
@@ -243,7 +279,6 @@ async function loadCard(){
       );
 
       return;
-
     }
 
 
@@ -251,23 +286,32 @@ async function loadCard(){
       snap.data();
 
 
-    if(data.status !== "ACTIVE"){
+    /* केवल ACTIVE CARD */
+
+    if(
+      String(data.status || "")
+        .toUpperCase() !== "ACTIVE"
+    ){
 
       showError(
         "यह Card Active नहीं है।"
       );
 
       return;
-
     }
 
 
-    loading.style.display="none";
+    loading.style.display =
+      "none";
 
 
-    cardArea.innerHTML=`
+    /* =========================
+       CARD HTML
+    ========================= */
 
-      <div class="card">
+    cardArea.innerHTML = `
+
+      <div class="card" id="digitalCard">
 
         <div class="top">
 
@@ -283,6 +327,7 @@ async function loadCard(){
 
 
         <div class="body">
+
 
           <div class="row">
 
@@ -330,9 +375,14 @@ async function loadCard(){
             </div>
 
             <div class="value active">
-              ACTIVE
+              ✅ ACTIVE
+            </div>
+
           </div>
-                  <div id="qrcode"></div>
+
+
+          <div id="qrcode"></div>
+
 
           <div class="notice">
 
@@ -343,37 +393,67 @@ async function loadCard(){
 
           </div>
 
-          <button onclick="window.print()">
+
+          <button
+            id="printButton"
+            onclick="window.print()">
+
             🖨️ Print Card
+
           </button>
 
-          <button onclick="downloadCard()">
+
+          <button
+            id="downloadButton"
+            onclick="downloadCard()">
+
             📥 Download Card
+
           </button>
+
 
         </div>
 
       </div>
 
-    `;  
-        
+    `;
+
+
+    /* =========================
+       VERIFY URL
+    ========================= */
+
     const verifyUrl =
       window.location.origin +
-      window.location.pathname.replace(
-        "card.html",
-        "verify.html"
-      ) +
-      "?id=" + cardId;
+      window.location.pathname
+        .replace(
+          "card.html",
+          "verify.html"
+        ) +
+      "?id=" +
+      encodeURIComponent(cardId);
 
 
-    new QRCode(
-      document.getElementById("qrcode"),
-      {
-        text:verifyUrl,
-        width:160,
-        height:160
-      }
-    );
+    /* =========================
+       QR CODE
+    ========================= */
+
+    const qrBox =
+      document.getElementById("qrcode");
+
+
+    if(qrBox){
+
+      new QRCode(
+        qrBox,
+        {
+          text:verifyUrl,
+          width:160,
+          height:160
+        }
+      );
+
+    }
 
 
   }catch(error){
@@ -389,67 +469,151 @@ async function loadCard(){
 }
 
 
+/* =========================
+   ERROR
+========================= */
+
 function showError(text){
 
-  loading.style.display="none";
+  loading.style.display =
+    "none";
 
-  cardArea.innerHTML=
-    `<div class="error">
-      ❌ ${text}
-    </div>`;
+  cardArea.innerHTML =
+    `
+    <div class="error">
+
+      ❌ ${escapeHTML(text)}
+
+    </div>
+    `;
 
 }
 
+
+/* =========================
+   HTML SECURITY
+========================= */
 
 function escapeHTML(value){
 
   return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 
 }
 
 
-loadCard();
-      async function downloadCard(){
+/* =========================
+   DOWNLOAD CARD
+========================= */
 
-  const card = document.querySelector(".card");
+window.downloadCard =
+async function(){
+
+  const card =
+    document.getElementById(
+      "digitalCard"
+    );
+
+
+  const button =
+    document.getElementById(
+      "downloadButton"
+    );
+
 
   if(!card){
-    alert("❌ Card अभी लोड नहीं हुआ है।");
+
+    alert(
+      "❌ Card अभी लोड नहीं हुआ है।"
+    );
+
     return;
   }
 
-  const button = event.target;
+
+  if(!button){
+
+    return;
+  }
+
 
   button.disabled = true;
-  button.textContent = "⏳ Card तैयार हो रहा है...";
+
+  button.textContent =
+    "⏳ Card तैयार हो रहा है...";
+
 
   try{
 
-    const canvas = await html2canvas(card, {
-      scale: 2,
-      backgroundColor: "#ffffff",
-      useCORS: true
-    });
+    const canvas =
+      await html2canvas(
+        card,
+        {
+          scale:2,
+          backgroundColor:"#ffffff",
+          useCORS:true
+        }
+      );
+
 
     const link =
       document.createElement("a");
 
+
+    const cardNumber =
+      card.querySelectorAll(
+        ".value"
+      )[1]?.textContent
+        ?.trim()
+        .replace(
+          /[^a-zA-Z0-9_-]/g,
+          "_"
+        ) ||
+      "Card";
+
+
     link.download =
       "Shivam-Digital-Seva-" +
-      (document.querySelector(".value")
-        ?.textContent
-        ?.trim() || "Card") +
+      cardNumber +
       ".png";
 
+
     link.href =
-      canvas.toDataURL("image/png");
+      canvas.toDataURL(
+        "image/png"
+      );
+
+
+    document.body.appendChild(link);
 
     link.click();
+
+    link.remove();
+
 
   }catch(error){
 
@@ -462,11 +626,20 @@ loadCard();
   }finally{
 
     button.disabled = false;
-    button.textContent = "📥 Download Card";
+
+    button.textContent =
+      "📥 Download Card";
 
   }
 
-      }
+};
+
+
+/* =========================
+   START
+========================= */
+
+loadCard();
 
 </script>
 
