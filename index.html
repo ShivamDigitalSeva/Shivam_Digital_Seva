@@ -17,6 +17,30 @@ content="Shivam Digital Seva - सभी महत्वपूर्ण सर�
 <link rel="canonical"
 href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
 <style>
+    .card-actions{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:15px;
+}
+
+.card-actions a{
+  display:block;
+  text-decoration:none;
+  background:#f1f5f9;
+  color:#1e40af;
+  padding:10px 12px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:600;
+  text-align:center;
+  transition:.2s;
+}
+
+.card-actions a:hover{
+  background:#dbeafe;
+  transform:translateY(-1px);
+}
     /* FOLLOW */
 .follow-box{
   text-align:center;
@@ -536,21 +560,23 @@ placeholder="सेवा खोजें... जैसे Aadhaar, PAN, जा�
 
   <p>अपना Digital Service Card बनाएं</p>
 
-  <a href="card-apply.html" class="service-link">
-    📝 Card के लिए आवेदन करें
-  </a>
+  <div class="card-actions">
 
-  <a href="my-card.html" class="service-link">
-    🔎 Application Status चेक करें
-  </a>
+    <a href="card-apply.html">
+      📝 Card के लिए आवेदन करें
+    </a>
 
-  <a href="my-card.html" class="service-link">
-    💳 Approved Card डाउनलोड करें
-  </a>
+    <a href="my-card.html">
+      🔎 Application Status
+    </a>
+
+    <a href="my-card.html">
+      💳 Approved Card डाउनलोड करें
+    </a>
+
+  </div>
 
 </div>
-
-
 <!-- 01 Aadhaar -->
 <a class="card"
 href="https://uidai.gov.in/"
