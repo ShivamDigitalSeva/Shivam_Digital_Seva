@@ -24,11 +24,7 @@ body{
 }
 
 header{
-  background:linear-gradient(
-    135deg,
-    #111827,
-    #1e40af
-  );
+  background:linear-gradient(135deg,#111827,#1e40af);
   color:white;
   text-align:center;
   padding:25px 15px;
@@ -36,7 +32,6 @@ header{
 
 header h1{
   margin:0;
-  font-size:26px;
 }
 
 header p{
@@ -45,57 +40,40 @@ header p{
 
 .container{
   max-width:550px;
-  margin:30px auto;
+  margin:25px auto;
   padding:15px;
 }
 
 .box{
   background:white;
-  padding:25px;
+  padding:22px;
   border-radius:18px;
   box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
 h2{
-  margin-top:0;
   text-align:center;
-}
-
-label{
-  display:block;
-  font-weight:bold;
-  margin-top:15px;
 }
 
 input{
   width:100%;
-  padding:13px;
-  margin-top:7px;
+  padding:14px;
+  margin-top:10px;
   border:1px solid #cbd5e1;
   border-radius:9px;
   font-size:16px;
-  outline:none;
-}
-
-input:focus{
-  border-color:#2563eb;
 }
 
 button{
   width:100%;
   border:0;
   padding:14px;
+  margin-top:15px;
   border-radius:9px;
-  margin-top:18px;
   background:#2563eb;
   color:white;
-  font-weight:bold;
   font-size:16px;
-  cursor:pointer;
-}
-
-button:disabled{
-  opacity:.6;
+  font-weight:bold;
 }
 
 .message{
@@ -113,7 +91,7 @@ button:disabled{
 }
 
 .card{
-  margin-top:25px;
+  margin-top:20px;
   background:white;
   border-radius:20px;
   overflow:hidden;
@@ -121,11 +99,7 @@ button:disabled{
 }
 
 .card-top{
-  background:linear-gradient(
-    135deg,
-    #2563eb,
-    #1e40af
-  );
+  background:linear-gradient(135deg,#2563eb,#1e40af);
   color:white;
   text-align:center;
   padding:25px;
@@ -133,11 +107,6 @@ button:disabled{
 
 .card-top h2{
   margin:0;
-  font-size:24px;
-}
-
-.card-top p{
-  margin:7px 0 0;
 }
 
 .card-body{
@@ -145,9 +114,9 @@ button:disabled{
 }
 
 .row{
+  background:#f8fafc;
   padding:13px;
   margin-bottom:10px;
-  background:#f8fafc;
   border-radius:9px;
 }
 
@@ -166,59 +135,26 @@ button:disabled{
   color:#15803d;
 }
 
-.qr{
-  text-align:center;
-  margin:25px 0;
-}
-
-.notice{
-  background:#fff7ed;
-  color:#9a3412;
-  padding:12px;
-  border-radius:8px;
-  font-size:12px;
-  text-align:center;
-  line-height:1.5;
-}
-
-.card-button{
+.link{
   display:block;
   text-align:center;
-  text-decoration:none;
+  padding:13px;
+  margin-top:15px;
   background:#2563eb;
   color:white;
-  padding:13px;
+  text-decoration:none;
   border-radius:9px;
-  margin-top:15px;
   font-weight:bold;
 }
 
-.hidden{
-  display:none;
-}
-
-@media print{
-
-  body{
-    background:white;
-  }
-
-  header,
-  .search-box,
-  #message,
-  .card-button{
-    display:none !important;
-  }
-
-  .container{
-    margin:0;
-    padding:0;
-  }
-
-  .card{
-    box-shadow:none;
-  }
-
+.notice{
+  margin-top:15px;
+  padding:12px;
+  background:#fff7ed;
+  color:#9a3412;
+  border-radius:8px;
+  font-size:12px;
+  text-align:center;
 }
 
 </style>
@@ -227,12 +163,11 @@ button:disabled{
 
 <body>
 
-
 <header>
 
-  <h1>Shivam Digital Seva</h1>
+<h1>Shivam Digital Seva</h1>
 
-  <p>My Digital Service Card</p>
+<p>My Digital Service Card</p>
 
 </header>
 
@@ -240,42 +175,33 @@ button:disabled{
 <div class="container">
 
 
-<!-- SEARCH -->
+<div class="box">
 
-<div class="box search-box">
+<h2>🪪 अपना Card देखें</h2>
 
-  <h2>🪪 अपना Card देखें</h2>
-
-  <p style="text-align:center;color:#64748b;">
-    अपना Card Number डालें
-  </p>
+<p style="text-align:center;color:#64748b;">
+Application ID डालें
+</p>
 
 
-  <label for="cardNumber">
-    Card Number
-  </label>
-
-  <input
-    type="text"
-    id="cardNumber"
-    placeholder="जैसे SDS-2026-281997"
-    autocomplete="off"
-  >
+<input
+  id="applicationId"
+  type="text"
+  placeholder="अपना Application ID डालें"
+>
 
 
-  <button id="searchBtn">
-    🔍 Card देखें
-  </button>
+<button id="searchBtn">
+  🔍 Card Status देखें
+</button>
 
 
-  <div id="message"
-       class="message">
-  </div>
+<div id="message"
+     class="message">
+</div>
 
 </div>
 
-
-<!-- CARD -->
 
 <div id="cardArea"></div>
 
@@ -290,15 +216,16 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
+  getAuth,
+  signInAnonymously
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
   getFirestore,
-  collection,
-  query,
-  where,
-  getDocs
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-
-/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
@@ -329,55 +256,62 @@ const firebaseConfig = {
 const app =
   initializeApp(firebaseConfig);
 
+const auth =
+  getAuth(app);
+
 const db =
   getFirestore(app);
 
 
-/* ELEMENTS */
+const input =
+  document.getElementById(
+    "applicationId"
+  );
 
-const cardNumberInput =
-  document.getElementById("cardNumber");
-
-const searchBtn =
-  document.getElementById("searchBtn");
+const button =
+  document.getElementById(
+    "searchBtn"
+  );
 
 const message =
-  document.getElementById("message");
+  document.getElementById(
+    "message"
+  );
 
 const cardArea =
-  document.getElementById("cardArea");
+  document.getElementById(
+    "cardArea"
+  );
 
 
-/* SEARCH */
+/*
+  अगर user पहले Apply कर चुका है,
+  तो उसका Application ID अपने-आप
+  box में भर जाएगा।
+*/
 
-searchBtn.addEventListener(
+const savedId =
+  localStorage.getItem(
+    "shivamApplicationId"
+  );
+
+if(savedId){
+
+  input.value = savedId;
+
+}
+
+
+button.addEventListener(
   "click",
   findCard
 );
 
 
-/* ENTER KEY */
-
-cardNumberInput.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Enter"){
-      findCard();
-    }
-
-  }
-);
-
-
-/* FIND CARD */
-
 async function findCard(){
 
-  const cardNumber =
-    cardNumberInput.value
-      .trim()
-      .toUpperCase();
+  const applicationId =
+    input.value.trim();
 
 
   cardArea.innerHTML = "";
@@ -385,122 +319,202 @@ async function findCard(){
   message.textContent = "";
 
 
-  if(!cardNumber){
+  if(!applicationId){
 
-    showMessage(
-      "कृपया Card Number डालें।",
-      "error"
-    );
+    message.className =
+      "message error";
+
+    message.textContent =
+      "❌ Application ID डालें।";
 
     return;
+
   }
 
 
-  searchBtn.disabled = true;
+  button.disabled = true;
 
-  searchBtn.textContent =
-    "🔄 Card खोजा जा रहा है...";
+  button.textContent =
+    "⏳ Check हो रहा है...";
 
 
   try{
 
-    const cardsRef =
-      collection(db,"cards");
+    /*
+      Anonymous login
+      ताकि current Firestore Rules
+      के साथ application read हो सके।
+    */
+
+    if(!auth.currentUser){
+
+      await signInAnonymously(auth);
+
+    }
 
 
-    const q =
-      query(
-        cardsRef,
-        where(
-          "cardNumber",
-          "==",
-          cardNumber
+    const applicationSnap =
+      await getDoc(
+        doc(
+          db,
+          "applications",
+          applicationId
         )
       );
 
 
-    const snapshot =
-      await getDocs(q);
+    if(!applicationSnap.exists()){
 
+      message.className =
+        "message error";
 
-    if(snapshot.empty){
-
-      showMessage(
-        "❌ यह Card Number नहीं मिला।",
-        "error"
-      );
+      message.textContent =
+        "❌ Application ID नहीं मिला।";
 
       return;
+
     }
 
 
-    let cardData = null;
+    const application =
+      applicationSnap.data();
 
-    let cardId = null;
+
+    /*
+      Pending
+    */
+
+    if(application.status === "PENDING"){
+
+      message.className =
+        "message";
+
+      message.style.color =
+        "#92400e";
+
+      message.textContent =
+        "⏳ आपका आवेदन अभी Admin Approval में है।";
+
+      return;
+
+    }
 
 
-    snapshot.forEach(
-      (docSnap)=>{
+    /*
+      Rejected
+    */
 
-        cardData =
-          docSnap.data();
+    if(application.status === "REJECTED"){
 
-        cardId =
-          docSnap.id;
+      message.className =
+        "message error";
+
+      message.textContent =
+        "❌ आपका आवेदन Reject कर दिया गया है।";
+
+      return;
+
+    }
+
+
+    /*
+      Approved
+    */
+
+    if(
+      application.status === "APPROVED" &&
+      application.cardNumber
+    ){
+
+      const cardSnap =
+        await getDoc(
+          doc(
+            db,
+            "cards",
+            applicationId
+          )
+        );
+
+
+      if(!cardSnap.exists()){
+
+        message.className =
+          "message error";
+
+        message.textContent =
+          "❌ Card अभी उपलब्ध नहीं है।";
+
+        return;
 
       }
-    );
 
 
-    if(cardData.status !== "ACTIVE"){
+      const card =
+        cardSnap.data();
 
-      showMessage(
-        "❌ यह Card अभी Active नहीं है।",
-        "error"
+
+      if(card.status !== "ACTIVE"){
+
+        message.className =
+          "message error";
+
+        message.textContent =
+          "❌ Card Active नहीं है।";
+
+        return;
+
+      }
+
+
+      showCard(
+        card,
+        applicationId
       );
 
+
+      message.className =
+        "message success";
+
+      message.textContent =
+        "✅ आपका Card Active है।";
+
       return;
+
     }
 
 
-    showCard(
-      cardData,
-      cardId
-    );
+    message.className =
+      "message error";
 
-
-    showMessage(
-      "✅ Card मिल गया।",
-      "success"
-    );
+    message.textContent =
+      "❌ Card की जानकारी उपलब्ध नहीं है।";
 
 
   }catch(error){
 
-    console.error(
-      "Card Search Error:",
-      error
-    );
+    console.error(error);
 
+    message.className =
+      "message error";
 
-    showMessage(
-      "❌ Card खोजने में समस्या हुई।",
-      "error"
-    );
+    message.textContent =
+      "❌ Card देखने में समस्या हुई।";
 
   }finally{
 
-    searchBtn.disabled = false;
+    button.disabled = false;
 
-    searchBtn.textContent =
-      "🔍 Card देखें";
+    button.textContent =
+      "🔍 Card Status देखें";
 
   }
 
 }
 
 
-/* SHOW CARD */
+/*
+  SHOW CARD
+*/
 
 function showCard(
   data,
@@ -513,6 +527,17 @@ function showCard(
       .replace(
         "my-card.html",
         "card.html"
+      ) +
+    "?id=" +
+    encodeURIComponent(cardId);
+
+
+  const verifyUrl =
+    window.location.origin +
+    window.location.pathname
+      .replace(
+        "my-card.html",
+        "verify.html"
       ) +
     "?id=" +
     encodeURIComponent(cardId);
@@ -536,7 +561,6 @@ function showCard(
 
 
       <div class="card-body">
-
 
         <div class="row">
 
@@ -590,38 +614,20 @@ function showCard(
         </div>
 
 
-        <div class="qr">
-
-          <p>
-            QR Verification
-          </p>
-
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
-              getVerifyUrl(cardId)
-            )}"
-            width="180"
-            height="180"
-            alt="Card Verification QR"
-          >
-
-        </div>
-
-
         <a
           href="${cardUrl}"
-          target="_blank"
-          class="card-button"
+          class="link"
         >
-          🪪 Open Full Card
+          🪪 पूरा Card खोलें
         </a>
 
 
-        <button
-          onclick="window.print()"
+        <a
+          href="${verifyUrl}"
+          class="link"
         >
-          🖨️ Print Card
-        </button>
+          🔍 Card Verification
+        </a>
 
 
         <div class="notice">
@@ -629,10 +635,9 @@ function showCard(
           यह Shivam Digital Seva का
           Private Digital Service Card है।
           यह Aadhaar, PAN, Voter ID या
-          किसी सरकारी पहचान-पत्र का विकल्प नहीं है।
+          सरकारी पहचान-पत्र नहीं है।
 
         </div>
-
 
       </div>
 
@@ -642,41 +647,6 @@ function showCard(
 
 }
 
-
-/* VERIFY URL */
-
-function getVerifyUrl(cardId){
-
-  return (
-    window.location.origin +
-    window.location.pathname
-      .replace(
-        "my-card.html",
-        "verify.html"
-      ) +
-    "?id=" +
-    encodeURIComponent(cardId)
-  );
-
-}
-
-
-/* MESSAGE */
-
-function showMessage(
-  text,
-  type
-){
-
-  message.textContent = text;
-
-  message.className =
-    "message " + type;
-
-}
-
-
-/* SECURITY */
 
 function escapeHTML(value){
 
@@ -692,5 +662,4 @@ function escapeHTML(value){
 </script>
 
 </body>
-
 </html>
