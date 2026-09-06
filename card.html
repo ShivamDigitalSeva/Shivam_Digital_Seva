@@ -133,7 +133,8 @@ button{
 }
 
 </style>
-
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -360,7 +361,10 @@ async function loadCard(){
       </div>
 
     `;
-
+        
+<button onclick="downloadCard()">
+  📥 Download Card
+</button>
 
     const verifyUrl =
       window.location.origin +
@@ -419,6 +423,59 @@ function escapeHTML(value){
 
 
 loadCard();
+      async function downloadCard(){
+
+  const card = document.querySelector(".card");
+
+  if(!card){
+    alert("❌ Card अभी लोड नहीं हुआ है।");
+    return;
+  }
+
+  const button = event.target;
+
+  button.disabled = true;
+  button.textContent = "⏳ Card तैयार हो रहा है...";
+
+  try{
+
+    const canvas = await html2canvas(card, {
+      scale: 2,
+      backgroundColor: "#ffffff",
+      useCORS: true
+    });
+
+    const link =
+      document.createElement("a");
+
+    link.download =
+      "Shivam-Digital-Seva-" +
+      (document.querySelector(".value")
+        ?.textContent
+        ?.trim() || "Card") +
+      ".png";
+
+    link.href =
+      canvas.toDataURL("image/png");
+
+    link.click();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "❌ Card Download नहीं हो पाया।"
+    );
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "📥 Download Card";
+
+  }
+
+      }
 
 </script>
 
