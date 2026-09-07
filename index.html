@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Digital Seva | सभी ऑनलाइन सेवाएं</title>
+<meta name="description" content="Shivam Digital Seva - सरकारी और डिजिटल सेवाओं के Official Links एक ही स्थान पर।">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
+<meta name="google-adsense-account" content="ca-pub-9649261968916121">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9649261968916121" crossorigin="anonymous"></script>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#06152e;color:#fff;font-family:Arial,"Noto Sans Devanagari",sans-serif;padding-bottom:78px}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+
+.top{background:linear-gradient(180deg,#061a38,#071a35);padding:24px 15px 20px;border-bottom:1px solid #2464c7;text-align:center}
+.logo{width:92px;height:92px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;box-shadow:0 0 24px rgba(70,140,255,.35)}
+.top h1{font-family:Georgia,serif;font-size:34px;margin:10px 0 5px}
+.top h1 span{color:#2585ff}
+.top h2{font-size:18px;color:#dce7ff;margin:7px 0}
+.top p{color:#aebbd3;font-size:14px;margin:7px 0}
+
+.wrap{max-width:1200px;margin:auto;padding:18px 16px 40px}
+
+.notice{background:#0b2145;border:1px solid #2363bd;border-radius:18px;padding:16px;text-align:center;margin-bottom:16px}
+.notice b{font-size:17px}
+.notice p{color:#b8c8e4;margin:8px 0 0;font-size:14px}
+
+.search-box{display:flex;align-items:center;gap:10px;height:58px;border:2px solid #267dff;border-radius:18px;background:#081d3d;padding:0 16px;margin-bottom:14px;box-shadow:0 0 16px rgba(20,110,255,.12)}
+.search-icon{font-size:27px}
+.search-box input{width:100%;border:0;outline:0;background:transparent;color:#fff;font-size:17px}
+.search-box input::placeholder{color:#9fb1d1}
+.clear-search{border:0;background:transparent;color:#b9c9e5;font-size:24px;cursor:pointer;display:none}
+
+.service-category{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
+.service-category::-webkit-scrollbar{display:none}
+.service-category button{min-width:92px;border:1px solid #1857a8;background:#091f41;color:#fff;padding:10px 7px;border-radius:14px;font-size:12px;font-weight:bold;cursor:pointer}
+.service-category button.active{background:#1677ff;border-color:#1677ff;box-shadow:0 4px 14px rgba(22,119,255,.25)}
+
+.service-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #1b5bb2;background:#081d3d;border-radius:18px;margin:2px 0 25px;overflow:hidden}
+.stat{text-align:center;padding:13px 5px;border-right:1px solid #28518a}
+.stat:last-child{border-right:0}
+.stat-icon{font-size:23px;display:block}
+.stat-number{display:block;color:#29a3ff;font-size:23px;font-weight:bold}
+.stat-title{color:#b8c8e5;font-size:12px}
+
+.section-title{font-family:Georgia,serif;font-size:27px;margin:25px 0 16px;padding-left:12px;border-left:6px solid #2b88ff}
+.section-subtitle{color:#aebbd3;margin:-8px 0 16px 18px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+.card{position:relative;background:linear-gradient(145deg,#08204a,#092a59);border:1px solid #1765c7;border-radius:16px;padding:14px;min-height:175px;box-shadow:0 5px 18px rgba(0,0,0,.2);transition:.2s;display:block;overflow:hidden}
+.card:hover{transform:translateY(-2px);border-color:#3290ff}
+.card.hidden{display:none!important}
+.service-logo{width:96px;height:60px;object-fit:contain;display:block;background:#fff;border-radius:10px;padding:5px;margin-bottom:9px}
+.card h3{font-size:17px;margin:4px 34px 6px 0;line-height:1.25}
+.card p{margin:0;color:#b8c8e4;font-size:12.5px;line-height:1.45}
+.arrow{position:absolute;right:9px;bottom:10px;width:31px;height:31px;border:1px solid #2583ff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:25px;background:#071a39}
+.card-actions,.multi-actions{display:flex;flex-direction:column;gap:7px;margin-top:11px;position:relative;z-index:3}
+.card-actions a,.multi-actions a{display:block;text-align:center;background:#eef5ff;color:#174a7e;padding:9px 8px;border-radius:9px;font-size:12px;font-weight:700;border:1px solid #cbdff5}
+.card-actions a:hover,.multi-actions a:hover{background:#dcecff}
+
+.special-card{text-align:center}
+.special-card .service-logo{margin-left:auto;margin-right:auto}
+.special-card .arrow{display:none}
+
+.affiliate-note{font-size:11px!important;color:#aebbd0!important;margin-top:6px!important}
+
+.no-result{display:none;text-align:center;background:#0b2145;border:1px solid #2363bd;border-radius:16px;padding:24px;margin:18px 0;font-size:18px;color:#dce7ff}
+
+.digital-seva-box{background:#fff;color:#111;text-align:center;border-radius:22px;padding:22px 16px;margin:0 0 24px;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.digital-seva-box h2{color:#09266f;font-family:Georgia,serif;font-size:28px;margin:0 0 10px}
+.digital-seva-box p{font-size:16px;line-height:1.5;margin:7px}
+.contact-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:15px}
+.contact-buttons a{background:#123da8;color:white;padding:12px 22px;border-radius:12px;font-size:16px;font-weight:bold}
+
+.follow-box{background:linear-gradient(145deg,#081c3c,#0a2852);border:1px solid #2464c7;border-radius:20px;padding:25px 15px;text-align:center;margin-top:28px}
+.follow-box h2{font-family:Georgia,serif;font-size:25px;margin:0 0 10px}
+.follow-box p{color:#aebbd0;font-size:15px}
+#followBtn{border:0;background:#315de0;color:white;padding:13px 26px;border-radius:13px;font-size:18px;font-weight:bold;cursor:pointer}
+#followBtn:disabled{opacity:.7}
+.followers-text{margin-top:15px}
+
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contact a{color:#fff;text-align:center;padding:20px 12px;border-radius:18px;font-size:18px;font-weight:bold}
+.phone{background:linear-gradient(135deg,#08784e,#19a568)}
+.wa{background:linear-gradient(135deg,#08783d,#18ad58)}
+.address{background:linear-gradient(135deg,#214ca8,#376be1)}
+
+.note{text-align:center;color:#aeb9cd;font-size:14px;line-height:1.6;margin:22px 0}
+
+.footer{margin-top:35px;padding:28px 15px;background:#040b18;border-top:1px solid #243c72;text-align:center}
+.footer-title{font-family:Georgia,serif;font-size:21px;font-weight:bold;color:#dce5ff}
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:650px;margin:18px auto 0}
+.footer-links a{background:#172238;border:1px solid #294575;color:white;padding:13px;border-radius:13px;font-size:15px}
+
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;height:68px;background:#06152e;border-top:1px solid #1e5fb6;display:grid;grid-template-columns:repeat(5,1fr);z-index:9999;box-shadow:0 -5px 20px rgba(0,0,0,.35)}
+.bottom-nav a{color:#b9c9e6;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;gap:2px}
+.bottom-nav span{font-size:22px;line-height:1}
+.bottom-nav a.active{color:#2d8cff}
+
+.certificate-popup{display:none;position:fixed;z-index:99999;inset:0;background:rgba(0,0,0,.78);padding:16px;overflow-y:auto}
+.certificate-popup-box{max-width:650px;margin:25px auto;background:#fff;border-radius:18px;padding:23px;position:relative;color:#222}
+.popup-close{position:absolute;right:10px;top:8px;width:38px;height:38px;border:0;border-radius:50%;background:#e53935;color:#fff;font-size:27px;cursor:pointer}
+.popup-title{color:#0757b8;margin-top:4px;padding-right:42px}
+.popup-content h4{color:#0757b8;margin-bottom:8px}
+.popup-content ol{padding-left:22px;line-height:1.7}
+.official-btn{display:inline-block;margin-top:12px;padding:11px 18px;border-radius:22px;background:#087f23;color:#fff}
+
+@media(max-width:800px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .contact{grid-template-columns:1fr}
+ .top h1{font-size:31px}
+ .card{min-height:175px;padding:12px}
+ .service-logo{width:82px;height:54px}
+ .card h3{font-size:16px}
+ .card p{font-size:12px}
+ .section-title{font-size:23px}
+}
+@media(max-width:380px){
+ .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+ .card{padding:10px;min-height:170px}
+ .card h3{font-size:14px}
+ .card p{font-size:11px}
+ .service-logo{width:74px;height:50px}
+ .service-category button{min-width:82px}
+}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig={
+ apiKey:"AIzaSyAV-IvDV7MvzkfE_BxMnIoGt4HoPQOUogs",
+ authDomain:"shivam-digital-seva.firebaseapp.com",
+ projectId:"shivam-digital-seva",
+ storageBucket:"shivam-digital-seva.firebasestorage.app",
+ messagingSenderId:"142024656312",
+ appId:"1:142024656312:web:ef0e26c1daacc62f21bb4d",
+ measurementId:"G-45JZJSXRC7"
+};
+firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+
+<body>
+
+<header class="top" id="home">
+  <img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva Logo">
+  <h1>Shivam Digital <span>Seva</span></h1>
+  <h2>सभी सरकारी एवं डिजिटल सेवाएँ एक ही जगह</h2>
+  <p>आपकी सुविधा, हमारा प्रयास</p>
+</header>
+
+<main class="wrap">
+
+<div class="notice">
+  <b>🌐 सभी सेवाएँ एक ही स्थान पर</b>
+  <p>नीचे किसी सेवा पर टैप करके संबंधित Official Website खोलें।</p>
+</div>
+
+<section class="digital-seva-box">
+  <h2>💼 Shivam Digital Seva</h2>
+  <p>ऑनलाइन आवेदन और डिजिटल सेवाओं के लिए संपर्क करें।</p>
+  <div class="contact-buttons">
+    <a href="tel:+919508051176">📞 9508051176</a>
+    <a href="https://wa.me/917667187142" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+</section>
+
+<div class="search-box" id="searchArea">
+  <span class="search-icon">🔎</span>
+  <input id="serviceSearch" type="search" autocomplete="off" placeholder="सेवा खोजें... जैसे Aadhaar, PAN, जाति">
+  <button class="clear-search" id="clearSearch" aria-label="खोज साफ करें">×</button>
+</div>
+
+<div class="service-category">
+  <button class="active" data-category="all">🔲<br>सभी सेवाएँ</button>
+  <button data-category="identity">👤<br>पहचान</button>
+  <button data-category="certificate">📄<br>प्रमाण पत्र</button>
+  <button data-category="government">🏛️<br>सरकारी</button>
+  <button data-category="bank">🏦<br>बैंकिंग</button>
+  <button data-category="farmer">🌱<br>किसान</button>
+  <button data-category="travel">🚆<br>यात्रा</button>
+  <button data-category="other">⋮<br>अन्य</button>
+</div>
+
+<div class="service-stats">
+  <div class="stat"><span class="stat-icon">👤</span><span class="stat-number" id="totalServices">0</span><span class="stat-title">कुल सेवाएँ</span></div>
+  <div class="stat"><span class="stat-icon">👁️</span><span class="stat-number" id="visibleServices">0</span><span class="stat-title">दिख रही सेवाएँ</span></div>
+  <div class="stat"><span class="stat-icon">🕐</span><span class="stat-number">24×7</span><span class="stat-title">उपलब्धता</span></div>
+</div>
+
+<h2 class="section-title" id="services">🌿 सभी सेवाएँ</h2>
+<p class="section-subtitle">अपनी जरूरत की सेवा चुनें</p>
+
+<div class="grid" id="serviceGrid">
+
+<!-- Shivam Digital Seva Card -->
+<div class="card special-card" data-search="shivam digital seva card digital service card आवेदन status approved download">
+  <img class="service-logo" src="logos/shivam-card.png" alt="Shivam Digital Seva Card">
+  <h3>Shivam Digital Seva Card</h3>
+  <p>अपना Digital Service Card बनाएं</p>
+  <div class="card-actions">
+    <a href="card-apply.html">📝 Card के लिए आवेदन करें</a>
+    <a href="my-card.html">🔎 Application Status</a>
+    <a href="my-card.html">💳 Approved Card डाउनलोड करें</a>
+  </div>
+</div>
+
+<!-- Aadhaar -->
+<a class="card" data-category="identity" data-search="aadhaar आधार uidai" href="https://uidai.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/aadhaar.png" alt="Aadhaar Official Logo"><h3>Aadhaar</h3><p>आधार की आधिकारिक सेवाएं</p><span class="arrow">›</span></a>
+
+<!-- NPCI -->
+<a class="card" data-category="bank" data-search="npci aadhaar dbt bank seeding आधार बैंक लिंक" href="https://www.npci.org.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/npci.png" alt="NPCI Official Logo"><h3>NPCI / Aadhaar DBT</h3><p>बैंक खाते को आधार से जोड़ने की सेवा</p><span class="arrow">›</span></a>
+
+<!-- PAN -->
+<div class="card special-card" data-category="identity" data-search="pan card पैन कार्ड आवेदन status स्टेटस official">
+<img class="service-logo" src="logos/pan.png" alt="PAN Card Logo"><h3>PAN Card</h3><p>पैन कार्ड की ऑनलाइन सेवाएं</p>
+<div class="multi-actions">
+<a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" target="_blank" rel="noopener">📝 PAN Card आवेदन</a>
+<a href="https://tin.tin.proteantech.in/pantan/StatusTrack.html" target="_blank" rel="noopener">🔎 PAN आवेदन स्टेटस</a>
+<a href="https://www.tinpan.proteantech.in/" target="_blank" rel="noopener">🏢 Official PAN Link</a>
+</div></div>
+
+<!-- ePAN -->
+<a class="card" data-category="identity" data-search="epan e pan income tax पैन" href="https://www.incometax.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/epan.png?v=2" alt="e-PAN Logo"><h3>e-PAN Card</h3><p>e-PAN और Income Tax सेवाएं</p><span class="arrow">›</span></a>
+
+<!-- Voter -->
+<div class="card special-card" data-category="identity" data-search="voter card वोटर कार्ड voter id मतदाता पहचान पत्र आवेदन status election">
+<img class="service-logo" src="logos/voter.png" alt="Voter ID Logo"><h3>Voter Card</h3><p>मतदाता पहचान पत्र की ऑनलाइन सेवाएं</p>
+<div class="multi-actions">
+<a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">📝 Voter Card आवेदन</a>
+<a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">🔎 Voter Card स्टेटस</a>
+<a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">🏢 Official Voter Portal</a>
+</div></div>
+
+<!-- Certificates -->
+<a class="card" data-category="certificate" data-search="income आय प्रमाण पत्र" href="javascript:void(0)" onclick="openCertificate('income')">
+<img class="service-logo" src="logos/rtps-income.png?v=2" alt="आय प्रमाण-पत्र Logo"><h3>आय प्रमाण-पत्र</h3><p>आय प्रमाण-पत्र ऑनलाइन सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="certificate" data-search="caste जाति प्रमाण पत्र" href="javascript:void(0)" onclick="openCertificate('caste')">
+<img class="service-logo" src="logos/rtps-caste.png?v=2" alt="जाति प्रमाण-पत्र Logo"><h3>जाति प्रमाण-पत्र</h3><p>जाति प्रमाण-पत्र ऑनलाइन सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="certificate" data-search="residence निवास प्रमाण पत्र" href="javascript:void(0)" onclick="openCertificate('residence')">
+<img class="service-logo" src="logos/rtps-residence.png?v=2" alt="निवास प्रमाण-पत्र Logo"><h3>निवास प्रमाण-पत्र</h3><p>निवास प्रमाण-पत्र ऑनलाइन सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="certificate" data-search="ews EWS आर्थिक रूप से कमजोर वर्ग" href="javascript:void(0)" onclick="openCertificate('ews')">
+<img class="service-logo" src="logos/rtps-ews.png?v=2" alt="EWS प्रमाण-पत्र Logo"><h3>EWS प्रमाण-पत्र</h3><p>आर्थिक रूप से कमजोर वर्ग प्रमाण-पत्र</p><span class="arrow">›</span></a>
+
+<!-- Birth Death -->
+<a class="card" data-category="certificate" data-search="birth जन्म प्रमाण पत्र janam" href="https://dc.crsorgi.gov.in/crs/ReportEvent/ReportBirth" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/birth.png" alt="Birth Certificate Logo"><h3>जन्म प्रमाण-पत्र</h3><p>जन्म प्रमाण-पत्र संबंधी सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="certificate" data-search="death मृत्यु प्रमाण पत्र mrityu" href="https://dc.crsorgi.gov.in/crs/ReportEvent/ReportDeath" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/death.png" alt="Death Certificate Logo"><h3>मृत्यु प्रमाण-पत्र</h3><p>मृत्यु प्रमाण-पत्र संबंधी सेवा</p><span class="arrow">›</span></a>
+
+<!-- Health -->
+<a class="card" data-category="government" data-search="abha health id स्वास्थ्य" href="https://abha.abdm.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/abha.png" alt="ABHA Official Logo"><h3>ABHA Card</h3><p>ABHA Health Account सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="ayushman आयुष्मान pmjay health" href="https://pmjay.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/ayushman.png" alt="Ayushman Bharat Logo"><h3>Ayushman Card</h3><p>आयुष्मान भारत सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="digilocker digi locker document दस्तावेज" href="https://www.digilocker.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/digilocker.png" alt="DigiLocker Official Logo"><h3>DigiLocker</h3><p>डिजिटल दस्तावेज सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="scholarship nsp छात्रवृत्ति" href="https://scholarships.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/nsp.png" alt="NSP Logo"><h3>Scholarship / NSP</h3><p>छात्रवृत्ति पोर्टल</p><span class="arrow">›</span></a>
+
+<!-- Travel -->
+<a class="card" data-category="travel" data-search="passport पासपोर्ट" href="https://www.passportindia.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/passport.png" alt="Passport Seva Logo"><h3>Passport</h3><p>पासपोर्ट आवेदन सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="travel" data-search="driving licence license dl ड्राइविंग लाइसेंस" href="https://parivahan.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/parivahan.png" alt="Parivahan Logo"><h3>Driving Licence</h3><p>ड्राइविंग लाइसेंस सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="travel" data-search="learner licence license लर्नर sarathi" href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/sarathi.png" alt="Sarathi Logo"><h3>LEARNER LICENCE / SARATHI</h3><p>लर्नर लाइसेंस सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="travel" data-search="vehicle rc वाहन registration vahan" href="https://vahan.parivahan.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/vahan.png" alt="Vahan Logo"><h3>Vehicle / RC</h3><p>वाहन और RC सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="travel" data-search="fastag fast tag फास्टैग" href="https://www.npci.org.in/product/netc/purchase-fastag" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/fastag.png" alt="FASTag Logo"><h3>FASTag</h3><p>FASTag संबंधी सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="travel" data-search="irctc railway train rail टिकट ट्रेन रेलवे" href="https://www.irctc.co.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/irctc.png" alt="IRCTC Logo"><h3>IRCTC</h3><p>रेल टिकट सेवा</p><span class="arrow">›</span></a>
+
+<!-- Pension -->
+<div class="card special-card" data-category="government" data-search="pension पेंशन आवेदन status स्थिति SSPMIS वृद्धजन विधवा दिव्यांग">
+<img class="service-logo" src="logos/sspmis.png" alt="SSPMIS Bihar Pension Logo"><h3>SSPMIS Pension</h3><p>बिहार सामाजिक सुरक्षा पेंशन सेवाएं</p>
+<div class="multi-actions">
+<a href="https://www.sspmis.bihar.gov.in/RegisterNewBeneficiary.action" target="_blank" rel="noopener">📝 पेंशन आवेदन</a>
+<a href="https://www.sspmis.bihar.gov.in/SearchOnlineBeneficiary" target="_blank" rel="noopener">🔎 पेंशन स्टेटस</a>
+<a href="https://www.sspmis.bihar.gov.in/" target="_blank" rel="noopener">🌐 SSPMIS Portal</a>
+</div></div>
+
+<!-- LPG / Govt -->
+<a class="card" data-category="government" data-search="lpg gas गैस booking बुकिंग" href="https://www.mylpg.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/lpg.png" alt="LPG Logo"><h3>LPG Gas Booking</h3><p>गैस बुकिंग सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="government सरकारी services सेवा india government" href="https://services.india.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/india-gov.png" alt="India Government Services"><h3>अन्य सरकारी सेवाएँ</h3><p>सरकारी सेवाओं की जानकारी</p><span class="arrow">›</span></a>
+
+<!-- Mobile / Banking -->
+<a class="card" data-category="other" data-search="mobile recharge मोबाइल रिचार्ज vi" href="https://www.myvi.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/vi.png" alt="Vi Logo"><h3>Mobile Recharge</h3><p>मोबाइल सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="other" data-search="jio broadband internet इंटरनेट" href="https://www.jio.com/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/jio.png" alt="Jio Logo"><h3>Jio / Internet</h3><p>इंटरनेट और मोबाइल सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="bank" data-search="bank banking sbi बैंक बैंकिंग" href="https://www.onlinesbi.sbi/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/banking.png" alt="Banking Logo"><h3>Banking Services</h3><p>ऑनलाइन बैंकिंग</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="bank" data-search="insurance lic बीमा" href="https://licindia.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/lic.png" alt="LIC Logo"><h3>Insurance / LIC</h3><p>बीमा संबंधी सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="bank" data-search="epfo uan pf provident fund कर्मचारी भविष्य निधि" href="https://www.epfindia.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/epfo.png" alt="EPFO Logo"><h3>EPFO / UAN</h3><p>PF और UAN सेवाएं</p><span class="arrow">›</span></a>
+
+<!-- Bihar -->
+<a class="card" data-category="government" data-search="bihar bhumi बिहारभूमि land जमीन bhumi भूमि revenue राजस्व" href="https://biharbhumi.bihar.gov.in/Biharbhumi/UserLogin" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/biharbhumi.png" alt="BiharBhumi Logo"><h3>BiharBhumi</h3><p>बिहारभूमि ऑनलाइन सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="apaar id student विद्यार्थी education" href="https://apaar.education.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/apaar.png" alt="APAAR Logo"><h3>APAAR ID</h3><p>विद्यार्थियों की डिजिटल ID</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="umang उमंग government सरकारी" href="https://web.umang.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/umang.png" alt="UMANG Logo"><h3>UMANG</h3><p>सरकारी सेवाओं का ऐप/पोर्टल</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="eshram e shram श्रम श्रमिक मजदूर" href="https://www.eshram.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/eshram.png" alt="e-Shram Logo"><h3>e-Shram Card</h3><p>श्रमिक पंजीकरण सेवा</p><span class="arrow">›</span></a>
+
+<!-- Farmer -->
+<a class="card" data-category="farmer" data-search="pm kisan किसान सम्मान निधि" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/pmkisan.png" alt="PM Kisan Logo"><h3>PM Kisan</h3><p>किसान सम्मान निधि सेवा</p><span class="arrow">›</span></a>
+
+<div class="card special-card" data-category="farmer" data-search="ujjwala ujjwala yojana उज्ज्वला योजना gas connection गैस कनेक्शन LPG">
+<img class="service-logo" src="logos/ujjwala.png" alt="PM Ujjwala Yojana"><h3>PM Ujjwala Yojana</h3><p>प्रधानमंत्री उज्ज्वला योजना</p>
+<div class="multi-actions">
+<a href="https://www.pmuy.gov.in/" target="_blank" rel="noopener">📝 उज्ज्वला आवेदन</a>
+<a href="https://www.pmuy.gov.in/" target="_blank" rel="noopener">🔎 आवेदन / जानकारी</a>
+<a href="https://www.pmuy.gov.in/" target="_blank" rel="noopener">🌐 PMUY Official Portal</a>
+</div></div>
+
+<div class="card special-card" data-category="government" data-search="new bijli connection नया बिजली कनेक्शन आवेदन status स्टेटस NBPDCL">
+<img class="service-logo" src="logos/electricity.png" alt="Bihar Electricity Logo"><h3>New Bijli Connection</h3><p>नया बिजली कनेक्शन एवं सेवाएं</p>
+<div class="multi-actions">
+<a href="https://nbpdcl.co.in/frmLTHTNewConnection.aspx" target="_blank" rel="noopener">📝 नया कनेक्शन आवेदन</a>
+<a href="https://nbpdcl.co.in/frmNewConnectionStatus.aspx" target="_blank" rel="noopener">🔎 आवेदन स्टेटस</a>
+<a href="https://nbpdcl.co.in/" target="_blank" rel="noopener">🏢 NBPDCL पोर्टल</a>
+</div></div>
+
+<a class="card" data-category="government" data-search="india post post office डाक पोस्ट ऑफिस" href="https://www.indiapost.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/indiapost.png" alt="India Post Logo"><h3>India Post</h3><p>डाक और पोस्टल सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="ration card smart pds राशन कार्ड बिहार" href="https://epds.bihar.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/bihar-pds.png" alt="Bihar PDS Logo"><h3>Bihar Ration Card</h3><p>राशन कार्ड सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="mgnrega मनरेगा job card जॉब कार्ड रोजगार" href="https://nrega.nic.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/mgnrega.png" alt="MGNREGA Logo"><h3>MGNREGA / Job Card</h3><p>मनरेगा और जॉब कार्ड</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="pm awas gramin आवास योजना ग्रामीण घर" href="https://pmayg.nic.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/pmayg.png" alt="PMAY Gramin Logo"><h3>PM Awas Yojana – Gramin</h3><p>ग्रामीण आवास योजना</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="pm awas urban आवास योजना शहरी" href="https://pmay-urban.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/pmayu.png" alt="PMAY Urban Logo"><h3>PM Awas Yojana – Urban</h3><p>शहरी आवास योजना</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="academic bank credits abc education" href="https://www.abc.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/abc.png" alt="Academic Bank of Credits"><h3>Academic Bank of Credits</h3><p>शिक्षा संबंधी डिजिटल सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="skill india skill कौशल प्रशिक्षण" href="https://www.skillindiadigital.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/skill-india.png" alt="Skill India"><h3>Skill India Digital</h3><p>कौशल विकास सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="gst जीएसटी tax business registration" href="https://www.gst.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/gst.png" alt="GST Official Logo"><h3>GST Portal</h3><p>GST पंजीकरण और सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="pms post matric scholarship बिहार छात्रवृत्ति" href="https://pmsonline.bihar.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/bihar-pms.png" alt="Bihar PMS Logo"><h3>Bihar Post Matric Scholarship</h3><p>बिहार PMS छात्रवृत्ति</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="farmer" data-search="fasal bima crop insurance फसल बीमा किसान" href="https://pmfby.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/pmfby.png" alt="PM Fasal Bima"><h3>PM Fasal Bima Yojana</h3><p>फसल बीमा योजना</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="farmer" data-search="enam e nam कृषि market मंडी किसान" href="https://www.enam.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/enam.png" alt="e-NAM"><h3>e-NAM</h3><p>कृषि बाजार सेवा</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="farmer" data-search="kisan suvidha किसान सुविधा कृषि" href="https://kisansuvidha.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/kisan-suvidha.png" alt="Kisan Suvidha"><h3>Kisan Suvidha</h3><p>किसानों के लिए जानकारी</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="farmer" data-search="bihar agriculture dbt कृषि dbt बिहार किसान" href="https://dbtagriculture.bihar.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/bihar-agriculture.png" alt="Bihar Agriculture"><h3>Bihar Agriculture DBT</h3><p>कृषि DBT सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="farmer" data-search="new farmer registration नया किसान पंजीकरण किसान रजिस्ट्रेशन" href="https://dbtagriculture.bihar.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/bihar-farmer.png" alt="Bihar Farmer Registration"><h3>Bihar New Farmer Registration</h3><p>नया किसान पंजीकरण</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="bihar rojgar setu रोजगार नौकरी job rojgar" href="https://detjob.bihar.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/rojgar-setu.png" alt="Bihar Rojgar Setu"><h3>Bihar Rojgar Setu</h3><p>रोजगार संबंधी सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="bihar police citizen police बिहार पुलिस citizen services" href="https://citizenservicesportal.bihar.gov.in/portal/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/bihar-police.png" alt="Bihar Police"><h3>Bihar Police Citizen Services</h3><p>बिहार पुलिस नागरिक सेवाएं</p><span class="arrow">›</span></a>
+
+<a class="card" data-category="government" data-search="medha soft medhasoft मेधा सॉफ्ट education student बिहार" href="https://medhasoft.bihar.gov.in/" target="_blank" rel="noopener">
+<img class="service-logo" src="logos/medhasoft.png" alt="Medha Soft"><h3>Medha Soft</h3><p>बिहार शिक्षा और छात्र संबंधी ऑनलाइन सेवाएं</p><span class="arrow">›</span></a>
+
+<!-- Flipkart -->
+<div class="card special-card" data-category="other" data-search="flipkart shopping affiliate खरीदारी">
+<img class="service-logo" src="logos/flipkart.png" alt="Flipkart">
+<h3>Flipkart</h3><p class="affiliate-note">इस लिंक से खरीदारी करने पर हमें affiliate commission मिल सकता है।</p>
+<div class="card-actions"><a href="https://fktr.in/8KqwLK8" target="_blank" rel="noopener noreferrer">🛒 Flipkart पर खरीदारी करें</a></div>
+</div>
+
+<!-- Myntra -->
+<div class="card special-card" data-category="other" data-search="myntra shopping affiliate खरीदारी कपड़े">
+<img class="service-logo" src="logos/myntra.png" alt="Myntra">
+<h3>Myntra</h3><p class="affiliate-note">इस लिंक से खरीदारी करने पर हमें affiliate commission मिल सकता है।</p>
+<div class="card-actions"><a href="https://myntr.it/4y8bepu" target="_blank" rel="noopener noreferrer">🛍️ Myntra पर खरीदारी करें</a></div>
+</div>
+
+</div>
+
+<div id="noResult" class="no-result">😕 कोई सेवा नहीं मिली।<br><small>दूसरा नाम या keyword डालकर खोजें।</small></div>
+
+<h2 class="section-title" id="contact">📞 संपर्क करें</h2>
+<div class="contact">
+<a class="phone" href="tel:+919508051176">📞 Mobile<br>9508051176</a>
+<a class="wa" href="https://wa.me/917667187142" target="_blank" rel="noopener">💬 WhatsApp<br>7667187142</a>
+<a class="address" href="https://www.google.com/maps/search/?api=1&query=Senuaria,Bihar" target="_blank" rel="noopener">📍 पता<br>Senuaria</a>
+</div>
+
+<p class="note">⚠️ नोट: कुछ सेवाओं के लिए संबंधित विभाग की पात्रता, शुल्क और आवश्यक दस्तावेज लागू हो सकते हैं। अंतिम नियम संबंधित Official Website पर जाँचें।</p>
+
+<div class="follow-box" id="followSection">
+<h2>❤️ Shivam Digital Seva को Follow करें</h2>
+<p>नई सेवाओं और अपडेट के लिए हमें Follow करें।</p>
+<button id="followBtn" onclick="followMe()">❤️ Follow करें</button>
+<p class="followers-text">Followers: <span id="followers">0</span></p>
+</div>
+
+</main>
+
+<footer class="footer">
+<div class="footer-title">⭐ Shivam Digital Seva — आपकी सुविधा, हमारा प्रयास ⭐</div>
+<div class="footer-links">
+<a href="about.html">👤 About Us</a>
+<a href="privacy-policy.html">🔒 Privacy Policy</a>
+<a href="contact.html">📞 Contact Us</a>
+<a href="disclaimer.html">⚠️ Disclaimer</a>
+</div>
+</footer>
+
+<nav class="bottom-nav">
+<a href="#home" class="active"><span>⌂</span>होम</a>
+<a href="#services"><span>▦</span>सभी सेवाएँ</a>
+<a href="#searchArea" onclick="focusSearch()"><span>⌕</span>खोजें</a>
+<a href="#followSection"><span>🔔</span>सूचनाएँ</a>
+<a href="#contact"><span>♙</span>प्रोफाइल</a>
+</nav>
+
+<div id="certificatePopup" class="certificate-popup">
+<div class="certificate-popup-box">
+<button class="popup-close" onclick="closeCertificate()">×</button>
+<div id="certificateContent"></div>
+</div>
+</div>
+
+<script>
+const cards=[...document.querySelectorAll("#serviceGrid .card")];
+const searchInput=document.getElementById("serviceSearch");
+const clearSearch=document.getElementById("clearSearch");
+const noResult=document.getElementById("noResult");
+const totalServices=document.getElementById("totalServices");
+const visibleServices=document.getElementById("visibleServices");
+let currentCategory="all";
+
+totalServices.textContent=cards.length;
+
+function applyFilters(){
+ const q=searchInput.value.trim().toLowerCase();
+ let found=0;
+ cards.forEach(card=>{
+   const text=(card.textContent+" "+(card.dataset.search||"")).toLowerCase().replace(/\s+/g," ");
+   const cat=card.dataset.category||"other";
+   const categoryMatch=currentCategory==="all"||cat===currentCategory;
+   const searchMatch=!q||text.includes(q);
+   const show=categoryMatch&&searchMatch;
+   card.classList.toggle("hidden",!show);
+   if(show) found++;
+ });
+ visibleServices.textContent=found;
+ noResult.style.display=found===0?"block":"none";
+ clearSearch.style.display=q?"block":"none";
+}
+
+searchInput.addEventListener("input",applyFilters);
+clearSearch.addEventListener("click",()=>{
+ searchInput.value="";
+ applyFilters();
+ searchInput.focus();
+});
+
+document.querySelectorAll(".service-category button").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+   document.querySelectorAll(".service-category button").forEach(b=>b.classList.remove("active"));
+   btn.classList.add("active");
+   currentCategory=btn.dataset.category;
+   applyFilters();
+ });
+});
+
+function focusSearch(){
+ setTimeout(()=>searchInput.focus(),150);
+}
+
+const certificateData={
+ income:{
+  title:"💰 आय प्रमाण-पत्र",
+  info:`<div class="popup-content"><h4>📄 ऑनलाइन बनाने का तरीका</h4><ol>
+  <li>बिहार के RTPS/ServicePlus पोर्टल पर जाएँ।</li>
+  <li>संबंधित प्रमाण-पत्र सेवा चुनें।</li>
+  <li>अपना नाम, पता और आवश्यक जानकारी भरें।</li>
+  <li>जरूरी दस्तावेज़ अपलोड करें।</li>
+  <li>आवेदन जमा करें और Reference Number सुरक्षित रखें।</li>
+  <li>स्वीकृति के बाद प्रमाण-पत्र डाउनलोड करें।</li></ol>
+  <a class="official-btn" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">🌐 Official ServicePlus</a></div>`
+ },
+ caste:{
+  title:"📜 जाति प्रमाण-पत्र",
+  info:`<div class="popup-content"><h4>📄 ऑनलाइन बनाने का तरीका</h4><ol>
+  <li>बिहार ServicePlus पोर्टल खोलें।</li>
+  <li>जाति प्रमाण-पत्र सेवा चुनें।</li>
+  <li>अपनी सही जानकारी भरें।</li>
+  <li>आवश्यक दस्तावेज़ अपलोड करें।</li>
+  <li>आवेदन जमा करके Reference Number रखें।</li>
+  <li>स्वीकृति के बाद प्रमाण-पत्र डाउनलोड करें।</li></ol>
+  <a class="official-btn" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">🌐 Official ServicePlus</a></div>`
+ },
+ residence:{
+  title:"🏠 निवास प्रमाण-पत्र",
+  info:`<div class="popup-content"><h4>📄 ऑनलाइन बनाने का तरीका</h4><ol>
+  <li>बिहार ServicePlus पोर्टल खोलें।</li>
+  <li>निवास प्रमाण-पत्र सेवा चुनें।</li>
+  <li>अपनी सही जानकारी भरें।</li>
+  <li>आवश्यक दस्तावेज़ अपलोड करें।</li>
+  <li>आवेदन जमा करके Reference Number रखें।</li>
+  <li>स्वीकृति के बाद प्रमाण-पत्र डाउनलोड करें।</li></ol>
+  <a class="official-btn" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">🌐 Official ServicePlus</a></div>`
+ },
+ ews:{
+  title:"🟠 EWS प्रमाण-पत्र",
+  info:`<div class="popup-content"><h4>📄 ऑनलाइन बनाने का तरीका</h4><ol>
+  <li>बिहार ServicePlus पोर्टल खोलें।</li>
+  <li>EWS से संबंधित सेवा खोजें।</li>
+  <li>सही जानकारी और आवश्यक दस्तावेज़ भरें/अपलोड करें।</li>
+  <li>फॉर्म जाँचकर जमा करें।</li>
+  <li>Reference Number सुरक्षित रखें।</li>
+  <li>स्वीकृति के बाद प्रमाण-पत्र डाउनलोड करें।</li></ol>
+  <a class="official-btn" href="https://serviceonline.bihar.gov.in/" target="_blank" rel="noopener">🌐 Official ServicePlus</a></div>`
+ }
+};
+
+function openCertificate(type){
+ const popup=document.getElementById("certificatePopup");
+ document.getElementById("certificateContent").innerHTML="<h2 class='popup-title'>"+certificateData[type].title+"</h2>"+certificateData[type].info;
+ popup.style.display="block";
+ document.body.style.overflow="hidden";
+}
+function closeCertificate(){
+ document.getElementById("certificatePopup").style.display="none";
+ document.body.style.overflow="auto";
+}
+document.getElementById("certificatePopup").addEventListener("click",e=>{
+ if(e.target.id==="certificatePopup") closeCertificate();
+});
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape") closeCertificate();
+});
+
+async function loadFollowers(){
+ try{
+  await firebase.auth().signInAnonymously();
+  const db=firebase.firestore();
+  const ref=db.collection("site").doc("followers");
+  const snap=await ref.get();
+  if(snap.exists){
+   document.getElementById("followers").innerText=snap.data().count||0;
+  }else{
+   await ref.set({count:0});
+   document.getElementById("followers").innerText=0;
+  }
+ }catch(error){console.error("Follower Load Error:",error);}
+}
+
+async function followMe(){
+ const button=document.getElementById("followBtn");
+ try{
+  button.disabled=true;
+  button.innerHTML="⏳ Loading...";
+  await firebase.auth().signInAnonymously();
+  const db=firebase.firestore();
+  const user=firebase.auth().currentUser;
+  const followerRef=db.collection("site").doc("followers").collection("users").doc(user.uid);
+  const countRef=db.collection("site").doc("followers");
+  const followerSnap=await followerRef.get();
+  if(followerSnap.exists){
+   button.innerHTML="✅ पहले से Follow किया";
+   button.disabled=false;
+   return;
+  }
+  await db.runTransaction(async transaction=>{
+   const countSnap=await transaction.get(countRef);
+   let count=countSnap.exists?(countSnap.data().count||0):0;
+   transaction.set(countRef,{count:count+1},{merge:true});
+   transaction.set(followerRef,{followed:true,time:firebase.firestore.FieldValue.serverTimestamp()});
+  });
+  const newSnap=await countRef.get();
+  document.getElementById("followers").innerText=newSnap.data().count||0;
+  button.innerHTML="✅ Follow किया";
+  button.disabled=false;
+ }catch(error){
+  console.error("Follow Error:",error);
+  button.innerHTML="❤️ Follow करें";
+  button.disabled=false;
+  alert("Firebase Error:\n"+error.code+"\n"+error.message);
+ }
+}
+window.addEventListener("load",()=>{
+ applyFilters();
+ loadFollowers();
+});
+</script>
+</body>
+</html>
