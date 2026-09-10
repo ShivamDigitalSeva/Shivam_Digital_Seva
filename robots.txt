@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivamdigitalseva.github.io/Shivam_Digital_Seva/sitemap.xml
