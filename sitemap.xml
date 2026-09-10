@@ -75,4 +75,29 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/driving-licence-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/ayushman-card-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/ration-card-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/birth-death-certificate-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/pm-awas-yojana-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
