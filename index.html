@@ -98,6 +98,10 @@ button,input{font-family:inherit}
 .follow-box{background:linear-gradient(145deg,#081c3c,#0a2852);border:1px solid #2464c7;border-radius:20px;padding:25px 15px;text-align:center;margin-top:28px}
 .follow-box h2{font-family:Georgia,serif;font-size:25px;margin:0 0 10px}
 .follow-box p{color:#aebbd0;font-size:15px}
+.social-links{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.social-links a{background:#182743;color:#fff;padding:11px 20px;border-radius:12px;text-decoration:none;font-weight:bold;font-size:14px}
+.social-links a.yt{background:#c4302b}
+.social-links a.fb{background:#1877f2}
 #followBtn{border:0;background:#315de0;color:white;padding:13px 26px;border-radius:13px;font-size:18px;font-weight:bold;cursor:pointer}
 #followBtn:disabled{opacity:.7}
 .followers-text{margin-top:15px}
@@ -491,6 +495,10 @@ firebase.initializeApp(firebaseConfig);
 <p>नई सेवाओं और अपडेट के लिए हमें Follow करें।</p>
 <button id="followBtn" onclick="followMe()">❤️ Follow करें</button>
 <p class="followers-text">Followers: <span id="followers">0</span></p>
+<div class="social-links">
+<a class="yt" href="https://youtube.com/@shivamdigitalseve?si=XN-x90eryWvOiAlU" target="_blank" rel="noopener">▶️ YouTube</a>
+<a class="fb" href="https://www.facebook.com/ShivamDigitalSeve?mibextid=ZbWKwL" target="_blank" rel="noopener">📘 Facebook</a>
+</div>
 </div>
 
 <h2 class="section-title">❓ अक्सर पूछे जाने वाले सवाल</h2>
