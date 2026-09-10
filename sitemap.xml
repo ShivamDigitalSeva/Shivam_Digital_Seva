@@ -60,4 +60,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/digilocker-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/pm-kisan-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/eshram-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
