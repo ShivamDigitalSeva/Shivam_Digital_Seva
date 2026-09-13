@@ -19,28 +19,34 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#e2e8f0;
+  background:linear-gradient(160deg,#eef2f9,#dbe4f0);
   color:#111827;
+  min-height:100vh;
 }
 
 header{
-  background:linear-gradient(135deg,#111827,#1e40af);
+  background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#3b82f6);
   color:white;
   text-align:center;
-  padding:25px 15px;
+  padding:26px 15px;
 }
 
 header h1{
   margin:0;
+  font-size:20px;
+  letter-spacing:.5px;
 }
 
 header p{
-  margin:7px 0 0;
+  margin:6px 0 0;
+  font-size:12px;
+  letter-spacing:1px;
+  opacity:.9;
 }
 
 .container{
-  max-width:550px;
-  margin:25px auto;
+  max-width:400px;
+  margin:0 auto;
   padding:15px;
 }
 
@@ -48,38 +54,55 @@ header p{
   background:white;
   padding:22px;
   border-radius:18px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  box-shadow:0 8px 25px rgba(0,0,0,.1);
+  margin-top:20px;
 }
 
-h2{
+.box h2{
   text-align:center;
+  margin-top:0;
+  font-size:19px;
+}
+
+.box .sub{
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  margin-top:-6px;
 }
 
 input{
   width:100%;
   padding:14px;
-  margin-top:10px;
+  margin-top:14px;
   border:1px solid #cbd5e1;
-  border-radius:9px;
-  font-size:16px;
+  border-radius:10px;
+  font-size:15px;
 }
 
 button{
   width:100%;
   border:0;
   padding:14px;
-  margin-top:15px;
-  border-radius:9px;
-  background:#2563eb;
+  margin-top:14px;
+  border-radius:10px;
+  background:linear-gradient(120deg,#2563eb,#1e40af);
   color:white;
-  font-size:16px;
+  font-size:15px;
   font-weight:bold;
+  cursor:pointer;
+}
+
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
 .message{
-  margin-top:15px;
+  margin-top:14px;
   text-align:center;
   font-weight:bold;
+  font-size:14px;
 }
 
 .error{
@@ -90,45 +113,119 @@ button{
   color:#15803d;
 }
 
+/* ===== ID CARD (preview) ===== */
+
 .card{
   margin-top:20px;
   background:white;
-  border-radius:20px;
+  border-radius:22px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  box-shadow:0 15px 35px rgba(30,64,175,.25);
+  border:1px solid #dbe4f0;
 }
 
 .card-top{
-  background:linear-gradient(135deg,#2563eb,#1e40af);
+  position:relative;
+  background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#3b82f6);
   color:white;
   text-align:center;
-  padding:25px;
+  padding:20px 20px 50px;
+  overflow:hidden;
+}
+
+.card-top::before{
+  content:"";
+  position:absolute;
+  top:-40px;
+  right:-40px;
+  width:130px;
+  height:130px;
+  background:rgba(255,255,255,.08);
+  border-radius:50%;
 }
 
 .card-top h2{
   margin:0;
+  font-size:16px;
+  letter-spacing:.5px;
+}
+
+.card-top p{
+  margin:4px 0 0;
+  font-size:10.5px;
+  letter-spacing:2px;
+  opacity:.9;
+}
+
+.avatar-wrap{
+  position:relative;
+  margin-top:-40px;
+  display:flex;
+  justify-content:center;
+}
+
+.avatar{
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#e2e8f0,#cbd5e1);
+  border:4px solid #ffffff;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
 }
 
 .card-body{
-  padding:20px;
+  padding:12px 20px 22px;
+  text-align:center;
+}
+
+.name{
+  font-size:19px;
+  font-weight:bold;
+  color:#0f172a;
+  margin-top:4px;
+}
+
+.card-id{
+  display:inline-block;
+  margin-top:6px;
+  background:#eef2ff;
+  color:#1e40af;
+  font-weight:bold;
+  letter-spacing:1px;
+  padding:5px 14px;
+  border-radius:20px;
+  font-size:12.5px;
+}
+
+.divider{
+  height:1px;
+  background:repeating-linear-gradient(90deg,#cbd5e1 0 6px,transparent 6px 12px);
+  margin:16px 0 12px;
 }
 
 .row{
   background:#f8fafc;
-  padding:13px;
-  margin-bottom:10px;
-  border-radius:9px;
+  padding:11px 12px;
+  margin-bottom:8px;
+  border-radius:10px;
+  border:1px solid #eef1f5;
+  text-align:left;
 }
 
 .label{
   color:#64748b;
-  font-size:13px;
+  font-size:11px;
 }
 
 .value{
-  font-size:17px;
+  font-size:14.5px;
   font-weight:bold;
-  margin-top:4px;
+  margin-top:2px;
+  color:#0f172a;
 }
 
 .active{
@@ -138,23 +235,31 @@ button{
 .link{
   display:block;
   text-align:center;
-  padding:13px;
-  margin-top:15px;
-  background:#2563eb;
-  color:white;
+  padding:12px;
+  margin-top:10px;
+  background:#eef2ff;
+  color:#1e40af;
   text-decoration:none;
-  border-radius:9px;
+  border-radius:10px;
   font-weight:bold;
+  font-size:14px;
+}
+
+.link.primary{
+  background:linear-gradient(120deg,#2563eb,#1e40af);
+  color:white;
 }
 
 .notice{
-  margin-top:15px;
+  margin-top:14px;
   padding:12px;
   background:#fff7ed;
   color:#9a3412;
-  border-radius:8px;
-  font-size:12px;
+  border-radius:10px;
+  font-size:11.5px;
   text-align:center;
+  line-height:1.6;
+  border:1px dashed #fdba74;
 }
 
 </style>
@@ -165,9 +270,9 @@ button{
 
 <header>
 
-<h1>Shivam Digital Seva</h1>
+<h1>🛡️ Shivam Digital Seva</h1>
 
-<p>My Digital Service Card</p>
+<p>MY DIGITAL SERVICE CARD</p>
 
 </header>
 
@@ -178,11 +283,7 @@ button{
 <div class="box">
 
 <h2>🪪 अपना Card देखें</h2>
-
-<p style="text-align:center;color:#64748b;">
-Application ID डालें
-</p>
-
+<p class="sub">Application ID डालें</p>
 
 <input
   id="applicationId"
@@ -548,77 +649,38 @@ function showCard(
     <div class="card">
 
       <div class="card-top">
+        <h2>🛡️ SHIVAM DIGITAL SEVA</h2>
+        <p>DIGITAL SERVICE CARD</p>
+      </div>
 
-        <h2>
-          SHIVAM DIGITAL SEVA
-        </h2>
-
-        <p>
-          DIGITAL SERVICE CARD
-        </p>
-
+      <div class="avatar-wrap">
+        <div class="avatar">👤</div>
       </div>
 
 
       <div class="card-body">
 
+        <div class="name">${escapeHTML(data.name)}</div>
+        <div class="card-id">🪪 ${escapeHTML(data.cardNumber)}</div>
+
+        <div class="divider"></div>
+
         <div class="row">
-
-          <div class="label">
-            नाम
-          </div>
-
-          <div class="value">
-            ${escapeHTML(data.name)}
-          </div>
-
+          <div class="label">📍 स्थान</div>
+          <div class="value">${escapeHTML(data.place)}</div>
         </div>
 
-
         <div class="row">
-
-          <div class="label">
-            Card Number
-          </div>
-
-          <div class="value">
-            ${escapeHTML(data.cardNumber)}
-          </div>
-
-        </div>
-
-
-        <div class="row">
-
-          <div class="label">
-            स्थान
-          </div>
-
-          <div class="value">
-            ${escapeHTML(data.place)}
-          </div>
-
-        </div>
-
-
-        <div class="row">
-
-          <div class="label">
-            Status
-          </div>
-
-          <div class="value active">
-            🟢 ACTIVE
-          </div>
-
+          <div class="label">स्थिति</div>
+          <div class="value active">✅ ACTIVE</div>
         </div>
 
 
         <a
           href="${cardUrl}"
-          class="link"
+          class="link primary"
         >
-          🪪 पूरा Card खोलें
+          🪪 पूरा Card खोलें (QR + Print)
         </a>
 
 
@@ -631,12 +693,10 @@ function showCard(
 
 
         <div class="notice">
-
           यह Shivam Digital Seva का
           Private Digital Service Card है।
           यह Aadhaar, PAN, Voter ID या
           सरकारी पहचान-पत्र नहीं है।
-
         </div>
 
       </div>

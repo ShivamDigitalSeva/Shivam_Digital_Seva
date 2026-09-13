@@ -19,63 +19,171 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#e2e8f0;
+  background:linear-gradient(160deg,#eef2f9,#dbe4f0);
+  min-height:100vh;
+  padding:20px 0;
 }
 
 .container{
-  max-width:550px;
-  margin:30px auto;
+  max-width:400px;
+  margin:10px auto;
   padding:15px;
 }
 
+/* ===== ID CARD ===== */
+
 .card{
-  background:white;
-  border-radius:20px;
+  position:relative;
+  background:#ffffff;
+  border-radius:22px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  box-shadow:0 15px 35px rgba(30,64,175,.25);
+  border:1px solid #dbe4f0;
 }
 
 .top{
-  background:linear-gradient(
-    135deg,
-    #2563eb,
-    #1e40af
-  );
-
+  position:relative;
+  background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#3b82f6);
   color:white;
   text-align:center;
-  padding:25px;
+  padding:22px 20px 55px;
+  overflow:hidden;
+}
+
+.top::before{
+  content:"";
+  position:absolute;
+  top:-40px;
+  right:-40px;
+  width:140px;
+  height:140px;
+  background:rgba(255,255,255,.08);
+  border-radius:50%;
+}
+
+.top::after{
+  content:"";
+  position:absolute;
+  bottom:-60px;
+  left:-30px;
+  width:160px;
+  height:160px;
+  background:rgba(255,255,255,.06);
+  border-radius:50%;
+}
+
+.top .brand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  position:relative;
+  z-index:2;
+}
+
+.top .brand-icon{
+  font-size:22px;
 }
 
 .top h1{
   margin:0;
-  font-size:25px;
+  font-size:17px;
+  letter-spacing:.5px;
 }
 
 .top p{
-  margin:7px 0 0;
+  margin:4px 0 0;
+  font-size:11px;
+  letter-spacing:2px;
+  opacity:.9;
+  position:relative;
+  z-index:2;
+}
+
+/* Avatar overlapping header/body */
+
+.avatar-wrap{
+  position:relative;
+  margin-top:-42px;
+  display:flex;
+  justify-content:center;
+  z-index:3;
+}
+
+.avatar{
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#e2e8f0,#cbd5e1);
+  border:4px solid #ffffff;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
 }
 
 .body{
-  padding:25px;
+  padding:14px 22px 24px;
+  text-align:center;
+}
+
+.name{
+  font-size:20px;
+  font-weight:bold;
+  color:#0f172a;
+  margin-top:6px;
+}
+
+.card-id{
+  display:inline-block;
+  margin-top:6px;
+  background:#eef2ff;
+  color:#1e40af;
+  font-weight:bold;
+  letter-spacing:1px;
+  padding:5px 14px;
+  border-radius:20px;
+  font-size:13px;
+}
+
+.divider{
+  height:1px;
+  background:repeating-linear-gradient(90deg,#cbd5e1 0 6px,transparent 6px 12px);
+  margin:18px 0 14px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  text-align:left;
+}
+
+.info-grid .full{
+  grid-column:1/-1;
 }
 
 .row{
-  padding:13px;
-  margin-bottom:10px;
+  padding:10px 12px;
   background:#f8fafc;
-  border-radius:9px;
+  border-radius:10px;
+  border:1px solid #eef1f5;
 }
 
 .label{
   color:#64748b;
-  font-size:13px;
-  margin-bottom:4px;
+  font-size:11px;
+  margin-bottom:3px;
+  display:flex;
+  align-items:center;
+  gap:4px;
 }
 
 .value{
-  font-size:17px;
+  font-size:14.5px;
   font-weight:bold;
+  color:#0f172a;
   word-break:break-word;
 }
 
@@ -85,34 +193,61 @@ body{
 
 #qrcode{
   text-align:center;
-  margin:25px 0;
+  margin:20px 0 6px;
+  display:flex;
+  justify-content:center;
 }
 
+#qrcode > div,
 #qrcode img{
-  margin:auto;
+  padding:10px;
+  background:white;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+}
+
+.qr-caption{
+  text-align:center;
+  font-size:11px;
+  color:#94a3b8;
+  margin-bottom:10px;
 }
 
 .notice{
   background:#fff7ed;
   color:#9a3412;
   padding:12px;
-  border-radius:8px;
-  font-size:12px;
+  border-radius:10px;
+  font-size:11.5px;
   text-align:center;
-  line-height:1.5;
+  line-height:1.6;
+  border:1px dashed #fdba74;
+}
+
+.btn-row{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
 }
 
 button{
-  width:100%;
+  flex:1;
   border:0;
-  padding:14px;
-  border-radius:9px;
-  margin-top:12px;
-  background:#2563eb;
-  color:white;
+  padding:13px 8px;
+  border-radius:12px;
   font-weight:bold;
-  font-size:16px;
+  font-size:14px;
   cursor:pointer;
+}
+
+#printButton{
+  background:#eef2ff;
+  color:#1e40af;
+}
+
+#downloadButton{
+  background:linear-gradient(120deg,#2563eb,#1e40af);
+  color:white;
 }
 
 button:disabled{
@@ -125,22 +260,31 @@ button:disabled{
   color:#dc2626;
   font-weight:bold;
   background:white;
-  padding:25px;
-  border-radius:15px;
+  padding:30px 20px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+#loading{
+  text-align:center;
+  color:#475569;
+  font-weight:bold;
+  padding:30px;
 }
 
 @media print{
 
   body{
     background:white;
+    padding:0;
   }
 
   .container{
     margin:0;
-    max-width:550px;
+    max-width:400px;
   }
 
-  button{
+  .btn-row{
     display:none;
   }
 
@@ -164,7 +308,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js
 <div class="container">
 
   <div id="loading">
-    Card loading...
+    ⏳ Card लोड हो रहा है...
   </div>
 
   <div id="cardArea"></div>
@@ -314,103 +458,65 @@ async function loadCard(){
       <div class="card" id="digitalCard">
 
         <div class="top">
-
-          <h1>
-            SHIVAM DIGITAL SEVA
-          </h1>
-
-          <p>
-            DIGITAL SERVICE CARD
-          </p>
-
+          <div class="brand">
+            <span class="brand-icon">🛡️</span>
+            <h1>SHIVAM DIGITAL SEVA</h1>
+          </div>
+          <p>DIGITAL SERVICE CARD</p>
         </div>
 
+        <div class="avatar-wrap">
+          <div class="avatar">👤</div>
+        </div>
 
         <div class="body">
 
+          <div class="name">${escapeHTML(data.name)}</div>
+          <div class="card-id">🪪 ${escapeHTML(data.cardNumber)}</div>
 
-          <div class="row">
+          <div class="divider"></div>
 
-            <div class="label">
-              नाम
+          <div class="info-grid">
+
+            <div class="row full">
+              <div class="label">📍 स्थान</div>
+              <div class="value">${escapeHTML(data.place)}</div>
             </div>
 
-            <div class="value">
-              ${escapeHTML(data.name)}
-            </div>
-
-          </div>
-
-
-          <div class="row">
-
-            <div class="label">
-              Card Number
-            </div>
-
-            <div class="value">
-              ${escapeHTML(data.cardNumber)}
-            </div>
-
-          </div>
-
-
-          <div class="row">
-
-            <div class="label">
-              स्थान
-            </div>
-
-            <div class="value">
-              ${escapeHTML(data.place)}
-            </div>
-
-          </div>
-
-
-          <div class="row">
-
-            <div class="label">
-              Status
-            </div>
-
-            <div class="value active">
-              ✅ ACTIVE
+            <div class="row full">
+              <div class="label">स्थिति</div>
+              <div class="value active">✅ ACTIVE</div>
             </div>
 
           </div>
 
 
           <div id="qrcode"></div>
+          <div class="qr-caption">स्कैन करके Card Verify करें</div>
 
 
           <div class="notice">
-
             PRIVATE DIGITAL SERVICE CARD<br>
-
             यह Aadhaar, PAN, Voter ID या
             सरकारी पहचान-पत्र नहीं है।
-
           </div>
 
 
-          <button
-            id="printButton"
-            onclick="window.print()">
+          <div class="btn-row">
 
-            🖨️ Print Card
+            <button
+              id="printButton"
+              onclick="window.print()">
+              🖨️ Print
+            </button>
 
-          </button>
+            <button
+              id="downloadButton"
+              onclick="downloadCard()">
+              📥 Download
+            </button>
 
-
-          <button
-            id="downloadButton"
-            onclick="downloadCard()">
-
-            📥 Download Card
-
-          </button>
-
+          </div>
 
         </div>
 
@@ -448,8 +554,8 @@ async function loadCard(){
         qrBox,
         {
           text:verifyUrl,
-          width:160,
-          height:160
+          width:130,
+          height:130
         }
       );
 
@@ -564,7 +670,7 @@ async function(){
   button.disabled = true;
 
   button.textContent =
-    "⏳ Card तैयार हो रहा है...";
+    "⏳ तैयार हो रहा है...";
 
 
   try{
@@ -585,9 +691,9 @@ async function(){
 
 
     const cardNumber =
-      card.querySelectorAll(
-        ".value"
-      )[1]?.textContent
+      card.querySelector(
+        ".card-id"
+      )?.textContent
         ?.trim()
         .replace(
           /[^a-zA-Z0-9_-]/g,
@@ -628,7 +734,7 @@ async function(){
     button.disabled = false;
 
     button.textContent =
-      "📥 Download Card";
+      "📥 Download";
 
   }
 
