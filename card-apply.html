@@ -18,28 +18,33 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:#f1f5f9;
+  background:linear-gradient(160deg,#eef2f9,#dbe4f0);
   color:#111827;
+  min-height:100vh;
 }
 
 header{
-  background:linear-gradient(135deg,#111827,#1e40af);
+  background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#3b82f6);
   color:white;
   text-align:center;
-  padding:25px 15px;
+  padding:26px 15px;
 }
 
 header h1{
   margin:0;
+  font-size:20px;
 }
 
 header p{
-  margin:7px 0 0;
+  margin:6px 0 0;
+  font-size:12px;
+  letter-spacing:1px;
+  opacity:.9;
 }
 
 .container{
-  max-width:550px;
-  margin:25px auto;
+  max-width:500px;
+  margin:0 auto;
   padding:15px;
 }
 
@@ -48,12 +53,25 @@ header p{
   padding:22px;
   border-radius:18px;
   box-shadow:0 8px 25px rgba(0,0,0,.10);
+  margin-top:20px;
+}
+
+.box h2{
+  margin-top:0;
+  text-align:center;
 }
 
 label{
   display:block;
   margin-top:15px;
   font-weight:bold;
+  font-size:14px;
+}
+
+.hint{
+  font-weight:normal;
+  color:#94a3b8;
+  font-size:12px;
 }
 
 input{
@@ -65,16 +83,29 @@ input{
   font-size:16px;
 }
 
+textarea{
+  width:100%;
+  padding:13px;
+  margin-top:7px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  font-size:15px;
+  font-family:inherit;
+  resize:vertical;
+  min-height:70px;
+}
+
 button{
   width:100%;
   border:0;
   padding:14px;
   margin-top:20px;
   border-radius:9px;
-  background:#2563eb;
+  background:linear-gradient(120deg,#2563eb,#1e40af);
   color:white;
   font-size:16px;
   font-weight:bold;
+  cursor:pointer;
 }
 
 button:disabled{
@@ -126,9 +157,9 @@ button:disabled{
 
 <header>
 
-<h1>Shivam Digital Seva</h1>
+<h1>🛡️ Shivam Digital Seva</h1>
 
-<p>Digital Service Card Apply</p>
+<p>DIGITAL SERVICE CARD APPLY</p>
 
 </header>
 
@@ -142,19 +173,31 @@ button:disabled{
 <form id="applyForm">
 
 <label>
-नाम
+👤 नाम
 </label>
 
 <input
   type="text"
   id="name"
-  placeholder="अपना नाम"
+  placeholder="अपना पूरा नाम"
   required
 >
 
 
 <label>
-मोबाइल नंबर
+👨‍👩‍👦 पिता / पति का नाम
+</label>
+
+<input
+  type="text"
+  id="guardianName"
+  placeholder="पिता या पति का नाम"
+  required
+>
+
+
+<label>
+📱 मोबाइल नंबर
 </label>
 
 <input
@@ -162,18 +205,46 @@ button:disabled{
   id="mobile"
   placeholder="10 अंकों का मोबाइल नंबर"
   maxlength="10"
+  inputmode="numeric"
   required
 >
 
 
 <label>
-स्थान
+🪪 आधार नंबर
+<span class="hint">(12 अंकों का)</span>
+</label>
+
+<input
+  type="text"
+  id="aadhaar"
+  placeholder="XXXX XXXX XXXX"
+  maxlength="14"
+  inputmode="numeric"
+  required
+>
+
+
+<label>
+🏠 पूरा पता
+<span class="hint">(मकान नंबर, गली/मोहल्ला)</span>
+</label>
+
+<textarea
+  id="address"
+  placeholder="जैसे: मकान नं. 12, वार्ड नं. 5, ..."
+  required
+></textarea>
+
+
+<label>
+📍 गाँव / शहर / जिला
 </label>
 
 <input
   type="text"
   id="place"
-  placeholder="गाँव / शहर"
+  placeholder="गाँव / शहर / जिला"
   required
 >
 
@@ -198,6 +269,8 @@ button:disabled{
 Private Digital Service Card है।
 यह Aadhaar, PAN, Voter ID या
 किसी सरकारी पहचान-पत्र का विकल्प नहीं है।
+आपका आधार नंबर सिर्फ पहचान सत्यापन के लिए लिया जाता है,
+इसे किसी तीसरे पक्ष के साथ साझा नहीं किया जाता।
 
 </div>
 
@@ -271,6 +344,33 @@ const result =
   document.getElementById("result");
 
 
+/*
+  आधार नंबर टाइप करते वक़्त
+  अपने-आप स्पेस लग जाए (XXXX XXXX XXXX)
+  ताकि पढ़ने में आसान हो।
+*/
+
+const aadhaarInput =
+  document.getElementById("aadhaar");
+
+aadhaarInput.addEventListener(
+  "input",
+  function(){
+
+    let digits =
+      aadhaarInput.value
+        .replace(/\D/g,"")
+        .slice(0,12);
+
+    aadhaarInput.value =
+      digits
+        .replace(/(\d{4})(?=\d)/g,"$1 ")
+        .trim();
+
+  }
+);
+
+
 async function ensureLogin(){
 
   if(auth.currentUser){
@@ -295,8 +395,21 @@ form.addEventListener(
       document.getElementById("name")
       .value.trim();
 
+    const guardianName =
+      document.getElementById("guardianName")
+      .value.trim();
+
     const mobile =
       document.getElementById("mobile")
+      .value.trim();
+
+    const aadhaar =
+      aadhaarInput.value
+        .replace(/\s/g,"")
+        .trim();
+
+    const address =
+      document.getElementById("address")
       .value.trim();
 
     const place =
@@ -304,7 +417,7 @@ form.addEventListener(
       .value.trim();
 
 
-    if(!name || !mobile || !place){
+    if(!name || !guardianName || !mobile || !aadhaar || !address || !place){
 
       result.innerHTML = `
         <div class="error">
@@ -321,6 +434,18 @@ form.addEventListener(
       result.innerHTML = `
         <div class="error">
           ❌ सही 10 अंकों का Mobile Number डालें।
+        </div>
+      `;
+
+      return;
+    }
+
+
+    if(!/^[0-9]{12}$/.test(aadhaar)){
+
+      result.innerHTML = `
+        <div class="error">
+          ❌ सही 12 अंकों का Aadhaar Number डालें।
         </div>
       `;
 
@@ -347,7 +472,13 @@ form.addEventListener(
 
             name:name,
 
+            guardianName:guardianName,
+
             mobile:mobile,
+
+            aadhaar:aadhaar,
+
+            address:address,
 
             place:place,
 
