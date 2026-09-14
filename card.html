@@ -19,7 +19,7 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:linear-gradient(160deg,#eef2f9,#dbe4f0);
+  background:linear-gradient(160deg,#0b0f1a,#151a2b);
   min-height:100vh;
   padding:20px 0;
 }
@@ -30,170 +30,195 @@ body{
   padding:15px;
 }
 
-/* ===== ID CARD ===== */
+/* ===== PREMIUM DARK CARD ===== */
 
 .card{
   position:relative;
-  background:#ffffff;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 15px 35px rgba(30,64,175,.25);
-  border:1px solid #dbe4f0;
-}
-
-.top{
-  position:relative;
-  background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#3b82f6);
-  color:white;
-  text-align:center;
-  padding:22px 20px 55px;
-  overflow:hidden;
-}
-
-.top::before{
-  content:"";
-  position:absolute;
-  top:-40px;
-  right:-40px;
-  width:140px;
-  height:140px;
-  background:rgba(255,255,255,.08);
-  border-radius:50%;
-}
-
-.top::after{
-  content:"";
-  position:absolute;
-  bottom:-60px;
-  left:-30px;
-  width:160px;
-  height:160px;
-  background:rgba(255,255,255,.06);
-  border-radius:50%;
-}
-
-.top .brand{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  position:relative;
-  z-index:2;
-}
-
-.top .brand-icon{
-  font-size:22px;
-}
-
-.top h1{
-  margin:0;
-  font-size:17px;
-  letter-spacing:.5px;
-}
-
-.top p{
-  margin:4px 0 0;
-  font-size:11px;
-  letter-spacing:2px;
-  opacity:.9;
-  position:relative;
-  z-index:2;
-}
-
-/* Avatar overlapping header/body */
-
-.avatar-wrap{
-  position:relative;
-  margin-top:-42px;
-  display:flex;
-  justify-content:center;
-  z-index:3;
-}
-
-.avatar{
-  width:84px;
-  height:84px;
-  border-radius:50%;
-  background:linear-gradient(145deg,#e2e8f0,#cbd5e1);
-  border:4px solid #ffffff;
-  box-shadow:0 6px 16px rgba(0,0,0,.18);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:38px;
-}
-
-.body{
-  padding:14px 22px 24px;
-  text-align:center;
-}
-
-.name{
-  font-size:20px;
-  font-weight:bold;
-  color:#0f172a;
-  margin-top:6px;
-}
-
-.card-id{
-  display:inline-block;
-  margin-top:6px;
-  background:#eef2ff;
-  color:#1e40af;
-  font-weight:bold;
-  letter-spacing:1px;
-  padding:5px 14px;
+  background:linear-gradient(150deg,#1c1f2e 0%,#12141f 55%,#0a0b12 100%);
   border-radius:20px;
-  font-size:13px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(0,0,0,.55);
+  border:1px solid #2c2f45;
+  color:#e8e6df;
+  padding:22px 22px 20px;
 }
 
-.divider{
-  height:1px;
-  background:repeating-linear-gradient(90deg,#cbd5e1 0 6px,transparent 6px 12px);
-  margin:18px 0 14px;
+.card::before{
+  content:"";
+  position:absolute;
+  top:-70px;
+  right:-70px;
+  width:220px;
+  height:220px;
+  background:radial-gradient(circle,rgba(212,175,55,.16),transparent 70%);
 }
 
-.info-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  text-align:left;
+.card::after{
+  content:"";
+  position:absolute;
+  bottom:-90px;
+  left:-60px;
+  width:220px;
+  height:220px;
+  background:radial-gradient(circle,rgba(212,175,55,.08),transparent 70%);
 }
 
-.info-grid .full{
-  grid-column:1/-1;
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  position:relative;
+  z-index:2;
 }
 
-.row{
-  padding:10px 12px;
-  background:#f8fafc;
-  border-radius:10px;
-  border:1px solid #eef1f5;
-}
-
-.label{
-  color:#64748b;
-  font-size:11px;
-  margin-bottom:3px;
+.brand{
   display:flex;
   align-items:center;
-  gap:4px;
+  gap:8px;
 }
 
-.value{
-  font-size:14.5px;
+.brand-icon{
+  font-size:20px;
+}
+
+.brand h1{
+  margin:0;
+  font-size:13.5px;
+  letter-spacing:1px;
+  color:#f2e6c9;
+}
+
+.brand p{
+  margin:2px 0 0;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#8a8d9e;
+}
+
+.chip{
+  width:38px;
+  height:28px;
+  border-radius:6px;
+  background:linear-gradient(145deg,#e9d38a,#b8933f);
+  border:1px solid #6f5a24;
+  position:relative;
+  z-index:2;
+  flex-shrink:0;
+}
+
+.chip::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border:1px solid rgba(0,0,0,.35);
+  border-radius:3px;
+}
+
+.card-number{
+  margin-top:24px;
+  font-family:'Courier New',monospace;
+  font-size:18px;
+  letter-spacing:3px;
+  color:#f2e6c9;
+  text-shadow:0 1px 1px rgba(0,0,0,.4);
+  position:relative;
+  z-index:2;
+}
+
+.card-bottom-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-top:20px;
+  position:relative;
+  z-index:2;
+}
+
+.holder{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.photo-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:2px solid #d4af37;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#2c2f45;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.photo-circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.holder .label,
+.status-block .label{
+  font-size:8.5px;
+  letter-spacing:1.5px;
+  color:#8a8d9e;
+  margin-bottom:3px;
+}
+
+.holder .value{
+  font-size:14px;
   font-weight:bold;
-  color:#0f172a;
-  word-break:break-word;
+  letter-spacing:.5px;
+  color:#f5f3ec;
+  text-transform:uppercase;
 }
 
-.active{
-  color:#15803d;
+.status-block{
+  text-align:right;
+}
+
+.status-block .value{
+  font-size:13px;
+  font-weight:bold;
+  color:#7ee787;
+}
+
+.place-row{
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid #2c2f45;
+  position:relative;
+  z-index:2;
+}
+
+.place-row .label{
+  font-size:8.5px;
+  letter-spacing:1.5px;
+  color:#8a8d9e;
+  margin-bottom:3px;
+}
+
+.place-row .value{
+  font-size:13px;
+  color:#e8e6df;
+}
+
+/* ===== BELOW CARD (QR + actions) ===== */
+
+.below{
+  background:#ffffff;
+  border-radius:0 0 20px 20px;
+  margin-top:-20px;
+  padding-top:28px;
+  padding-bottom:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
 }
 
 #qrcode{
   text-align:center;
-  margin:20px 0 6px;
   display:flex;
   justify-content:center;
 }
@@ -210,13 +235,14 @@ body{
   text-align:center;
   font-size:11px;
   color:#94a3b8;
-  margin-bottom:10px;
+  margin:8px 0 14px;
 }
 
 .notice{
   background:#fff7ed;
   color:#9a3412;
   padding:12px;
+  margin:0 22px;
   border-radius:10px;
   font-size:11.5px;
   text-align:center;
@@ -227,7 +253,7 @@ body{
 .btn-row{
   display:flex;
   gap:10px;
-  margin-top:14px;
+  margin:14px 22px 0;
 }
 
 button{
@@ -242,12 +268,13 @@ button{
 
 #printButton{
   background:#eef2ff;
-  color:#1e40af;
+  color:#1e293b;
 }
 
 #downloadButton{
-  background:linear-gradient(120deg,#2563eb,#1e40af);
-  color:white;
+  background:linear-gradient(120deg,#151a2b,#0a0b12);
+  color:#f2e6c9;
+  border:1px solid #2c2f45;
 }
 
 button:disabled{
@@ -267,7 +294,7 @@ button:disabled{
 
 #loading{
   text-align:center;
-  color:#475569;
+  color:#cbd5e1;
   font-weight:bold;
   padding:30px;
 }
@@ -288,7 +315,8 @@ button:disabled{
     display:none;
   }
 
-  .card{
+  .card,
+  .below{
     box-shadow:none;
   }
 
@@ -449,6 +477,12 @@ async function loadCard(){
       "none";
 
 
+    const photoHTML =
+      data.photo
+        ? `<img src="${data.photo}" alt="फोटो">`
+        : "👤";
+
+
     /* =========================
        CARD HTML
     ========================= */
@@ -457,66 +491,81 @@ async function loadCard(){
 
       <div class="card" id="digitalCard">
 
-        <div class="top">
+        <div class="card-top">
+
           <div class="brand">
             <span class="brand-icon">🛡️</span>
-            <h1>SHIVAM DIGITAL SEVA</h1>
+            <div>
+              <h1>SHIVAM DIGITAL SEVA</h1>
+              <p>DIGITAL SERVICE CARD</p>
+            </div>
           </div>
-          <p>DIGITAL SERVICE CARD</p>
+
+          <div class="chip"></div>
+
         </div>
 
-        <div class="avatar-wrap">
-          <div class="avatar">👤</div>
+
+        <div class="card-number">${escapeHTML(data.cardNumber)}</div>
+
+
+        <div class="card-bottom-row">
+
+          <div class="holder">
+
+            <div class="photo-circle">
+              ${photoHTML}
+            </div>
+
+            <div>
+              <div class="label">CARD HOLDER</div>
+              <div class="value">${escapeHTML(data.name)}</div>
+            </div>
+
+          </div>
+
+          <div class="status-block">
+            <div class="label">STATUS</div>
+            <div class="value">● ACTIVE</div>
+          </div>
+
         </div>
 
-        <div class="body">
 
-          <div class="name">${escapeHTML(data.name)}</div>
-          <div class="card-id">🪪 ${escapeHTML(data.cardNumber)}</div>
+        <div class="place-row">
+          <div class="label">स्थान / LOCATION</div>
+          <div class="value">${escapeHTML(data.place)}</div>
+        </div>
 
-          <div class="divider"></div>
-
-          <div class="info-grid">
-
-            <div class="row full">
-              <div class="label">📍 स्थान</div>
-              <div class="value">${escapeHTML(data.place)}</div>
-            </div>
-
-            <div class="row full">
-              <div class="label">स्थिति</div>
-              <div class="value active">✅ ACTIVE</div>
-            </div>
-
-          </div>
+      </div>
 
 
-          <div id="qrcode"></div>
-          <div class="qr-caption">स्कैन करके Card Verify करें</div>
+      <div class="below">
+
+        <div id="qrcode"></div>
+        <div class="qr-caption">स्कैन करके Card Verify करें</div>
 
 
-          <div class="notice">
-            PRIVATE DIGITAL SERVICE CARD<br>
-            यह Aadhaar, PAN, Voter ID या
-            सरकारी पहचान-पत्र नहीं है।
-          </div>
+        <div class="notice">
+          PRIVATE DIGITAL SERVICE CARD<br>
+          यह Aadhaar, PAN, Voter ID या
+          सरकारी पहचान-पत्र नहीं है।
+        </div>
 
 
-          <div class="btn-row">
+        <div class="btn-row">
 
-            <button
-              id="printButton"
-              onclick="window.print()">
-              🖨️ Print
-            </button>
+          <button
+            id="printButton"
+            onclick="window.print()">
+            🖨️ Print
+          </button>
 
-            <button
-              id="downloadButton"
-              onclick="downloadCard()">
-              📥 Download
-            </button>
-
-          </div>
+          <button
+            id="downloadButton"
+            onclick="downloadCard()">
+            📥 Download
+          </button>
 
         </div>
 
@@ -680,7 +729,7 @@ async function(){
         card,
         {
           scale:2,
-          backgroundColor:"#ffffff",
+          backgroundColor:"#12141f",
           useCORS:true
         }
       );
@@ -692,7 +741,7 @@ async function(){
 
     const cardNumber =
       card.querySelector(
-        ".card-id"
+        ".card-number"
       )?.textContent
         ?.trim()
         .replace(

@@ -113,123 +113,143 @@ button:disabled{
   color:#15803d;
 }
 
-/* ===== ID CARD (preview) ===== */
+/* ===== ID CARD (preview) - Dark Premium ===== */
 
 .card{
+  position:relative;
   margin-top:20px;
-  background:white;
-  border-radius:22px;
+  background:linear-gradient(150deg,#1c1f2e 0%,#12141f 55%,#0a0b12 100%);
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 15px 35px rgba(30,64,175,.25);
-  border:1px solid #dbe4f0;
+  box-shadow:0 20px 45px rgba(0,0,0,.4);
+  border:1px solid #2c2f45;
+  color:#e8e6df;
+  padding:20px 20px 18px;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:-70px;
+  right:-70px;
+  width:200px;
+  height:200px;
+  background:radial-gradient(circle,rgba(212,175,55,.16),transparent 70%);
 }
 
 .card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
   position:relative;
-  background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#3b82f6);
-  color:white;
-  text-align:center;
-  padding:20px 20px 50px;
-  overflow:hidden;
-}
-
-.card-top::before{
-  content:"";
-  position:absolute;
-  top:-40px;
-  right:-40px;
-  width:130px;
-  height:130px;
-  background:rgba(255,255,255,.08);
-  border-radius:50%;
+  z-index:2;
 }
 
 .card-top h2{
   margin:0;
-  font-size:16px;
-  letter-spacing:.5px;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#f2e6c9;
 }
 
 .card-top p{
-  margin:4px 0 0;
-  font-size:10.5px;
+  margin:2px 0 0;
+  font-size:8.5px;
   letter-spacing:2px;
-  opacity:.9;
+  color:#8a8d9e;
 }
 
-.avatar-wrap{
+.chip{
+  width:34px;
+  height:25px;
+  border-radius:5px;
+  background:linear-gradient(145deg,#e9d38a,#b8933f);
+  border:1px solid #6f5a24;
+  flex-shrink:0;
+}
+
+.card-number{
+  margin-top:22px;
+  font-family:'Courier New',monospace;
+  font-size:16px;
+  letter-spacing:2.5px;
+  color:#f2e6c9;
   position:relative;
-  margin-top:-40px;
-  display:flex;
-  justify-content:center;
+  z-index:2;
 }
 
-.avatar{
-  width:78px;
-  height:78px;
+.card-bottom-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-top:18px;
+  position:relative;
+  z-index:2;
+}
+
+.holder{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.photo-circle{
+  width:38px;
+  height:38px;
   border-radius:50%;
-  background:linear-gradient(145deg,#e2e8f0,#cbd5e1);
-  border:4px solid #ffffff;
-  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  border:2px solid #d4af37;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#2c2f45;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:34px;
+  font-size:17px;
 }
 
-.card-body{
-  padding:12px 20px 22px;
-  text-align:center;
+.photo-circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.name{
-  font-size:19px;
+.card .label{
+  font-size:8px;
+  letter-spacing:1.5px;
+  color:#8a8d9e;
+  margin-bottom:2px;
+}
+
+.card .name{
+  font-size:13px;
   font-weight:bold;
-  color:#0f172a;
-  margin-top:4px;
-}
-
-.card-id{
-  display:inline-block;
-  margin-top:6px;
-  background:#eef2ff;
-  color:#1e40af;
-  font-weight:bold;
-  letter-spacing:1px;
-  padding:5px 14px;
-  border-radius:20px;
-  font-size:12.5px;
-}
-
-.divider{
-  height:1px;
-  background:repeating-linear-gradient(90deg,#cbd5e1 0 6px,transparent 6px 12px);
-  margin:16px 0 12px;
-}
-
-.row{
-  background:#f8fafc;
-  padding:11px 12px;
-  margin-bottom:8px;
-  border-radius:10px;
-  border:1px solid #eef1f5;
-  text-align:left;
-}
-
-.label{
-  color:#64748b;
-  font-size:11px;
-}
-
-.value{
-  font-size:14.5px;
-  font-weight:bold;
-  margin-top:2px;
-  color:#0f172a;
+  color:#f5f3ec;
+  text-transform:uppercase;
+  margin:0;
 }
 
 .active{
-  color:#15803d;
+  color:#7ee787;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.place-row{
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid #2c2f45;
+  position:relative;
+  z-index:2;
+}
+
+.place-row .value{
+  font-size:12px;
+  color:#e8e6df;
+  margin-top:2px;
+}
+
+.card-actions{
+  padding:16px 4px 2px;
 }
 
 .link{
@@ -644,61 +664,79 @@ function showCard(
     encodeURIComponent(cardId);
 
 
+  const photoHTML =
+    data.photo
+      ? `<img src="${escapeHTML(data.photo)}" alt="फोटो">`
+      : "👤";
+
+
   cardArea.innerHTML = `
 
     <div class="card">
 
       <div class="card-top">
-        <h2>🛡️ SHIVAM DIGITAL SEVA</h2>
-        <p>DIGITAL SERVICE CARD</p>
+        <div>
+          <h2>🛡️ SHIVAM DIGITAL SEVA</h2>
+          <p>DIGITAL SERVICE CARD</p>
+        </div>
+        <div class="chip"></div>
       </div>
 
-      <div class="avatar-wrap">
-        <div class="avatar">👤</div>
+      <div class="card-number">${escapeHTML(data.cardNumber)}</div>
+
+      <div class="card-bottom-row">
+
+        <div class="holder">
+
+          <div class="photo-circle">
+            ${photoHTML}
+          </div>
+
+          <div>
+            <div class="label">CARD HOLDER</div>
+            <p class="name">${escapeHTML(data.name)}</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:right">
+          <div class="label">STATUS</div>
+          <div class="active">● ACTIVE</div>
+        </div>
+
       </div>
 
+      <div class="place-row">
+        <div class="label">स्थान / LOCATION</div>
+        <div class="value">${escapeHTML(data.place)}</div>
+      </div>
 
-      <div class="card-body">
-
-        <div class="name">${escapeHTML(data.name)}</div>
-        <div class="card-id">🪪 ${escapeHTML(data.cardNumber)}</div>
-
-        <div class="divider"></div>
-
-        <div class="row">
-          <div class="label">📍 स्थान</div>
-          <div class="value">${escapeHTML(data.place)}</div>
-        </div>
-
-        <div class="row">
-          <div class="label">स्थिति</div>
-          <div class="value active">✅ ACTIVE</div>
-        </div>
+    </div>
 
 
-        <a
-          href="${cardUrl}"
-          class="link primary"
-        >
-          🪪 पूरा Card खोलें (QR + Print)
-        </a>
+    <div class="card-actions">
+
+      <a
+        href="${cardUrl}"
+        class="link primary"
+      >
+        🪪 पूरा Card खोलें (QR + Print)
+      </a>
 
 
-        <a
-          href="${verifyUrl}"
-          class="link"
-        >
-          🔍 Card Verification
-        </a>
+      <a
+        href="${verifyUrl}"
+        class="link"
+      >
+        🔍 Card Verification
+      </a>
 
 
-        <div class="notice">
-          यह Shivam Digital Seva का
-          Private Digital Service Card है।
-          यह Aadhaar, PAN, Voter ID या
-          सरकारी पहचान-पत्र नहीं है।
-        </div>
-
+      <div class="notice">
+        यह Shivam Digital Seva का
+        Private Digital Service Card है।
+        यह Aadhaar, PAN, Voter ID या
+        सरकारी पहचान-पत्र नहीं है।
       </div>
 
     </div>
