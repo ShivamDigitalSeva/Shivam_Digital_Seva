@@ -9,6 +9,15 @@
 <link rel="canonical" href="https://shivamdigitalseva.github.io/Shivam_Digital_Seva/">
 <meta name="google-adsense-account" content="ca-pub-9649261968916121">
 <link rel="icon" type="image/jpeg" href="logo_optimized.jpg">
+
+<!-- PWA: App जैसा अनुभव, Home Screen पर Add करने के लिए -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#08204a">
+<link rel="apple-touch-icon" href="logo_optimized.jpg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Shivam Seva">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9649261968916121" crossorigin="anonymous"></script>
 
 <!-- Google Analytics -->
@@ -192,6 +201,10 @@ firebase.initializeApp(firebaseConfig);
 </header>
 
 <main class="wrap">
+
+<button id="installBtn" style="display:none;width:100%;background:linear-gradient(120deg,#2563eb,#1e40af);color:#fff;border:0;padding:14px;border-radius:14px;font-size:15px;font-weight:bold;margin-bottom:14px;cursor:pointer">
+📲 App की तरह Install करें
+</button>
 
 <div class="notice">
   <b>🌐 सभी सेवाएँ एक ही स्थान पर</b>
@@ -996,6 +1009,46 @@ async function followMe(){
 window.addEventListener("load",()=>{
  applyFilters();
  loadFollowers();
+});
+</script>
+<script>
+/* PWA: Service Worker register karna, taaki site "installable" bane */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js').catch(function(err){
+      console.log('Service worker register nahi ho paya:', err);
+    });
+  });
+}
+
+/* PWA: "Install App" button dikhana jab browser install ke layak samjhe */
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', function(e){
+  e.preventDefault();
+  deferredPrompt = e;
+  if(installBtn){
+    installBtn.style.display = 'block';
+  }
+});
+
+if(installBtn){
+  installBtn.addEventListener('click', async function(){
+    if(!deferredPrompt){
+      return;
+    }
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBtn.style.display = 'none';
+  });
+}
+
+window.addEventListener('appinstalled', function(){
+  if(installBtn){
+    installBtn.style.display = 'none';
+  }
 });
 </script>
 </body>

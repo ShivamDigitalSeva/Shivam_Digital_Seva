@@ -1,0 +1,25 @@
+{
+  "name": "Shivam Digital Seva",
+  "short_name": "Shivam Seva",
+  "description": "सभी सरकारी और डिजिटल सेवाओं के Official Links एक ही स्थान पर।",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070d1a",
+  "theme_color": "#08204a",
+  "icons": [
+    {
+      "src": "logo_optimized.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo_optimized.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
