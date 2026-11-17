@@ -1,0 +1,63 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08204a"><title>Passport Photo Maker (A4 शीट) | Shivam Digital Seva</title><meta name="description" content="फोटो से पासपोर्ट साइज़ बनाएँ और एक A4 शीट पर कई कॉपी प्रिंट करें। Free और ब्राउज़र में।"><link rel="icon" type="image/jpeg" href="logo_optimized.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap"><style>*{box-sizing:border-box}
+:root{--bg:#06152e;--panel:#0b2145;--line:#2365b2;--mute:#b8c8e4;--saf:#ff9d3d;--blue:#2585ff;--field:#071a39}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.6 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+header.top{text-align:center;padding:20px 14px;background:#071a35;border-bottom:2px solid #e6740d}
+.logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+header.top h1{font:bold 26px Georgia,serif;margin:6px 0 0}
+header.top h1 span{color:var(--blue)}
+header.top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1000px;margin:auto;padding:16px 14px 40px}
+.back{display:inline-block;background:#172b4c;border:1px solid #2c5e9e;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;margin-bottom:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.panel h2{margin:0 0 6px;font-size:20px}
+label{display:block;margin:12px 0 4px;font-size:14px;color:#dbe6f7}
+input,select,textarea{width:100%;padding:11px;border:1px solid #4382c8;border-radius:8px;background:var(--field);color:#fff;font:inherit}
+textarea{min-height:76px;resize:vertical}
+input[type=color]{padding:3px;height:42px}
+input[type=range]{padding:0;accent-color:var(--saf)}
+input[type=checkbox]{width:auto;margin-right:6px}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+button,.btn{display:inline-block;border:0;border-radius:10px;background:var(--saf);color:#17243b;padding:11px 16px;font:inherit;font-weight:bold;margin:12px 8px 0 0;cursor:pointer;text-decoration:none}
+button.alt,.btn.alt{background:#172b4c;color:#fff;border:1px solid #2c5e9e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+.info h2{font-size:19px}.info ol{padding-left:22px;margin:6px 0}.info li{margin:4px 0}
+details{border-top:1px solid #1d4a86;padding:9px 0}summary{cursor:pointer;font-weight:bold}
+details p{margin:6px 0 0;color:var(--mute)}
+footer.bot{text-align:center;background:#040b18;border-top:1px solid #243c72;padding:20px 12px;color:#cbd7ec;font-size:14px}
+footer.bot a{color:#75b4ff}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}}
+.out{background:#071a39;border:1px solid #234f8c;border-radius:10px;padding:14px;margin-top:14px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 14px}.kv span:nth-child(even){font-weight:bold;color:var(--saf);text-align:right}
+.big{font-size:26px;font-weight:bold;color:var(--saf);margin:0}
+.st{font-size:13px;min-height:20px;margin-top:8px;color:#b8d7ff}.st.err{color:#ffb1a6}
+.res{background:#fff;color:#111;border-radius:8px;padding:16px;margin-top:14px;font-size:15px}
+table.t{width:100%;border-collapse:collapse;font-size:14px}table.t th,table.t td{border:1px solid #2a5a9c;padding:5px}table.t input{padding:7px;min-width:56px}
+canvas,.out img{max-width:100%;height:auto}
+@media print{.res{margin:0;padding:15mm;font-size:13pt}}
+</style></head><body>
+<header class="top noprint"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva" onerror="this.style.display='none'"><h1>Shivam Digital <span>Seva</span></h1><p>Passport Photo Maker</p></header><main class="wrap"><a class="back noprint" href="index.html">← मुख्य वेबसाइट</a>
+<section class="panel"><h2>पासपोर्ट साइज़ फोटो शीट</h2>
+<label for="f">फोटो चुनें (चेहरा सामने से, साफ़ रोशनी में)</label><input id="f" type="file" accept="image/*">
+<div class="row"><div><label for="sz">फोटो साइज़</label><select id="sz"><option value="35,45">3.5×4.5 cm (सामान्य)</option><option value="51,51">2×2 inch (51×51 mm)</option><option value="25,35">2.5×3.5 cm</option></select></div>
+<div><label for="n">कितनी कॉपी</label><select id="n"><option>4</option><option selected>6</option><option>8</option><option>12</option></select></div></div>
+<label><input type="checkbox" id="bd" checked>हर फोटो के चारों ओर पतली रेखा (काटने के लिए)</label>
+<button id="go">शीट बनाएँ</button><div class="st" id="st" aria-live="polite"></div>
+<div class="out" id="out" hidden><canvas id="cv"></canvas><button id="dl">⬇️ JPG डाउनलोड</button><button class="alt" id="pr">🖨️ प्रिंट</button></div>
+<p class="hint">प्रिंट में Paper A4 और Scale 100% रखें, तभी फोटो का असली साइज़ आएगा।</p></section><section class="panel info noprint"><h2>Passport Photo कैसे बनाएँ</h2><ol><li>अपनी फोटो चुनें और साइज़ तथा कॉपी की संख्या तय करें।</li><li>“शीट बनाएँ” दबाएँ।</li><li>JPG डाउनलोड करें या सीधे A4 पेपर पर प्रिंट करें, फिर रेखा पर काट लें।</li></ol><details><summary>कौन सी फोटो ठीक रहती है?</summary><p>चेहरा सीधा, साफ़ रोशनी और सादा पीछे का हिस्सा। फोटो जितनी साफ़ होगी, प्रिंट उतना अच्छा आएगा।</p></details><details><summary>क्या यह सरकारी पासपोर्ट के नियम पूरे करता है?</summary><p>यह सिर्फ़ फोटो का साइज़ और शीट बनाता है। पासपोर्ट या फॉर्म के असली नियम (साइज़, पीछे का रंग) संबंधित वेबसाइट पर ज़रूर देख लें।</p></details></section>
+</main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
+const $=id=>document.getElementById(id);
+const st=(m,e)=>{$('st').textContent=m;$('st').className='st'+(e?' err':'')};
+$('go').onclick=async()=>{
+ const f=$('f').files[0];if(!f)return st('पहले फोटो चुनें।',1);
+ try{const b=await createImageBitmap(f),k=300/25.4,[mw,mh]=$('sz').value.split(',').map(Number),pw=Math.round(mw*k),ph=Math.round(mh*k),g=Math.round(3*k),m=Math.round(10*k),W=Math.round(210*k),H=Math.round(297*k);
+  const cols=Math.floor((W-2*m+g)/(pw+g)),rows=Math.floor((H-2*m+g)/(ph+g)),max=cols*rows,n=Math.min(+$('n').value,max);
+  const cv=$('cv');cv.width=W;cv.height=H;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);
+  const s=Math.max(pw/b.width,ph/b.height),w=b.width*s,h=b.height*s;
+  for(let i=0;i<n;i++){const cx=m+(i%cols)*(pw+g),cy=m+Math.floor(i/cols)*(ph+g);x.save();x.beginPath();x.rect(cx,cy,pw,ph);x.clip();x.drawImage(b,cx+(pw-w)/2,cy+(ph-h)/2,w,h);x.restore();if($('bd').checked){x.strokeStyle='#999';x.lineWidth=2;x.strokeRect(cx,cy,pw,ph)}}
+  $('out').hidden=false;st(n<+$('n').value?'A4 पर सिर्फ़ '+n+' फोटो आ सकीं।':'तैयार! '+n+' फोटो की शीट बन गई।',n<+$('n').value)}
+ catch(e){st('फोटो नहीं खुली। JPG या PNG चुनें।',1)}};
+$('dl').onclick=()=>$('cv').toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='passport-photos-a4.jpg';a.click()},'image/jpeg',.95);
+$('pr').onclick=()=>{const u=$('cv').toDataURL('image/jpeg',.95),fr=document.createElement('iframe');fr.style.cssText='position:fixed;width:0;height:0;border:0';document.body.appendChild(fr);const d=fr.contentDocument;d.open();d.write('<style>@page{size:A4;margin:0}body{margin:0}img{width:210mm;height:297mm;display:block}</style><img src="'+u+'">');d.close();setTimeout(()=>{fr.contentWindow.print();setTimeout(()=>fr.remove(),60000)},400)};</script></body></html>

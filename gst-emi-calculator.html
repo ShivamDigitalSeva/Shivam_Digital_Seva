@@ -1,0 +1,58 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08204a"><title>GST और EMI कैलकुलेटर | Shivam Digital Seva</title><meta name="description" content="GST जोड़ें या हटाएँ (CGST/SGST सहित) और लोन की EMI, कुल ब्याज और कुल भुगतान निकालें।"><link rel="icon" type="image/jpeg" href="logo_optimized.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap"><style>*{box-sizing:border-box}
+:root{--bg:#06152e;--panel:#0b2145;--line:#2365b2;--mute:#b8c8e4;--saf:#ff9d3d;--blue:#2585ff;--field:#071a39}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.6 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+header.top{text-align:center;padding:20px 14px;background:#071a35;border-bottom:2px solid #e6740d}
+.logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+header.top h1{font:bold 26px Georgia,serif;margin:6px 0 0}
+header.top h1 span{color:var(--blue)}
+header.top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1000px;margin:auto;padding:16px 14px 40px}
+.back{display:inline-block;background:#172b4c;border:1px solid #2c5e9e;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;margin-bottom:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.panel h2{margin:0 0 6px;font-size:20px}
+label{display:block;margin:12px 0 4px;font-size:14px;color:#dbe6f7}
+input,select,textarea{width:100%;padding:11px;border:1px solid #4382c8;border-radius:8px;background:var(--field);color:#fff;font:inherit}
+textarea{min-height:76px;resize:vertical}
+input[type=color]{padding:3px;height:42px}
+input[type=range]{padding:0;accent-color:var(--saf)}
+input[type=checkbox]{width:auto;margin-right:6px}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+button,.btn{display:inline-block;border:0;border-radius:10px;background:var(--saf);color:#17243b;padding:11px 16px;font:inherit;font-weight:bold;margin:12px 8px 0 0;cursor:pointer;text-decoration:none}
+button.alt,.btn.alt{background:#172b4c;color:#fff;border:1px solid #2c5e9e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+.info h2{font-size:19px}.info ol{padding-left:22px;margin:6px 0}.info li{margin:4px 0}
+details{border-top:1px solid #1d4a86;padding:9px 0}summary{cursor:pointer;font-weight:bold}
+details p{margin:6px 0 0;color:var(--mute)}
+footer.bot{text-align:center;background:#040b18;border-top:1px solid #243c72;padding:20px 12px;color:#cbd7ec;font-size:14px}
+footer.bot a{color:#75b4ff}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}}
+.out{background:#071a39;border:1px solid #234f8c;border-radius:10px;padding:14px;margin-top:14px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 14px}.kv span:nth-child(even){font-weight:bold;color:var(--saf);text-align:right}
+.big{font-size:26px;font-weight:bold;color:var(--saf);margin:0}
+.st{font-size:13px;min-height:20px;margin-top:8px;color:#b8d7ff}.st.err{color:#ffb1a6}
+.res{background:#fff;color:#111;border-radius:8px;padding:16px;margin-top:14px;font-size:15px}
+table.t{width:100%;border-collapse:collapse;font-size:14px}table.t th,table.t td{border:1px solid #2a5a9c;padding:5px}table.t input{padding:7px;min-width:56px}
+canvas,.out img{max-width:100%;height:auto}
+@media print{.res{margin:0;padding:15mm;font-size:13pt}}
+</style></head><body>
+<header class="top noprint"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva" onerror="this.style.display='none'"><h1>Shivam Digital <span>Seva</span></h1><p>GST और EMI कैलकुलेटर</p></header><main class="wrap"><a class="back noprint" href="index.html">← मुख्य वेबसाइट</a>
+<section class="panel"><h2>🧾 GST कैलकुलेटर</h2>
+<div class="row"><div><label for="ga">रकम (₹)</label><input id="ga" inputmode="decimal"></div><div><label for="gr">GST दर</label><select id="gr"><option>5</option><option>12</option><option selected>18</option><option>28</option><option>3</option><option>0.25</option></select></div></div>
+<label for="gm">क्या करना है</label><select id="gm"><option value="add">GST जोड़ें (रकम में GST नहीं है)</option><option value="rem">GST हटाएँ (रकम में GST शामिल है)</option></select>
+<div class="out" id="go"></div></section>
+<section class="panel"><h2>🏦 EMI कैलकुलेटर</h2>
+<div class="row"><div><label for="ep">लोन की रकम (₹)</label><input id="ep" inputmode="decimal"></div><div><label for="er">सालाना ब्याज (%)</label><input id="er" inputmode="decimal"></div>
+<div><label for="et">अवधि</label><input id="et" inputmode="numeric"></div><div><label for="eu">अवधि की इकाई</label><select id="eu"><option value="m">महीने</option><option value="y">साल</option></select></div></div>
+<div class="out" id="eo"></div></section><section class="panel info noprint"><h2>कैसे इस्तेमाल करें</h2><ol><li>GST के लिए रकम और दर चुनें। रकम में GST शामिल हो तो “GST हटाएँ” चुनें।</li><li>EMI के लिए लोन की रकम, सालाना ब्याज और अवधि भरें।</li><li>नतीजा अपने-आप दिखेगा।</li></ol><details><summary>CGST और SGST क्या हैं?</summary><p>राज्य के अंदर की बिक्री में कुल GST आधा केंद्र (CGST) और आधा राज्य (SGST) का होता है।</p></details><details><summary>बैंक की EMI और इस नतीजे में फ़र्क क्यों आता है?</summary><p>बैंक प्रोसेसिंग फीस या अलग गणना-तरीक़ा लगा सकता है। असली किस्त हमेशा बैंक की शर्तों पर निर्भर है।</p></details></section>
+</main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
+const $=id=>document.getElementById(id);const f=n=>'₹'+n.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+function gst(){const a=+$('ga').value,r=+$('gr').value;if(!(a>0))return $('go').textContent='रकम लिखें।';
+ let base,g;if($('gm').value==='add'){base=a;g=a*r/100}else{base=a*100/(100+r);g=a-base}
+ $('go').innerHTML=`<div class="kv"><span>GST से पहले की रकम</span><span>${f(base)}</span><span>कुल GST (${r}%)</span><span>${f(g)}</span><span>CGST (${r/2}%)</span><span>${f(g/2)}</span><span>SGST (${r/2}%)</span><span>${f(g/2)}</span><span>कुल रकम</span><span>${f(base+g)}</span></div>`}
+function emi(){const P=+$('ep').value,R=+$('er').value;let n=+$('et').value;if($('eu').value==='y')n*=12;if(!(P>0&&n>0)||R<0)return $('eo').textContent='रकम, ब्याज और अवधि लिखें।';
+ const r=R/1200,E=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1),T=E*n;
+ $('eo').innerHTML=`<p class="big">${f(E)} / महीना</p><div class="kv"><span>कुल ब्याज</span><span>${f(T-P)}</span><span>कुल भुगतान</span><span>${f(T)}</span><span>किस्तों की संख्या</span><span>${Math.round(n)}</span></div>`}
+['ga','gr','gm'].forEach(i=>$(i).addEventListener('input',gst));['ep','er','et','eu'].forEach(i=>$(i).addEventListener('input',emi));gst();emi();</script></body></html>

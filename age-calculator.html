@@ -1,0 +1,60 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08204a"><title>उम्र कैलकुलेटर (Age Calculator) | Shivam Digital Seva</title><meta name="description" content="जन्म तिथि से उम्र साल, महीने और दिन में निकालें, और परीक्षा की उम्र सीमा में पात्रता जाँचें।"><link rel="icon" type="image/jpeg" href="logo_optimized.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap"><style>*{box-sizing:border-box}
+:root{--bg:#06152e;--panel:#0b2145;--line:#2365b2;--mute:#b8c8e4;--saf:#ff9d3d;--blue:#2585ff;--field:#071a39}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.6 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+header.top{text-align:center;padding:20px 14px;background:#071a35;border-bottom:2px solid #e6740d}
+.logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+header.top h1{font:bold 26px Georgia,serif;margin:6px 0 0}
+header.top h1 span{color:var(--blue)}
+header.top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1000px;margin:auto;padding:16px 14px 40px}
+.back{display:inline-block;background:#172b4c;border:1px solid #2c5e9e;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;margin-bottom:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.panel h2{margin:0 0 6px;font-size:20px}
+label{display:block;margin:12px 0 4px;font-size:14px;color:#dbe6f7}
+input,select,textarea{width:100%;padding:11px;border:1px solid #4382c8;border-radius:8px;background:var(--field);color:#fff;font:inherit}
+textarea{min-height:76px;resize:vertical}
+input[type=color]{padding:3px;height:42px}
+input[type=range]{padding:0;accent-color:var(--saf)}
+input[type=checkbox]{width:auto;margin-right:6px}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+button,.btn{display:inline-block;border:0;border-radius:10px;background:var(--saf);color:#17243b;padding:11px 16px;font:inherit;font-weight:bold;margin:12px 8px 0 0;cursor:pointer;text-decoration:none}
+button.alt,.btn.alt{background:#172b4c;color:#fff;border:1px solid #2c5e9e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+.info h2{font-size:19px}.info ol{padding-left:22px;margin:6px 0}.info li{margin:4px 0}
+details{border-top:1px solid #1d4a86;padding:9px 0}summary{cursor:pointer;font-weight:bold}
+details p{margin:6px 0 0;color:var(--mute)}
+footer.bot{text-align:center;background:#040b18;border-top:1px solid #243c72;padding:20px 12px;color:#cbd7ec;font-size:14px}
+footer.bot a{color:#75b4ff}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}}
+.out{background:#071a39;border:1px solid #234f8c;border-radius:10px;padding:14px;margin-top:14px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 14px}.kv span:nth-child(even){font-weight:bold;color:var(--saf);text-align:right}
+.big{font-size:26px;font-weight:bold;color:var(--saf);margin:0}
+.st{font-size:13px;min-height:20px;margin-top:8px;color:#b8d7ff}.st.err{color:#ffb1a6}
+.res{background:#fff;color:#111;border-radius:8px;padding:16px;margin-top:14px;font-size:15px}
+table.t{width:100%;border-collapse:collapse;font-size:14px}table.t th,table.t td{border:1px solid #2a5a9c;padding:5px}table.t input{padding:7px;min-width:56px}
+canvas,.out img{max-width:100%;height:auto}
+@media print{.res{margin:0;padding:15mm;font-size:13pt}}
+</style></head><body>
+<header class="top noprint"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva" onerror="this.style.display='none'"><h1>Shivam Digital <span>Seva</span></h1><p>उम्र कैलकुलेटर</p></header><main class="wrap"><a class="back noprint" href="index.html">← मुख्य वेबसाइट</a>
+<section class="panel"><h2>अपनी उम्र निकालें</h2>
+<div class="row"><div><label for="dob">जन्म तिथि</label><input id="dob" type="date"></div><div><label for="on">किस तारीख़ को उम्र देखनी है</label><input id="on" type="date"></div>
+<div><label for="mn">न्यूनतम आयु (वैकल्पिक)</label><input id="mn" inputmode="numeric"></div><div><label for="mx">अधिकतम आयु (वैकल्पिक)</label><input id="mx" inputmode="numeric"></div></div>
+<div class="out" id="out" aria-live="polite">जन्म तिथि चुनें।</div>
+<p class="hint">भर्ती में उम्र अक्सर विज्ञापन में दी “कट-ऑफ़ तारीख़” पर देखी जाती है। उसे “किस तारीख़ को” में भरें।</p></section><section class="panel info noprint"><h2>उम्र कैसे निकालें</h2><ol><li>अपनी जन्म तिथि चुनें।</li><li>जिस तारीख़ पर उम्र देखनी है वह भरें (आज की तारीख़ पहले से भरी है)।</li><li>चाहें तो परीक्षा की न्यूनतम और अधिकतम आयु भरकर पात्रता जाँचें।</li></ol><details><summary>अधिकतम आयु 30 हो तो क्या 30 साल 5 महीने वाला पात्र है?</summary><p>यह कैलकुलेटर 30 साल पूरे होने के बाद की उम्र को सीमा के बाहर मानता है। आरक्षण से मिली छूट (जैसे 5 साल) आप अधिकतम आयु में जोड़कर भरें, और अंतिम नियम विज्ञापन में देखें।</p></details><details><summary>उम्र कैसे गिनी जाती है?</summary><p>जन्म तिथि से चुनी गई तारीख़ तक पूरे साल, फिर बचे पूरे महीने और दिन गिने जाते हैं।</p></details></section>
+</main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
+const $=id=>document.getElementById(id);
+$('on').value=new Date().toISOString().slice(0,10);
+function add(a,m){const d=new Date(a.getFullYear(),a.getMonth()+m,1),l=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();d.setDate(Math.min(a.getDate(),l));return d}
+function diff(a,b){let m=(b.getFullYear()-a.getFullYear())*12+b.getMonth()-a.getMonth(),t=add(a,m);if(t>b){m--;t=add(a,m)}return[Math.floor(m/12),m%12,Math.round((b-t)/864e5)]}
+function calc(){
+ const o=$('out');if(!$('dob').value)return o.textContent='जन्म तिथि चुनें।';
+ const a=new Date($('dob').value+'T00:00'),b=new Date($('on').value+'T00:00');if(b<a)return o.textContent='चुनी तारीख़ जन्म तिथि से पहले की है।';
+ const [y,m,d]=diff(a,b),tot=Math.round((b-a)/864e5);let nx=new Date(b.getFullYear(),a.getMonth(),a.getDate());if(nx<=b)nx=new Date(b.getFullYear()+1,a.getMonth(),a.getDate());
+ let h=`<p class="big">${y} साल, ${m} महीने, ${d} दिन</p><div class="kv"><span>कुल दिन</span><span>${tot.toLocaleString('en-IN')}</span><span>कुल महीने</span><span>${y*12+m}</span><span>अगला जन्मदिन</span><span>${Math.round((nx-b)/864e5)} दिन बाद</span></div>`;
+ const mn=+$('mn').value,mx=+$('mx').value;
+ if(mn||mx){const ok=(!mn||y>=mn)&&(!mx||y<mx||(y===mx&&m===0&&d===0));h+=`<p><b>${ok?'✅ उम्र सीमा के अंदर':'❌ उम्र सीमा के बाहर'}</b> (${mn||'—'} से ${mx||'—'} साल)</p>`}
+ o.innerHTML=h}
+document.querySelectorAll('input').forEach(e=>e.addEventListener('input',calc));calc();</script></body></html>

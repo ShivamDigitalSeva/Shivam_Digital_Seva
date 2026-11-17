@@ -265,4 +265,49 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/photo-resizer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/passport-photo-maker.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/application-letter-generator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/age-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/land-converter.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bill-invoice-generator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/gst-emi-calculator.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/amount-in-words.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shivamdigitalseva.github.io/Shivam_Digital_Seva/hindi-typing-test.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

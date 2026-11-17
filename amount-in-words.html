@@ -1,0 +1,59 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08204a"><title>रुपये को शब्दों में बदलें (हिंदी और English) | Shivam Digital Seva</title><meta name="description" content="अंकों में लिखी रकम को हिंदी और English शब्दों में बदलें। चेक, रसीद और बिल के लिए उपयोगी।"><link rel="icon" type="image/jpeg" href="logo_optimized.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap"><style>*{box-sizing:border-box}
+:root{--bg:#06152e;--panel:#0b2145;--line:#2365b2;--mute:#b8c8e4;--saf:#ff9d3d;--blue:#2585ff;--field:#071a39}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.6 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+header.top{text-align:center;padding:20px 14px;background:#071a35;border-bottom:2px solid #e6740d}
+.logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+header.top h1{font:bold 26px Georgia,serif;margin:6px 0 0}
+header.top h1 span{color:var(--blue)}
+header.top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1000px;margin:auto;padding:16px 14px 40px}
+.back{display:inline-block;background:#172b4c;border:1px solid #2c5e9e;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;margin-bottom:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.panel h2{margin:0 0 6px;font-size:20px}
+label{display:block;margin:12px 0 4px;font-size:14px;color:#dbe6f7}
+input,select,textarea{width:100%;padding:11px;border:1px solid #4382c8;border-radius:8px;background:var(--field);color:#fff;font:inherit}
+textarea{min-height:76px;resize:vertical}
+input[type=color]{padding:3px;height:42px}
+input[type=range]{padding:0;accent-color:var(--saf)}
+input[type=checkbox]{width:auto;margin-right:6px}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+button,.btn{display:inline-block;border:0;border-radius:10px;background:var(--saf);color:#17243b;padding:11px 16px;font:inherit;font-weight:bold;margin:12px 8px 0 0;cursor:pointer;text-decoration:none}
+button.alt,.btn.alt{background:#172b4c;color:#fff;border:1px solid #2c5e9e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+.info h2{font-size:19px}.info ol{padding-left:22px;margin:6px 0}.info li{margin:4px 0}
+details{border-top:1px solid #1d4a86;padding:9px 0}summary{cursor:pointer;font-weight:bold}
+details p{margin:6px 0 0;color:var(--mute)}
+footer.bot{text-align:center;background:#040b18;border-top:1px solid #243c72;padding:20px 12px;color:#cbd7ec;font-size:14px}
+footer.bot a{color:#75b4ff}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}}
+.out{background:#071a39;border:1px solid #234f8c;border-radius:10px;padding:14px;margin-top:14px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 14px}.kv span:nth-child(even){font-weight:bold;color:var(--saf);text-align:right}
+.big{font-size:26px;font-weight:bold;color:var(--saf);margin:0}
+.st{font-size:13px;min-height:20px;margin-top:8px;color:#b8d7ff}.st.err{color:#ffb1a6}
+.res{background:#fff;color:#111;border-radius:8px;padding:16px;margin-top:14px;font-size:15px}
+table.t{width:100%;border-collapse:collapse;font-size:14px}table.t th,table.t td{border:1px solid #2a5a9c;padding:5px}table.t input{padding:7px;min-width:56px}
+canvas,.out img{max-width:100%;height:auto}
+@media print{.res{margin:0;padding:15mm;font-size:13pt}}
+</style></head><body>
+<header class="top noprint"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva" onerror="this.style.display='none'"><h1>Shivam Digital <span>Seva</span></h1><p>Amount in Words — रकम शब्दों में</p></header><main class="wrap"><a class="back noprint" href="index.html">← मुख्य वेबसाइट</a>
+<section class="panel"><h2>रकम शब्दों में लिखें</h2><label for="a">रकम (₹)</label><input id="a" inputmode="decimal" placeholder="जैसे 12500.50">
+<div class="out" id="out" aria-live="polite">रकम लिखें।</div><button id="c1" class="alt">हिंदी कॉपी करें</button><button id="c2" class="alt">English कॉपी करें</button><p class="hint">अधिकतम 99,99,99,999 रुपये तक।</p></section><section class="panel info noprint"><h2>कैसे इस्तेमाल करें</h2><ol><li>रकम अंकों में लिखें।</li><li>हिंदी और English शब्द तुरंत दिखेंगे।</li><li>“कॉपी करें” दबाकर चेक या रसीद में लिखने के लिए इस्तेमाल करें।</li></ol><details><summary>पैसे कैसे लिखें?</summary><p>दशमलव के बाद पैसे डालें, जैसे 250.75। शब्दों में “और सत्तर पाँच पैसे” जैसा रूप आ जाएगा।</p></details><details><summary>क्या यह चेक पर सीधे लिखने लायक है?</summary><p>यह मदद के लिए है। चेक भरते समय बैंक का तय तरीका और अपनी रकम एक बार ज़रूर मिला लें।</p></details></section>
+</main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
+const HI="शून्य,एक,दो,तीन,चार,पाँच,छह,सात,आठ,नौ,दस,ग्यारह,बारह,तेरह,चौदह,पंद्रह,सोलह,सत्रह,अठारह,उन्नीस,बीस,इक्कीस,बाईस,तेईस,चौबीस,पच्चीस,छब्बीस,सत्ताईस,अट्ठाईस,उनतीस,तीस,इकतीस,बत्तीस,तैंतीस,चौंतीस,पैंतीस,छत्तीस,सैंतीस,अड़तीस,उनतालीस,चालीस,इकतालीस,बयालीस,तैंतालीस,चौवालीस,पैंतालीस,छियालीस,सैंतालीस,अड़तालीस,उनचास,पचास,इक्यावन,बावन,तिरपन,चौवन,पचपन,छप्पन,सत्तावन,अट्ठावन,उनसठ,साठ,इकसठ,बासठ,तिरसठ,चौंसठ,पैंसठ,छियासठ,सड़सठ,अड़सठ,उनहत्तर,सत्तर,इकहत्तर,बहत्तर,तिहत्तर,चौहत्तर,पचहत्तर,छिहत्तर,सतहत्तर,अठहत्तर,उनासी,अस्सी,इक्यासी,बयासी,तिरासी,चौरासी,पचासी,छियासी,सत्तासी,अट्ठासी,नवासी,नब्बे,इक्यानवे,बानवे,तिरानवे,चौरानवे,पंचानवे,छियानवे,सत्तानवे,अट्ठानवे,निन्यानवे".split(',');
+const O=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'],TY=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+const w99=n=>n<20?O[n]:TY[(n/10)|0]+(n%10?' '+O[n%10]:'');
+function conv(n,two,units,hundred){if(!n)return'';let p=[],c=Math.floor(n/1e7);n%=1e7;const l=Math.floor(n/1e5);n%=1e5;const t=Math.floor(n/1e3);n%=1e3;const h=Math.floor(n/100);n%=100;
+ if(c)p.push(conv(c,two,units,hundred)+' '+units[0]);if(l)p.push(two(l)+' '+units[1]);if(t)p.push(two(t)+' '+units[2]);if(h)p.push(two(h)+' '+hundred);if(n)p.push(two(n));return p.join(' ')}
+const enW=n=>conv(n,w99,['Crore','Lakh','Thousand'],'Hundred')||'Zero';
+const hiW=n=>conv(n,x=>HI[x],['करोड़','लाख','हज़ार'],'सौ')||'शून्य';
+const $=id=>document.getElementById(id);let H='',E='';
+function go(){const s=$('a').value.replace(/,/g,'').trim(),o=$('out');H=E='';
+ if(!s)return o.textContent='रकम लिखें।';if(!/^\d+(\.\d{1,2})?$/.test(s))return o.textContent='सही रकम लिखें, जैसे 12500 या 12500.50';
+ const [r,p='']=s.split('.'),R=+r,P=+(p+'0').slice(0,2);if(R>999999999)return o.textContent='रकम बहुत बड़ी है।';
+ H='रुपये '+hiW(R)+(P?' और '+hiW(P)+' पैसे':'')+' केवल';E='Rupees '+enW(R)+(P?' and '+enW(P)+' Paise':'')+' Only';
+ o.innerHTML='<p><b>हिंदी:</b> '+H+'</p><p><b>English:</b> '+E+'</p>'}
+const cp=(t,b)=>navigator.clipboard.writeText(t).then(()=>{const x=b.textContent;b.textContent='कॉपी हुआ ✓';setTimeout(()=>b.textContent=x,1500)},()=>{});
+$('a').oninput=go;$('c1').onclick=()=>H&&cp(H,$('c1'));$('c2').onclick=()=>E&&cp(E,$('c2'));</script></body></html>
