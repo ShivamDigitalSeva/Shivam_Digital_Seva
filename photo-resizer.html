@@ -48,17 +48,19 @@ canvas,.out img{max-width:100%;height:auto}
 <p class="hint">अपने फॉर्म की वेबसाइट पर लिखा साइज़ (px और KB) देखकर वही भरें।</p></section><section class="panel info noprint"><h2>फोटो Resizer कैसे इस्तेमाल करें</h2><ol><li>फोटो चुनें और तैयार साइज़ में से फॉर्म वाला साइज़ चुनें, या अपना px और KB भरें।</li><li>“साइज़ बदलें” दबाएँ।</li><li>नतीजा देखकर JPG डाउनलोड करें।</li></ol><details><summary>KB और px में क्या फ़र्क है?</summary><p>px फोटो की लंबाई-चौड़ाई है और KB फ़ाइल का वज़न। फॉर्म दोनों माँग सकता है, इसलिए दोनों भरें।</p></details><details><summary>क्या मेरी फोटो कहीं अपलोड होती है?</summary><p>नहीं। सारा काम आपके फोन या कंप्यूटर के ब्राउज़र में होता है।</p></details></section>
 </main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
 const $=id=>document.getElementById(id);
+async function loadImg(f){for(const o of [undefined,{resizeWidth:2000,resizeQuality:'high'}]){try{return await createImageBitmap(f,o)}catch(e){}}
+ return await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(Error('यह फोटो फॉर्मेट समर्थित नहीं'));i.src=URL.createObjectURL(f)})}
 const st=(m,e)=>{$('st').textContent=m;$('st').className='st'+(e?' err':'')};
 $('pre').onchange=()=>{const [w,h,k]=$('pre').value.split(',');if(+w){$('w').value=w;$('h').value=h;$('kb').value=k}};$('pre').onchange();
 $('go').onclick=async()=>{
  const f=$('f').files[0];if(!f)return st('पहले फोटो चुनें।',1);
  const W=+$('w').value,H=+$('h').value,K=+$('kb').value;if(!(W>10&&H>10))return st('चौड़ाई और ऊँचाई सही भरें।',1);
  try{st('काम हो रहा है…');
-  const b=await createImageBitmap(f),c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);
-  const s=($('mode').value==='cover'?Math.max:Math.min)(W/b.width,H/b.height),w=b.width*s,h=b.height*s;x.drawImage(b,(W-w)/2,(H-h)/2,w,h);
-  const mk=q=>new Promise(r=>c.toBlob(r,'image/jpeg',q));let bl,big=false;
-  if(K){let lo=.05,hi=.95;bl=await mk(lo);if(bl.size>K*1024)big=true;else{for(let i=0;i<8;i++){const m=(lo+hi)/2,t=await mk(m);if(t.size<=K*1024){lo=m;bl=t}else hi=m}}}else bl=await mk(.92);
-  const u=URL.createObjectURL(bl),kb=(bl.size/1024).toFixed(1);
+  const b=await loadImg(f),bw=b.naturalWidth||b.width,bh=b.naturalHeight||b.height,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);
+  const s=($('mode').value==='cover'?Math.max:Math.min)(W/bw,H/bh),w=bw*s,h=bh*s;x.drawImage(b,(W-w)/2,(H-h)/2,w,h);
+  const mk=q=>{const u=c.toDataURL('image/jpeg',q);return{u,size:Math.round((u.length-23)*3/4)}};let bl,big=false;
+  if(K){let lo=.05,hi=.95;bl=mk(lo);if(bl.size>K*1024)big=true;else{for(let i=0;i<8;i++){const m=(lo+hi)/2,t=mk(m);if(t.size<=K*1024){lo=m;bl=t}else hi=m}}}else bl=mk(.92);
+  const u=bl.u,kb=(bl.size/1024).toFixed(1);
   $('out').hidden=false;$('out').innerHTML=`<img src="${u}" alt="नतीजा"><p>साइज़: <b>${W}×${H} px, ${kb} KB</b></p><a class="btn" href="${u}" download="photo-resized.jpg">⬇️ JPG डाउनलोड करें</a>`;
   st(big?'इतना छोटा (KB) करना संभव नहीं हुआ। px (चौड़ाई/ऊँचाई) घटाकर दोबारा कोशिश करें।':'तैयार!',big);
- }catch(e){st('फोटो नहीं खुली। JPG या PNG फोटो चुनें।',1)}};</script></body></html>
+ }catch(e){st('फोटो नहीं खुली ('+(e&&e.message||'अज्ञात')+')। JPG या PNG फोटो चुनें।',1)}};</script></body></html>

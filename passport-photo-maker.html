@@ -49,15 +49,17 @@ canvas,.out img{max-width:100%;height:auto}
 <p class="hint">प्रिंट में Paper A4 और Scale 100% रखें, तभी फोटो का असली साइज़ आएगा।</p></section><section class="panel info noprint"><h2>Passport Photo कैसे बनाएँ</h2><ol><li>अपनी फोटो चुनें और साइज़ तथा कॉपी की संख्या तय करें।</li><li>“शीट बनाएँ” दबाएँ।</li><li>JPG डाउनलोड करें या सीधे A4 पेपर पर प्रिंट करें, फिर रेखा पर काट लें।</li></ol><details><summary>कौन सी फोटो ठीक रहती है?</summary><p>चेहरा सीधा, साफ़ रोशनी और सादा पीछे का हिस्सा। फोटो जितनी साफ़ होगी, प्रिंट उतना अच्छा आएगा।</p></details><details><summary>क्या यह सरकारी पासपोर्ट के नियम पूरे करता है?</summary><p>यह सिर्फ़ फोटो का साइज़ और शीट बनाता है। पासपोर्ट या फॉर्म के असली नियम (साइज़, पीछे का रंग) संबंधित वेबसाइट पर ज़रूर देख लें।</p></details></section>
 </main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
 const $=id=>document.getElementById(id);
+async function loadImg(f){for(const o of [undefined,{resizeWidth:2000,resizeQuality:'high'}]){try{return await createImageBitmap(f,o)}catch(e){}}
+ return await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(Error('यह फोटो फॉर्मेट समर्थित नहीं'));i.src=URL.createObjectURL(f)})}
 const st=(m,e)=>{$('st').textContent=m;$('st').className='st'+(e?' err':'')};
 $('go').onclick=async()=>{
  const f=$('f').files[0];if(!f)return st('पहले फोटो चुनें।',1);
- try{const b=await createImageBitmap(f),k=300/25.4,[mw,mh]=$('sz').value.split(',').map(Number),pw=Math.round(mw*k),ph=Math.round(mh*k),g=Math.round(3*k),m=Math.round(10*k),W=Math.round(210*k),H=Math.round(297*k);
+ try{const b=await loadImg(f),bw=b.naturalWidth||b.width,bh=b.naturalHeight||b.height,k=300/25.4,[mw,mh]=$('sz').value.split(',').map(Number),pw=Math.round(mw*k),ph=Math.round(mh*k),g=Math.round(3*k),m=Math.round(10*k),W=Math.round(210*k),H=Math.round(297*k);
   const cols=Math.floor((W-2*m+g)/(pw+g)),rows=Math.floor((H-2*m+g)/(ph+g)),max=cols*rows,n=Math.min(+$('n').value,max);
   const cv=$('cv');cv.width=W;cv.height=H;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);
-  const s=Math.max(pw/b.width,ph/b.height),w=b.width*s,h=b.height*s;
+  const s=Math.max(pw/bw,ph/bh),w=bw*s,h=bh*s;
   for(let i=0;i<n;i++){const cx=m+(i%cols)*(pw+g),cy=m+Math.floor(i/cols)*(ph+g);x.save();x.beginPath();x.rect(cx,cy,pw,ph);x.clip();x.drawImage(b,cx+(pw-w)/2,cy+(ph-h)/2,w,h);x.restore();if($('bd').checked){x.strokeStyle='#999';x.lineWidth=2;x.strokeRect(cx,cy,pw,ph)}}
   $('out').hidden=false;st(n<+$('n').value?'A4 पर सिर्फ़ '+n+' फोटो आ सकीं।':'तैयार! '+n+' फोटो की शीट बन गई।',n<+$('n').value)}
- catch(e){st('फोटो नहीं खुली। JPG या PNG चुनें।',1)}};
-$('dl').onclick=()=>$('cv').toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='passport-photos-a4.jpg';a.click()},'image/jpeg',.95);
+ catch(e){st('फोटो नहीं खुली ('+(e&&e.message||'अज्ञात')+')। JPG या PNG चुनें।',1)}};
+$('dl').onclick=()=>{const a=document.createElement('a');a.href=$('cv').toDataURL('image/jpeg',.95);a.download='passport-photos-a4.jpg';a.click()};
 $('pr').onclick=()=>{const u=$('cv').toDataURL('image/jpeg',.95),fr=document.createElement('iframe');fr.style.cssText='position:fixed;width:0;height:0;border:0';document.body.appendChild(fr);const d=fr.contentDocument;d.open();d.write('<style>@page{size:A4;margin:0}body{margin:0}img{width:210mm;height:297mm;display:block}</style><img src="'+u+'">');d.close();setTimeout(()=>{fr.contentWindow.print();setTimeout(()=>fr.remove(),60000)},400)};</script></body></html>
