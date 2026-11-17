@@ -1,0 +1,79 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08204a"><title>OMR Sheet Generator | Shivam Digital Seva</title><meta name="description" content="50, 100 और 150 प्रश्नों की free OMR answer sheet बनाएँ और A4 में प्रिंट करें।"><link rel="icon" type="image/jpeg" href="logo_optimized.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap"><style>*{box-sizing:border-box}
+:root{--bg:#06152e;--panel:#0b2145;--line:#2365b2;--mute:#b8c8e4;--saf:#ff9d3d;--blue:#2585ff;--field:#071a39}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.6 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+header.top{text-align:center;padding:20px 14px;background:#071a35;border-bottom:2px solid #e6740d}
+.logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+header.top h1{font:bold 26px Georgia,serif;margin:6px 0 0}
+header.top h1 span{color:var(--blue)}
+header.top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1000px;margin:auto;padding:16px 14px 40px}
+.back{display:inline-block;background:#172b4c;border:1px solid #2c5e9e;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;margin-bottom:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.panel h2{margin:0 0 6px;font-size:20px}
+label{display:block;margin:12px 0 4px;font-size:14px;color:#dbe6f7}
+input,select,textarea{width:100%;padding:11px;border:1px solid #4382c8;border-radius:8px;background:var(--field);color:#fff;font:inherit}
+textarea{min-height:76px;resize:vertical}
+input[type=color]{padding:3px;height:42px}
+input[type=range]{padding:0;accent-color:var(--saf)}
+input[type=checkbox]{width:auto;margin-right:6px}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+button,.btn{display:inline-block;border:0;border-radius:10px;background:var(--saf);color:#17243b;padding:11px 16px;font:inherit;font-weight:bold;margin:12px 8px 0 0;cursor:pointer;text-decoration:none}
+button.alt,.btn.alt{background:#172b4c;color:#fff;border:1px solid #2c5e9e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+.info h2{font-size:19px}.info ol{padding-left:22px;margin:6px 0}.info li{margin:4px 0}
+details{border-top:1px solid #1d4a86;padding:9px 0}summary{cursor:pointer;font-weight:bold}
+details p{margin:6px 0 0;color:var(--mute)}
+footer.bot{text-align:center;background:#040b18;border-top:1px solid #243c72;padding:20px 12px;color:#cbd7ec;font-size:14px}
+footer.bot a{color:#75b4ff}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}}
+.sheet{background:#fff;color:#111;padding:18px;border-radius:6px;overflow-x:auto;margin-bottom:16px}
+.sin{min-width:720px}
+.sheet h2{text-align:center;margin:0;font-size:22px;letter-spacing:1px}
+.sub{text-align:center;font-size:13px;margin-bottom:8px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin:10px 0;font-size:14px}
+.meta div{border-bottom:1px solid #333;padding:4px 2px;min-height:28px}
+.top2{display:flex;gap:14px;align-items:flex-start;margin:10px 0}
+.roll{display:flex;gap:6px;border:1px solid #333;padding:6px}
+.rc{display:flex;flex-direction:column;gap:2px;align-items:center}
+.ins{flex:1;border:1px solid #333;padding:8px;font-size:12px;line-height:1.6}
+.qs{display:grid;grid-auto-flow:column;gap:0 14px;margin-top:10px}
+.q{display:flex;align-items:center;border-bottom:1px dotted #999;padding:3px 0;font-size:12px}
+.n{width:30px;font-weight:bold}
+.b{display:inline-grid;place-items:center;width:19px;height:19px;border:1.4px solid #111;border-radius:50%;font:normal 10px Arial;margin-left:3px;color:#111}
+@media print{@page{size:A4;margin:8mm}.sheet{padding:0;overflow:visible}.sin{min-width:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<header class="top noprint"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva" onerror="this.style.display='none'"><h1>Shivam Digital <span>Seva</span></h1><p>OMR Sheet Generator</p></header><main class="wrap"><a class="back noprint" href="index.html">← मुख्य वेबसाइट</a>
+<section class="panel noprint" id="f"><h2>अपनी OMR शीट बनाएँ</h2>
+<div class="row"><div><label for="exam">परीक्षा / विषय</label><input id="exam" placeholder="जैसे सामान्य ज्ञान टेस्ट"></div><div><label for="date">दिनांक</label><input id="date" type="date"></div>
+<div><label for="student">विद्यार्थी का नाम</label><input id="student"></div><div><label for="roll">रोल नंबर</label><input id="roll" inputmode="numeric"></div>
+<div><label for="count">कुल प्रश्न</label><select id="count"><option>50</option><option selected>100</option><option>150</option></select></div>
+<div><label for="opts">हर प्रश्न में विकल्प</label><select id="opts"><option value="4">4 (A–D)</option><option value="5">5 (A–E)</option></select></div></div>
+<label><input type="checkbox" id="rollOn" checked>रोल नंबर के गोले (6 अंक) दिखाएँ</label>
+<button onclick="window.print()">🖨️ Print / PDF सेव करें</button>
+<p class="hint">Print खुलने पर “Save as PDF” चुनें। यह अभ्यास/मॉक टेस्ट की प्रिंट योग्य शीट है; OMR मशीन से जाँच नहीं करती।</p></section>
+<section class="sheet"><div class="sin"><h2>OMR ANSWER SHEET</h2><div class="sub">Shivam Digital Seva — Practice Sheet</div>
+<div class="meta"><div>परीक्षा: <b id="oExam"></b></div><div>दिनांक: <b id="oDate"></b></div><div>नाम: <b id="oName"></b></div><div>रोल नंबर: <b id="oRoll"></b></div></div>
+<div class="top2"><div id="rollBox"></div><div class="ins"><b>निर्देश:</b><br>1. काले/नीले पेन से गोला पूरा भरें।<br>2. हर प्रश्न के लिए केवल एक गोला भरें।<br>3. भरा हुआ गोला मिटाएँ या काटें नहीं।<br>4. यह अभ्यास के लिए नमूना शीट है।</div></div>
+<div class="qs" id="qs"></div></div></section>
+<section class="panel info noprint"><h2>OMR शीट कैसे बनाएँ</h2><ol><li>परीक्षा का नाम, विद्यार्थी का नाम और रोल नंबर भरें।</li><li>प्रश्नों की संख्या (50, 100 या 150) और विकल्प चुनें।</li><li>Print दबाएँ और A4 पेपर पर प्रिंट करें या PDF सेव करें।</li></ol>
+<details><summary>क्या यह OMR मशीन में चलेगी?</summary><p>नहीं। यह घर, कोचिंग या स्कूल में मॉक टेस्ट के अभ्यास के लिए है। असली परीक्षा की OMR शीट अलग होती है।</p></details>
+<details><summary>प्रिंट में शीट कटी हुई दिखे तो?</summary><p>Print सेटिंग में Paper size A4 और Scale “Default/100%” रखें, Margins “Default” या “None” चुनें।</p></details>
+<details><summary>क्या मेरी जानकारी कहीं सेव होती है?</summary><p>नहीं। जो नाम या रोल नंबर आप भरते हैं वह केवल आपके ब्राउज़र में रहता है।</p></details></section>
+
+</main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script>
+const $=id=>document.getElementById(id);
+function generate(){
+ const n=+$('count').value,k=+$('opts').value,L='ABCDE'.slice(0,k).split(''),rows=n>100?30:25,cols=Math.ceil(n/rows);
+ const d=$('date').value.split('-');
+ $('oExam').textContent=$('exam').value;$('oName').textContent=$('student').value;$('oRoll').textContent=$('roll').value;
+ $('oDate').textContent=d.length===3?d[2]+'/'+d[1]+'/'+d[0]:'';
+ const digits=[0,1,2,3,4,5,6,7,8,9].map(x=>`<i class="b">${x}</i>`).join('');
+ $('rollBox').innerHTML=$('rollOn').checked?'<div class="roll">'+'<div class="rc">'+digits+'</div>'.repeat(1)+('<div class="rc">'+digits+'</div>').repeat(5)+'</div>':'';
+ let q='';for(let i=1;i<=n;i++)q+=`<div class="q"><span class="n">${i}.</span>${L.map(l=>`<i class="b">${l}</i>`).join('')}</div>`;
+ const qs=$('qs');qs.style.gridTemplateRows=`repeat(${rows},auto)`;qs.style.gridTemplateColumns=`repeat(${cols},1fr)`;qs.innerHTML=q;
+}
+$('f').addEventListener('input',generate);generate();
+</script></body></html>

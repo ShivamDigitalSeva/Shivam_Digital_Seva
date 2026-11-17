@@ -1,0 +1,155 @@
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08204a"><title>Free PDF Tools | Shivam Digital Seva</title><meta name="description" content="Free PDF Tools: Merge, Split, Compress, फोटो से PDF, Word to PDF और PDF to JPG।"><link rel="icon" type="image/jpeg" href="logo_optimized.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap"><style>*{box-sizing:border-box}
+:root{--bg:#06152e;--panel:#0b2145;--line:#2365b2;--mute:#b8c8e4;--saf:#ff9d3d;--blue:#2585ff;--field:#071a39}
+body{margin:0;background:var(--bg);color:#fff;font:16px/1.6 "Noto Sans Devanagari",system-ui,Arial,sans-serif}
+header.top{text-align:center;padding:20px 14px;background:#071a35;border-bottom:2px solid #e6740d}
+.logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:3px;object-fit:contain}
+header.top h1{font:bold 26px Georgia,serif;margin:6px 0 0}
+header.top h1 span{color:var(--blue)}
+header.top p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.wrap{max-width:1000px;margin:auto;padding:16px 14px 40px}
+.back{display:inline-block;background:#172b4c;border:1px solid #2c5e9e;padding:9px 14px;border-radius:10px;color:#fff;text-decoration:none;margin-bottom:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.panel h2{margin:0 0 6px;font-size:20px}
+label{display:block;margin:12px 0 4px;font-size:14px;color:#dbe6f7}
+input,select,textarea{width:100%;padding:11px;border:1px solid #4382c8;border-radius:8px;background:var(--field);color:#fff;font:inherit}
+textarea{min-height:76px;resize:vertical}
+input[type=color]{padding:3px;height:42px}
+input[type=range]{padding:0;accent-color:var(--saf)}
+input[type=checkbox]{width:auto;margin-right:6px}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+button,.btn{display:inline-block;border:0;border-radius:10px;background:var(--saf);color:#17243b;padding:11px 16px;font:inherit;font-weight:bold;margin:12px 8px 0 0;cursor:pointer;text-decoration:none}
+button.alt,.btn.alt{background:#172b4c;color:#fff;border:1px solid #2c5e9e}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:13px;color:var(--mute);margin:8px 0 0}
+.info h2{font-size:19px}.info ol{padding-left:22px;margin:6px 0}.info li{margin:4px 0}
+details{border-top:1px solid #1d4a86;padding:9px 0}summary{cursor:pointer;font-weight:bold}
+details p{margin:6px 0 0;color:var(--mute)}
+footer.bot{text-align:center;background:#040b18;border-top:1px solid #243c72;padding:20px 12px;color:#cbd7ec;font-size:14px}
+footer.bot a{color:#75b4ff}
+@media(max-width:650px){.row{grid-template-columns:1fr}}
+@media print{.noprint{display:none!important}body{background:#fff}.wrap{padding:0;max-width:none}}
+.intro{border-color:#e6740d;text-align:center}
+.intro p{color:#c1cde1;margin:0}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:16px}
+.tool{background:linear-gradient(145deg,#08204a,#092a59);border:1px solid #1765c7;border-radius:14px;padding:16px;min-width:0}
+.tool h3{margin:0 0 6px;font-size:18px}.tool p{font-size:13px;color:var(--mute);margin:0 0 6px}
+.tool input[type=file]{padding:9px;margin:4px 0}
+.fl{list-style:none;margin:8px 0 0;padding:0}
+.fl li{display:flex;justify-content:space-between;gap:8px;align-items:center;background:var(--field);border:1px solid #234f8c;border-radius:8px;padding:6px 8px;margin:5px 0;font-size:13px}
+.fl li>span:first-child{overflow-wrap:anywhere}.fl li>span:last-child{white-space:nowrap}
+.mini{padding:4px 9px;margin:0 0 0 4px;font-size:13px}
+.status{font-size:13px;color:#b8d7ff;min-height:20px;margin-top:8px;overflow-wrap:anywhere}
+.status.ok{color:#8fe3a3}.status.err{color:#ffb1a6}
+#wordPreview{background:#fff;color:#222;border-radius:10px;padding:12px;max-height:260px;overflow:auto;margin-top:10px}
+#wordPreview:empty{display:none}
+.dl .btn{margin:8px 6px 0 0;font-size:14px}
+.notice{background:#2b1d10;border:1px solid #a85b17;color:#ffe0b8;padding:12px;border-radius:12px;margin:16px 0;font-size:13px}
+@media(max-width:650px){.tools{grid-template-columns:1fr}}
+</style></head><body>
+<header class="top noprint"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva" onerror="this.style.display='none'"><h1>Shivam Digital <span>Seva</span></h1><p>Free PDF Tools — मुफ्त PDF सेवाएँ</p></header><main class="wrap"><a class="back noprint" href="index.html">← मुख्य वेबसाइट</a>
+<section class="panel intro"><h2>📄 Free PDF Tools</h2><p>PDF जोड़ें, अलग करें, छोटी करें और फोटो/Word से PDF बनाएँ।<br>फ़ाइलें आपके ब्राउज़र में ही प्रोसेस होती हैं; कोड उन्हें किसी सर्वर पर अपलोड नहीं करता।</p></section>
+<div class="tools">
+<section class="tool"><h3>📚 Merge PDF</h3><p>कई PDF को एक में जोड़ें। फ़ाइलें जोड़ने के बाद ↑ ↓ से क्रम बदलें।</p>
+<input id="mergeFiles" type="file" accept="application/pdf,.pdf" multiple onchange="add('merge',this)"><ul class="fl" id="mergeList"></ul>
+<button onclick="run(this,'mergeStatus',mergePDF)">Merge PDF</button><div class="status" id="mergeStatus" aria-live="polite"></div></section>
+<section class="tool"><h3>✂️ Split PDF</h3><p>PDF से चुने हुए पेज निकालें। उदाहरण: 1-3,5,8-10</p>
+<input id="splitFile" type="file" accept="application/pdf,.pdf"><input id="pageRanges" type="text" placeholder="जैसे: 1-3,5" aria-label="पेज रेंज">
+<button onclick="run(this,'splitStatus',splitPDF)">पेज निकालें</button><div class="status" id="splitStatus" aria-live="polite"></div></section>
+<section class="tool"><h3>🗜️ Compress PDF</h3><p>पेजों को इमेज में बदलकर फ़ाइल छोटी करें। इससे टेक्स्ट सिलेक्ट/सर्च नहीं होगा और गुणवत्ता घट सकती है।</p>
+<input id="compressFile" type="file" accept="application/pdf,.pdf"><label for="quality">इमेज गुणवत्ता: <span id="ql">70%</span></label>
+<input id="quality" type="range" min="35" max="90" value="70" oninput="ql.textContent=this.value+'%'">
+<button onclick="run(this,'compressStatus',compressPDF)">Compress PDF</button><div class="status" id="compressStatus" aria-live="polite"></div></section>
+<section class="tool"><h3>🖼️ फोटो से PDF</h3><p>JPG, PNG या WebP फोटो से PDF बनाएँ। फोटो की दिशा अपने-आप सही होती है।</p>
+<input id="imageFiles" type="file" accept="image/*" multiple onchange="add('img',this)"><ul class="fl" id="imgList"></ul>
+<label for="imgFit">पेज साइज़</label><select id="imgFit"><option value="a4">A4 (फोटो बीच में, किनारे खाली)</option><option value="orig">फोटो के बराबर</option></select>
+<button onclick="run(this,'imageStatus',imagesToPDF)">PDF बनाएँ</button><div class="status" id="imageStatus" aria-live="polite"></div></section>
+<section class="tool"><h3>📝 Word to PDF</h3><p>DOCX फ़ाइल खोलें, फिर Print में “Save as PDF” चुनें। जटिल लेआउट बदल सकता है।</p>
+<input id="wordFile" type="file" accept=".docx"><button onclick="run(this,'wordStatus',convertWord)">Word खोलें</button>
+<div class="status" id="wordStatus" aria-live="polite"></div><div id="wordPreview"></div><button id="printWord" style="display:none" onclick="printWord()">Print / Save as PDF</button></section>
+<section class="tool"><h3>📷 PDF to JPG</h3><p>PDF के हर पेज को JPG इमेज में बदलें।</p>
+<input id="jpgFile" type="file" accept="application/pdf,.pdf"><label for="jpgScale">इमेज साइज़</label><select id="jpgScale"><option value="1">सामान्य</option><option value="1.5" selected>अच्छी गुणवत्ता</option><option value="2">उच्च गुणवत्ता (बड़ी फ़ाइल)</option></select>
+<button onclick="run(this,'jpgStatus',pdfToJPG)">JPG बनाएँ</button><div class="status" id="jpgStatus" aria-live="polite"></div><div class="dl" id="jpgDownloads"></div></section>
+</div>
+<div class="notice"><strong>🔐 गोपनीयता:</strong> PDF/JPG प्रोसेसिंग इसी ब्राउज़र में होती है। Word और PDF के लिए ज़रूरी लाइब्रेरी इंटरनेट (CDN) से लोड होती है, पर आपकी फ़ाइल कहीं भेजी नहीं जाती। निजी दस्तावेज़ साझा डिवाइस पर इस्तेमाल करें तो डाउनलोड के बाद हटा दें। बहुत बड़ी फ़ाइलों पर मोबाइल धीमा हो सकता है।</div>
+<section class="panel info"><h2>PDF Tools कैसे इस्तेमाल करें</h2><ol><li>ऊपर से अपना टूल चुनें और फ़ाइल जोड़ें।</li><li>बटन दबाएँ और स्टेटस में “तैयार” दिखने तक रुकें।</li><li>फ़ाइल अपने-आप डाउनलोड हो जाएगी।</li></ol>
+<details><summary>PDF साइज़ कैसे घटाएँ?</summary><p>Compress PDF में गुणवत्ता 50–70% रखें। फ़ाइल बहुत छोटी चाहिए तो गुणवत्ता और घटाएँ। नतीजे में पहले-बाद का साइज़ दिखेगा।</p></details>
+<details><summary>पासवर्ड वाली PDF क्यों नहीं खुलती?</summary><p>लॉक या पासवर्ड वाली PDF यहाँ प्रोसेस नहीं होती। पहले PDF का पासवर्ड हटाकर नई कॉपी सेव करें।</p></details>
+<details><summary>Merge में क्रम कैसे ठीक करें?</summary><p>फ़ाइलें जोड़ने के बाद हर फ़ाइल के आगे ↑ ↓ बटन से क्रम बदलें, या ✕ से हटाएँ।</p></details></section>
+
+</main><footer class="bot noprint"><strong>Shivam Digital Seva</strong><br>आपकी सुविधा, हमारा प्रयास<br><a href="index.html">मुख्य वेबसाइट</a></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script><script>
+const $=id=>document.getElementById(id);
+const {PDFDocument}=PDFLib;
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const kb=n=>n>1048576?(n/1048576).toFixed(2)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+const base=n=>n.replace(/\.[^.]+$/,'').replace(/[^\w\-]+/g,'_').slice(0,60)||'document';
+function st(id,m,c){const e=$(id);e.textContent=m;e.className='status '+(c||'')}
+function save(b,n){const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),30000)}
+async function run(btn,sid,fn){btn.disabled=true;try{await fn()}catch(e){st(sid,/encrypt|password/i.test(e.message+e.name)?'यह PDF लॉक/पासवर्ड वाली है। पहले पासवर्ड हटाएँ।':'समस्या: '+e.message,'err')}finally{btn.disabled=false}}
+const L={merge:[],img:[]};
+function add(k,i){L[k].push(...i.files);i.value='';draw(k)}
+function draw(k){$(k+'List').innerHTML=L[k].map((f,i)=>`<li><span>${i+1}. ${esc(f.name)} (${kb(f.size)})</span><span><button class="mini alt" onclick="mv('${k}',${i},-1)" aria-label="ऊपर">↑</button><button class="mini alt" onclick="mv('${k}',${i},1)" aria-label="नीचे">↓</button><button class="mini alt" onclick="rm('${k}',${i})" aria-label="हटाएँ">✕</button></span></li>`).join('')}
+function mv(k,i,d){const j=i+d,a=L[k];if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];draw(k)}
+function rm(k,i){L[k].splice(i,1);draw(k)}
+async function mergePDF(){
+ if(L.merge.length<2)return st('mergeStatus','कम से कम 2 PDF जोड़ें।','err');
+ st('mergeStatus','जोड़ा जा रहा है…');const out=await PDFDocument.create();
+ for(const f of L.merge){const s=await PDFDocument.load(await f.arrayBuffer());(await out.copyPages(s,s.getPageIndices())).forEach(p=>out.addPage(p))}
+ const b=new Blob([await out.save()],{type:'application/pdf'});save(b,'merged.pdf');st('mergeStatus','तैयार! merged.pdf ('+kb(b.size)+') डाउनलोड हुई।','ok');
+}
+function ranges(v,total){const s=new Set();for(const part of v.split(',')){const p=part.trim();if(!p)continue;const m=p.match(/^(\d+)(?:\s*-\s*(\d+))?$/);if(!m)throw Error('पेज रेंज सही लिखें, जैसे 1-3,5');const a=+m[1],b=+(m[2]||m[1]);if(a<1||b<a||b>total)throw Error('पेज नंबर 1 से '+total+' के बीच रखें।');for(let n=a;n<=b;n++)s.add(n-1)}return[...s].sort((a,b)=>a-b)}
+$('splitFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const d=await PDFDocument.load(await f.arrayBuffer());st('splitStatus','इस PDF में '+d.getPageCount()+' पेज हैं।')}catch(x){st('splitStatus','PDF पढ़ने में समस्या।','err')}});
+async function splitPDF(){
+ const f=$('splitFile').files[0],r=$('pageRanges').value.trim();if(!f||!r)return st('splitStatus','PDF और पेज रेंज चुनें।','err');
+ st('splitStatus','पेज निकाले जा रहे हैं…');const s=await PDFDocument.load(await f.arrayBuffer()),ids=ranges(r,s.getPageCount());if(!ids.length)throw Error('कम से कम एक पेज चुनें।');
+ const out=await PDFDocument.create();(await out.copyPages(s,ids)).forEach(p=>out.addPage(p));
+ save(new Blob([await out.save()],{type:'application/pdf'}),base(f.name)+'-pages.pdf');st('splitStatus','तैयार! '+ids.length+' पेज डाउनलोड हुए।','ok');
+}
+async function compressPDF(){
+ const f=$('compressFile').files[0];if(!f)return st('compressStatus','पहले PDF चुनें।','err');
+ const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,out=await PDFDocument.create(),q=$('quality').value/100;
+ for(let n=1;n<=pdf.numPages;n++){st('compressStatus','पेज '+n+' / '+pdf.numPages+' प्रोसेस हो रहा है…');
+  const pg=await pdf.getPage(n),vp=pg.getViewport({scale:1.25}),c=document.createElement('canvas');c.width=Math.round(vp.width);c.height=Math.round(vp.height);
+  await pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;
+  const b=await new Promise(r=>c.toBlob(r,'image/jpeg',q));if(!b)throw Error('इमेज बनाने में समस्या।');
+  const j=await out.embedJpg(await b.arrayBuffer());out.addPage([vp.width,vp.height]).drawImage(j,{x:0,y:0,width:vp.width,height:vp.height});c.width=c.height=1}
+ const b=new Blob([await out.save()],{type:'application/pdf'});
+ if(b.size>=f.size)return st('compressStatus','नई फ़ाइल ('+kb(b.size)+') पहले ('+kb(f.size)+') से छोटी नहीं बनी, इसलिए डाउनलोड नहीं की। गुणवत्ता घटाकर देखें।','err');
+ save(b,base(f.name)+'-compressed.pdf');st('compressStatus','तैयार! '+kb(f.size)+' → '+kb(b.size)+'। यह इमेज-आधारित PDF है; टेक्स्ट सिलेक्ट नहीं होगा।','ok');
+}
+async function bmp(f){try{return await createImageBitmap(f)}catch(e){return await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(Error('फोटो नहीं खुली: '+f.name));i.src=URL.createObjectURL(f)})}}
+async function imagesToPDF(){
+ if(!L.img.length)return st('imageStatus','एक या अधिक फोटो जोड़ें।','err');
+ const fit=$('imgFit').value,out=await PDFDocument.create();let n=0;
+ for(const f of L.img){st('imageStatus','फोटो '+(++n)+' / '+L.img.length+'…');
+  const b=await bmp(f),w0=b.naturalWidth||b.width,h0=b.naturalHeight||b.height,s=Math.min(1,2000/Math.max(w0,h0)),w=Math.round(w0*s),h=Math.round(h0*s);
+  const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(b,0,0,w,h);
+  const jb=await new Promise(r=>c.toBlob(r,'image/jpeg',.9)),j=await out.embedJpg(await jb.arrayBuffer());
+  if(fit==='a4'){const W=595.28,H=841.89,m=24,k=Math.min((W-2*m)/w,(H-2*m)/h),dw=w*k,dh=h*k;out.addPage([W,H]).drawImage(j,{x:(W-dw)/2,y:(H-dh)/2,width:dw,height:dh})}
+  else out.addPage([w,h]).drawImage(j,{x:0,y:0,width:w,height:h});
+  c.width=c.height=1;if(b.close)b.close()}
+ const bl=new Blob([await out.save()],{type:'application/pdf'});save(bl,'photos-to-pdf.pdf');st('imageStatus','तैयार! photos-to-pdf.pdf ('+kb(bl.size)+') डाउनलोड हुई।','ok');
+}
+let wordHtml='';
+async function convertWord(){
+ const f=$('wordFile').files[0];if(!f)return st('wordStatus','पहले DOCX फ़ाइल चुनें।','err');
+ st('wordStatus','Word फ़ाइल पढ़ी जा रही है…');const r=await mammoth.convertToHtml({arrayBuffer:await f.arrayBuffer()});
+ wordHtml=r.value;$('wordPreview').innerHTML=wordHtml||'<p>दिखाने योग्य टेक्स्ट नहीं मिला।</p>';$('printWord').style.display='inline-block';
+ st('wordStatus','तैयार। नीचे Print / Save as PDF दबाएँ।'+(r.messages.length?' कुछ फ़ॉर्मेटिंग समर्थित नहीं है।':''),'ok');
+}
+function printWord(){
+ const fr=document.createElement('iframe');fr.style.cssText='position:fixed;width:0;height:0;border:0;right:0;bottom:0';document.body.appendChild(fr);
+ const d=fr.contentDocument;d.open();d.write('<!doctype html><html><head><meta charset="utf-8"><title>Word to PDF</title><style>body{font-family:Arial,sans-serif;color:#111;line-height:1.55;margin:0}img{max-width:100%}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #777;padding:6px}@page{margin:15mm}</style></head><body>'+wordHtml+'</body></html>');d.close();
+ setTimeout(()=>{fr.contentWindow.focus();fr.contentWindow.print();setTimeout(()=>fr.remove(),60000)},300);
+}
+async function pdfToJPG(){
+ const f=$('jpgFile').files[0];if(!f)return st('jpgStatus','पहले PDF चुनें।','err');
+ $('jpgDownloads').innerHTML='';const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,sc=+$('jpgScale').value;
+ for(let n=1;n<=pdf.numPages;n++){st('jpgStatus','पेज '+n+' / '+pdf.numPages+' बदला जा रहा है…');
+  const pg=await pdf.getPage(n),vp=pg.getViewport({scale:sc}),c=document.createElement('canvas');c.width=Math.ceil(vp.width);c.height=Math.ceil(vp.height);
+  await pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;
+  const b=await new Promise(r=>c.toBlob(r,'image/jpeg',.92)),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=base(f.name)+'-page-'+n+'.jpg';a.className='btn';a.textContent='⬇️ Page '+n;$('jpgDownloads').appendChild(a);c.width=c.height=1}
+ st('jpgStatus','तैयार! हर पेज का बटन दबाकर डाउनलोड करें।','ok');
+}
+</script></body></html>
