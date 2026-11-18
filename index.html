@@ -31,119 +31,121 @@
 
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#06152e;color:#fff;font-family:Arial,"Noto Sans Devanagari",sans-serif;padding-bottom:78px}
+:root{--bg:#06152e;--panel:#0b2145;--line:#1c4a8c;--saf:#ff9d3d;--blue:#2585ff;--mute:#aebbd3}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{margin:0;background:var(--bg);color:#fff;font-family:"Noto Sans Devanagari",Arial,sans-serif;line-height:1.5;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
 a{text-decoration:none;color:inherit}
 button,input{font-family:inherit}
+:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
 
-.top{background:linear-gradient(180deg,#061a38,#071a35);padding:24px 15px 20px;border-bottom:1px solid #e6740d;text-align:center}
-.logo{width:92px;height:92px;object-fit:contain;border-radius:50%;background:#fff;padding:4px;box-shadow:0 0 24px rgba(70,140,255,.35)}
-.top h1{font-family:Georgia,serif;font-size:34px;margin:10px 0 5px}
-.top h1 span{color:#2585ff}
-.top h2{font-size:18px;color:#dce7ff;margin:7px 0}
-.top p{color:#aebbd3;font-size:14px;margin:7px 0}
+.top{background:linear-gradient(180deg,#071c3d,#06152e);padding:14px 16px;border-bottom:2px solid #e6740d}
+.brand{max-width:1200px;margin:auto;display:flex;align-items:center;gap:12px}
+.logo{width:58px;height:58px;flex:none;object-fit:contain;border-radius:50%;background:#fff;padding:3px;box-shadow:0 0 18px rgba(70,140,255,.35)}
+.top h1{font-family:Georgia,serif;font-size:23px;line-height:1.15;margin:0}
+.top h1 span{color:var(--blue)}
+.top p{margin:3px 0 0;color:var(--mute);font-size:13px;line-height:1.35}
 
-.wrap{max-width:1200px;margin:auto;padding:18px 16px 40px}
+.wrap{max-width:1200px;margin:auto;padding:14px 14px 36px}
 
-.notice{background:#0b2145;border:1px solid #e6740d;border-radius:18px;padding:16px;text-align:center;margin-bottom:16px}
-.notice b{font-size:17px}
-.notice p{color:#b8c8e4;margin:8px 0 0;font-size:14px}
-
-.search-box{display:flex;align-items:center;gap:10px;height:58px;border:2px solid #267dff;border-radius:18px;background:#081d3d;padding:0 16px;margin-bottom:14px;box-shadow:0 0 16px rgba(20,110,255,.12)}
-.search-icon{font-size:27px}
-.search-box input{width:100%;border:0;outline:0;background:transparent;color:#fff;font-size:17px}
+.search-box{position:sticky;top:8px;z-index:60;display:flex;align-items:center;gap:10px;height:54px;border:2px solid #2d7fe8;border-radius:16px;background:#081d3d;padding:0 14px;margin-bottom:12px;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.search-icon{font-size:22px}
+.search-box input{width:100%;border:0;outline:0;background:transparent;color:#fff;font-size:16px}
 .search-box input::placeholder{color:#9fb1d1}
-.clear-search{border:0;background:transparent;color:#b9c9e5;font-size:24px;cursor:pointer;display:none}
+.clear-search{border:0;background:transparent;color:#b9c9e5;font-size:26px;cursor:pointer;display:none}
 
 .service-category{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
 .service-category::-webkit-scrollbar{display:none}
-.service-category button{min-width:92px;border:1px solid #1857a8;background:#091f41;color:#fff;padding:10px 7px;border-radius:14px;font-size:12px;font-weight:bold;cursor:pointer}
-.service-category button.active{background:#ff9d3d;border-color:#ff9d3d;box-shadow:0 4px 14px rgba(22,119,255,.25)}
+.service-category button{flex:none;border:1px solid #1d5ab0;background:#0a2248;color:#e6efff;padding:9px 15px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.service-category button.active{background:var(--saf);border-color:var(--saf);color:#1b2433}
 
-.service-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #c85f00;background:#081d3d;border-radius:18px;margin:2px 0 25px;overflow:hidden}
-.stat{text-align:center;padding:13px 5px;border-right:1px solid #28518a}
+.quick h2,.section-title{font-family:Georgia,"Noto Sans Devanagari",serif}
+.quick{margin:2px 0 14px}
+.quick h2{font-size:16px;margin:0 0 8px;color:#ffd7a8}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;background:#0d2a56;border:1px solid #2a5d9f;border-radius:14px;padding:10px 14px;font-size:13px;font-weight:700;white-space:nowrap}
+.chips a:active{background:#143a74}
+
+.digital-seva-box{background:linear-gradient(135deg,#0d2a56,#0a2248);border:1px solid #e6740d;border-radius:18px;padding:14px;margin:0 0 14px;text-align:center}
+.digital-seva-box h2{font-family:Georgia,serif;font-size:19px;margin:0 0 4px}
+.digital-seva-box p{font-size:13px;color:var(--mute);margin:0 0 10px}
+.contact-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.contact-buttons a{background:#123da8;color:#fff;padding:10px 14px;border-radius:12px;font-size:14px;font-weight:700}
+.contact-buttons a:first-child{background:#08784e}
+.contact-buttons a:nth-child(2){background:#128c4a}
+
+.updates-box{background:#0b2145;border-left:4px solid var(--saf);border-radius:12px;padding:10px 14px;margin-bottom:14px}
+.updates-box h3{margin:0 0 4px;font-size:14px;color:#ffd766}
+.updates-box ul{margin:0;padding-left:18px}
+.updates-box li{color:#c7d4ec;font-size:13px;line-height:1.7}
+.updates-box li b{color:#fff}
+
+.service-stats{display:grid;grid-template-columns:repeat(3,1fr);background:#081d3d;border:1px solid #1c4a8c;border-radius:14px;margin:0 0 6px;overflow:hidden}
+.stat{text-align:center;padding:9px 4px;border-right:1px solid #1f4478}
 .stat:last-child{border-right:0}
-.stat-icon{font-size:23px;display:block}
-.stat-number{display:block;color:#29a3ff;font-size:23px;font-weight:bold}
-.stat-title{color:#b8c8e5;font-size:12px}
+.stat-icon{font-size:17px;display:block}
+.stat-number{display:block;color:#35a9ff;font-size:19px;font-weight:700;line-height:1.2}
+.stat-title{color:#b8c8e5;font-size:11px}
 
-.section-title{font-family:Georgia,serif;font-size:27px;margin:25px 0 16px;padding-left:12px;border-left:6px solid #ffb066}
-.section-subtitle{color:#aebbd3;margin:-8px 0 16px 18px}
+.section-title{font-size:21px;margin:22px 0 12px;padding-left:10px;border-left:5px solid #ffb066;line-height:1.3}
+.section-subtitle{color:var(--mute);margin:-6px 0 14px 15px;font-size:14px}
 
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-
-.card{position:relative;background:linear-gradient(145deg,#08204a,#092a59);border:1px solid #1765c7;border-radius:16px;padding:14px;min-height:175px;box-shadow:0 5px 18px rgba(0,0,0,.2);transition:.2s;display:block;overflow:hidden}
-.card:hover{transform:translateY(-2px);border-color:#3290ff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{position:relative;background:linear-gradient(160deg,#0a2652,#0a2147);border:1px solid #1c4a8c;border-radius:18px;padding:12px;min-height:150px;box-shadow:0 4px 14px rgba(0,0,0,.22);transition:transform .15s,border-color .15s;display:block;overflow:hidden}
+.card:hover{transform:translateY(-2px);border-color:#3d94ff}
 .card.hidden{display:none!important}
-.service-logo{width:96px;height:60px;object-fit:contain;display:block;background:#fff;border-radius:10px;padding:5px;margin-bottom:9px}
-.card h3{font-size:17px;margin:4px 34px 6px 0;line-height:1.25}
-.card p{margin:0;color:#b8c8e4;font-size:12.5px;line-height:1.45}
-.arrow{position:absolute;right:9px;bottom:10px;width:31px;height:31px;border:1px solid #2583ff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:25px;background:#071a39}
-.card-actions,.multi-actions{display:flex;flex-direction:column;gap:7px;margin-top:11px;position:relative;z-index:3}
-.card-actions a,.multi-actions a{display:block;text-align:center;background:#eef5ff;color:#174a7e;padding:9px 8px;border-radius:9px;font-size:12px;font-weight:700;border:1px solid #cbdff5}
-.card-actions a:hover,.multi-actions a:hover{background:#dcecff}
-
+.service-logo{width:84px;height:54px;object-fit:contain;display:block;background:#fff;border-radius:10px;padding:5px;margin-bottom:8px}
+.card h3{font-size:16px;margin:2px 0 5px;line-height:1.3}
+.card p{margin:0;color:#b8c8e4;font-size:12px;line-height:1.5}
+.arrow{position:absolute;right:9px;bottom:10px;width:30px;height:30px;border:1px solid #2583ff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;background:#071a39}
+.card-actions,.multi-actions{display:flex;flex-direction:column;gap:6px;margin-top:10px;position:relative;z-index:3}
+.card-actions a,.multi-actions a{display:block;text-align:center;background:#eaf2ff;color:#174a7e;padding:9px 8px;border-radius:10px;font-size:12px;font-weight:700;border:1px solid #cbdff5}
+.card-actions a:first-child,.multi-actions a:first-child{background:var(--saf);border-color:var(--saf);color:#1b2433}
 .special-card{text-align:center}
 .special-card .service-logo{margin-left:auto;margin-right:auto}
 .special-card .arrow{display:none}
-
 .affiliate-note{font-size:11px!important;color:#aebbd0!important;margin-top:6px!important}
 
-.no-result{display:none;text-align:center;background:#0b2145;border:1px solid #e6740d;border-radius:16px;padding:24px;margin:18px 0;font-size:18px;color:#dce7ff}
+.no-result{display:none;text-align:center;background:#0b2145;border:1px solid #e6740d;border-radius:16px;padding:24px;margin:18px 0;font-size:17px;color:#dce7ff}
 
-.ad-box{margin:18px 0;text-align:center;overflow:hidden;min-height:60px}
-.ad-box span{display:block;color:#7d8cab;font-size:11px;margin-bottom:4px;letter-spacing:.5px}
-
-.faq-box{border:1px solid #c85f00;background:#081d3d;border-radius:14px;margin-bottom:10px;overflow:hidden}
-.faq-q{padding:15px;font-weight:bold;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px}
+.faq-box{border:1px solid #1c4a8c;background:#081d3d;border-radius:14px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:14px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px}
 .faq-q .plus{font-size:22px;color:#ffb066;transition:.2s}
 .faq-box.open .plus{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:.25s ease;padding:0 15px;color:#b8c8e4;font-size:13.5px;line-height:1.6}
-.faq-box.open .faq-a{max-height:300px;padding:0 15px 15px}
+.faq-a{max-height:0;overflow:hidden;transition:.25s ease;padding:0 14px;color:#b8c8e4;font-size:13.5px;line-height:1.6}
+.faq-box.open .faq-a{max-height:300px;padding:0 14px 14px}
 
-.updates-box{background:linear-gradient(145deg,#0b2145,#0d2a56);border:1px solid #e6740d;border-radius:16px;padding:14px 16px;margin-bottom:16px}
-.updates-box h3{margin:0 0 8px;font-size:16px;color:#ffd766}
-.updates-box ul{margin:0;padding-left:18px}
-.updates-box li{color:#c7d4ec;font-size:13px;line-height:1.8}
-.updates-box li b{color:#fff}
+.guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:10px}
+.guide-card{background:#0d1c36;border:1px solid #294575;border-radius:14px;padding:14px 10px;text-align:center;font-size:13.5px;font-weight:700}
+.guide-card span{display:block;font-size:22px;margin-bottom:4px}
 
-.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px}
-.guide-card{background:#101a2e;border:1px solid #294575;border-radius:14px;padding:16px 12px;text-decoration:none;color:#fff;text-align:center;font-size:13.5px;font-weight:bold}
-.guide-card span{display:block;font-size:22px;margin-bottom:6px}
-
-.digital-seva-box{background:#fff;color:#111;text-align:center;border-radius:22px;padding:22px 16px;margin:0 0 24px;box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.digital-seva-box h2{color:#09266f;font-family:Georgia,serif;font-size:28px;margin:0 0 10px}
-.digital-seva-box p{font-size:16px;line-height:1.5;margin:7px}
-.contact-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:15px}
-.contact-buttons a{background:#123da8;color:white;padding:12px 22px;border-radius:12px;font-size:16px;font-weight:bold}
-
-.follow-box{background:linear-gradient(145deg,#081c3c,#0a2852);border:1px solid #e6740d;border-radius:20px;padding:25px 15px;text-align:center;margin-top:28px}
-.follow-box h2{font-family:Georgia,serif;font-size:25px;margin:0 0 10px}
-.follow-box p{color:#aebbd0;font-size:15px}
-.social-links{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}
-.social-links a{background:#182743;color:#fff;padding:11px 20px;border-radius:12px;text-decoration:none;font-weight:bold;font-size:14px}
+.follow-box{background:linear-gradient(145deg,#081c3c,#0a2852);border:1px solid #e6740d;border-radius:20px;padding:22px 14px;text-align:center;margin-top:26px}
+.follow-box h2{font-family:Georgia,serif;font-size:22px;margin:0 0 8px}
+.follow-box p{color:#aebbd0;font-size:14px;margin:6px 0}
+.social-links{display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.social-links a{background:#182743;color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;font-size:14px}
 .social-links a.yt{background:#c4302b}
 .social-links a.fb{background:#1877f2}
-#followBtn{border:0;background:#e6740d;color:white;padding:13px 26px;border-radius:13px;font-size:18px;font-weight:bold;cursor:pointer}
+#followBtn{border:0;background:#e6740d;color:#fff;padding:12px 24px;border-radius:13px;font-size:17px;font-weight:700;cursor:pointer}
 #followBtn:disabled{opacity:.7}
-.followers-text{margin-top:15px}
+.followers-text{margin-top:12px}
 
-.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.contact a{color:#fff;text-align:center;padding:20px 12px;border-radius:18px;font-size:18px;font-weight:bold}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.contact a{color:#fff;text-align:center;padding:18px 10px;border-radius:16px;font-size:17px;font-weight:700}
 .phone{background:linear-gradient(135deg,#08784e,#19a568)}
 .wa{background:linear-gradient(135deg,#08783d,#18ad58)}
 .address{background:linear-gradient(135deg,#214ca8,#376be1)}
 
-.note{text-align:center;color:#aeb9cd;font-size:14px;line-height:1.6;margin:22px 0}
+.note{text-align:center;color:#aeb9cd;font-size:13.5px;line-height:1.6;margin:20px 0}
 
-.footer{margin-top:35px;padding:28px 15px;background:#040b18;border-top:1px solid #243c72;text-align:center}
-.footer-title{font-family:Georgia,serif;font-size:21px;font-weight:bold;color:#dce5ff}
-.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:650px;margin:18px auto 0}
-.footer-links a{background:#172238;border:1px solid #294575;color:white;padding:13px;border-radius:13px;font-size:15px}
+.footer{margin-top:30px;padding:26px 15px;background:#040b18;border-top:1px solid #243c72;text-align:center}
+.footer-title{font-family:Georgia,serif;font-size:20px;font-weight:700;color:#dce5ff}
+.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:650px;margin:16px auto 0}
+.footer-links a{background:#172238;border:1px solid #294575;color:#fff;padding:12px;border-radius:13px;font-size:14px}
 
-.bottom-nav{position:fixed;left:0;right:0;bottom:0;height:68px;background:#06152e;border-top:1px solid #1e5fb6;display:grid;grid-template-columns:repeat(5,1fr);z-index:9999;box-shadow:0 -5px 20px rgba(0,0,0,.35)}
-.bottom-nav a{color:#b9c9e6;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;gap:2px}
-.bottom-nav span{font-size:22px;line-height:1}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;height:calc(66px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#06152e;border-top:1px solid #1e5fb6;display:grid;grid-template-columns:repeat(5,1fr);z-index:9999;box-shadow:0 -5px 20px rgba(0,0,0,.35)}
+.bottom-nav a{color:#b9c9e6;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;gap:2px}
+.bottom-nav span{font-size:21px;line-height:1}
 .bottom-nav a.active{color:#2d8cff}
 
 .certificate-popup{display:none;position:fixed;z-index:99999;inset:0;background:rgba(0,0,0,.78);padding:16px;overflow-y:auto}
@@ -154,24 +156,18 @@ button,input{font-family:inherit}
 .popup-content ol{padding-left:22px;line-height:1.7}
 .official-btn{display:inline-block;margin-top:12px;padding:11px 18px;border-radius:22px;background:#087f23;color:#fff}
 
-@media(max-width:800px){
- .grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+ .grid{grid-template-columns:repeat(2,1fr);gap:10px}
  .contact{grid-template-columns:1fr}
- .top h1{font-size:31px}
- .card{min-height:175px;padding:12px}
- .service-logo{width:82px;height:54px}
- .card h3{font-size:16px}
- .card p{font-size:12px}
- .section-title{font-size:23px}
+ .section-title{font-size:19px}
 }
 @media(max-width:380px){
- .grid{grid-template-columns:repeat(2,1fr);gap:8px}
- .card{padding:10px;min-height:170px}
- .card h3{font-size:14px}
- .card p{font-size:11px}
- .service-logo{width:74px;height:50px}
- .service-category button{min-width:82px}
+ .grid{gap:8px}.card{padding:10px;min-height:146px}.card h3{font-size:14px}.card p{font-size:11px}.service-logo{width:72px;height:48px}
 }
+@media(min-width:900px){.guide-grid{grid-template-columns:repeat(4,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
 </style>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -189,35 +185,39 @@ const firebaseConfig={
 };
 firebase.initializeApp(firebaseConfig);
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap">
 </head>
 
 <body>
 
 <header class="top" id="home">
-  <img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva Logo">
-  <h1>Shivam Digital <span>Seva</span></h1>
-  <h2>सभी सरकारी एवं डिजिटल सेवाएँ एक ही जगह</h2>
-  <p>आपकी सुविधा, हमारा प्रयास</p>
+  <div class="brand"><img class="logo" src="logo_optimized.jpg" alt="Shivam Digital Seva Logo"><div><h1>Shivam Digital <span>Seva</span></h1><p>सभी सरकारी एवं डिजिटल सेवाएँ एक ही जगह</p></div></div>
 </header>
 
 <main class="wrap">
 
-<button id="installBtn" style="display:none;width:100%;background:linear-gradient(120deg,#2563eb,#1e40af);color:#fff;border:0;padding:14px;border-radius:14px;font-size:15px;font-weight:bold;margin-bottom:14px;cursor:pointer">
+<button id="installBtn" style="display:none;width:100%;background:linear-gradient(120deg,#2563eb,#1e40af);color:#fff;border:0;padding:14px;border-radius:14px;font-size:15px;font-weight:bold;margin-bottom:12px;cursor:pointer">
 📲 App की तरह Install करें
 </button>
 
-<div class="notice">
-  <b>🌐 सभी सेवाएँ एक ही स्थान पर</b>
-  <p>नीचे किसी सेवा पर टैप करके संबंधित Official Website खोलें।</p>
+<div class="search-box" id="searchArea">
+  <span class="search-icon">🔎</span>
+  <input id="serviceSearch" type="search" autocomplete="off" placeholder="सेवा खोजें... जैसे Aadhaar, PAN, जाति">
+  <button class="clear-search" id="clearSearch" aria-label="खोज साफ करें">×</button>
 </div>
 
-<div class="updates-box">
-  <h3>🔔 ताज़ा सूचनाएं</h3>
-  <ul>
-    <li><b>नया:</b> Shivam Digital Seva Card अब ऑनलाइन उपलब्ध है — ऊपर "Card" सेक्शन से आवेदन करें।</li>
-    <li>सभी सेवाओं के Official Links अपडेट कर दिए गए हैं।</li>
-  </ul>
+<div class="service-category">
+  <button class="active" data-category="all">🔲 सभी सेवाएँ</button>
+  <button data-category="identity">👤 पहचान</button>
+  <button data-category="certificate">📄 प्रमाण पत्र</button>
+  <button data-category="government">🏛️ सरकारी</button>
+  <button data-category="bank">🏦 बैंकिंग</button>
+  <button data-category="farmer">🌱 किसान</button>
+  <button data-category="travel">🚆 यात्रा</button>
+  <button data-category="other">⋮ अन्य</button>
 </div>
+
+<section class="quick"><h2>🛠️ फ्री टूल</h2><div class="chips"><a href="photo-resizer.html">📸 Photo Resizer</a><a href="pdf-tools.html">📚 PDF Tools</a><a href="resume-generator.html">📄 Resume</a><a href="passport-photo-maker.html">🪪 Passport Photo</a><a href="qr-generator.html">🔳 QR Code</a><a href="application-letter-generator.html">✉️ आवेदन पत्र</a><a href="bill-invoice-generator.html">🧾 बिल बनाएँ</a><a href="age-calculator.html">🎂 उम्र</a><a href="gst-emi-calculator.html">🧮 GST / EMI</a><a href="hindi-typing-test.html">⌨️ Typing Test</a><a href="omr-generator.html">📝 OMR Sheet</a></div></section>
 
 <section class="digital-seva-box">
   <h2>💼 Shivam Digital Seva</h2>
@@ -229,32 +229,12 @@ firebase.initializeApp(firebaseConfig);
   </div>
 </section>
 
-<div class="ad-box">
-<span>Advertisement</span>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9649261968916121"
-     data-ad-slot="1111111111"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div class="search-box" id="searchArea">
-  <span class="search-icon">🔎</span>
-  <input id="serviceSearch" type="search" autocomplete="off" placeholder="सेवा खोजें... जैसे Aadhaar, PAN, जाति">
-  <button class="clear-search" id="clearSearch" aria-label="खोज साफ करें">×</button>
-</div>
-
-<div class="service-category">
-  <button class="active" data-category="all">🔲<br>सभी सेवाएँ</button>
-  <button data-category="identity">👤<br>पहचान</button>
-  <button data-category="certificate">📄<br>प्रमाण पत्र</button>
-  <button data-category="government">🏛️<br>सरकारी</button>
-  <button data-category="bank">🏦<br>बैंकिंग</button>
-  <button data-category="farmer">🌱<br>किसान</button>
-  <button data-category="travel">🚆<br>यात्रा</button>
-  <button data-category="other">⋮<br>अन्य</button>
+<div class="updates-box">
+  <h3>🔔 ताज़ा सूचनाएं</h3>
+  <ul>
+    <li><b>नया:</b> Shivam Digital Seva Card अब ऑनलाइन उपलब्ध है — ऊपर "Card" सेक्शन से आवेदन करें।</li>
+    <li>सभी सेवाओं के Official Links अपडेट कर दिए गए हैं।</li>
+  </ul>
 </div>
 
 <div class="service-stats">
@@ -262,6 +242,7 @@ firebase.initializeApp(firebaseConfig);
   <div class="stat"><span class="stat-icon">👁️</span><span class="stat-number" id="visibleServices">0</span><span class="stat-title">दिख रही सेवाएँ</span></div>
   <div class="stat"><span class="stat-icon">🕐</span><span class="stat-number">24×7</span><span class="stat-title">उपलब्धता</span></div>
 </div>
+
 
 <h2 class="section-title" id="services">🌿 सभी सेवाएँ</h2>
 <p class="section-subtitle">अपनी जरूरत की सेवा चुनें</p>
@@ -717,17 +698,6 @@ firebase.initializeApp(firebaseConfig);
 
 <div id="noResult" class="no-result">😕 कोई सेवा नहीं मिली।<br><small>दूसरा नाम या keyword डालकर खोजें।</small></div>
 
-<div class="ad-box">
-<span>Advertisement</span>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9649261968916121"
-     data-ad-slot="2222222222"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
 <h2 class="section-title" id="contact">📞 संपर्क करें</h2>
 <div class="contact">
 <a class="phone" href="tel:+919508051176">📞 Mobile<br>9508051176</a>
@@ -821,17 +791,6 @@ firebase.initializeApp(firebaseConfig);
 <div class="faq-a">आप हमें 📞 9508051176 पर कॉल कर सकते हैं, या 💬 WhatsApp के ज़रिए भी संपर्क कर सकते हैं। हमारी टीम आपकी सहायता के लिए उपलब्ध है।</div>
 </div>
 
-</div>
-
-<div class="ad-box">
-<span>Advertisement</span>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9649261968916121"
-     data-ad-slot="3333333333"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 </main>
