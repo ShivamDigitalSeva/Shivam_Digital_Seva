@@ -1,0 +1,68 @@
+# Shivam Digital Seva
+
+> सरकारी और डिजिटल सेवाओं (आधार, PAN, पासपोर्ट, PM Kisan, e-Shram आदि) की हिंदी गाइड, आधिकारिक वेबसाइट के लिंक और मुफ़्त ऑनलाइन टूल। जानकारी सूचनात्मक है; अंतिम नियम और फीस संबंधित आधिकारिक वेबसाइट पर देखें।
+
+## गाइड
+- [आधार कार्ड में सुधार कैसे करें: फीस, दस्तावेज़ और तरीका (2026)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/aadhaar-guide.html): आधार में पता, नाम, जन्मतिथि, मोबाइल नंबर और फोटो सुधारने का तरीका, ताज़ा फीस और ज़रूरी दस्तावेज़, हिंदी में आसान भाषा में।
+- [ABHA Card (Health ID) कैसे बनवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/abha-card-guide.html): ABHA Health ID बनवाने के फायदे, ज़रूरी दस्तावेज़ और ऑनलाइन प्रक्रिया — पूरी जानकारी हिंदी में।
+- [ABC ID (Academic Bank of Credits) क्या है और कैसे बनाएँ](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/academic-bank-credits-guide.html): Academic Bank of Credits (ABC ID) क्या है, कॉलेज के छात्रों को क्या फायदा है, DigiLocker से कैसे बनती है और APAAR ID से क्या संबंध है।
+- [APAAR ID क्या है और कैसे बनता है: माता-पिता के लिए पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/apaar-id-guide.html): APAAR ID (One Nation One Student ID) क्या है, स्कूल और कॉलेज के छात्रों के लिए कैसे बनता है, सहमति फॉर्म, DigiLocker में कहाँ मिलेगा, सब हिंदी में।
+- [Ayushman Card (PM-JAY) कैसे बनवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/ayushman-card-guide.html): Ayushman Bharat PM-JAY कार्ड बनवाने की पात्रता, ज़रूरी दस्तावेज़ और ऑनलाइन प्रक्रिया — पूरी जानकारी हिंदी में।
+- [Bihar Farmer Registration (DBT Agriculture) कैसे करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bihar-farmer-registration-guide.html): बिहार में किसान पंजीकरण (DBT Agriculture) कैसे करें, ताकि सभी कृषि योजनाओं का लाभ मिल सके — पूरी जानकारी हिंदी में।
+- [Bihar Post Matric Scholarship — पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bihar-pms-guide.html): बिहार पोस्ट मैट्रिक छात्रवृत्ति में ऑनलाइन आवेदन, पात्रता और ज़रूरी दस्तावेज़ की जानकारी हिंदी में।
+- [Bihar Police Citizen Services — ऑनलाइन FIR व अन्य सेवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bihar-police-guide.html): बिहार पुलिस की ऑनलाइन FIR, चरित्र प्रमाण पत्र और शिकायत दर्ज करने की सेवाओं की जानकारी हिंदी में।
+- [Bihar Rojgar Setu — नौकरी कैसे खोजें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bihar-rojgar-setu-guide.html): Bihar Rojgar Setu पोर्टल पर रजिस्ट्रेशन करके नौकरी खोजने और आवेदन करने की पूरी जानकारी हिंदी में।
+- [BiharBhumi — जमीन की जानकारी ऑनलाइन कैसे देखें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/biharbhumi-guide.html): बिहार में जमाबंदी, खतियान, LPC और भू-लगान की ऑनलाइन जानकारी BiharBhumi पोर्टल से कैसे देखें — पूरी जानकारी हिंदी में।
+- [नया बिजली कनेक्शन कैसे लें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bijli-connection-guide.html): घर के लिए नया बिजली कनेक्शन लेने की पूरी ऑनलाइन प्रक्रिया, ज़रूरी दस्तावेज़ और फीस की जानकारी हिंदी में।
+- [जन्म व मृत्यु प्रमाण पत्र कैसे बनवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/birth-death-certificate-guide.html): जन्म प्रमाण पत्र और मृत्यु प्रमाण पत्र बनवाने की पूरी ऑनलाइन प्रक्रिया, ज़रूरी दस्तावेज़ और समय-सीमा की जानकारी हिंदी में।
+- [DigiLocker क्या है और कैसे इस्तेमाल करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/digilocker-guide.html): DigiLocker अकाउंट कैसे बनाएं, दस्तावेज़ कैसे डाउनलोड करें और इसके फायदे जानें — पूरी जानकारी हिंदी में।
+- [Driving Licence कैसे बनवाएं — पूरी प्रक्रिया](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/driving-licence-guide.html): Learner Licence और Permanent Driving Licence बनवाने की पूरी ऑनलाइन प्रक्रिया, ज़रूरी दस्तावेज़ और फीस की जानकारी हिंदी में।
+- [e-PAN Card कैसे डाउनलोड करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/e-pan-card-guide.html): Instant e-PAN Card बनाने और डाउनलोड करने की मुफ्त और तुरंत ऑनलाइन प्रक्रिया हिंदी में।
+- [e-NAM पर फसल कैसे बेचें — पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/enam-guide.html): e-NAM (National Agriculture Market) पर किसान रजिस्ट्रेशन और ऑनलाइन फसल बिक्री की प्रक्रिया हिंदी में।
+- [EPFO / UAN — PF निकालने और चेक करने की जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/epfo-guide.html): UAN Activate करना, PF बैलेंस चेक करना और ऑनलाइन PF Withdrawal करने की पूरी प्रक्रिया हिंदी में।
+- [e-Shram Card कैसे बनवाएँ: पात्रता, फायदे और रजिस्ट्रेशन (2026)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/eshram-guide.html): e-Shram Card मुफ़्त कैसे बनवाएँ, कौन पात्र है, ₹2 लाख दुर्घटना बीमा (PMSBY) की सच्चाई और UAN कार्ड डाउनलोड करने का तरीका हिंदी में।
+- [PM Fasal Bima Yojana — फसल बीमा कैसे करवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/fasal-bima-guide.html): किसानों के लिए फसल बीमा योजना की पात्रता, प्रीमियम दर और ऑनलाइन आवेदन प्रक्रिया — पूरी जानकारी हिंदी में।
+- [FASTag कैसे खरीदें और रिचार्ज करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/fastag-guide.html): FASTag खरीदने, वाहन से जोड़ने और रिचार्ज करने की पूरी प्रक्रिया हिंदी में।
+- [GST रजिस्ट्रेशन कैसे करें — पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/gst-guide.html): नया GST नंबर लेने की पात्रता, ज़रूरी दस्तावेज़ और ऑनलाइन रजिस्ट्रेशन प्रक्रिया — पूरी जानकारी हिंदी में।
+- [LIC पॉलिसी प्रीमियम कैसे भरें और स्टेटस चेक करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/insurance-lic-guide.html): LIC पॉलिसी का प्रीमियम ऑनलाइन भरने, स्टेटस चेक करने और नई पॉलिसी लेने की जानकारी हिंदी में।
+- [IRCTC से ट्रेन टिकट कैसे बुक करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/irctc-guide.html): IRCTC अकाउंट बनाना, ऑनलाइन ट्रेन टिकट बुक करना और तत्काल टिकट की जानकारी हिंदी में।
+- [Kisan Suvidha App क्या है और कैसे इस्तेमाल करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/kisan-suvidha-guide.html): मौसम, मंडी भाव, कृषि सलाह के लिए Kisan Suvidha App की जानकारी हिंदी में।
+- [LPG गैस सिलेंडर ऑनलाइन बुकिंग कैसे करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/lpg-booking-guide.html): Indane, Bharat Gas, HP गैस सिलेंडर की ऑनलाइन बुकिंग करने के सभी तरीके हिंदी में।
+- [MGNREGA Job Card कैसे बनवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/mgnrega-guide.html): मनरेगा जॉब कार्ड बनवाने की पात्रता, दस्तावेज़ और आवेदन प्रक्रिया — पूरी जानकारी हिंदी में।
+- [Aadhaar Bank Seeding (NPCI DBT Link) कैसे करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/npci-dbt-guide.html): बैंक खाते को आधार से लिंक (DBT Seeding) करने की प्रक्रिया और स्टेटस चेक करने की जानकारी हिंदी में।
+- [PAN कार्ड के लिए आवेदन कैसे करें: फ्री e-PAN, फीस और स्टेप (2026)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/pan-card-guide.html): नया PAN कार्ड बनवाने के तीन तरीके: आधार से मुफ़्त instant e-PAN, Protean और UTIITSL। फीस, ज़रूरी दस्तावेज़, समय और आम गलतियाँ हिंदी में।
+- [पासपोर्ट के लिए ऑनलाइन आवेदन: नई फीस (जुलाई 2026), दस्तावेज़ और तरीका](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/passport-guide.html): पासपोर्ट बनवाने का तरीका, 1 जुलाई 2026 से लागू नई फीस (सामान्य और तत्काल), दस्तावेज़, PSK अपॉइंटमेंट और पुलिस वेरिफिकेशन की जानकारी हिंदी में।
+- [PM Awas Yojana (ग्रामीण/शहरी) — पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/pm-awas-yojana-guide.html): PM Awas Yojana Gramin और Urban में आवेदन, पात्रता, ज़रूरी दस्तावेज़ और लाभ की पूरी जानकारी हिंदी में।
+- [PM Kisan Samman Nidhi: रजिस्ट्रेशन, e-KYC, Farmer ID और किस्त स्टेटस (2026)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/pm-kisan-guide.html): PM Kisan योजना में ₹6,000 सालाना कैसे मिलते हैं, नया रजिस्ट्रेशन, e-KYC, Farmer ID की ज़रूरत और किस्त न आने पर क्या करें, हिंदी में।
+- [आय, जाति व निवास प्रमाण पत्र कैसे बनवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/praman-patra-guide.html): आय प्रमाण पत्र, जाति प्रमाण पत्र और निवास प्रमाण पत्र बनवाने की पूरी ऑनलाइन प्रक्रिया, ज़रूरी दस्तावेज़ और फीस की जानकारी हिंदी में।
+- [राशन कार्ड के लिए ऑनलाइन आवेदन कैसे करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/ration-card-guide.html): नया राशन कार्ड बनवाने की पात्रता, ज़रूरी दस्तावेज़ और ऑनलाइन आवेदन प्रक्रिया — पूरी जानकारी हिंदी में।
+- [National Scholarship Portal (NSP) — पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/scholarship-guide.html): छात्रवृत्ति (Scholarship) के लिए NSP पर ऑनलाइन आवेदन, पात्रता और ज़रूरी दस्तावेज़ की पूरी जानकारी हिंदी में।
+- [Shivam Digital Seva Card कैसे बनवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/shivam-card-guide.html): Shivam Digital Seva Card क्या है, इसके फायदे और आवेदन करने की पूरी प्रक्रिया — जानें हिंदी में।
+- [Skill India Digital पर मुफ्त कोर्स कैसे करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/skill-india-guide.html): Skill India Digital पोर्टल पर रजिस्ट्रेशन, मुफ्त कोर्स और सर्टिफिकेट पाने की पूरी जानकारी हिंदी में।
+- [SSPMIS पेंशन योजना (बिहार) — पूरी जानकारी](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/sspmis-pension-guide.html): बिहार वृद्धावस्था, विधवा और दिव्यांग पेंशन योजना में ऑनलाइन आवेदन, पात्रता और दस्तावेज़ों की जानकारी हिंदी में।
+- [PM Ujjwala Yojana — मुफ्त गैस कनेक्शन कैसे लें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/ujjwala-yojana-guide.html): PM Ujjwala Yojana के तहत मुफ्त LPG गैस कनेक्शन लेने की पात्रता, दस्तावेज़ और आवेदन प्रक्रिया हिंदी में।
+- [UMANG App क्या है और कैसे इस्तेमाल करें](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/umang-guide.html): UMANG App पर सैकड़ों सरकारी सेवाएं एक जगह कैसे इस्तेमाल करें — पूरी जानकारी हिंदी में।
+- [वाहन Registration (RC) से जुड़ी सेवाएं](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/vehicle-rc-guide.html): वाहन RC ट्रांसफर, पता बदलवाना, डुप्लीकेट RC और वाहन से जुड़ी अन्य ऑनलाइन सेवाओं की जानकारी हिंदी में।
+- [वोटर आईडी (Voter ID) कैसे बनवाएं — पूरी प्रक्रिया](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/voter-id-guide.html): नया वोटर कार्ड बनवाने, नाम जुड़वाने और सुधार करने की पूरी ऑनलाइन प्रक्रिया, ज़रूरी दस्तावेज़ और पात्रता की जानकारी हिंदी में।
+
+## फ्री टूल
+- [OMR Sheet Generator](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/omr-generator.html): 50, 100 और 150 प्रश्नों की free OMR answer sheet बनाएँ और A4 में प्रिंट करें।
+- [Resume Generator हिंदी और English](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/resume-generator.html): हिंदी और English में free Resume / Biodata बनाएँ, फोटो जोड़ें और PDF में सेव करें।
+- [QR Code Generator](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/qr-generator.html): Website, WhatsApp, UPI, Wi-Fi और Text के free QR Code बनाएँ और PNG में डाउनलोड करें।
+- [Free PDF Tools](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/pdf-tools.html): Free PDF Tools: Merge, Split, Compress, फोटो से PDF, Word to PDF और PDF to JPG।
+- [फोटो और सिग्नेचर Resizer (KB में)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/photo-resizer.html): फॉर्म के लिए फोटो और सिग्नेचर को 20 KB, 50 KB जैसे साइज़ में छोटा करें। Free और ब्राउज़र में।
+- [Passport Photo Maker (A4 शीट)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/passport-photo-maker.html): फोटो से पासपोर्ट साइज़ बनाएँ और एक A4 शीट पर कई कॉपी प्रिंट करें। Free और ब्राउज़र में।
+- [हिंदी आवेदन पत्र (Application Letter) बनाएँ](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/application-letter-generator.html): छुट्टी, नौकरी, शिकायत और बैंक के हिंदी आवेदन पत्र भरकर बनाएँ और PDF में सेव करें।
+- [उम्र कैलकुलेटर (Age Calculator)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/age-calculator.html): जन्म तिथि से उम्र साल, महीने और दिन में निकालें, और परीक्षा की उम्र सीमा में पात्रता जाँचें।
+- [ज़मीन नापने का कन्वर्टर (बीघा, बिस्वा, एकड़)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/land-converter.html): बीघा, बिस्वा, एकड़, हेक्टेयर, डिसमिल, गज और वर्ग फुट के बीच ज़मीन का माप बदलें।
+- [Bill / Invoice बनाएँ (GST के साथ)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/bill-invoice-generator.html): दुकान या CSC के लिए सादा बिल बनाएँ, GST और डिस्काउंट जोड़ें, रकम शब्दों में पाएँ और PDF में सेव करें।
+- [GST और EMI कैलकुलेटर](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/gst-emi-calculator.html): GST जोड़ें या हटाएँ (CGST/SGST सहित) और लोन की EMI, कुल ब्याज और कुल भुगतान निकालें।
+- [रुपये को शब्दों में बदलें (हिंदी और English)](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/amount-in-words.html): अंकों में लिखी रकम को हिंदी और English शब्दों में बदलें। चेक, रसीद और बिल के लिए उपयोगी।
+- [हिंदी और English Typing Test](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/hindi-typing-test.html): 1, 2 या 5 मिनट का free typing test। गति (WPM) और सटीकता तुरंत जानें।
+
+## संस्था की जानकारी
+- [हमारे बारे में](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/about.html)
+- [संपर्क](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/contact.html)
+- [Privacy Policy](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/privacy-policy.html)
+- [Disclaimer](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/disclaimer.html)
+- [Terms](https://shivamdigitalseva.github.io/Shivam_Digital_Seva/terms.html)
